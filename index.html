@@ -15,6 +15,18 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
 
+        :root {
+            --brand-primary: #667eea;
+            --brand-secondary: #764ba2;
+            --text-light: #ffffff;
+            --text-dark: #333;
+            --surface-main: rgba(255, 255, 255, 0.95);
+            --surface-secondary: #f8f9fa;
+            --surface-inactive: #f5f5f5;
+            --shadow-light: rgba(0,0,0,0.1);
+            --shadow-medium: rgba(0,0,0,0.2);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -24,8 +36,8 @@
         body {
             font-family: 'Lato', sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--text-dark);
+            background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-secondary) 100%);
             min-height: 100vh;
         }
 
@@ -37,7 +49,7 @@
 
         .header {
             text-align: center;
-            color: white;
+            color: var(--text-light);
             margin-bottom: 30px;
         }
 
@@ -53,11 +65,11 @@
         }
 
         .progress-section {
-            background: rgba(255, 255, 255, 0.95);
+            background: var(--surface-main);
             border-radius: 15px;
             padding: 30px;
             margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px var(--shadow-medium);
         }
 
         .progress-stats {
@@ -68,8 +80,8 @@
         }
 
         .stat-card {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
+            background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+            color: var(--text-light);
             padding: 20px;
             border-radius: 10px;
             text-align: center;
@@ -86,60 +98,37 @@
             opacity: 0.9;
         }
 
-        .progress-bar-container {
+        .progress-bar-container, .weeks-progress-bar-container {
             background: #e0e0e0;
             border-radius: 25px;
             height: 20px;
             margin: 10px 0;
             overflow: hidden;
         }
-
+        
         .weeks-progress-container {
             margin: 20px 0;
         }
 
-        .weeks-progress-bar-container {
-            background: #e0e0e0;
-            border-radius: 25px;
-            height: 20px;
-            margin: 10px 0;
-            overflow: hidden;
-        }
-
-        .weeks-progress-bar {
-            background: linear-gradient(90deg, #28a745, #20c997);
+        .progress-bar, .weeks-progress-bar {
             height: 100%;
             border-radius: 25px;
             transition: width 0.5s ease;
             position: relative;
         }
-
-        .weeks-progress-bar::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.3) 50%, transparent 60%);
-            animation: shine 2s infinite;
+        
+        .weeks-progress-bar {
+            background: linear-gradient(90deg, #28a745, #20c997);
         }
 
         .progress-bar {
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            height: 100%;
-            border-radius: 25px;
-            transition: width 0.5s ease;
-            position: relative;
+            background: linear-gradient(90deg, var(--brand-primary), var(--brand-secondary));
         }
 
-        .progress-bar::after {
+        .progress-bar::after, .weeks-progress-bar::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
             background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.3) 50%, transparent 60%);
             animation: shine 2s infinite;
         }
@@ -149,270 +138,127 @@
             100% { transform: translateX(100%); }
         }
 
-        .add-book-section {
-            background: rgba(255, 255, 255, 0.95);
+        .add-book-section, .password-section {
+            background: var(--surface-main);
             border-radius: 15px;
             padding: 30px;
             margin-top: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px var(--shadow-medium);
         }
 
         .password-section {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            padding: 30px;
-            margin-top: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             text-align: center;
         }
 
         .password-input {
-            padding: 12px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 16px;
-            margin: 0 10px;
-            width: 200px;
+            padding: 12px; border: 2px solid #ddd; border-radius: 8px;
+            font-size: 16px; margin: 0 10px; width: 200px;
         }
+        .password-input:focus { outline: none; border-color: var(--brand-primary); }
 
-        .password-input:focus {
-            outline: none;
-            border-color: #667eea;
-        }
+        .add-book-section.hidden { display: none; }
 
-        .add-book-section.hidden {
-            display: none;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-            color: #555;
-        }
-
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; color: #555; }
         .form-group input, .form-group textarea, .form-group select {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: border-color 0.3s ease;
+            width: 100%; padding: 12px; border: 2px solid #ddd;
+            border-radius: 8px; font-size: 16px; transition: border-color 0.3s ease;
         }
-
         .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-            outline: none;
-            border-color: #667eea;
+            outline: none; border-color: var(--brand-primary);
         }
 
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .form-row-three {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 20px;
-        }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .form-row-three { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
 
         .btn {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: transform 0.2s ease;
+            background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+            color: var(--text-light); padding: 12px 30px; border: none;
+            border-radius: 8px; font-size: 16px; cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-
-        .btn:hover {
-            transform: translateY(-2px);
-        }
-        .btn:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-            transform: none;
-        }
-
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 4px 8px var(--shadow-light); }
+        .btn:disabled { background: #ccc; cursor: not-allowed; transform: none; box-shadow: none; }
 
         .books-list {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            background: var(--surface-main); border-radius: 15px;
+            padding: 30px; box-shadow: 0 10px 30px var(--shadow-medium);
         }
 
         .filter-section {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 25px;
-            align-items: end;
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 15px; margin-bottom: 15px; align-items: end;
         }
-
+        
         .search-input, .filter-select {
-            padding: 10px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 16px;
+            padding: 10px; border: 2px solid #ddd; border-radius: 8px; font-size: 16px;
         }
+        
         .file-input { 
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: border-color 0.3s ease;
+            width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px;
+            font-size: 16px; transition: border-color 0.3s ease;
         }
-        .file-input:focus {
-             outline: none;
-            border-color: #667eea;
-        }
+        .file-input:focus { outline: none; border-color: var(--brand-primary); }
 
+        #booksList {
+            transition: opacity 0.3s ease-in-out;
+        }
+        #booksList.updating {
+            opacity: 0.5;
+            pointer-events: none;
+        }
 
         .book-item {
-            background: #f8f9fa;
-            border-left: 4px solid #667eea;
-            padding: 20px;
-            margin-bottom: 15px;
-            border-radius: 0 8px 8px 0;
-            transition: transform 0.2s ease;
-            position: relative;
-            display: grid;
-            grid-template-columns: 80px 1fr;
-            gap: 15px;
-            align-items: start;
+            background: var(--surface-secondary); border-left: 4px solid var(--brand-primary);
+            padding: 20px; margin-bottom: 15px; border-radius: 0 8px 8px 0;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative; display: grid;
+            grid-template-columns: 80px 1fr; gap: 15px; align-items: start;
         }
+        .book-item:hover { transform: translateX(5px); box-shadow: 0 4px 12px var(--shadow-light); }
+        .book-item.in-progress { border-left-color: #ffc107; background: #fff9e6; }
+        .book-item.next { border-left-color: #28a745; background: #f0f9f0; }
 
         .book-cover {
-            width: 80px;
-            height: 120px;
-            border-radius: 4px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 0.8em;
-            text-align: center;
-            padding: 5px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            position: relative;
-            overflow: hidden; 
+            width: 80px; height: 120px; border-radius: 4px;
+            background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+            display: flex; align-items: center; justify-content: center;
+            color: var(--text-light); font-size: 0.8em; text-align: center;
+            padding: 5px; box-shadow: 0 2px 8px var(--shadow-light);
+            cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative; overflow: hidden; 
         }
-
-        .book-cover:hover {
-            transform: scale(1.02);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-
+        .book-cover:hover { transform: scale(1.02); box-shadow: 0 4px 12px var(--shadow-medium); }
         .book-cover::after {
-            content: '📷';
-            position: absolute;
-            top: 2px;
-            right: 2px;
-            background: rgba(0,0,0,0.7);
-            color: white;
-            font-size: 0.7em;
-            padding: 2px 4px;
-            border-radius: 3px;
-            opacity: 0;
-            transition: opacity 0.2s ease;
+            content: '📷'; position: absolute; top: 2px; right: 2px;
+            background: rgba(0,0,0,0.7); color: white; font-size: 0.7em;
+            padding: 2px 4px; border-radius: 3px; opacity: 0; transition: opacity 0.2s ease;
         }
-
-        .book-cover:hover::after {
-            opacity: 1;
-        }
-
-        .book-item:hover {
-            transform: translateX(5px);
-        }
-
-        .book-item.in-progress {
-            border-left-color: #ffc107;
-            background: #fff9e6;
-        }
-
-        .book-item.next {
-            border-left-color: #28a745;
-            background: #f0f9f0;
-        }
-
+        .book-cover:hover::after { opacity: 1; }
+        
         .book-number {
-            background: #667eea;
-            color: white;
-            font-size: 0.8em;
-            padding: 4px 8px;
-            border-radius: 12px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            display: inline-block;
+            background: var(--brand-primary); color: var(--text-light);
+            font-size: 0.8em; padding: 4px 8px; border-radius: 12px;
+            font-weight: bold; margin-bottom: 10px; display: inline-block;
         }
-
-        .book-title {
-            font-weight: bold;
-            font-size: 1.2em;
-            color: #333;
-            margin-bottom: 5px;
-        }
-
-        .book-author {
-            color: #666;
-            font-style: italic;
-            margin-bottom: 8px;
-        }
-
-        .book-meta {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            align-items: center;
-        }
+        .book-title { font-weight: bold; font-size: 1.2em; color: var(--text-dark); margin-bottom: 5px; }
+        .book-author { color: #666; font-style: italic; margin-bottom: 8px; }
+        .book-meta { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
 
         .category-tag, .ownership-tag, .status-badge, .date-tag {
-            padding: 5px 12px;
-            border-radius: 15px;
-            font-size: 0.85em;
-            font-weight: bold;
-            color: white;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            padding: 5px 12px; border-radius: 15px; font-size: 0.85em; font-weight: bold;
+            color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
 
-        /* Enhanced status badge styling for interactive elements */
         .status-badge-select {
-            padding: 5px 12px;
-            border-radius: 15px;
-            font-size: 0.85em;
-            font-weight: bold;
-            color: white;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-            border: none;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
+            padding: 5px 12px; border-radius: 15px; font-size: 0.85em; font-weight: bold;
+            color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            border: none; cursor: pointer; transition: all 0.2s ease;
+            -webkit-appearance: none; -moz-appearance: none; appearance: none;
         }
-
-        .status-badge-select:hover {
-            transform: scale(1.05);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-        }
-
-        .status-badge-select:focus {
-            outline: none;
-            box-shadow: 0 0 0 2px rgba(255,255,255,0.5);
-        }
-
+        .status-badge-select:hover { transform: scale(1.05); box-shadow: 0 2px 8px var(--shadow-medium); }
+        .status-badge-select:focus { outline: none; box-shadow: 0 0 0 2px rgba(255,255,255,0.5); }
+        
         .category-biography { background-color: #F4C430; }
         .category-business { background-color: #CD5C5C; }
         .category-education { background-color: #32CD32; }
@@ -431,41 +277,33 @@
         .category-social-sciences { background-color: #A0522D; }
         .category-technology { background-color: #BC8F8F; }
 
-        .ownership-digital { background-color: #228B22; }
-        .ownership-physical { background-color: #32CD32; }
+        .ownership-digital { background-color: #228B22; } .ownership-physical { background-color: #32CD32; }
         .ownership-library { background-color: #9370DB; }
 
-        .status-finished { background-color: #28a745; }
-        .status-in-progress { 
-            background-color: #ffc107; 
-            color: #333 !important; 
-            text-shadow: none;
-        }
-        .status-next { 
-            background-color: #17a2b8; 
-        }
-
+        /* The 'Finished' status badge is now removed via JS, so this class is for the dropdown only */
+        .status-in-progress { background-color: #ffc107; color: var(--text-dark) !important; text-shadow: none; }
+        .status-next { background-color: #17a2b8; }
         .date-tag { background-color: #6c757d; }
 
         .category-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px; margin-top: 20px;
         }
-
+        
+        /* Default state for category-stat is now colored */
         .category-stat {
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
-            font-size: 0.9em;
-            cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            color: white;
-            font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            padding: 15px; border-radius: 8px; text-align: center; font-size: 0.9em;
+            cursor: pointer; font-weight: 600; color: var(--text-light);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+            position: relative;
+            box-shadow: 0 2px 8px var(--shadow-light);
         }
-
+        .category-stat:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow-medium);
+        }
+        
+        /* Assign colors by default */
         .category-stat.category-biography { background-color: #F4C430; }
         .category-stat.category-business { background-color: #CD5C5C; }
         .category-stat.category-education { background-color: #32CD32; }
@@ -484,96 +322,83 @@
         .category-stat.category-social-sciences { background-color: #A0522D; }
         .category-stat.category-technology { background-color: #BC8F8F; }
 
-        .category-stat:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        /* When any filter is active, change the style of non-active buttons */
+        .category-stats.filters-active .category-stat:not(.active) {
+            background-color: var(--surface-inactive);
+            color: var(--text-dark);
+            font-weight: 500;
+            box-shadow: none;
+        }
+        .category-stats.filters-active .category-stat:not(.active):hover {
+             background-color: #e9e9e9;
         }
 
-        .clickable-author {
-            cursor: pointer;
-            transition: color 0.2s;
+        /* The selected button remains colored and gets a checkmark */
+        .category-stat.active::after {
+            content: '✔'; position: absolute; top: 8px; right: 12px; font-size: 1.1em;
+            color: rgba(255, 255, 255, 0.9); text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
 
-        .clickable-author:hover {
-            color: #667eea;
-            text-decoration: underline;
+        /* Applied Filters Styling */
+        .applied-filters {
+            padding: 15px 0; margin-bottom: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .applied-filters h3 { font-size: 0.9em; color: #555; margin-bottom: 10px; }
+        .filter-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .filter-tag {
+            background-color: var(--brand-primary); color: white; padding: 6px 12px;
+            border-radius: 20px; font-size: 0.9em; display: inline-flex;
+            align-items: center; border: none; cursor: pointer;
+        }
+        .remove-filter { margin-left: 8px; font-weight: bold; font-size: 1.1em;
+            cursor: pointer; opacity: 0.7; transition: opacity 0.2s ease;
+        }
+        .remove-filter:hover { opacity: 1; }
+        .clear-all-filters {
+            background: none; border: none; color: var(--brand-primary); font-size: 0.9em;
+            font-weight: bold; cursor: pointer; text-decoration: underline;
+            padding: 5px; margin-left: 10px;
         }
 
-        .author-view {
-            display: none;
-        }
+        .clickable-author { cursor: pointer; transition: color 0.2s; }
+        .clickable-author:hover { color: var(--brand-primary); text-decoration: underline; }
 
-        .author-view.active {
-            display: block;
-        }
-
+        .author-view { display: none; }
+        .author-view.active { display: block; }
         .author-header {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 30px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            text-align: center;
+            background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+            color: var(--text-light); padding: 30px; border-radius: 15px;
+            margin-bottom: 30px; text-align: center;
         }
-
         .back-to-main {
-            background: rgba(255,255,255,0.2);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 25px;
-            cursor: pointer;
-            margin-bottom: 15px;
-            font-size: 0.9em;
-            transition: background-color 0.2s;
+            background: rgba(255,255,255,0.2); color: white; border: none;
+            padding: 10px 20px; border-radius: 25px; cursor: pointer;
+            margin-bottom: 15px; font-size: 0.9em; transition: background-color 0.2s;
         }
-
-        .back-to-main:hover {
-            background: rgba(255,255,255,0.3);
-        }
+        .back-to-main:hover { background: rgba(255,255,255,0.3); }
         
         .pagination-controls {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 20px;
-            gap: 10px;
+            display: flex; justify-content: center; align-items: center;
+            margin-top: 20px; gap: 10px;
         }
-
-        .pagination-controls button {
-            padding: 8px 15px;
-        }
-        .pagination-info {
-            font-weight: bold;
-            color: #555;
+        .pagination-controls button { padding: 8px 15px; }
+        .pagination-info { font-weight: bold; color: #555; }
+        
+        /* For ARIA live region, to be visually hidden but accessible to screen readers */
+        .visually-hidden {
+            position: absolute; width: 1px; height: 1px; margin: -1px;
+            padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;
         }
 
 
         @media (max-width: 768px) {
-            .form-row, .form-row-three {
-                grid-template-columns: 1fr;
-            }
-            
-            .filter-section {
-                grid-template-columns: 1fr;
-            }
-
-            .progress-stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .book-item {
-                grid-template-columns: 60px 1fr;
-                gap: 10px;
-            }
-
-            .book-cover {
-                width: 60px;
-                height: 90px;
-            }
-            .pagination-controls {
-                flex-wrap: wrap; 
-            }
+            .form-row, .form-row-three { grid-template-columns: 1fr; }
+            .filter-section { grid-template-columns: 1fr; }
+            .progress-stats { grid-template-columns: repeat(2, 1fr); }
+            .book-item { grid-template-columns: 60px 1fr; gap: 10px; }
+            .book-cover { width: 60px; height: 90px; }
+            .pagination-controls { flex-wrap: wrap; }
         }
     </style>
 </head>
@@ -586,52 +411,31 @@
 
         <div class="progress-section">
             <div class="progress-stats">
-                <div class="stat-card">
-                    <span class="stat-number" id="finishedBooks">0</span>
-                    <span class="stat-label">Books Finished</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number" id="inProgressBooks">0</span>
-                    <span class="stat-label">Books in Progress</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number" id="nextBooks">0</span>
-                    <span class="stat-label">Next to Read</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number" id="averagePerWeek">0.0</span>
-                    <span class="stat-label">Books/Week</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number" id="challengeEndDate">Dec 2039</span>
-                    <span class="stat-label">Target End Date</span>
-                </div>
+                <div class="stat-card"><span class="stat-number" id="finishedBooks">0</span><span class="stat-label">Books Finished</span></div>
+                <div class="stat-card"><span class="stat-number" id="inProgressBooks">0</span><span class="stat-label">Books in Progress</span></div>
+                <div class="stat-card"><span class="stat-number" id="nextBooks">0</span><span class="stat-label">Next to Read</span></div>
+                <div class="stat-card"><span class="stat-number" id="averagePerWeek">0.0</span><span class="stat-label">Books/Week</span></div>
+                <div class="stat-card"><span class="stat-number" id="challengeEndDate">Dec 2039</span><span class="stat-label">Target End Date</span></div>
             </div>
             
             <div class="weeks-progress-container">
-                <div class="weeks-progress-bar-container">
-                    <div class="weeks-progress-bar" id="weeksProgressBar" style="width: 0%"></div>
-                </div>
+                <div class="weeks-progress-bar-container"><div class="weeks-progress-bar" id="weeksProgressBar" style="width: 0%"></div></div>
                 <p style="text-align: center; margin-top: 5px; font-weight: bold;" id="weeksProgressText">Week 1 of 1000 (0.1% Complete)</p>
             </div>
             
-            <div class="progress-bar-container">
-                <div class="progress-bar" id="progressBar" style="width: 0%"></div>
-            </div>
+            <div class="progress-bar-container"><div class="progress-bar" id="progressBar" style="width: 0%"></div></div>
             <p style="text-align: center; margin-top: 10px; font-weight: bold;" id="progressText">0% of Book Goal Complete (0 / 1000)</p>
             
+            <h3 style="text-align: center; margin-top: 30px; margin-bottom: 10px; color: #444;">Filter by Category</h3>
             <div class="category-stats" id="categoryStats"></div>
         </div>
 
         <div class="books-list" id="mainView">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
                 <h2>Your Book Collection</h2>
-                </div>
+            </div>
             <div class="filter-section">
                 <input type="text" id="searchInput" class="search-input" placeholder="Search books, authors, or categories...">
-                <select id="categoryFilter" class="filter-select">
-                    <option value="">All Categories</option>
-                </select>
                 <select id="statusFilter" class="filter-select">
                     <option value="">All Status</option>
                     <option value="Finished">Finished</option>
@@ -656,6 +460,9 @@
                 </select>
             </div>
             
+            <div id="appliedFilters" class="applied-filters" role="status" aria-live="polite"></div>
+            <div id="sr-announcement" class="visually-hidden" aria-live="polite"></div>
+            
             <div id="booksList"></div>
             <div class="pagination-controls" id="paginationControls">
                 <button id="btnFirst" class="btn">First</button>
@@ -667,14 +474,14 @@
         </div>
 
         <div id="authorView" class="author-view">
-            <div class="author-header">
+             <div class="author-header">
                 <button class="back-to-main" onclick="showMainView()">← Back to All Books</button>
                 <h1 id="authorName">Author Name</h1>
                 <p id="authorBookCount">X books in your collection</p>
             </div>
             <div class="books-list">
                 <div id="authorBooksList"></div>
-                </div>
+            </div>
         </div>
 
         <div class="password-section" id="passwordSection">
@@ -685,80 +492,22 @@
         </div>
 
         <div class="add-book-section hidden" id="addBookSection">
-            <h2>Add a New Book</h2>
+             <h2>Add a New Book</h2>
             <form id="bookForm">
                 <div class="form-row">
-                    <div class="form-group">
-                        <label for="bookTitle">Title *</label>
-                        <input type="text" id="bookTitle" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="bookAuthor">Author(s) *</label>
-                        <input type="text" id="bookAuthor" required placeholder="e.g., Smith, John or Smith, John and Jones, Mary">
-                    </div>
+                    <div class="form-group"><label for="bookTitle">Title *</label><input type="text" id="bookTitle" required></div>
+                    <div class="form-group"><label for="bookAuthor">Author(s) *</label><input type="text" id="bookAuthor" required placeholder="e.g., Smith, John and Jones, Mary"></div>
                 </div>
-                
                 <div class="form-row-three">
-                    <div class="form-group">
-                        <label for="bookCategory">Category *</label>
-                        <select id="bookCategory" required>
-                            <option value="">Select Category</option>
-                            <option value="Biography">Biography</option>
-                            <option value="Business">Business</option>
-                            <option value="Education">Education</option>
-                            <option value="Essay(s)/Short Stories">Essay(s)/Short Stories</option>
-                            <option value="Finance">Finance</option>
-                            <option value="Informational">Informational</option>
-                            <option value="Memoir/Autobiography">Memoir/Autobiography</option>
-                            <option value="Novel">Novel</option>
-                            <option value="Philosophy">Philosophy</option>
-                            <option value="Poetry">Poetry</option>
-                            <option value="Policy and Politics">Policy and Politics</option>
-                            <option value="Race, Class, and Gender">Race, Class, and Gender</option>
-                            <option value="Religion">Religion</option>
-                            <option value="Science">Science</option>
-                            <option value="Self-Development">Self-Development</option>
-                            <option value="Social Science(s)">Social Science(s)</option>
-                            <option value="Technology">Technology</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="bookStatus">Status *</label>
-                        <select id="bookStatus" required>
-                            <option value="">Select Status</option>
-                            <option value="Finished">Finished</option>
-                            <option value="In Progress">In Progress</option>
-                            <option value="Next">Next</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="bookOwnership">Ownership</label>
-                        <select id="bookOwnership">
-                            <option value="">Select Ownership</option>
-                            <option value="Digital">Digital</option>
-                            <option value="Library">Library</option>
-                            <option value="Physical">Physical</option>
-                        </select>
-                    </div>
+                    <div class="form-group"><label for="bookCategory">Category *</label><select id="bookCategory" required><option value="">Select Category</option><option value="Biography">Biography</option><option value="Business">Business</option><option value="Education">Education</option><option value="Essay(s)/Short Stories">Essay(s)/Short Stories</option><option value="Finance">Finance</option><option value="Informational">Informational</option><option value="Memoir/Autobiography">Memoir/Autobiography</option><option value="Novel">Novel</option><option value="Philosophy">Philosophy</option><option value="Poetry">Poetry</option><option value="Policy and Politics">Policy and Politics</option><option value="Race, Class, and Gender">Race, Class, and Gender</option><option value="Religion">Religion</option><option value="Science">Science</option><option value="Self-Development">Self-Development</option><option value="Social Science(s)">Social Science(s)</option><option value="Technology">Technology</option></select></div>
+                    <div class="form-group"><label for="bookStatus">Status *</label><select id="bookStatus" required><option value="">Select Status</option><option value="Finished">Finished</option><option value="In Progress">In Progress</option><option value="Next">Next</option></select></div>
+                    <div class="form-group"><label for="bookOwnership">Ownership</label><select id="bookOwnership"><option value="">Select Ownership</option><option value="Digital">Digital</option><option value="Library">Library</option><option value="Physical">Physical</option></select></div>
                 </div>
-
-                <div class="form-group">
-                    <label for="dateCompleted">Date Completed</label>
-                    <input type="date" id="dateCompleted">
-                </div>
-
-                <div class="form-group">
-                    <label for="customCover">Custom Book Cover (Optional)</label>
-                    <input type="file" id="customCover" accept="image/*" class="file-input">
-                    <small style="color: #666; font-size: 0.9em;">Upload your own book cover image (JPG, PNG, etc.)</small>
-                </div>
-                
+                <div class="form-group"><label for="dateCompleted">Date Completed</label><input type="date" id="dateCompleted"></div>
+                <div class="form-group"><label for="customCover">Custom Book Cover (Optional)</label><input type="file" id="customCover" accept="image/*" class="file-input"><small style="color: #666; font-size: 0.9em;">Upload your own book cover image (JPG, PNG, etc.)</small></div>
                 <button type="submit" class="btn">Add Book</button>
             </form>
-            
-            <div style="margin-top: 20px; text-align: center;">
-                <button class="btn" onclick="lockAdminPanel()" style="background: #6c757d;">Lock Admin Panel</button>
-            </div>
+            <div style="margin-top: 20px; text-align: center;"><button class="btn" onclick="lockAdminPanel()" style="background: #6c757d;">Lock Admin Panel</button></div>
         </div>
     </div>
 
@@ -1097,14 +846,14 @@
 330,From Generosity to Justice: A New Gospel of Wealth,Darren Walker,Essay(s)/Short Stories,Digital,Finished,5/1/25
 331,Lord of the Flies,William Golding,Novel,Library,Finished,5/17/25
 332,Charlotte's Web,"E. B. White, Garth Williams",Novel,Library,Finished,5/21/25
-333,Closing the Equity Gap: Creating Wealth and Fostering Justice in Startup Investing,"Freada Kapor Klein, Mitch Kapor",Business,Digital,In Progress,
+333,Closing the Equity Gap: Creating Wealth and Fostering Justice in Startup Investing,"Freada Kapor Klein, Mitch Kapor",Business,Digital,Finished,5/29/25
 334,The Battle for the Black Mind,Karida L. Brown,Education,Physical,In Progress,`;
 
         // CSV data for book cover URLs
         const book_cover_urls_csv_data = `book_number,cover_url
 1,https://books.google.com/books/content?id=F9uXDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api
 2,https://books.google.com/books/content?id=dhbsoQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api
-3,https://books.google.com/books/content?id=Dlx748V3ci8C&printsec=frontcover&img=1&zoom=1&source=gbs_api
+3,https://play.google.com/books/publisher/content/images/frontcover/VnuGDwAAQBAJ?fife=w480-h690
 4,https://books.google.com/books/content?id=fFCjDQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api
 5,https://books.google.com/books/content?id=L086swEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api
 6,https://books.google.com/books/content?id=egdxAwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api
@@ -1438,13 +1187,28 @@
 334,https://books.google.com/books/content?id=zK4sEQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api`;
 
 
+        let coverUrls = parseCoverUrlsCsv(book_cover_urls_csv_data);
+        let books = parseCsvToBooks(rawCsvData, coverUrls); // Initialize books globally
+        let challengeStartDate = new Date('2020-09-27');
+        let challengeEndDate = new Date('2039-11-27');
+        let nextBookNumber = books.length > 0 ? Math.max(...books.map(b => b.number)) + 1 : 1;
+        
+        let filteredBooks = []; // This will hold the currently filtered and sorted books
+        let activeCategoryFilters = new Set(); // To store active category filters
+        let currentPage = 1;
+        let totalPages = 1;
+        let isAdminLoggedIn = false; // Track admin status
+        
+        // Get all unique categories from the initial book data for the category stats section
+        const allCategories = [...new Set(books.map(book => book.category).filter(Boolean))].sort();
+
+
         // Function to parse CSV text to an array of book objects
         function parseCsvToBooks(csvString, coverUrlsMap) {
             const lines = csvString.trim().split(/\r?\n/); 
             if (lines.length < 2) return []; 
 
             const headerLine = lines.shift(); 
-            // Regex to split by comma, but not commas inside double quotes
             const regex = /,(?=(?:(?:[^"]*"){2})*[^"]*$)/;
             const headers = headerLine.split(regex).map(h => h.trim().replace(/^"|"$/g, ''));
             
@@ -1454,43 +1218,26 @@
                 headers.forEach((header, index) => {
                     const value = values[index] || ""; 
                     switch (header) {
-                        case "Number":
-                            book.number = parseInt(value, 10);
-                            break;
-                        case "Title":
-                            book.title = value;
-                            break;
-                        case "Author(s)":
-                            book.author = value;
-                            break;
-                        case "Category":
-                            book.category = value;
-                            break;
-                        case "Ownership":
-                            book.ownership = value;
-                            break;
-                        case "Status":
-                            book.status = value;
-                            break;
+                        case "Number": book.number = parseInt(value, 10); break;
+                        case "Title": book.title = value; break;
+                        case "Author(s)": book.author = value; break;
+                        case "Category": book.category = value; break;
+                        case "Ownership": book.ownership = value; break;
+                        case "Status": book.status = value; break;
                         case "Date Completed":
                             if (value) {
                                 const parts = value.split('/');
                                 if (parts.length === 3) {
                                     const year = parseInt(parts[2], 10);
-                                    const fullYear = year < 50 ? 2000 + year : 1900 + year; // Handle 2-digit years
+                                    const fullYear = year < 50 ? 2000 + year : 1900 + year;
                                     book.dateCompleted = `${fullYear}-${parts[0].padStart(2, '0')}-${parts[1].padStart(2, '0')}`;
-                                } else {
-                                    book.dateCompleted = value; // Keep as is if not MM/DD/YY
-                                }
-                            } else {
-                                book.dateCompleted = "";
-                            }
+                                } else { book.dateCompleted = value; }
+                            } else { book.dateCompleted = ""; }
                             break;
                     }
                 });
-                // Assign customCoverUrl from the map
                 book.customCoverUrl = coverUrlsMap.get(book.number) || ""; 
-                book.id = book.number; // Use book number as ID for consistency
+                book.id = book.number; 
                 return book;
             });
             return booksData.filter(b => b.number && b.title && b.author);
@@ -1501,9 +1248,7 @@
             const coverUrlsMap = new Map();
             const lines = csvString.trim().split(/\r?\n/);
             if (lines.length < 2) return coverUrlsMap;
-
-            const headers = lines.shift().split(',').map(h => h.trim()); // "book_number", "cover_url"
-
+            const headers = lines.shift().split(',').map(h => h.trim());
             lines.forEach(line => {
                 const values = line.split(',');
                 if (values.length === 2) {
@@ -1517,24 +1262,7 @@
             return coverUrlsMap;
         }
 
-        let coverUrls = parseCoverUrlsCsv(book_cover_urls_csv_data);
-        let books = parseCsvToBooks(rawCsvData, coverUrls);
-        let challengeStartDate = new Date('2020-09-27');
-        let challengeEndDate = new Date('2039-11-27');
-        let nextBookNumber = books.length > 0 ? Math.max(...books.map(b => b.number)) + 1 : 1;
-        let filteredBooks = [];
-        let currentPage = 1;
-        let totalPages = 1;
-        let isAdminLoggedIn = false; // Track admin status
-        
-
-        const categories = [
-            "Biography", "Business", "Education", "Essay(s)/Short Stories", "Finance", 
-            "Informational", "Memoir/Autobiography", "Novel", "Philosophy", "Poetry", 
-            "Policy and Politics", "Race, Class, and Gender", "Religion", "Science", 
-            "Self-Development", "Social Science(s)", "Technology"
-        ];
-
+        // Utility to get a CSS-friendly class name from a category string
         function getCategoryClass(category) {
             if (!category) return 'unknown';
             if (category === "Essay(s)/Short Stories") return "essays-short-stories";
@@ -1542,33 +1270,25 @@
             if (category === "Race, Class, and Gender") return "race-class-and-gender";
             if (category === "Social Science(s)") return "social-sciences";
             return category.toLowerCase()
-                .replace(/[()]/g, '')
-                .replace(/\s+/g, '-')
-                .replace(/,/g, '')
-                .replace(/\//g, '-');
+                .replace(/[()]/g, '') // Remove parentheses
+                .replace(/\s+/g, '-') // Replace spaces with hyphens
+                .replace(/,/g, '')    // Remove commas
+                .replace(/\//g, '-'); // Replace slashes with hyphens
         }
 
+        // Renders authors as clickable spans that trigger an author-specific view
         function renderClickableAuthors(authorsString) {
             if (!authorsString) return '';
-            
             const editorMatch = authorsString.match(/\s*\(editors?\)/i);
             const editorDesignation = editorMatch ? editorMatch[0] : '';
             const cleanAuthorsString = authorsString.replace(/\s*\(editors?\)/i, '').trim();
-            
-            const authors = cleanAuthorsString.split(/,|;|\sand\s|\&/)
-                .map(author => author.trim())
-                .filter(author => author.length > 0);
-            
+            const authors = cleanAuthorsString.split(/,|;|\sand\s|\&/).map(author => author.trim()).filter(author => author.length > 0);
             if (authors.length === 0) return editorDesignation.trim(); 
             if (authors.length === 1) {
                 const clickableAuthor = `<span class="clickable-author" onclick="showAuthorBooks('${authors[0].replace(/'/g, "\\'")}')">${authors[0]}</span>`;
                 return editorDesignation ? `${clickableAuthor} ${editorDesignation}` : clickableAuthor;
             }
-            
-            const clickableAuthors = authors.map(author => 
-                `<span class="clickable-author" onclick="showAuthorBooks('${author.replace(/'/g, "\\'")}')">${author}</span>`
-            );
-            
+            const clickableAuthors = authors.map(author => `<span class="clickable-author" onclick="showAuthorBooks('${author.replace(/'/g, "\\'")}')">${author}</span>`);
             let result;
             if (clickableAuthors.length === 2) {
                 result = clickableAuthors.join(' and ');
@@ -1576,22 +1296,24 @@
                 const lastAuthor = clickableAuthors.pop();
                 result = clickableAuthors.join(', ') + ', and ' + lastAuthor;
             }
-            
             return editorDesignation ? `${result} ${editorDesignation}` : result;
         }
 
+        // Generates HTML for a category tag
         function getCategoryTag(category) {
             if (!category) return '';
             const categoryClass = getCategoryClass(category);
             return `<div class="category-tag category-${categoryClass}">${category}</div>`;
         }
-
+        
+        // Generates HTML for an ownership tag
         function getOwnershipTag(ownership) {
             if (!ownership) return '';
             const ownershipClass = ownership.toLowerCase();
             return `<div class="ownership-tag ownership-${ownershipClass}">${ownership}</div>`;
         }
 
+        // Generates HTML for a date completed tag
         function getDateTag(dateCompleted) {
             if (!dateCompleted) return '';
             const dateObj = new Date(dateCompleted + 'T00:00:00'); 
@@ -1600,27 +1322,32 @@
             return `<div class="date-tag">Completed: ${formattedDate}</div>`;
         }
 
+        // Generates HTML for a status tag (interactive dropdown if admin is logged in)
         function getStatusTag(status, bookId = null, isInteractive = false) {
             if (!status) return '';
+            // If the book is finished, don't show any status badge. The date tag serves as the indicator.
+            if (status === 'Finished') {
+                return '';
+            }
+            
             const statusClass = status.toLowerCase().replace(' ', '-');
             
-            // Only allow interactive dropdowns if admin is logged in
+            // For "In Progress" or "Next", show a dropdown for admins to change status
             if (isInteractive && isAdminLoggedIn && (status === 'In Progress' || status === 'Next')) {
-                // Return a select element styled like a badge
                 return `
                     <select class="status-badge-select status-${statusClass}" 
                             onchange="changeBookStatus(${bookId}, this.value, event)">
                         <option value="In Progress" ${status === 'In Progress' ? 'selected' : ''}>In Progress</option>
                         <option value="Next" ${status === 'Next' ? 'selected' : ''}>Next</option>
-                        <option value="Finished" ${status === 'Finished' ? 'selected' : ''}>Finished</option>
-                    </select>
-                `;
+                        <option value="Finished">Finished</option>
+                    </select>`;
             } else {
-                // Return a regular span for all cases when admin is not logged in
-                return `<span class="status-badge status-${statusClass}">${status}</span>`;
+                // For non-admins or other statuses, show a static badge
+                 return `<span class="status-badge status-${statusClass}">${status}</span>`;
             }
         }
-
+        
+        // Determines a fallback color for book covers based on category
         function getCoverColor(category) {
             const colors = {
                 'Biography': '#F4C430', 'Business': '#CD5C5C', 'Education': '#32CD32',
@@ -1633,87 +1360,39 @@
             return colors[category] || '#667eea'; 
         }
 
+        // Generates initials from a book title for fallback cover display
         function getInitials(title) {
             if (!title) return '';
             return title.split(' ').slice(0, 3).map(word => word[0]).join('').toUpperCase();
         }
 
+        // Generates HTML for a book cover (image or fallback with initials)
         function generateBookCover(title, category, customCoverUrl = null, bookId) {
             const bookIndex = books.findIndex(b => b.id === bookId);
-            const isAdminAllowedToEditCover = isAdminLoggedIn; // Only allow editing if admin is logged in
+            const isAdminAllowedToEditCover = isAdminLoggedIn;
             const clickHandler = isAdminAllowedToEditCover ? `onclick="uploadCoverForBook(${bookIndex})"` : '';
             const cursor = isAdminAllowedToEditCover ? 'cursor: pointer;' : '';
             const title_attr = isAdminAllowedToEditCover ? 'title="Click to change cover"' : `title="${title}"`;
             
             if (customCoverUrl) {
                 return `
-                    <img src="${customCoverUrl}" 
-                         alt="${title}" 
-                         style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px; ${cursor}"
-                         ${clickHandler}
-                         ${title_attr}
-                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-                    />
-                    <div style="
-                        width: 100%; 
-                        height: 100%; 
-                        background: ${getCoverColor(category)}; 
-                        display: none; 
-                        flex-direction: column;
-                        align-items: center; 
-                        justify-content: center; 
-                        color: white; 
-                        font-weight: bold;
-                        font-size: 0.9em;
-                        text-align: center;
-                        padding: 5px;
-                        box-sizing: border-box;
-                        ${cursor}
-                    "
-                    ${clickHandler}
-                    ${title_attr}>
+                    <img src="${customCoverUrl}" alt="${title}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px; ${cursor}" ${clickHandler} ${title_attr} onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"/>
+                    <div style="width: 100%; height: 100%; background: ${getCoverColor(category)}; display: none; flex-direction: column; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.9em; text-align: center; padding: 5px; box-sizing: border-box; ${cursor}" ${clickHandler} ${title_attr}>
                         <div style="font-size: 1.2em; margin-bottom: 5px;">${getInitials(title)}</div>
-                        <div style="font-size: 0.7em; line-height: 1.1; word-break: break-word;">
-                            ${title.length > 20 ? title.substring(0, 17) + '...' : title}
-                        </div>
-                    </div>
-                `;
+                        <div style="font-size: 0.7em; line-height: 1.1; word-break: break-word;">${title.length > 20 ? title.substring(0, 17) + '...' : title}</div>
+                    </div>`;
             }
-            
-            const color = getCoverColor(category);
-            const initials = getInitials(title);
-            
             return `
-                <div style="
-                    width: 100%; 
-                    height: 100%; 
-                    background: ${color}; 
-                    display: flex; 
-                    flex-direction: column;
-                    align-items: center; 
-                    justify-content: center; 
-                    color: white; 
-                    font-weight: bold;
-                    font-size: 0.9em;
-                    text-align: center;
-                    padding: 5px;
-                    box-sizing: border-box;
-                    ${cursor}
-                "
-                ${clickHandler}
-                ${title_attr}>
-                    <div style="font-size: 1.2em; margin-bottom: 5px;">${initials}</div>
-                    <div style="font-size: 0.7em; line-height: 1.1; word-break: break-word;">
-                        ${title.length > 20 ? title.substring(0, 17) + '...' : title}
-                    </div>
-                </div>
-            `;
+                <div style="width: 100%; height: 100%; background: ${getCoverColor(category)}; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.9em; text-align: center; padding: 5px; box-sizing: border-box; ${cursor}" ${clickHandler} ${title_attr}>
+                    <div style="font-size: 1.2em; margin-bottom: 5px;">${getInitials(title)}</div>
+                    <div style="font-size: 0.7em; line-height: 1.1; word-break: break-word;">${title.length > 20 ? title.substring(0, 17) + '...' : title}</div>
+                </div>`;
         }
         
+        // Handles the file input for uploading a custom book cover
         function uploadCoverForBook(bookIndex) {
             const isAdminAllowedToEditCover = isAdminLoggedIn; 
             if (!isAdminAllowedToEditCover || bookIndex < 0 || bookIndex >= books.length) return;
-
             const input = document.createElement('input');
             input.type = 'file';
             input.accept = 'image/*';
@@ -1737,25 +1416,361 @@
             input.click();
         }
 
+        // Processes the custom cover file from the add book form
         function handleCustomCoverUpload() {
             return new Promise((resolve) => {
                 const fileInput = document.getElementById('customCover');
                 if (fileInput.files && fileInput.files[0]) {
                     const reader = new FileReader();
-                    reader.onload = function (e) {
-                        resolve(e.target.result);
-                    };
-                    reader.onerror = function () {
-                        console.error("Error reading file for custom cover.");
-                        resolve(null);
-                    };
+                    reader.onload = (e) => resolve(e.target.result);
+                    reader.onerror = () => { console.error("Error reading file for custom cover."); resolve(null); };
                     reader.readAsDataURL(fileInput.files[0]);
-                } else {
-                    resolve(null);
-                }
+                } else { resolve(null); }
             });
         }
 
+        // Handles changing a book's status (e.g., "In Progress" to "Finished")
+        function changeBookStatus(bookId, newStatus, event) {
+            if (event) event.stopPropagation();
+            const bookIndex = books.findIndex(b => b.id === bookId);
+            if (bookIndex === -1) return;
+            const book = books[bookIndex];
+            const oldStatus = book.status;
+            if (oldStatus === newStatus) { renderBooksList(); return; }
+            let statusChangedSuccessfully = false;
+            if (newStatus === "Finished") {
+                const today = new Date();
+                const defaultDate = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+                const dateStr = prompt(`Marking "${book.title}" as "Finished". Enter completion date (YYYY-MM-DD):`, defaultDate);
+                if (dateStr) { 
+                    if (/^\d{4}-\d{2}-\d{2}$/.test(dateStr) && !isNaN(new Date(dateStr))) {
+                        book.dateCompleted = dateStr; book.status = newStatus; statusChangedSuccessfully = true;
+                    } else { console.error("Invalid date format. Status not changed."); }
+                } else { console.warn("Completion date prompt cancelled. Status not changed."); }
+            } else { 
+                book.status = newStatus; 
+                if (newStatus !== "Finished") { book.dateCompleted = ""; }
+                statusChangedSuccessfully = true; 
+            }
+            if (statusChangedSuccessfully) { saveBooks(); updateProgress(); applyFiltersAndSort(); } 
+            else { renderBooksList(); }
+        }
+
+        // Checks the admin password
+        function checkPassword() {
+            const password = document.getElementById('adminPassword').value;
+            const correctPassword = 'booklog2024'; 
+            if (password === correctPassword) {
+                isAdminLoggedIn = true;
+                document.getElementById('passwordSection').style.display = 'none';
+                document.getElementById('addBookSection').classList.remove('hidden');
+                document.getElementById('adminPassword').value = '';
+                renderBooksList();
+                if (document.getElementById('authorView').classList.contains('active')) {
+                    const authorName = document.getElementById('authorName').textContent;
+                    showAuthorBooks(authorName, false);
+                }
+            } else {
+                console.error('Incorrect password.');
+                document.getElementById('adminPassword').value = '';
+            }
+        }
+
+        // Locks the admin panel
+        function lockAdminPanel() {
+            isAdminLoggedIn = false;
+            document.getElementById('passwordSection').style.display = 'block';
+            document.getElementById('addBookSection').classList.add('hidden');
+            renderBooksList();
+            if (document.getElementById('authorView').classList.contains('active')) {
+                const authorName = document.getElementById('authorName').textContent;
+                showAuthorBooks(authorName, false);
+            }
+        }
+
+        // Handles adding a new book via the form
+        async function addBook(event) {
+            event.preventDefault();
+            const title = document.getElementById('bookTitle').value;
+            const author = document.getElementById('bookAuthor').value;
+            const category = document.getElementById('bookCategory').value;
+            const status = document.getElementById('bookStatus').value;
+            const ownership = document.getElementById('bookOwnership').value;
+            let dateCompleted = document.getElementById('dateCompleted').value;
+            const customCoverUrl = await handleCustomCoverUpload();
+            if (status !== 'Finished') { dateCompleted = ''; }
+            const newBook = {
+                id: Date.now(), number: nextBookNumber++, title, author, category, status, ownership, dateCompleted,
+                customCoverUrl: customCoverUrl || ""
+            };
+            books.push(newBook);
+            saveBooks();
+            applyFiltersAndSort(); 
+            updateProgress();
+            document.getElementById('bookForm').reset();
+            document.getElementById('customCover').value = ''; 
+        }
+
+        // Displays books by a specific author
+        function showAuthorBooks(authorName, updateHistory = true) {
+            const authorBooks = books.filter(book => {
+                if (!book.author) return false;
+                const bookAuthors = book.author.split(/,|;|\sand\s|\&/).map(a => a.trim().toLowerCase());
+                return bookAuthors.includes(authorName.toLowerCase());
+            });
+            document.getElementById('mainView').style.display = 'none';
+            const authorView = document.getElementById('authorView');
+            authorView.classList.add('active');
+            document.getElementById('authorName').textContent = authorName;
+            document.getElementById('authorBookCount').textContent = `${authorBooks.length} book${authorBooks.length === 1 ? '' : 's'} in your collection`;
+            const authorBooksListElement = document.getElementById('authorBooksList');
+            authorBooksListElement.innerHTML = '';
+            if (authorBooks.length === 0) {
+                authorBooksListElement.innerHTML = '<p>No books by this author.</p>';
+            } else {
+                authorBooks.forEach((book) => {
+                    const bookItem = document.createElement('div');
+                    bookItem.className = 'book-item';
+                    if (book.status === 'In Progress') bookItem.classList.add('in-progress');
+                    if (book.status === 'Next') bookItem.classList.add('next');
+                    const statusDisplay = getStatusTag(book.status, book.id, true);
+                    bookItem.innerHTML = `
+                        <div class="book-cover" id="cover-author-${book.id}">${generateBookCover(book.title, book.category, book.customCoverUrl, book.id)}</div>
+                        <div>
+                            <span class="book-number">#${book.number}</span><h3 class="book-title">${book.title}</h3>
+                            <p class="book-author">${renderClickableAuthors(book.author)}</p>
+                            <div class="book-meta">${getCategoryTag(book.category)}${getOwnershipTag(book.ownership)}${statusDisplay}${getDateTag(book.dateCompleted)}</div>
+                        </div>`;
+                    authorBooksListElement.appendChild(bookItem);
+                });
+            }
+            if (updateHistory) { window.scrollTo(0, 0); }
+        }
+
+        // Switches back to the main book list view
+        function showMainView() {
+            document.getElementById('authorView').classList.remove('active');
+            document.getElementById('mainView').style.display = 'block';
+            applyFiltersAndSort(); 
+            window.scrollTo(0, 0);
+        }
+
+        // Placeholder for saving books (currently in-memory)
+        function saveBooks() {
+            console.log('Books data updated in memory. Refreshing will reset data.');
+        }
+
+        // Loads initial book data and sets up IDs and dates
+        function loadBooks() {
+            books.forEach(book => {
+                if (!book.id) book.id = book.number; 
+                if (book.dateCompleted && book.dateCompleted.includes('/')) {
+                    const parts = book.dateCompleted.split('/');
+                    if (parts.length === 3) {
+                        const year = parseInt(parts[2], 10);
+                        const fullYear = year < 50 ? 2000 + year : 1900 + year;
+                        book.dateCompleted = `${fullYear}-${parts[0].padStart(2, '0')}-${parts[1].padStart(2, '0')}`;
+                    }
+                }
+            });
+            if (books.length > 0) { 
+                nextBookNumber = Math.max(0, ...books.map(b => b.number)) + 1;
+            } else {
+                nextBookNumber = 1; 
+            }
+        }
+        
+        // Pagination functions
+        function goToFirstPage() { if (currentPage > 1) { currentPage = 1; renderBooksList(); } }
+        function goToPreviousPage() { if (currentPage > 1) { currentPage--; renderBooksList(); } }
+        function goToNextPage() { if (currentPage < totalPages) { currentPage++; renderBooksList(); } }
+        function goToLastPage() { if (currentPage < totalPages) { currentPage = totalPages; renderBooksList(); } }
+
+        // --- REFACTORED AND NEW FUNCTIONS (from previous update) ---
+
+        // Updates all progress statistics and bars
+        function updateProgress() {
+            const finished = books.filter(b => b.status === 'Finished').length;
+            const inProgress = books.filter(b => b.status === 'In Progress').length;
+            const next = books.filter(b => b.status === 'Next').length;
+
+            document.getElementById('finishedBooks').textContent = finished;
+            document.getElementById('inProgressBooks').textContent = inProgress;
+            document.getElementById('nextBooks').textContent = next;
+
+            const today = new Date();
+            const weeksElapsed = Math.max(1, Math.floor((today - challengeStartDate) / (1000 * 60 * 60 * 24 * 7)));
+
+            const averagePerWeek = books.length > 0 ? (finished / weeksElapsed).toFixed(1) : '0.0';
+            document.getElementById('averagePerWeek').textContent = averagePerWeek;
+            
+            const targetEndDateFormatted = challengeEndDate.toLocaleDateString(undefined, { year: 'numeric', month: 'short' });
+            document.getElementById('challengeEndDate').textContent = targetEndDateFormatted;
+
+            const weeksProgressPercent = (weeksElapsed / 1000 * 100).toFixed(1);
+            document.getElementById('weeksProgressBar').style.width = `${weeksProgressPercent}%`;
+            document.getElementById('weeksProgressText').textContent = `Week ${weeksElapsed} of 1000 (${weeksProgressPercent}% Complete)`;
+
+            const progressPercent = books.length > 0 ? (finished / 1000 * 100).toFixed(1) : 0;
+            document.getElementById('progressBar').style.width = `${progressPercent}%`;
+            document.getElementById('progressText').textContent = `${progressPercent}% of 1000 Book Goal Complete (${finished} / 1000)`;
+
+            renderCategoryStats(); // Update category stats display
+        }
+        
+        // Renders the clickable category statistics/filter cards
+        function renderCategoryStats() {
+            const statsContainer = document.getElementById('categoryStats');
+            statsContainer.innerHTML = '';
+            // Add or remove class based on whether any filters are active
+            if(activeCategoryFilters.size > 0) {
+                statsContainer.classList.add('filters-active');
+            } else {
+                statsContainer.classList.remove('filters-active');
+            }
+
+            const categoryCounts = {};
+            allCategories.forEach(cat => categoryCounts[cat] = 0);
+
+            books.filter(b => b.status === 'Finished').forEach(book => {
+                if (book.category && categoryCounts.hasOwnProperty(book.category)) {
+                    categoryCounts[book.category]++;
+                }
+            });
+
+            allCategories.forEach(category => {
+                const count = categoryCounts[category];
+                const statDiv = document.createElement('div');
+                const categoryClass = getCategoryClass(category);
+                statDiv.className = `category-stat category-${categoryClass}`;
+                if (activeCategoryFilters.has(category)) {
+                    statDiv.classList.add('active');
+                }
+                statDiv.dataset.category = category;
+                statDiv.textContent = `${category}: ${count}`;
+                statDiv.setAttribute('role', 'button');
+                statDiv.setAttribute('tabindex', '0');
+                statDiv.onclick = () => toggleCategoryFilter(category);
+                statDiv.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') toggleCategoryFilter(category); };
+                statsContainer.appendChild(statDiv);
+            });
+        }
+        
+        // Toggles a category filter on/off
+        function toggleCategoryFilter(category) {
+            const statsContainer = document.getElementById('categoryStats');
+            if (activeCategoryFilters.has(category)) {
+                activeCategoryFilters.delete(category);
+            } else {
+                activeCategoryFilters.add(category);
+            }
+            
+            // Toggle the class on the container
+            if (activeCategoryFilters.size > 0) {
+                statsContainer.classList.add('filters-active');
+            } else {
+                statsContainer.classList.remove('filters-active');
+            }
+
+            // Update the specific button's class
+            const statCard = document.querySelector(`.category-stat[data-category="${category}"]`);
+            if (statCard) {
+                statCard.classList.toggle('active');
+            }
+
+            applyFiltersAndSort();
+            renderAppliedFilters();
+        }
+
+        // Renders the list of currently applied filter tags
+        function renderAppliedFilters() {
+            const container = document.getElementById('appliedFilters');
+            container.innerHTML = '';
+
+            if (activeCategoryFilters.size === 0) {
+                container.style.display = 'none';
+                return;
+            }
+            
+            container.style.display = 'block';
+            
+            const tagsWrapper = document.createElement('div');
+            tagsWrapper.className = 'filter-tags';
+
+            const title = document.createElement('h3');
+            title.textContent = 'Active Category Filters:';
+            container.appendChild(title);
+
+            activeCategoryFilters.forEach(category => {
+                const tag = document.createElement('button');
+                tag.className = 'filter-tag';
+                tag.innerHTML = `${category} <span class="remove-filter" role="button" aria-label="Remove ${category} filter">×</span>`;
+                tag.onclick = () => toggleCategoryFilter(category);
+                tagsWrapper.appendChild(tag);
+            });
+
+            if (activeCategoryFilters.size > 0) {
+                const clearButton = document.createElement('button');
+                clearButton.className = 'clear-all-filters';
+                clearButton.textContent = 'Clear All Category Filters';
+                clearButton.onclick = () => {
+                    activeCategoryFilters.clear();
+                    renderCategoryStats();
+                    renderAppliedFilters();
+                    applyFiltersAndSort();
+                };
+                tagsWrapper.appendChild(clearButton);
+            }
+            container.appendChild(tagsWrapper);
+        }
+        
+        // Announces filter results to screen readers
+        function announceResults(count) {
+            const announcer = document.getElementById('sr-announcement');
+            if (announcer) {
+                announcer.textContent = `Showing ${count} books.`;
+            }
+        }
+
+        // Applies all current filters and sorting, then re-renders the book list
+        function applyFiltersAndSort() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const statusFilter = document.getElementById('statusFilter').value;
+            const sortBy = document.getElementById('sortBy').value;
+
+            filteredBooks = books.filter(book => {
+                const matchesSearch = searchTerm === '' ||
+                    book.title.toLowerCase().includes(searchTerm) ||
+                    book.author.toLowerCase().includes(searchTerm) ||
+                    (book.category && book.category.toLowerCase().includes(searchTerm));
+                
+                const matchesCategory = activeCategoryFilters.size === 0 || activeCategoryFilters.has(book.category);
+                const matchesStatus = statusFilter === '' || book.status === statusFilter;
+                
+                return matchesSearch && matchesCategory && matchesStatus;
+            });
+
+            switch (sortBy) {
+                case 'number': filteredBooks.sort((a, b) => a.number - b.number); break;
+                case 'newest': filteredBooks.sort((a, b) => b.id - a.id); break; 
+                case 'oldest': filteredBooks.sort((a, b) => a.id - b.id); break;
+                case 'title': filteredBooks.sort((a, b) => a.title.localeCompare(b.title)); break;
+                case 'author': filteredBooks.sort((a, b) => a.author.localeCompare(b.author)); break;
+                case 'category': filteredBooks.sort((a, b) => (a.category || "").localeCompare(b.category || "")); break;
+            }
+            currentPage = 1;
+            
+            const listElement = document.getElementById('booksList');
+            listElement.classList.add('updating');
+
+            setTimeout(() => {
+                renderBooksList();
+                listElement.classList.remove('updating');
+                announceResults(filteredBooks.length);
+            }, 200);
+        }
+
+        // Renders the paginated list of books
         function renderBooksList(targetElementId = 'booksList') {
             const listElement = document.getElementById(targetElementId);
             const paginationControls = document.getElementById('paginationControls');
@@ -1765,14 +1780,14 @@
             const btnNext = document.getElementById('btnNext');
             const btnLast = document.getElementById('btnLast');
 
-            listElement.innerHTML = ''; 
+            listElement.innerHTML = '';
 
             const itemsPerPageElement = document.getElementById('booksPerPage');
             let itemsPerPageSetting = itemsPerPageElement.value;
             let itemsPerPage;
 
             if (itemsPerPageSetting === "all" || filteredBooks.length === 0) {
-                itemsPerPage = filteredBooks.length;
+                itemsPerPage = filteredBooks.length > 0 ? filteredBooks.length : 1;
                 totalPages = 1;
                 currentPage = 1; 
                 if (paginationControls) paginationControls.style.display = 'none';
@@ -1788,330 +1803,20 @@
             const endIndex = startIndex + itemsPerPage;
             const displayBooks = filteredBooks.slice(startIndex, endIndex);
 
-            if (displayBooks.length === 0 && filteredBooks.length > 0) { 
-                listElement.innerHTML = '<p>No books on this page. Try another page or adjust filters.</p>';
-            } else if (filteredBooks.length === 0) { 
-                listElement.innerHTML = '<p>No books match your criteria.</p>';
-            } else {
+            if (filteredBooks.length === 0) { 
+                listElement.innerHTML = '<p style="text-align:center; padding: 20px;">No books match your criteria.</p>';
+            } else if (displayBooks.length === 0 && filteredBooks.length > 0) {
+                 listElement.innerHTML = '<p style="text-align:center; padding: 20px;">No books on this page. Try another page or adjust filters.</p>';
+            }
+            else {
                 displayBooks.forEach((book) => { 
                     const bookItem = document.createElement('div');
                     bookItem.className = 'book-item';
                     if (book.status === 'In Progress') bookItem.classList.add('in-progress');
                     if (book.status === 'Next') bookItem.classList.add('next');
-                    
-                    // Use the new integrated status tag
                     const statusDisplay = getStatusTag(book.status, book.id, true);
-
                     bookItem.innerHTML = `
-                        <div class="book-cover" id="cover-${book.id}">
-                            ${generateBookCover(book.title, book.category, book.customCoverUrl, book.id)}
-                        </div>
-                        <div>
-                            <span class="book-number">#${book.number}</span>
-                            <h3 class="book-title">${book.title}</h3>
-                            <p class="book-author">${renderClickableAuthors(book.author)}</p>
-                            <div class="book-meta">
-                                ${getCategoryTag(book.category)}
-                                ${getOwnershipTag(book.ownership)}
-                                ${statusDisplay}
-                                ${getDateTag(book.dateCompleted)}
-                            </div>
-                        </div>
-                    `;
-                    listElement.appendChild(bookItem);
-                });
-            }
-
-            if (pageInfo) pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
-            if (btnFirst) btnFirst.disabled = currentPage === 1;
-            if (btnPrevious) btnPrevious.disabled = currentPage === 1;
-            if (btnNext) btnNext.disabled = currentPage === totalPages || totalPages === 0;
-            if (btnLast) btnLast.disabled = currentPage === totalPages || totalPages === 0;
-        }
-
-        function changeBookStatus(bookId, newStatus, event) {
-            if (event) event.stopPropagation();
-
-            const bookIndex = books.findIndex(b => b.id === bookId);
-            if (bookIndex === -1) return;
-
-            const book = books[bookIndex];
-            const oldStatus = book.status;
-
-            if (oldStatus === newStatus) {
-                renderBooksList(); 
-                return;
-            }
-
-            let statusChangedSuccessfully = false;
-
-            if (newStatus === "Finished") {
-                const today = new Date();
-                const year = today.getFullYear();
-                const month = String(today.getMonth() + 1).padStart(2, '0');
-                const day = String(today.getDate()).padStart(2, '0');
-                const defaultDate = `${year}-${month}-${day}`;
-
-                const dateStr = prompt(`Marking "${book.title}" as "Finished". Enter completion date (YYYY-MM-DD):`, defaultDate);
-                
-                if (dateStr) { 
-                    if (/^\d{4}-\d{2}-\d{2}$/.test(dateStr) && !isNaN(new Date(dateStr))) {
-                        book.dateCompleted = dateStr;
-                        book.status = newStatus;
-                        statusChangedSuccessfully = true;
-                    } else {
-                        // Using console.error instead of alert
-                        console.error("Invalid date format entered for completion. Status not changed to Finished.");
-                    }
-                } else { 
-                    // Using console.warn instead of alert
-                    console.warn("Completion date prompt cancelled. Status not changed to Finished.");
-                }
-            } else { 
-                book.status = newStatus;
-                if (newStatus !== "Finished") { 
-                    book.dateCompleted = ""; 
-                }
-                statusChangedSuccessfully = true;
-            }
-
-            if (statusChangedSuccessfully) {
-                saveBooks();
-                updateProgress();
-                applyFiltersAndSort(); 
-            } else {
-                // If status change didn't proceed (e.g., cancelled date prompt for "Finished"),
-                // re-render to ensure the select dropdown reflects the actual (old) status.
-                renderBooksList();
-            }
-        }
-
-
-        function updateProgress() {
-            const totalBooksLogged = books.length;
-            const finished = books.filter(b => b.status === 'Finished').length;
-            const inProgress = books.filter(b => b.status === 'In Progress').length;
-            const next = books.filter(b => b.status === 'Next').length;
-
-            document.getElementById('finishedBooks').textContent = finished;
-            document.getElementById('inProgressBooks').textContent = inProgress;
-            document.getElementById('nextBooks').textContent = next;
-
-            const today = new Date();
-            const weeksElapsed = Math.max(1, Math.floor((today - challengeStartDate) / (1000 * 60 * 60 * 24 * 7)));
-
-            const averagePerWeek = totalBooksLogged > 0 ? (finished / weeksElapsed).toFixed(1) : '0.0';
-            document.getElementById('averagePerWeek').textContent = averagePerWeek;
-            
-            const totalWeeksInChallenge = Math.floor((challengeEndDate - challengeStartDate) / (1000 * 60 * 60 * 24 * 7));
-            const weeksRemaining = Math.max(0, totalWeeksInChallenge - weeksElapsed);
-            
-            const targetEndDateFormatted = challengeEndDate.toLocaleDateString(undefined, { year: 'numeric', month: 'short' });
-            document.getElementById('challengeEndDate').textContent = targetEndDateFormatted;
-
-            // Update weeks progress bar
-            const weeksProgressPercent = (weeksElapsed / 1000 * 100).toFixed(1);
-            document.getElementById('weeksProgressBar').style.width = `${weeksProgressPercent}%`;
-            document.getElementById('weeksProgressText').textContent = `Week ${weeksElapsed} of 1000 (${weeksProgressPercent}% Complete)`;
-
-            // Update books progress bar
-            const progressPercent = totalBooksLogged > 0 ? (finished / 1000 * 100).toFixed(1) : 0;
-            document.getElementById('progressBar').style.width = `${progressPercent}%`;
-            document.getElementById('progressText').textContent = `${progressPercent}% of 1000 Book Goal Complete (${finished} / 1000)`;
-
-            updateCategoryStats();
-            updateCategoryFilterDropdown();
-        }
-
-        // Password functionality
-        function checkPassword() {
-            const password = document.getElementById('adminPassword').value;
-            const correctPassword = 'booklog2024'; // You can change this password
-            
-            if (password === correctPassword) {
-                isAdminLoggedIn = true; // Set admin status
-                document.getElementById('passwordSection').style.display = 'none';
-                document.getElementById('addBookSection').classList.remove('hidden');
-                document.getElementById('adminPassword').value = ''; // Clear password field
-                
-                // Refresh the book list to show interactive dropdowns
-                renderBooksList();
-                if (document.getElementById('authorView').classList.contains('active')) {
-                    const authorName = document.getElementById('authorName').textContent;
-                    showAuthorBooks(authorName, false);
-                }
-            } else {
-                // Using console.error instead of alert
-                console.error('Incorrect password. Please try again.');
-                document.getElementById('adminPassword').value = '';
-            }
-        }
-
-        function lockAdminPanel() {
-            isAdminLoggedIn = false; // Remove admin status
-            document.getElementById('passwordSection').style.display = 'block';
-            document.getElementById('addBookSection').classList.add('hidden');
-            
-            // Refresh the book list to hide interactive dropdowns
-            renderBooksList();
-            if (document.getElementById('authorView').classList.contains('active')) {
-                const authorName = document.getElementById('authorName').textContent;
-                showAuthorBooks(authorName, false);
-            }
-        }
-
-        // Allow Enter key in password field
-        document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('adminPassword').addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    checkPassword();
-                }
-            });
-        });
-        
-        function updateCategoryStats() {
-            const statsContainer = document.getElementById('categoryStats');
-            statsContainer.innerHTML = '';
-            const categoryCounts = {};
-            categories.forEach(cat => categoryCounts[cat] = 0);
-
-            books.filter(b => b.status === 'Finished').forEach(book => {
-                if (book.category && categoryCounts.hasOwnProperty(book.category)) {
-                    categoryCounts[book.category]++;
-                }
-            });
-
-            Object.entries(categoryCounts).forEach(([category, count]) => {
-                if (count > 0) {
-                    const statDiv = document.createElement('div');
-                    statDiv.className = `category-stat category-${getCategoryClass(category)}`;
-                    statDiv.textContent = `${category}: ${count}`;
-                    statDiv.onclick = () => filterByCategoryFromStat(category);
-                    statsContainer.appendChild(statDiv);
-                }
-            });
-        }
-
-        function filterByCategoryFromStat(category) {
-            document.getElementById('categoryFilter').value = category;
-            applyFiltersAndSort(); 
-            document.getElementById('searchInput').value = ''; 
-        }
-
-
-        function updateCategoryFilterDropdown() {
-            const categoryFilter = document.getElementById('categoryFilter');
-            const currentCategoryValue = categoryFilter.value; 
-            
-            const uniqueBookCategories = [...new Set(books.map(book => book.category).filter(Boolean))].sort();
-            
-            while (categoryFilter.options.length > 1) {
-                categoryFilter.remove(1);
-            }
-
-            uniqueBookCategories.forEach(category => {
-                const option = document.createElement('option');
-                option.value = category;
-                option.textContent = category;
-                categoryFilter.appendChild(option);
-            });
-            categoryFilter.value = currentCategoryValue; 
-        }
-
-
-        async function addBook(event) {
-            event.preventDefault();
-            const title = document.getElementById('bookTitle').value;
-            const author = document.getElementById('bookAuthor').value;
-            const category = document.getElementById('bookCategory').value;
-            const status = document.getElementById('bookStatus').value;
-            const ownership = document.getElementById('bookOwnership').value;
-            let dateCompleted = document.getElementById('dateCompleted').value;
-
-            const customCoverUrl = await handleCustomCoverUpload();
-
-            if (status !== 'Finished') {
-                dateCompleted = ''; 
-            }
-
-            const newBook = {
-                id: Date.now(), 
-                number: nextBookNumber++,
-                title,
-                author,
-                category,
-                status,
-                ownership,
-                dateCompleted,
-                customCoverUrl: customCoverUrl || ""
-            };
-            books.push(newBook);
-            saveBooks();
-            applyFiltersAndSort(); 
-            updateProgress();
-            document.getElementById('bookForm').reset();
-            document.getElementById('customCover').value = ''; 
-        }
-        
-        function applyFiltersAndSort() {
-            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-            const categoryFilter = document.getElementById('categoryFilter').value;
-            const statusFilter = document.getElementById('statusFilter').value;
-            const sortBy = document.getElementById('sortBy').value;
-
-            filteredBooks = books.filter(book => {
-                const matchesSearch = searchTerm === '' ||
-                    book.title.toLowerCase().includes(searchTerm) ||
-                    book.author.toLowerCase().includes(searchTerm) ||
-                    (book.category && book.category.toLowerCase().includes(searchTerm));
-                const matchesCategory = categoryFilter === '' || book.category === categoryFilter;
-                const matchesStatus = statusFilter === '' || book.status === statusFilter;
-                return matchesSearch && matchesCategory && matchesStatus;
-            });
-
-            switch (sortBy) {
-                case 'number': filteredBooks.sort((a, b) => a.number - b.number); break;
-                case 'newest': filteredBooks.sort((a, b) => b.id - a.id); break; 
-                case 'oldest': filteredBooks.sort((a, b) => a.id - b.id); break;
-                case 'title': filteredBooks.sort((a, b) => a.title.localeCompare(b.title)); break;
-                case 'author': filteredBooks.sort((a, b) => a.author.localeCompare(b.author)); break;
-                case 'category': filteredBooks.sort((a, b) => (a.category || "").localeCompare(b.category || "")); break;
-            }
-            currentPage = 1; 
-            renderBooksList();
-        }
-
-        function showAuthorBooks(authorName, updateHistory = true) {
-            const authorBooks = books.filter(book => {
-                if (!book.author) return false;
-                const bookAuthors = book.author.split(/,|;|\sand\s|\&/).map(a => a.trim().toLowerCase());
-                return bookAuthors.includes(authorName.toLowerCase());
-            });
-
-            document.getElementById('mainView').style.display = 'none';
-            const authorView = document.getElementById('authorView');
-            authorView.classList.add('active');
-            document.getElementById('authorName').textContent = authorName;
-            document.getElementById('authorBookCount').textContent = `${authorBooks.length} book${authorBooks.length === 1 ? '' : 's'} in your collection`;
-            
-            const authorBooksListElement = document.getElementById('authorBooksList');
-            authorBooksListElement.innerHTML = '';
-            if (authorBooks.length === 0) {
-                authorBooksListElement.innerHTML = '<p>No books by this author in your collection.</p>';
-            } else {
-                authorBooks.forEach((book) => {
-                    const bookItem = document.createElement('div');
-                    bookItem.className = 'book-item';
-                     if (book.status === 'In Progress') bookItem.classList.add('in-progress');
-                     if (book.status === 'Next') bookItem.classList.add('next');
-                    
-                    // Use the integrated status tag for author view as well
-                    const statusDisplay = getStatusTag(book.status, book.id, true);
-                    
-                    bookItem.innerHTML = `
-                        <div class="book-cover" id="cover-author-${book.id}">
-                             ${generateBookCover(book.title, book.category, book.customCoverUrl, book.id)}
-                        </div>
+                        <div class="book-cover" id="cover-${book.id}">${generateBookCover(book.title, book.category, book.customCoverUrl, book.id)}</div>
                         <div>
                             <span class="book-number">#${book.number}</span>
                             <h3 class="book-title">${book.title}</h3>
@@ -2123,81 +1828,23 @@
                                 ${getDateTag(book.dateCompleted)}
                             </div>
                         </div>`;
-                    authorBooksListElement.appendChild(bookItem);
+                    listElement.appendChild(bookItem);
                 });
             }
 
-            if (updateHistory) {
-                 window.scrollTo(0, 0);
-            }
+            if (pageInfo) pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+            if (btnFirst) btnFirst.disabled = currentPage === 1;
+            if (btnPrevious) btnPrevious.disabled = currentPage === 1;
+            if (btnNext) btnNext.disabled = currentPage === totalPages || totalPages === 0;
+            if (btnLast) btnLast.disabled = currentPage === totalPages || totalPages === 0;
         }
 
-        function showMainView() {
-            document.getElementById('authorView').classList.remove('active');
-            document.getElementById('mainView').style.display = 'block';
-            applyFiltersAndSort(); 
-            window.scrollTo(0, 0);
-        }
-
-        function saveBooks() {
-            // In-memory storage only - data persists during the session
-            // Note: Data will reset when page is refreshed
-            console.log('Books data updated in memory');
-        }
-
-        function loadBooks() {
-            // Initialize books from CSV data and set up IDs
-            books.forEach(book => {
-                if (!book.id) book.id = book.number; 
-                if (book.dateCompleted && book.dateCompleted.includes('/')) {
-                    const parts = book.dateCompleted.split('/');
-                    if (parts.length === 3) {
-                        const year = parseInt(parts[2], 10);
-                        const fullYear = year < 50 ? 2000 + year : 1900 + year;
-                        book.dateCompleted = `${fullYear}-${parts[0].padStart(2, '0')}-${parts[1].padStart(2, '0')}`;
-                    }
-                }
-            });
-            
-            // Set next book number based on existing books
-            if (books.length > 0) { 
-                nextBookNumber = Math.max(0, ...books.map(b => b.number)) + 1;
-            } else {
-                nextBookNumber = 1; 
-            }
-        }
-        
-        function goToFirstPage() {
-            if (currentPage > 1) {
-                currentPage = 1;
-                renderBooksList();
-            }
-        }
-        function goToPreviousPage() {
-            if (currentPage > 1) {
-                currentPage--;
-                renderBooksList();
-            }
-        }
-        function goToNextPage() {
-            if (currentPage < totalPages) {
-                currentPage++;
-                renderBooksList();
-            }
-        }
-        function goToLastPage() {
-             if (currentPage < totalPages) {
-                currentPage = totalPages;
-                renderBooksList();
-            }
-        }
-
+        // Event listeners setup on DOMContentLoaded
         document.addEventListener('DOMContentLoaded', () => {
-            loadBooks(); 
+            loadBooks();
             
             document.getElementById('bookForm').addEventListener('submit', addBook);
             document.getElementById('searchInput').addEventListener('input', applyFiltersAndSort);
-            document.getElementById('categoryFilter').addEventListener('change', applyFiltersAndSort);
             document.getElementById('statusFilter').addEventListener('change', applyFiltersAndSort);
             document.getElementById('sortBy').addEventListener('change', applyFiltersAndSort);
             document.getElementById('booksPerPage').addEventListener('change', () => {
@@ -2210,8 +1857,15 @@
             document.getElementById('btnNext').addEventListener('click', goToNextPage);
             document.getElementById('btnLast').addEventListener('click', goToLastPage);
             
+            document.getElementById('adminPassword').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    checkPassword();
+                }
+            });
+            
             updateProgress(); 
-            applyFiltersAndSort(); 
+            renderAppliedFilters();
+            applyFiltersAndSort();
         });
 
     </script>
