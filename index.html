@@ -1877,8 +1877,88 @@
             updateProgress(); 
             renderAppliedFilters();
             applyFiltersAndSort();
+            
+            document.getElementById('chat-toggle-btn').addEventListener('click', () => {
+    document.getElementById('chat-window').classList.toggle('hidden');
+});
+
+document.getElementById('send-chat-btn').addEventListener('click', sendChatMessage);
+document.getElementById('chat-input').addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        sendChatMessage();
+    }
+});
+
+async function sendChatMessage() {
+    const input = document.getElementById('chat-input');
+    const chatBody = document.getElementById('chat-body');
+    const userQuery = input.value.trim();
+
+    if (!userQuery) return;
+
+    // Display user's message
+    chatBody.innerHTML += `<div class="user-message" style="text-align: right; margin: 5px; padding: 8px; background-color: #e1f5fe; border-radius: 10px; display: inline-block; max-width: 80%; float: right; clear: both;">${userQuery}</div>`;
+    const userMessageDiv = chatBody.lastElementChild;
+    input.value = '';
+
+    // Display a loading indicator
+    chatBody.innerHTML += `<div class="ai-message loading" style="text-align: left; margin: 5px; padding: 8px; background-color: #f1f1f1; border-radius: 10px; display: inline-block; max-width: 80%; float: left; clear: both;">Thinking...</div>`;
+    chatBody.scrollTop = chatBody.scrollHeight;
+
+    try {
+        const response = await fetch('http://localhost:3000/api/chat', { // URL of your backend
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                books: rawCsvData, // Pass the embedded CSV data
+                query: userQuery
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok.');
+        }
+
+        const data = await response.json();
+
+        // Remove loading and display AI's reply
+        const loadingMessage = document.querySelector('.ai-message.loading');
+        loadingMessage.classList.remove('loading');
+        loadingMessage.innerHTML = data.reply.replace(/\n/g, '<br>');
+        chatBody.scrollTop = chatBody.scrollHeight;
+
+    } catch (error) {
+        console.error('Fetch error:', error);
+        document.querySelector('.ai-message.loading').innerHTML = `<p>Sorry, I couldn't connect.</p>`;
+    }
+}
         });
 
     </script>
+    
+    <div id="chat-widget">
+    <div id="chat-window" class="hidden">
+        <div id="chat-header">Dr. Deas Reading Assistant</div>
+        <div id="chat-body"></div>
+        <div id="chat-input-container">
+            <input type="text" id="chat-input" placeholder="Ask about your books...">
+            <button id="send-chat-btn" class="btn">Send</button>
+        </div>
+    </div>
+    <button id="chat-toggle-btn" class="btn">💬</button>
+</div>
+
+<style>
+  #chat-widget { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
+  #chat-toggle-btn { width: 60px; height: 60px; border-radius: 50%; font-size: 24px; cursor: pointer; border: none; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+  #chat-window { width: 350px; height: 500px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); display: flex; flex-direction: column; overflow: hidden; }
+  #chat-window.hidden { display: none; }
+  #chat-header { background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary)); color: white; padding: 15px; font-weight: bold; }
+  #chat-body { flex-grow: 1; padding: 10px; overflow-y: auto; }
+  #chat-input-container { display: flex; padding: 10px; border-top: 1px solid #eee; }
+  #chat-input { flex-grow: 1; border: 1px solid #ccc; border-radius: 20px; padding: 10px; }
+  #send-chat-btn { margin-left: 10px; }
+</style>
+
 </body>
 </html>
