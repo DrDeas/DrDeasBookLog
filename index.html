@@ -1280,32 +1280,52 @@
                 .replace(/\//g, '-'); // Replace slashes with hyphens
         }
 
-        // Renders authors as clickable spans, now correctly handling suffixes like "Jr."
+// Renders authors as clickable spans, now correctly handling suffixes like "Jr."
         function renderClickableAuthors(authorsString) {
             if (!authorsString) return '';
-            
+
             const editorMatch = authorsString.match(/\s*\(editors?\)/i);
             const editorDesignation = editorMatch ? editorMatch[0] : '';
             let cleanAuthorsString = authorsString.replace(/\s*\(editors?\)/i, '').trim();
 
-            // First, split by major delimiters that separate distinct authors
-            const authors = cleanAuthorsString.split(/\s+and\s+|\s*;\s*|\s*&\s*/);
+            // 1. Standardize delimiters: replace all " and ", ";", or "&" with a comma.
+            const standardizedString = cleanAuthorsString.replace(/\s+and\s+|\s*;\s*|\s*&\s*/g, ',');
 
-            // Now, process each author chunk
+            // 2. Now, split the string only by commas.
+            const potentialAuthors = standardizedString.split(/\s*,\s*/);
+            
+            const authors = [];
+            const suffixes = new Set(['Jr.', 'Sr.', 'II', 'III', 'IV', 'V', 'Ph.D.', 'M.D.']);
+
+            // 3. Intelligently rejoin suffixes and filter out any empty parts.
+            for (let i = 0; i < potentialAuthors.length; i++) {
+                const part = potentialAuthors[i].trim();
+                if (part === '') continue; // This handles cases where ", and" becomes ",,"
+
+                if (authors.length > 0 && suffixes.has(part)) {
+                    authors[authors.length - 1] += `, ${part}`;
+                } else {
+                    authors.push(part);
+                }
+            }
+
+            // 4. Create clickable spans for each correctly identified author.
             const clickableAuthors = authors.map(author => {
-                const trimmedAuthor = author.trim();
-                // We make the whole chunk clickable, preventing splits on ", Jr."
-                return `<span class="clickable-author" onclick="showAuthorBooks('${trimmedAuthor.replace(/'/g, "\\'")}')">${trimmedAuthor}</span>`;
+                const safeAuthor = author.replace(/'/g, "\\'");
+                return `<span class="clickable-author" onclick="showAuthorBooks('${safeAuthor}')">${author}</span>`;
             });
             
+            // 5. Join the clickable spans together with proper grammar. This logic is now fed the correct data.
             let result;
             if (clickableAuthors.length === 1) {
                 result = clickableAuthors[0];
             } else if (clickableAuthors.length === 2) {
                 result = clickableAuthors.join(' and ');
-            } else {
+            } else if (clickableAuthors.length > 2) {
                 const lastAuthor = clickableAuthors.pop();
                 result = clickableAuthors.join(', ') + ', and ' + lastAuthor;
+            } else {
+                result = clickableAuthors.join(', ');
             }
             
             return editorDesignation ? `${result} ${editorDesignation}` : result;
