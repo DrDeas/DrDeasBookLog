@@ -275,6 +275,7 @@
         .category-science { background-color: #87CEFA; }
         .category-self-development { background-color: #9370DB; }
         .category-social-sciences { background-color: #A0522D; }
+        .category-stage-play { background-color: #B45F06; }
         .category-technology { background-color: #BC8F8F; }
 
         .ownership-digital { background-color: #228B22; } .ownership-physical { background-color: #32CD32; }
@@ -320,6 +321,7 @@
         .category-stat.category-science { background-color: #87CEFA; }
         .category-stat.category-self-development { background-color: #9370DB; }
         .category-stat.category-social-sciences { background-color: #A0522D; }
+        .category-stat.category-stage-play { background-color: #B45F06; }
         .category-stat.category-technology { background-color: #BC8F8F; }
 
         /* When any filter is active, change the style of non-active buttons */
@@ -499,7 +501,7 @@
                     <div class="form-group"><label for="bookAuthor">Author(s) *</label><input type="text" id="bookAuthor" required placeholder="e.g., Smith, John and Jones, Mary"></div>
                 </div>
                 <div class="form-row-three">
-                    <div class="form-group"><label for="bookCategory">Category *</label><select id="bookCategory" required><option value="">Select Category</option><option value="Biography">Biography</option><option value="Business">Business</option><option value="Education">Education</option><option value="Essay(s)/Short Stories">Essay(s)/Short Stories</option><option value="Finance">Finance</option><option value="Informational">Informational</option><option value="Memoir/Autobiography">Memoir/Autobiography</option><option value="Novel">Novel</option><option value="Philosophy">Philosophy</option><option value="Poetry">Poetry</option><option value="Policy and Politics">Policy and Politics</option><option value="Race, Class, and Gender">Race, Class, and Gender</option><option value="Religion">Religion</option><option value="Science">Science</option><option value="Self-Development">Self-Development</option><option value="Social Science(s)">Social Science(s)</option><option value="Technology">Technology</option></select></div>
+                    <div class="form-group"><label for="bookCategory">Category *</label><select id="bookCategory" required><option value="">Select Category</option><option value="Biography">Biography</option><option value="Business">Business</option><option value="Education">Education</option><option value="Essay(s)/Short Stories">Essay(s)/Short Stories</option><option value="Finance">Finance</option><option value="Informational">Informational</option><option value="Memoir/Autobiography">Memoir/Autobiography</option><option value="Novel">Novel</option><option value="Philosophy">Philosophy</option><option value="Poetry">Poetry</option><option value="Policy and Politics">Policy and Politics</option><option value="Race, Class, and Gender">Race, Class, and Gender</option><option value="Religion">Religion</option><option value="Science">Science</option><option value="Self-Development">Self-Development</option><option value="Social Science(s)">Social Science(s)</option><option value="Stage Play">Stage Play</option><option value="Technology">Technology</option></select></div>
                     <div class="form-group"><label for="bookStatus">Status *</label><select id="bookStatus" required><option value="">Select Status</option><option value="Finished">Finished</option><option value="In Progress">In Progress</option><option value="Next">Next</option></select></div>
                     <div class="form-group"><label for="bookOwnership">Ownership</label><select id="bookOwnership"><option value="">Select Ownership</option><option value="Digital">Digital</option><option value="Library">Library</option><option value="Physical">Physical</option></select></div>
                 </div>
@@ -850,7 +852,10 @@
 334,The Battle for the Black Mind,Karida L. Brown,Education,Physical,Finished,6/9/25
 335,"When the Clock Broke: Con Men, Conspiracists, and How America Cracked Up in the Early 1990s",John Ganz,Policy and Politics,Library,Finished,6/26/25
 336,Good Company,Arthur M. Blank, Business,Library,Finished,7/9/25
-337,"Careless People: A Cautionary Tale of Power, Greed, and Lost Idealism",Sarah Wynn-Williams,Memoir/Autobiography,Digital,In Progress,`;
+337,"Careless People: A Cautionary Tale of Power, Greed, and Lost Idealism",Sarah Wynn-Williams,Memoir/Autobiography,Digital,Finished,7/28/25
+338,The Old Man and the Sea,Ernest Hemingway,Novel,Library,In Progress
+339,"Isn't Her Grace Amazing!: The Women Who Changed Gospel Music",Cheryl Willis,Informational,Library,Next
+340,A Raisin in the Sun,Lorraine Hansberry,Stage Play,Library,Next,`;
 
         // CSV data for book cover URLs
         const book_cover_urls_csv_data = `book_number,cover_url
@@ -1190,7 +1195,10 @@
 334,https://books.google.com/books/content?id=zK4sEQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api
 335,https://play.google.com/books/publisher/content/images/frontcover/FG7TEAAAQBAJ?fife=w480-h690
 336,https://play.google.com/books/publisher/content/images/frontcover/QoTEDwAAQBAJ?fife=w480-h690
-337,https://play.google.com/books/publisher/content/images/frontcover/oHdJEQAAQBAJ?fife=w480-h690`;
+337,https://play.google.com/books/publisher/content/images/frontcover/oHdJEQAAQBAJ?fife=w480-h690
+338,https://m.media-amazon.com/images/I/71RXc0OoEwL.jpg
+339,https://play-lh.googleusercontent.com/fquk_GgY47Z4JyIIAwPmIi6nwORco_9yvS99nG3Bp0kVIvcjBY57WTFnycSuU1ZXE5-ESHSzbMLHJA=w480-h690-rw
+340,https://m.media-amazon.com/images/I/71Yq7brdaBL.jpg`;
 
 
         let coverUrls = parseCoverUrlsCsv(book_cover_urls_csv_data);
@@ -1390,7 +1398,7 @@
                 'Memoir/Autobiography': '#FF8C00', 'Novel': '#DA70D6', 'Philosophy': '#2F4F4F',
                 'Poetry': '#708090', 'Policy and Politics': '#477685', 
                 'Race, Class, and Gender': '#228B22', 'Religion': '#556B2F', 'Science': '#87CEFA',
-                'Self-Development': '#9370DB', 'Social Science(s)': '#A0522D', 'Technology': '#BC8F8F'
+                'Self-Development': '#9370DB', 'Social Science(s)': '#A0522D', 'Stage Play': '#B45F06', 'Technology': '#BC8F8F'
             };
             return colors[category] || '#667eea'; 
         }
