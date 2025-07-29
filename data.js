@@ -1223,7 +1223,7 @@ const books = [
   },
   {
     "number": 112,
-    "title": "A New Earth: Awakening to Your Life’s Purpose",
+    "title": "A New Earth: Awakening to Your Life's Purpose",
     "author": "Eckhart Tolle",
     "category": "Self-Development",
     "ownership": "Digital",
