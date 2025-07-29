@@ -2081,7 +2081,7 @@ const books = [
   },
   {
     "number": 190,
-    "title": "Know Your Price: Valuing Black Lives and Property in America’s Black Cities",
+    "title": "Know Your Price: Valuing Black Lives and Property in America's Black Cities",
     "author": "Andre M. Perry",
     "category": "Race, Class, and Gender",
     "ownership": "Digital",
