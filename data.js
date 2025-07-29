@@ -3740,4 +3740,4 @@ const books = [
     "customCoverUrl": "https://m.media-amazon.com/images/I/71Yq7brdaBL.jpg",
     "id": 340
   }
-]
+];
