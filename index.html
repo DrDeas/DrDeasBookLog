@@ -437,7 +437,6 @@
     <script src="data.js"></script>
     <script>
         // --- GLOBAL VARIABLES ---
-        // The 'books' constant is now loaded directly from data.js
         let challengeStartDate = new Date('2020-09-27');
         let challengeEndDate = new Date('2039-11-27');
         
@@ -445,9 +444,7 @@
         let activeCategoryFilters = new Set(); // To store active category filters
         let currentPage = 1;
         let totalPages = 1;
-        
-        // Get all unique categories from the initial book data for the category stats section
-        const allCategories = [...new Set(books.map(book => book.category).filter(Boolean))].sort();
+        let allCategories = []; // Will be populated after the DOM is loaded
         
         // --- HTML GENERATION FUNCTIONS ---
 
@@ -910,7 +907,8 @@
 
         // --- INITIALIZATION ---
         document.addEventListener('DOMContentLoaded', () => {
-            // No need to call loadBooks() anymore, data is ready.
+            // Now that the DOM is loaded, we can safely use the 'books' constant from data.js
+            allCategories = [...new Set(books.map(book => book.category).filter(Boolean))].sort();
             
             document.getElementById('searchInput').addEventListener('input', applyFiltersAndSort);
             document.getElementById('statusFilter').addEventListener('change', applyFiltersAndSort);
