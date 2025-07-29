@@ -1410,7 +1410,7 @@ const books = [
   },
   {
     "number": 129,
-    "title": "Barracoon: The Story of the Last ""Black Cargo""",
+    "title": "Barracoon: The Story of the Last \"\"Black Cargo\"\"",
     "author": "Zora Neale Hurston, Deborah G. Plant (Editor)",
     "category": "Race, Class, and Gender",
     "ownership": "Library",
