@@ -436,9 +436,9 @@
     <!-- The data.js file should be in the same directory as this HTML file -->
     <script src="data.js"></script>
     <script>
-        // --- GLOBAL VARIABLES ---
-        let challengeStartDate = new Date('2020-09-27');
-        let challengeEndDate = new Date('2039-11-27');
+        // --- GLOBAL VARIABLES (DECLARED BUT NOT INITIALIZED IF THEY DEPEND ON DATA) ---
+        const challengeStartDate = new Date('2020-09-27');
+        const challengeEndDate = new Date('2039-11-27');
         
         let filteredBooks = []; // This will hold the currently filtered and sorted books
         let activeCategoryFilters = new Set(); // To store active category filters
