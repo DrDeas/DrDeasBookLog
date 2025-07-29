@@ -437,8 +437,7 @@
     <script src="data.js"></script>
     <script>
         // --- GLOBAL VARIABLES ---
-        let coverUrls = parseCoverUrlsCsv(book_cover_urls_csv_data);
-        let books = parseCsvToBooks(rawCsvData, coverUrls);
+        // The 'books' constant is now loaded directly from data.js
         let challengeStartDate = new Date('2020-09-27');
         let challengeEndDate = new Date('2039-11-27');
         
@@ -449,67 +448,6 @@
         
         // Get all unique categories from the initial book data for the category stats section
         const allCategories = [...new Set(books.map(book => book.category).filter(Boolean))].sort();
-
-        // --- DATA PARSING FUNCTIONS ---
-
-        // Function to parse CSV text to an array of book objects
-        function parseCsvToBooks(csvString, coverUrlsMap) {
-            const lines = csvString.trim().split(/\r?\n/); 
-            if (lines.length < 2) return []; 
-
-            const headerLine = lines.shift(); 
-            const regex = /,(?=(?:(?:[^"]*"){2})*[^"]*$)/;
-            const headers = headerLine.split(regex).map(h => h.trim().replace(/^"|"$/g, ''));
-            
-            const booksData = lines.map(line => {
-                const values = line.split(regex).map(v => v.trim().replace(/^"|"$/g, ''));
-                const book = {};
-                headers.forEach((header, index) => {
-                    const value = values[index] || ""; 
-                    switch (header) {
-                        case "Number": book.number = parseInt(value, 10); break;
-                        case "Title": book.title = value; break;
-                        case "Author(s)": book.author = value; break;
-                        case "Category": book.category = value; break;
-                        case "Ownership": book.ownership = value; break;
-                        case "Status": book.status = value; break;
-                        case "Date Completed":
-                            if (value) {
-                                const parts = value.split('/');
-                                if (parts.length === 3) {
-                                    const year = parseInt(parts[2], 10);
-                                    const fullYear = year < 50 ? 2000 + year : 1900 + year;
-                                    book.dateCompleted = `${fullYear}-${parts[0].padStart(2, '0')}-${parts[1].padStart(2, '0')}`;
-                                } else { book.dateCompleted = value; }
-                            } else { book.dateCompleted = ""; }
-                            break;
-                    }
-                });
-                book.customCoverUrl = coverUrlsMap.get(book.number) || ""; 
-                book.id = book.number; 
-                return book;
-            });
-            return booksData.filter(b => b.number && b.title && b.author);
-        }
-
-        // Function to parse book cover URLs CSV
-        function parseCoverUrlsCsv(csvString) {
-            const coverUrlsMap = new Map();
-            const lines = csvString.trim().split(/\r?\n/);
-            if (lines.length < 2) return coverUrlsMap;
-            lines.shift(); // Skip header
-            lines.forEach(line => {
-                const values = line.split(',');
-                if (values.length === 2) {
-                    const bookNumber = parseInt(values[0].trim(), 10);
-                    const coverUrl = values[1].trim();
-                    if (!isNaN(bookNumber) && coverUrl) {
-                        coverUrlsMap.set(bookNumber, coverUrl);
-                    }
-                }
-            });
-            return coverUrlsMap;
-        }
         
         // --- HTML GENERATION FUNCTIONS ---
 
@@ -683,21 +621,6 @@
             document.getElementById('mainView').style.display = 'block';
             applyFiltersAndSort(); 
             window.scrollTo(0, 0);
-        }
-
-        // Loads initial book data and sets up IDs and dates
-        function loadBooks() {
-            books.forEach(book => {
-                if (!book.id) book.id = book.number; 
-                if (book.dateCompleted && book.dateCompleted.includes('/')) {
-                    const parts = book.dateCompleted.split('/');
-                    if (parts.length === 3) {
-                        const year = parseInt(parts[2], 10);
-                        const fullYear = year < 50 ? 2000 + year : 1900 + year;
-                        book.dateCompleted = `${fullYear}-${parts[0].padStart(2, '0')}-${parts[1].padStart(2, '0')}`;
-                    }
-                }
-            });
         }
         
         // Pagination functions
@@ -960,7 +883,8 @@
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        books: rawCsvData, // Pass the embedded CSV data
+                        // Since rawCsvData is no longer a global, we can't pass it directly.
+                        // For a real implementation, you might send the user query and have the backend access the data.
                         query: userQuery
                     })
                 });
@@ -986,7 +910,7 @@
 
         // --- INITIALIZATION ---
         document.addEventListener('DOMContentLoaded', () => {
-            loadBooks();
+            // No need to call loadBooks() anymore, data is ready.
             
             document.getElementById('searchInput').addEventListener('input', applyFiltersAndSort);
             document.getElementById('statusFilter').addEventListener('change', applyFiltersAndSort);
