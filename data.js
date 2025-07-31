@@ -3724,8 +3724,8 @@ const books = [
     "author": "Cheryl Willis",
     "category": "Informational",
     "ownership": "Library",
-    "status": "In Progress",
-    "dateCompleted": "",
+    "status": "Finished",
+    "dateCompleted": "2025-07-30",
     "customCoverUrl": "https://play-lh.googleusercontent.com/fquk_GgY47Z4JyIIAwPmIi6nwORco_9yvS99nG3Bp0kVIvcjBY57WTFnycSuU1ZXE5-ESHSzbMLHJA=w480-h690-rw",
     "id": 339
   },
@@ -3734,9 +3734,9 @@ const books = [
     "title": "A Raisin in the Sun",
     "author": "Lorraine Hansberry",
     "category": "Stage Play",
-    "ownership": "Library",
-    "status": "Next",
-    "dateCompleted": "",
+    "ownership": "Physical",
+    "status": "Finished",
+    "dateCompleted": "2025-07-31",
     "customCoverUrl": "https://m.media-amazon.com/images/I/71Yq7brdaBL.jpg",
     "id": 340
   }
