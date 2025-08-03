@@ -1069,7 +1069,7 @@ const books = [
   },
   {
     "number": 98,
-    "title": "Peace is Every Step",
+    "title": "Peace Is Every Step: The Path of Mindfulness in Everyday Life",
     "author": "Thich Nhat Hanh",
     "category": "Self-Development",
     "ownership": "Digital",
