@@ -8,7 +8,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2020-10-03",
-    "customCoverUrl": "https://books.google.com/books/content?id=F9uXDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00001.jpg",
     "id": 1
   },
   {
@@ -19,7 +19,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2020-10-08",
-    "customCoverUrl": "https://books.google.com/books/content?id=dhbsoQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00002.jpg",
     "id": 2
   },
   {
@@ -30,7 +30,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2020-10-13",
-    "customCoverUrl": "https://play.google.com/books/publisher/content/images/frontcover/VnuGDwAAQBAJ?fife=w480-h690",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00003.jpg",
     "id": 3
   },
   {
@@ -41,7 +41,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2020-10-24",
-    "customCoverUrl": "https://books.google.com/books/content?id=fFCjDQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00004.jpg",
     "id": 4
   },
   {
@@ -52,7 +52,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2020-10-28",
-    "customCoverUrl": "https://books.google.com/books/content?id=L086swEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00005.jpg",
     "id": 5
   },
   {
@@ -63,7 +63,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2020-11-06",
-    "customCoverUrl": "https://books.google.com/books/content?id=egdxAwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00006.jpg",
     "id": 6
   },
   {
@@ -74,7 +74,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2020-11-11",
-    "customCoverUrl": "https://books.google.com/books/content?id=Zx1xDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00007.jpg",
     "id": 7
   },
   {
@@ -85,7 +85,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2020-11-14",
-    "customCoverUrl": "https://books.google.com/books/content?id=wDyBDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00008.jpg",
     "id": 8
   },
   {
@@ -96,7 +96,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2020-11-20",
-    "customCoverUrl": "https://books.google.com/books/content?id=XNcuDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00009.jpg",
     "id": 9
   },
   {
@@ -107,7 +107,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2020-11-22",
-    "customCoverUrl": "https://books.google.com/books/content?id=fhIiAwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00010.jpg",
     "id": 10
   },
   {
@@ -118,7 +118,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2020-11-30",
-    "customCoverUrl": "https://books.google.com/books/content?id=0YY0AQAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00011.jpg",
     "id": 11
   },
   {
@@ -129,7 +129,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2020-12-03",
-    "customCoverUrl": "https://books.google.com/books/content?id=xiJptgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00012.jpg",
     "id": 12
   },
   {
@@ -140,7 +140,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2020-12-06",
-    "customCoverUrl": "https://books.google.com/books/content?id=mqxyDwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00013.jpg",
     "id": 13
   },
   {
@@ -151,7 +151,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2020-12-12",
-    "customCoverUrl": "https://books.google.com/books/content?id=GODUCwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00014.jpg",
     "id": 14
   },
   {
@@ -162,7 +162,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2020-12-14",
-    "customCoverUrl": "https://prodimage.images-bn.com/pimages/9781250798466_p0_v5_s1200x630.jpg",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00015.jpg",
     "id": 15
   },
   {
@@ -173,7 +173,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2020-12-17",
-    "customCoverUrl": "https://books.google.com/books/content?id=ialrgIT41OAC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00016.jpg",
     "id": 16
   },
   {
@@ -184,7 +184,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2020-12-20",
-    "customCoverUrl": "https://books.google.com/books/content?id=I7MyEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00017.jpg",
     "id": 17
   },
   {
@@ -195,7 +195,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2020-12-22",
-    "customCoverUrl": "https://books.google.com/books/content?id=SMx1AAAAMAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00018.jpg",
     "id": 18
   },
   {
@@ -206,7 +206,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2020-12-27",
-    "customCoverUrl": "https://books.google.com/books/publisher/content?id=OWa9DgAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00019.jpg",
     "id": 19
   },
   {
@@ -217,7 +217,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2020-12-31",
-    "customCoverUrl": "https://books.google.com/books/content?id=OT-dEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00020.jpg",
     "id": 20
   },
   {
@@ -228,7 +228,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2021-01-03",
-    "customCoverUrl": "https://books.google.com/books/content?id=C6te0-BLyy0C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00021.jpg",
     "id": 21
   },
   {
@@ -239,7 +239,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2021-01-07",
-    "customCoverUrl": "https://books.google.com/books/content?id=MhggUK3VxakC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00022.jpg",
     "id": 22
   },
   {
@@ -250,7 +250,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-01-09",
-    "customCoverUrl": "https://books.google.com/books/content?id=hLxyCwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00023.jpg",
     "id": 23
   },
   {
@@ -261,7 +261,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2021-01-11",
-    "customCoverUrl": "https://books.google.com/books/content?id=GqepQgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00024.jpg",
     "id": 24
   },
   {
@@ -272,7 +272,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-01-13",
-    "customCoverUrl": "https://books.google.com/books/content?id=Dlx748V3ci8C&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00025.jpg",
     "id": 25
   },
   {
@@ -283,7 +283,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-01-15",
-    "customCoverUrl": "https://books.google.com/books/content?id=ZOw7DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00026.jpg",
     "id": 26
   },
   {
@@ -294,7 +294,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-01-17",
-    "customCoverUrl": "https://books.google.com/books/content?id=c-slCwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00027.jpg",
     "id": 27
   },
   {
@@ -305,7 +305,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2021-01-20",
-    "customCoverUrl": "https://books.google.com/books/content?id=1u6_DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00028.jpg",
     "id": 28
   },
   {
@@ -316,7 +316,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-01-22",
-    "customCoverUrl": "https://books.google.com/books/content?id=m4aSDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00029.jpg",
     "id": 29
   },
   {
@@ -327,7 +327,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-01-23",
-    "customCoverUrl": "https://books.google.com/books/content?id=zjf4DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00030.jpg",
     "id": 30
   },
   {
@@ -338,7 +338,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-01-24",
-    "customCoverUrl": "https://books.google.com/books/content?id=KHDZDAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00031.jpg",
     "id": 31
   },
   {
@@ -349,7 +349,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-01-27",
-    "customCoverUrl": "https://books.google.com/books/content?id=V9lLvgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00032.jpg",
     "id": 32
   },
   {
@@ -360,7 +360,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-01-30",
-    "customCoverUrl": "https://books.google.co.ls/books/publisher/content?id=4uSNEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00033.jpg",
     "id": 33
   },
   {
@@ -371,7 +371,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2021-02-01",
-    "customCoverUrl": "https://books.google.com/books/publisher/content?id=kE9KEQAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00034.jpg",
     "id": 34
   },
   {
@@ -382,7 +382,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-02-13",
-    "customCoverUrl": "https://books.google.com/books/content?id=A9nWaIpeXhkC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00035.jpg",
     "id": 35
   },
   {
@@ -393,7 +393,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-02-14",
-    "customCoverUrl": "https://books.google.com/books/content?id=wvqVDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00036.jpg",
     "id": 36
   },
   {
@@ -404,7 +404,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2021-02-16",
-    "customCoverUrl": "https://play.google.com/books/publisher/content/images/frontcover/nHf8DwAAQBAJ?fife=w480-h690",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00037.jpg",
     "id": 37
   },
   {
@@ -415,7 +415,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2021-02-21",
-    "customCoverUrl": "https://books.google.com/books/content?id=Jk5CTBob9r8C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00038.jpg",
     "id": 38
   },
   {
@@ -426,7 +426,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-02-24",
-    "customCoverUrl": "https://books.google.com/books/content?id=MosvEQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00039.jpg",
     "id": 39
   },
   {
@@ -437,7 +437,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-02-27",
-    "customCoverUrl": "https://books.google.com/books/content?id=1kch0AEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00040.jpg",
     "id": 40
   },
   {
@@ -448,7 +448,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2021-03-03",
-    "customCoverUrl": "https://books.google.com/books/content?id=teyADwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00041.jpg",
     "id": 41
   },
   {
@@ -459,7 +459,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2021-03-09",
-    "customCoverUrl": "https://books.google.com/books/content?id=DtuEDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00042.jpg",
     "id": 42
   },
   {
@@ -470,7 +470,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2021-03-15",
-    "customCoverUrl": "https://books.google.com/books/content?id=GdmEDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00043.jpg",
     "id": 43
   },
   {
@@ -481,7 +481,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2021-03-22",
-    "customCoverUrl": "https://books.google.com/books/content?id=a1NqDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00044.jpg",
     "id": 44
   },
   {
@@ -492,7 +492,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2021-04-03",
-    "customCoverUrl": "https://books.google.com/books/content?id=0yioCgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00045.jpg",
     "id": 45
   },
   {
@@ -503,7 +503,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2021-04-07",
-    "customCoverUrl": "https://books.google.com/books/content?id=CYIqEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00046.jpg",
     "id": 46
   },
   {
@@ -514,7 +514,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-04-16",
-    "customCoverUrl": "https://books.google.com/books/content?id=8h90DwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00047.jpg",
     "id": 47
   },
   {
@@ -525,7 +525,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-04-25",
-    "customCoverUrl": "https://books.google.com/books/content?id=F8hdDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00048.jpg",
     "id": 48
   },
   {
@@ -536,7 +536,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2021-04-27",
-    "customCoverUrl": "https://books.google.com/books/content?id=Gc1WAAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00049.jpg",
     "id": 49
   },
   {
@@ -547,7 +547,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-05-08",
-    "customCoverUrl": "https://books.google.com/books/content?id=Wk2sugEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00050.jpg",
     "id": 50
   },
   {
@@ -558,7 +558,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-05-15",
-    "customCoverUrl": "https://books.google.com/books/content?id=QYeQEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00051.jpg",
     "id": 51
   },
   {
@@ -569,7 +569,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-05-18",
-    "customCoverUrl": "https://books.google.com/books/content?id=wmkdDAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00052.jpg",
     "id": 52
   },
   {
@@ -580,7 +580,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-05-22",
-    "customCoverUrl": "https://books.google.com/books/content?id=wjB-wwEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00053.jpg",
     "id": 53
   },
   {
@@ -591,7 +591,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-05-23",
-    "customCoverUrl": "https://books.google.com/books/content?id=nkSJDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00054.jpg",
     "id": 54
   },
   {
@@ -602,7 +602,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-05-24",
-    "customCoverUrl": "https://books.google.com/books/content?id=GbWp8QFX1K0C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00055.jpg",
     "id": 55
   },
   {
@@ -613,7 +613,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-05-26",
-    "customCoverUrl": "https://books.google.com/books/content?id=RRq5DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00056.jpg",
     "id": 56
   },
   {
@@ -624,7 +624,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-05-27",
-    "customCoverUrl": "https://books.google.com/books/content?id=hSrQUODfziQC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00057.jpg",
     "id": 57
   },
   {
@@ -635,7 +635,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2021-05-30",
-    "customCoverUrl": "https://books.google.com/books/publisher/content?id=cbwvDwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00058.jpg",
     "id": 58
   },
   {
@@ -646,7 +646,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-05-31",
-    "customCoverUrl": "https://books.google.com/books/content?id=Gs_XDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00059.jpg",
     "id": 59
   },
   {
@@ -657,7 +657,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2021-05-31",
-    "customCoverUrl": "https://books.google.com/books/content?id=xe26HJYY6UMC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00060.jpg",
     "id": 60
   },
   {
@@ -668,7 +668,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-06-09",
-    "customCoverUrl": "https://books.google.com/books/content?id=_BreDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00061.jpg",
     "id": 61
   },
   {
@@ -679,7 +679,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-06-12",
-    "customCoverUrl": "https://books.google.com/books/content?id=il_nAwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00062.jpg",
     "id": 62
   },
   {
@@ -690,7 +690,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2021-06-13",
-    "customCoverUrl": "https://books.google.com/books/content?id=jIOLDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00063.jpg",
     "id": 63
   },
   {
@@ -701,7 +701,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2021-06-19",
-    "customCoverUrl": "https://play.google.com/books/publisher/content/images/frontcover/FwwDEAAAQBAJ?fife=w480-h690",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00064.jpg",
     "id": 64
   },
   {
@@ -712,7 +712,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2021-06-24",
-    "customCoverUrl": "https://books.google.com/books/publisher/content?id=tKe-DwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00065.jpg",
     "id": 65
   },
   {
@@ -723,7 +723,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2021-07-05",
-    "customCoverUrl": "https://books.google.com/books/content?id=e4rvDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00066.jpg",
     "id": 66
   },
   {
@@ -734,7 +734,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-07-16",
-    "customCoverUrl": "https://books.google.com/books/content?id=6S1ehUwm2qAC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00067.jpg",
     "id": 67
   },
   {
@@ -745,7 +745,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-07-17",
-    "customCoverUrl": "https://books.google.com/books/publisher/content?id=gt2MEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00068.jpg",
     "id": 68
   },
   {
@@ -756,7 +756,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-07-26",
-    "customCoverUrl": "https://books.google.com/books/content?id=SQ6ixwEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00069.jpg",
     "id": 69
   },
   {
@@ -767,7 +767,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-07-29",
-    "customCoverUrl": "https://books.google.com/books/content?id=GM_XDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00070.jpg",
     "id": 70
   },
   {
@@ -778,7 +778,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-08-01",
-    "customCoverUrl": "https://books.google.com/books/content?id=Z_PvAwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00071.jpg",
     "id": 71
   },
   {
@@ -789,7 +789,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-08-05",
-    "customCoverUrl": "https://books.google.com/books/content?id=Eyk5EAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00072.jpg",
     "id": 72
   },
   {
@@ -800,7 +800,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-08-11",
-    "customCoverUrl": "https://books.google.com/books/content?id=2ue1EAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00073.jpg",
     "id": 73
   },
   {
@@ -811,7 +811,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-08-17",
-    "customCoverUrl": "https://books.google.com/books/content?id=v_hiAQAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00074.jpg",
     "id": 74
   },
   {
@@ -822,7 +822,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2021-08-31",
-    "customCoverUrl": "https://books.google.com/books/content?id=NqEhEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00075.jpg",
     "id": 75
   },
   {
@@ -833,7 +833,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-09-01",
-    "customCoverUrl": "https://books.google.com/books/content?id=2W6KDQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00076.jpg",
     "id": 76
   },
   {
@@ -844,7 +844,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-09-11",
-    "customCoverUrl": "https://books.google.com/books/content?id=8OXUAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00077.jpg",
     "id": 77
   },
   {
@@ -855,7 +855,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-09-12",
-    "customCoverUrl": "https://books.google.com/books/content?id=9e1LDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00078.jpg",
     "id": 78
   },
   {
@@ -866,7 +866,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-09-17",
-    "customCoverUrl": "https://books.google.com/books/content?id=K6FrJTWeUssC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00079.jpg",
     "id": 79
   },
   {
@@ -877,7 +877,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2021-09-27",
-    "customCoverUrl": "https://books.google.com/books/content?id=3Oe1EAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00080.jpg",
     "id": 80
   },
   {
@@ -888,7 +888,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2021-10-06",
-    "customCoverUrl": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1348270407i/1957790.jpg",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00081.jpg",
     "id": 81
   },
   {
@@ -899,7 +899,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2021-10-10",
-    "customCoverUrl": "https://books.google.com/books/content?id=bAxDDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00082.jpg",
     "id": 82
   },
   {
@@ -910,7 +910,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2021-10-14",
-    "customCoverUrl": "https://books.google.com/books/content?id=Kf6YzgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00083.jpg",
     "id": 83
   },
   {
@@ -921,7 +921,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2021-10-17",
-    "customCoverUrl": "https://books.google.com/books/content?id=2FW5BAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00084.jpg",
     "id": 84
   },
   {
@@ -932,7 +932,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-10-20",
-    "customCoverUrl": "https://books.google.com/books/content?id=MsgnEIymjsYC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00085.jpg",
     "id": 85
   },
   {
@@ -943,7 +943,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-10-24",
-    "customCoverUrl": "https://books.google.com/books/content?id=wrQ7PgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00086.jpg",
     "id": 86
   },
   {
@@ -954,7 +954,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2021-10-28",
-    "customCoverUrl": "https://books.google.com/books/content?id=VVsmU-4YwFsC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00087.jpg",
     "id": 87
   },
   {
@@ -965,7 +965,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-11-06",
-    "customCoverUrl": "https://books.google.com/books/content?id=jrBgDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00088.jpg",
     "id": 88
   },
   {
@@ -976,7 +976,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-11-07",
-    "customCoverUrl": "https://books.google.com/books/content?id=d4aQEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00089.jpg",
     "id": 89
   },
   {
@@ -987,7 +987,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-11-09",
-    "customCoverUrl": "https://books.google.com/books/content?id=p4eQEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00090.jpg",
     "id": 90
   },
   {
@@ -998,7 +998,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2021-11-15",
-    "customCoverUrl": "https://books.google.com/books/content?id=HWU9PgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00091.jpg",
     "id": 91
   },
   {
@@ -1009,7 +1009,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2021-11-20",
-    "customCoverUrl": "https://books.google.com/books/content?id=mCDatgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00092.jpg",
     "id": 92
   },
   {
@@ -1020,7 +1020,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2021-11-21",
-    "customCoverUrl": "https://books.google.com/books/content?id=Isw5EQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00093.jpg",
     "id": 93
   },
   {
@@ -1031,7 +1031,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2021-11-22",
-    "customCoverUrl": "https://books.google.com/books/content?id=L_PqEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00094.jpg",
     "id": 94
   },
   {
@@ -1042,7 +1042,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2021-11-23",
-    "customCoverUrl": "https://books.google.com/books/content?id=vudHDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00095.jpg",
     "id": 95
   },
   {
@@ -1053,7 +1053,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2021-11-24",
-    "customCoverUrl": "https://books.google.com/books/content?id=-_eivi7ueekC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00096.jpg",
     "id": 96
   },
   {
@@ -1064,7 +1064,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2021-11-25",
-    "customCoverUrl": "https://books.google.com/books/content?id=EXaqDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00097.jpg",
     "id": 97
   },
   {
@@ -1075,7 +1075,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2021-11-25",
-    "customCoverUrl": "https://books.google.com/books/content?id=J7m8p1ngZKwC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00098.jpg",
     "id": 98
   },
   {
@@ -1086,7 +1086,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2021-11-28",
-    "customCoverUrl": "https://books.google.com/books/content?id=aU6qDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00099.jpg",
     "id": 99
   },
   {
@@ -1097,7 +1097,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2021-12-11",
-    "customCoverUrl": "https://books.google.com/books/content?id=zxcaEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00100.jpg",
     "id": 100
   },
   {
@@ -1108,7 +1108,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2022-01-02",
-    "customCoverUrl": "https://books.google.com/books/content?id=gjXnDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00101.jpg",
     "id": 101
   },
   {
@@ -1119,7 +1119,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2022-01-05",
-    "customCoverUrl": "https://books.google.com/books/publisher/content?id=DccWEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00102.jpg",
     "id": 102
   },
   {
@@ -1130,7 +1130,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-01-09",
-    "customCoverUrl": "https://m.media-amazon.com/images/I/51p8NJkVesS._AC_UF1000,1000_QL80_.jpg",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00103.jpg",
     "id": 103
   },
   {
@@ -1141,7 +1141,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2022-02-06",
-    "customCoverUrl": "https://books.google.com/books/content?id=0au7QbAJH0gC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00104.jpg",
     "id": 104
   },
   {
@@ -1152,7 +1152,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-02-21",
-    "customCoverUrl": "https://books.google.com/books/content?id=G28LTQltyVAC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00105.jpg",
     "id": 105
   },
   {
@@ -1163,7 +1163,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-02-28",
-    "customCoverUrl": "https://books.google.com/books/content?id=qK6OEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00106.jpg",
     "id": 106
   },
   {
@@ -1174,7 +1174,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-03-05",
-    "customCoverUrl": "https://books.google.com/books/content?id=D703ICbu5O4C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00107.jpg",
     "id": 107
   },
   {
@@ -1185,7 +1185,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-03-13",
-    "customCoverUrl": "https://books.google.com/books/content?id=t54LEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00108.jpg",
     "id": 108
   },
   {
@@ -1196,7 +1196,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-03-16",
-    "customCoverUrl": "https://books.google.com/books/content?id=mEobBQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00109.jpg",
     "id": 109
   },
   {
@@ -1207,7 +1207,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-03-18",
-    "customCoverUrl": "https://books.google.com/books/content?id=p2AhEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00110.jpg",
     "id": 110
   },
   {
@@ -1218,7 +1218,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-03-19",
-    "customCoverUrl": "https://books.google.com/books/content?id=_gQXEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00111.jpg",
     "id": 111
   },
   {
@@ -1229,7 +1229,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-04-01",
-    "customCoverUrl": "https://books.google.com/books/content?id=MKVPEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00112.jpg",
     "id": 112
   },
   {
@@ -1240,7 +1240,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-04-08",
-    "customCoverUrl": "https://books.google.com/books/content?id=USl2DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00113.jpg",
     "id": 113
   },
   {
@@ -1251,7 +1251,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2022-04-12",
-    "customCoverUrl": "https://books.google.com/books/content?id=nVoszwEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00114.jpg",
     "id": 114
   },
   {
@@ -1262,7 +1262,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-04-16",
-    "customCoverUrl": "https://books.google.com/books/content?id=a6sRdYLlmqIC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00115.jpg",
     "id": 115
   },
   {
@@ -1273,7 +1273,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-04-24",
-    "customCoverUrl": "https://books.google.com/books/content?id=nPy9uwEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00116.jpg",
     "id": 116
   },
   {
@@ -1284,7 +1284,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2022-04-25",
-    "customCoverUrl": "https://books.google.com/books/content?id=CbouDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00117.jpg",
     "id": 117
   },
   {
@@ -1295,7 +1295,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-04-30",
-    "customCoverUrl": "https://books.google.com/books/content?id=-ThDDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00118.jpg",
     "id": 118
   },
   {
@@ -1306,7 +1306,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-05-02",
-    "customCoverUrl": "https://books.google.com/books/content?id=qkm5DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00119.jpg",
     "id": 119
   },
   {
@@ -1317,7 +1317,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-05-04",
-    "customCoverUrl": "https://books.google.com/books/content?id=LDDxPD2pejMC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00120.jpg",
     "id": 120
   },
   {
@@ -1328,7 +1328,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2022-05-07",
-    "customCoverUrl": "https://books.google.com/books/publisher/content?id=R29RDwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00121.jpg",
     "id": 121
   },
   {
@@ -1339,7 +1339,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2022-05-12",
-    "customCoverUrl": "https://books.google.com/books/content?id=eDFAEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00122.jpg",
     "id": 122
   },
   {
@@ -1350,7 +1350,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-05-14",
-    "customCoverUrl": "https://books.google.com/books/content?id=jexHEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00123.jpg",
     "id": 123
   },
   {
@@ -1361,7 +1361,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2022-05-15",
-    "customCoverUrl": "https://books.google.com/books/publisher/content?id=b06qDwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00124.jpg",
     "id": 124
   },
   {
@@ -1372,7 +1372,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-05-23",
-    "customCoverUrl": "https://books.google.com/books/content?id=OiJI19ot4BsC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00125.jpg",
     "id": 125
   },
   {
@@ -1383,7 +1383,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-06-04",
-    "customCoverUrl": "https://books.google.com/books/content?id=vGY7EAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00126.jpg",
     "id": 126
   },
   {
@@ -1394,7 +1394,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-06-17",
-    "customCoverUrl": "https://books.google.com/books/content?id=4bAsEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00127.jpg",
     "id": 127
   },
   {
@@ -1405,7 +1405,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2022-06-21",
-    "customCoverUrl": "https://play.google.com/books/publisher/content/images/frontcover/B4MhEAAAQBAJ?fife=w480-h690",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00128.jpg",
     "id": 128
   },
   {
@@ -1416,7 +1416,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2022-06-21",
-    "customCoverUrl": "https://books.google.com/books/content?id=UccvDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00129.jpg",
     "id": 129
   },
   {
@@ -1427,7 +1427,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2022-06-22",
-    "customCoverUrl": "https://books.google.com/books/content?id=tz62QRx_gE0C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00130.jpg",
     "id": 130
   },
   {
@@ -1438,7 +1438,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2022-06-23",
-    "customCoverUrl": "https://books.google.com/books/content?id=6JkRTnXgS7oC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00131.jpg",
     "id": 131
   },
   {
@@ -1449,7 +1449,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2022-06-24",
-    "customCoverUrl": "https://books.google.com/books/content?id=30I0rLLLnkcC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00132.jpg",
     "id": 132
   },
   {
@@ -1460,7 +1460,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2022-06-28",
-    "customCoverUrl": "https://books.google.com/books/content?id=-XGKFJq4eccC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00133.jpg",
     "id": 133
   },
   {
@@ -1471,7 +1471,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-06-29",
-    "customCoverUrl": "https://books.google.com/books/content?id=4_FwDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00134.jpg",
     "id": 134
   },
   {
@@ -1482,7 +1482,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-07-05",
-    "customCoverUrl": "https://books.google.com/books/content?id=ka4TcURYXy4C&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00135.jpg",
     "id": 135
   },
   {
@@ -1493,7 +1493,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2022-07-07",
-    "customCoverUrl": "https://books.google.com/books/content?id=BVJMzwEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00136.jpg",
     "id": 136
   },
   {
@@ -1504,7 +1504,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2022-07-11",
-    "customCoverUrl": "https://books.google.com/books/content?id=aDJKDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00137.jpg",
     "id": 137
   },
   {
@@ -1515,7 +1515,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2022-07-15",
-    "customCoverUrl": "https://books.google.com/books/content?id=vAIhEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00138.jpg",
     "id": 138
   },
   {
@@ -1526,7 +1526,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2022-07-17",
-    "customCoverUrl": "https://books.google.com/books/content?id=axqxxQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00139.jpg",
     "id": 139
   },
   {
@@ -1537,7 +1537,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2022-07-19",
-    "customCoverUrl": "https://books.google.com/books/content?id=6sDh0AEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00140.jpg",
     "id": 140
   },
   {
@@ -1548,7 +1548,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-07-19",
-    "customCoverUrl": "https://books.google.com/books/content?id=Nu8XS9J61vgC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00141.jpg",
     "id": 141
   },
   {
@@ -1559,7 +1559,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2022-07-22",
-    "customCoverUrl": "https://books.google.com/books/content?id=QmoGtAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00142.jpg",
     "id": 142
   },
   {
@@ -1570,7 +1570,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-07-27",
-    "customCoverUrl": "https://books.google.com/books/content?id=dFgbnwEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00143.jpg",
     "id": 143
   },
   {
@@ -1581,7 +1581,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2022-07-30",
-    "customCoverUrl": "https://books.google.com/books/content?id=hRtGzesft_AC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00144.jpg",
     "id": 144
   },
   {
@@ -1592,7 +1592,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-08-01",
-    "customCoverUrl": "https://books.google.com/books/content?id=i9baDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00145.jpg",
     "id": 145
   },
   {
@@ -1603,7 +1603,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-08-05",
-    "customCoverUrl": "https://books.google.com/books/content?id=g_WFDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00146.jpg",
     "id": 146
   },
   {
@@ -1614,7 +1614,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-08-10",
-    "customCoverUrl": "https://books.google.com/books/content?id=IsUCN29Qel0C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00147.jpg",
     "id": 147
   },
   {
@@ -1625,7 +1625,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2022-08-11",
-    "customCoverUrl": "https://books.google.com/books/content?id=9kQSjiUX1RIC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00148.jpg",
     "id": 148
   },
   {
@@ -1636,7 +1636,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-08-12",
-    "customCoverUrl": "https://books.google.com/books/content?id=CAPYAAAAMAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00149.jpg",
     "id": 149
   },
   {
@@ -1647,7 +1647,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2022-08-13",
-    "customCoverUrl": "https://books.google.com/books/publisher/content?id=ECC4DwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00150.jpg",
     "id": 150
   },
   {
@@ -1658,7 +1658,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2022-08-19",
-    "customCoverUrl": "https://books.google.com/books/content?id=caJ2EAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00151.jpg",
     "id": 151
   },
   {
@@ -1669,7 +1669,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-08-21",
-    "customCoverUrl": "https://books.google.com/books/content?id=s_-hCgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00152.jpg",
     "id": 152
   },
   {
@@ -1680,7 +1680,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2022-08-24",
-    "customCoverUrl": "https://books.google.com/books/content?id=t_3yQrhdxwUC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00153.jpg",
     "id": 153
   },
   {
@@ -1691,7 +1691,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2022-08-30",
-    "customCoverUrl": "https://books.google.com/books/content?id=5xZ9EAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00154.jpg",
     "id": 154
   },
   {
@@ -1702,7 +1702,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-09-02",
-    "customCoverUrl": "https://books.google.com/books/content?id=4SrWoAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00155.jpg",
     "id": 155
   },
   {
@@ -1713,7 +1713,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2022-09-05",
-    "customCoverUrl": "https://books.google.com/books/content?id=bSP87sRcAbEC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00156.jpg",
     "id": 156
   },
   {
@@ -1724,7 +1724,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2022-09-06",
-    "customCoverUrl": "https://books.google.com/books/publisher/content?id=UafoAQAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00157.jpg",
     "id": 157
   },
   {
@@ -1735,7 +1735,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-09-07",
-    "customCoverUrl": "https://books.google.com/books/publisher/content?id=nLKMEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00158.jpg",
     "id": 158
   },
   {
@@ -1746,7 +1746,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2022-09-08",
-    "customCoverUrl": "https://books.google.com/books/content?id=EY0nDQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00159.jpg",
     "id": 159
   },
   {
@@ -1757,7 +1757,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2022-09-09",
-    "customCoverUrl": "https://books.google.com/books/content?id=v8cGvgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00160.jpg",
     "id": 160
   },
   {
@@ -1768,7 +1768,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2022-09-18",
-    "customCoverUrl": "https://books.google.com/books/content?id=Gs5PRR9-8BcC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00161.jpg",
     "id": 161
   },
   {
@@ -1779,7 +1779,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-09-22",
-    "customCoverUrl": "https://books.google.com/books/content?id=1nRsEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00162.jpg",
     "id": 162
   },
   {
@@ -1790,7 +1790,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-09-23",
-    "customCoverUrl": "https://books.google.com/books/content?id=xn0sEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00163.jpg",
     "id": 163
   },
   {
@@ -1801,7 +1801,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-09-25",
-    "customCoverUrl": "https://books.google.com/books/content?id=1NxYNMHzmS4C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00164.jpg",
     "id": 164
   },
   {
@@ -1812,7 +1812,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-09-30",
-    "customCoverUrl": "https://play.google.com/books/publisher/content/images/frontcover/dsz5AwAAQBAJ?fife=w480-h690",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00165.jpg",
     "id": 165
   },
   {
@@ -1823,7 +1823,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-10-05",
-    "customCoverUrl": "https://books.google.com/books/content?id=8T0JEQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00166.jpg",
     "id": 166
   },
   {
@@ -1834,7 +1834,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-10-14",
-    "customCoverUrl": "https://books.google.com/books/content?id=9imEyTk7Wa0C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00167.jpg",
     "id": 167
   },
   {
@@ -1845,7 +1845,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-10-17",
-    "customCoverUrl": "https://books.google.com/books/publisher/content?id=TXpEDwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00168.jpg",
     "id": 168
   },
   {
@@ -1856,7 +1856,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2022-10-19",
-    "customCoverUrl": "https://books.google.com/books/content?id=H3D3DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00169.jpg",
     "id": 169
   },
   {
@@ -1867,7 +1867,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-10-21",
-    "customCoverUrl": "https://books.google.com/books/content?id=F-Q_xGjWBi8C&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00170.jpg",
     "id": 170
   },
   {
@@ -1878,7 +1878,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2022-10-23",
-    "customCoverUrl": "https://books.google.com/books/content?id=c0MVDAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00171.jpg",
     "id": 171
   },
   {
@@ -1889,7 +1889,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2022-10-26",
-    "customCoverUrl": "https://books.google.com/books/content?id=NMLvDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00172.jpg",
     "id": 172
   },
   {
@@ -1900,7 +1900,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2022-11-01",
-    "customCoverUrl": "https://books.google.com/books/content?id=i8TqDAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00173.jpg",
     "id": 173
   },
   {
@@ -1911,7 +1911,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-11-03",
-    "customCoverUrl": "https://books.google.com/books/content?id=6_ZeEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00174.jpg",
     "id": 174
   },
   {
@@ -1922,7 +1922,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-11-12",
-    "customCoverUrl": "https://books.google.com/books/content?id=TOdaEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00175.jpg",
     "id": 175
   },
   {
@@ -1933,7 +1933,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-11-26",
-    "customCoverUrl": "https://books.google.com/books/content?id=qBfRDQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00176.jpg",
     "id": 176
   },
   {
@@ -1944,7 +1944,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-11-27",
-    "customCoverUrl": "https://books.google.com/books/content?id=1ezlCgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00177.jpg",
     "id": 177
   },
   {
@@ -1955,7 +1955,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-11-28",
-    "customCoverUrl": "https://books.google.com/books/content?id=zmJWEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00178.jpg",
     "id": 178
   },
   {
@@ -1966,7 +1966,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2022-12-07",
-    "customCoverUrl": "https://books.google.com/books/content?id=xdxFg5dmdcAC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00179.jpg",
     "id": 179
   },
   {
@@ -1977,7 +1977,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2022-12-12",
-    "customCoverUrl": "https://books.google.com/books/content?id=Nc9QMQAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00180.jpg",
     "id": 180
   },
   {
@@ -1988,7 +1988,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2023-01-02",
-    "customCoverUrl": "https://books.google.com/books/content?id=HloTEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00181.jpg",
     "id": 181
   },
   {
@@ -1999,7 +1999,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2023-01-07",
-    "customCoverUrl": "https://books.google.com/books/content?id=fCTKDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00182.jpg",
     "id": 182
   },
   {
@@ -2010,7 +2010,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2023-01-08",
-    "customCoverUrl": "https://books.google.com/books/content?id=aVz_BgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00183.jpg",
     "id": 183
   },
   {
@@ -2021,7 +2021,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2023-01-13",
-    "customCoverUrl": "https://books.google.com/books/content?id=wm3ezgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00184.jpg",
     "id": 184
   },
   {
@@ -2032,7 +2032,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2023-01-23",
-    "customCoverUrl": "https://play.google.com/books/publisher/content/images/frontcover/IOUHEAAAQBAJ?fife=w480-h690",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00185.jpg",
     "id": 185
   },
   {
@@ -2043,7 +2043,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2023-02-05",
-    "customCoverUrl": "https://books.google.com/books/publisher/content?id=3PKNEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00186.jpg",
     "id": 186
   },
   {
@@ -2054,7 +2054,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2023-02-06",
-    "customCoverUrl": "https://books.google.com/books/content?id=PnP5EAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00187.jpg",
     "id": 187
   },
   {
@@ -2065,7 +2065,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2023-02-09",
-    "customCoverUrl": "https://books.google.com/books/content?id=_c79DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00188.jpg",
     "id": 188
   },
   {
@@ -2076,7 +2076,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2023-02-18",
-    "customCoverUrl": "https://books.google.com/books/content?id=2plPEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00189.jpg",
     "id": 189
   },
   {
@@ -2087,7 +2087,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2023-02-28",
-    "customCoverUrl": "https://books.google.com/books/content?id=9vqGDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00190.jpg",
     "id": 190
   },
   {
@@ -2098,7 +2098,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2023-03-08",
-    "customCoverUrl": "https://books.google.com/books/content?id=94_GDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00191.jpg",
     "id": 191
   },
   {
@@ -2109,7 +2109,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2023-03-15",
-    "customCoverUrl": "https://books.google.com/books/content?id=V8rVDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00192.jpg",
     "id": 192
   },
   {
@@ -2120,7 +2120,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2023-03-19",
-    "customCoverUrl": "https://books.google.com/books/content?id=mmZSDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00193.jpg",
     "id": 193
   },
   {
@@ -2131,7 +2131,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2023-03-25",
-    "customCoverUrl": "https://books.google.com/books/content?id=U5DEDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00194.jpg",
     "id": 194
   },
   {
@@ -2142,7 +2142,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2023-03-27",
-    "customCoverUrl": "https://books.google.com/books/content?id=x-m4DgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00195.jpg",
     "id": 195
   },
   {
@@ -2153,7 +2153,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2023-03-31",
-    "customCoverUrl": "https://books.google.com/books/content?id=47gTeoOwJ7EC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00196.jpg",
     "id": 196
   },
   {
@@ -2164,7 +2164,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2023-04-09",
-    "customCoverUrl": "https://books.google.com/books/content?id=HMM4vgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00197.jpg",
     "id": 197
   },
   {
@@ -2175,7 +2175,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2023-04-10",
-    "customCoverUrl": "https://books.google.com/books/content?id=FzR7EAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00198.jpg",
     "id": 198
   },
   {
@@ -2186,7 +2186,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2023-04-10",
-    "customCoverUrl": "https://books.google.com/books/content?id=LYhXDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00199.jpg",
     "id": 199
   },
   {
@@ -2197,7 +2197,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2023-04-13",
-    "customCoverUrl": "https://books.google.com/books/content?id=y5GKEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00200.jpg",
     "id": 200
   },
   {
@@ -2208,7 +2208,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2023-04-16",
-    "customCoverUrl": "https://books.google.com/books/content?id=Be80DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00201.jpg",
     "id": 201
   },
   {
@@ -2219,7 +2219,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2023-04-22",
-    "customCoverUrl": "https://books.google.com/books/content?id=yLDMDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00202.jpg",
     "id": 202
   },
   {
@@ -2230,7 +2230,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2023-04-24",
-    "customCoverUrl": "https://books.google.com/books/content?id=j6TXDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00203.jpg",
     "id": 203
   },
   {
@@ -2241,7 +2241,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2023-04-24",
-    "customCoverUrl": "https://books.google.com/books/content?id=V5veDAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00204.jpg",
     "id": 204
   },
   {
@@ -2252,7 +2252,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2023-04-30",
-    "customCoverUrl": "https://books.google.com/books/content?id=JgA5zwEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00205.jpg",
     "id": 205
   },
   {
@@ -2263,7 +2263,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2023-05-05",
-    "customCoverUrl": "https://books.google.com/books/content?id=gtUiDQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00206.jpg",
     "id": 206
   },
   {
@@ -2274,7 +2274,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2023-05-13",
-    "customCoverUrl": "https://books.google.com/books/content?id=f1zbDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00207.jpg",
     "id": 207
   },
   {
@@ -2285,7 +2285,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2023-05-17",
-    "customCoverUrl": "https://books.google.com/books/content?id=l3dtEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00208.jpg",
     "id": 208
   },
   {
@@ -2296,7 +2296,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2023-05-26",
-    "customCoverUrl": "https://books.google.com/books/content?id=iWhxK12fbA4C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00209.jpg",
     "id": 209
   },
   {
@@ -2307,7 +2307,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2023-05-30",
-    "customCoverUrl": "https://books.google.com/books/content?id=LwCUDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00210.jpg",
     "id": 210
   },
   {
@@ -2318,7 +2318,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2023-06-07",
-    "customCoverUrl": "https://books.google.com/books/content?id=DOh4DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00211.jpg",
     "id": 211
   },
   {
@@ -2329,7 +2329,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2023-06-13",
-    "customCoverUrl": "https://books.google.com/books/content?id=cq-PEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00212.jpg",
     "id": 212
   },
   {
@@ -2340,7 +2340,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2023-06-14",
-    "customCoverUrl": "https://books.google.com/books/content?id=9YTwDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00213.jpg",
     "id": 213
   },
   {
@@ -2351,7 +2351,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2023-06-27",
-    "customCoverUrl": "https://books.google.com/books/content?id=cdy-AQAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00214.jpg",
     "id": 214
   },
   {
@@ -2362,7 +2362,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2023-07-13",
-    "customCoverUrl": "https://books.google.com/books/content?id=0Oe1EAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00215.jpg",
     "id": 215
   },
   {
@@ -2373,7 +2373,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2023-07-16",
-    "customCoverUrl": "https://books.google.com/books/content?id=mH2pQgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00216.jpg",
     "id": 216
   },
   {
@@ -2384,7 +2384,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2023-07-21",
-    "customCoverUrl": "https://books.google.com/books/content?id=0ue1EAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00217.jpg",
     "id": 217
   },
   {
@@ -2395,7 +2395,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2023-07-26",
-    "customCoverUrl": "https://books.google.com/books/content?id=zOe1EAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00218.jpg",
     "id": 218
   },
   {
@@ -2406,7 +2406,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2023-07-30",
-    "customCoverUrl": "https://books.google.com/books/content?id=v5Y6DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00219.jpg",
     "id": 219
   },
   {
@@ -2417,7 +2417,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2023-08-01",
-    "customCoverUrl": "https://books.google.com/books/content?id=hETQ5rjv_PgC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00220.jpg",
     "id": 220
   },
   {
@@ -2428,7 +2428,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2023-08-11",
-    "customCoverUrl": "https://books.google.com/books/content?id=2U84DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00221.jpg",
     "id": 221
   },
   {
@@ -2439,7 +2439,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2023-08-12",
-    "customCoverUrl": "https://books.google.com/books/content?id=4_nzEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00222.jpg",
     "id": 222
   },
   {
@@ -2450,7 +2450,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2023-08-18",
-    "customCoverUrl": "https://books.google.com/books/content?id=l66SAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00223.jpg",
     "id": 223
   },
   {
@@ -2461,7 +2461,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2023-08-27",
-    "customCoverUrl": "https://books.google.com/books/content?id=WYF0DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00224.jpg",
     "id": 224
   },
   {
@@ -2472,7 +2472,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2023-09-03",
-    "customCoverUrl": "https://books.google.com/books/content?id=YooUCgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00225.jpg",
     "id": 225
   },
   {
@@ -2483,7 +2483,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2023-09-05",
-    "customCoverUrl": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1507484842l/36260417.jpg",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00226.jpg",
     "id": 226
   },
   {
@@ -2494,7 +2494,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2023-09-13",
-    "customCoverUrl": "https://books.google.com/books/content?id=BY8yzgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00227.jpg",
     "id": 227
   },
   {
@@ -2505,7 +2505,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2023-09-18",
-    "customCoverUrl": "https://books.google.com/books/content?id=OMKiEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00228.jpg",
     "id": 228
   },
   {
@@ -2516,7 +2516,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2023-09-21",
-    "customCoverUrl": "https://books.google.com/books/content?id=EpU5DgAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00229.jpg",
     "id": 229
   },
   {
@@ -2527,7 +2527,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2023-09-25",
-    "customCoverUrl": "https://books.google.com/books/content?id=JUotzwEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00230.jpg",
     "id": 230
   },
   {
@@ -2538,7 +2538,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2023-09-30",
-    "customCoverUrl": "https://books.google.com/books/content?id=N5VaEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00231.jpg",
     "id": 231
   },
   {
@@ -2549,7 +2549,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2023-10-07",
-    "customCoverUrl": "https://books.google.com/books/content?id=Q-k5nwEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00232.jpg",
     "id": 232
   },
   {
@@ -2560,7 +2560,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2023-10-10",
-    "customCoverUrl": "https://books.google.com/books/content?id=uIHCOUNytrEC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00233.jpg",
     "id": 233
   },
   {
@@ -2571,7 +2571,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2023-10-14",
-    "customCoverUrl": "https://books.google.com/books/content?id=_UMkAAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00234.jpg",
     "id": 234
   },
   {
@@ -2582,7 +2582,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2023-10-15",
-    "customCoverUrl": "https://books.google.com/books/content?id=25_LDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00235.jpg",
     "id": 235
   },
   {
@@ -2593,7 +2593,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2023-10-16",
-    "customCoverUrl": "https://books.google.com/books/content?id=HAoMCAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00236.jpg",
     "id": 236
   },
   {
@@ -2604,7 +2604,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2023-10-29",
-    "customCoverUrl": "https://books.google.com/books/content?id=TTNcEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00237.jpg",
     "id": 237
   },
   {
@@ -2615,7 +2615,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2023-11-01",
-    "customCoverUrl": "https://books.google.com/books/content?id=7K9szQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00238.jpg",
     "id": 238
   },
   {
@@ -2626,7 +2626,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2023-11-04",
-    "customCoverUrl": "https://books.google.com/books/content?id=1_6VSVuzCagC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00239.jpg",
     "id": 239
   },
   {
@@ -2637,7 +2637,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2023-11-11",
-    "customCoverUrl": "https://books.google.com/books/content?id=44WEEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00240.jpg",
     "id": 240
   },
   {
@@ -2648,7 +2648,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2023-11-17",
-    "customCoverUrl": "https://books.google.com/books/content?id=NfsWEQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00241.jpg",
     "id": 241
   },
   {
@@ -2659,7 +2659,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2023-11-27",
-    "customCoverUrl": "https://books.google.com/books/content?id=r11PDwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00242.jpg",
     "id": 242
   },
   {
@@ -2670,7 +2670,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2023-12-01",
-    "customCoverUrl": "https://books.google.com/books/content?id=ey-evejZoiUC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00243.jpg",
     "id": 243
   },
   {
@@ -2681,7 +2681,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2023-12-04",
-    "customCoverUrl": "https://books.google.com/books/content?id=c_oXCi3ISd0C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00244.jpg",
     "id": 244
   },
   {
@@ -2692,7 +2692,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2023-12-07",
-    "customCoverUrl": "https://books.google.com/books/content?id=WpqjEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00245.jpg",
     "id": 245
   },
   {
@@ -2703,7 +2703,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2023-12-12",
-    "customCoverUrl": "https://books.google.com/books/content?id=DLMo0AEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00246.jpg",
     "id": 246
   },
   {
@@ -2714,7 +2714,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2023-12-18",
-    "customCoverUrl": "https://books.google.com/books/content?id=QwlpEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00247.jpg",
     "id": 247
   },
   {
@@ -2725,7 +2725,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2023-12-19",
-    "customCoverUrl": "https://m.media-amazon.com/images/I/51CHtA64O3L._SL500_.jpg",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00248.jpg",
     "id": 248
   },
   {
@@ -2736,7 +2736,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2023-12-20",
-    "customCoverUrl": "https://books.google.com/books/content?id=fs07zgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00249.jpg",
     "id": 249
   },
   {
@@ -2747,7 +2747,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2023-12-21",
-    "customCoverUrl": "https://books.google.com/books/content?id=biK_EAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00250.jpg",
     "id": 250
   },
   {
@@ -2758,7 +2758,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2024-01-04",
-    "customCoverUrl": "https://books.google.com/books/content?id=fWLZ6cWZKRUC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00251.jpg",
     "id": 251
   },
   {
@@ -2769,7 +2769,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2024-01-09",
-    "customCoverUrl": "https://books.google.com/books/content?id=ks8MatCA_VoC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00252.jpg",
     "id": 252
   },
   {
@@ -2780,7 +2780,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2024-01-14",
-    "customCoverUrl": "https://books.google.com/books/content?id=nEadQgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00253.jpg",
     "id": 253
   },
   {
@@ -2791,7 +2791,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2024-01-18",
-    "customCoverUrl": "https://books.google.com/books/content?id=HH2-EAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00254.jpg",
     "id": 254
   },
   {
@@ -2802,7 +2802,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2024-01-24",
-    "customCoverUrl": "https://books.google.com/books/content?id=o01AfGWfKwIC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00255.jpg",
     "id": 255
   },
   {
@@ -2813,7 +2813,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2024-01-25",
-    "customCoverUrl": "https://books.google.com/books/content?id=laQ5AQAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00256.jpg",
     "id": 256
   },
   {
@@ -2824,7 +2824,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2024-01-26",
-    "customCoverUrl": "https://books.google.com/books/content?id=KQMTEQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00257.jpg",
     "id": 257
   },
   {
@@ -2835,7 +2835,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2024-01-27",
-    "customCoverUrl": "https://books.google.com/books/publisher/content?id=XXGYDwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00258.jpg",
     "id": 258
   },
   {
@@ -2846,7 +2846,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2024-01-28",
-    "customCoverUrl": "https://books.google.com/books/content?id=UzhhDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00259.jpg",
     "id": 259
   },
   {
@@ -2857,7 +2857,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2024-01-29",
-    "customCoverUrl": "https://books.google.com/books/content?id=i-41yUowGBYC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00260.jpg",
     "id": 260
   },
   {
@@ -2868,7 +2868,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2024-01-30",
-    "customCoverUrl": "https://books.google.com/books/content?id=jkgsvAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00261.jpg",
     "id": 261
   },
   {
@@ -2879,7 +2879,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2024-02-06",
-    "customCoverUrl": "https://books.google.com/books/content?id=g0_mEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00262.jpg",
     "id": 262
   },
   {
@@ -2890,7 +2890,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2024-02-23",
-    "customCoverUrl": "https://books.google.com/books/content?id=hgx0sJvphNkC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00263.jpg",
     "id": 263
   },
   {
@@ -2901,7 +2901,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2024-02-24",
-    "customCoverUrl": "https://books.google.com/books/content?id=fhm1vgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00264.jpg",
     "id": 264
   },
   {
@@ -2912,7 +2912,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2024-02-25",
-    "customCoverUrl": "https://books.google.com/books/content?id=ZZ806Vanu3IC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00265.jpg",
     "id": 265
   },
   {
@@ -2923,7 +2923,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2024-03-01",
-    "customCoverUrl": "https://books.google.com/books/content?id=XhrQtAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00266.jpg",
     "id": 266
   },
   {
@@ -2934,7 +2934,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2024-03-13",
-    "customCoverUrl": "https://play-lh.googleusercontent.com/jsyNOZ3eMRIdgz5jlh8rPtgSGD37BwH38Pie0S74B9LYXegVieoYEtdNb4ihK_VeRMpShBPkqvE9dg=w480-h690-rw",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00267.jpg",
     "id": 267
   },
   {
@@ -2945,7 +2945,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2024-03-14",
-    "customCoverUrl": "https://books.google.com/books/content?id=VNcdzgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00268.jpg",
     "id": 268
   },
   {
@@ -2956,7 +2956,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2024-03-15",
-    "customCoverUrl": "https://books.google.com/books/content?id=9BPpDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00269.jpg",
     "id": 269
   },
   {
@@ -2967,7 +2967,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2024-03-23",
-    "customCoverUrl": "https://books.google.com/books/content?id=ZlU3DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00270.jpg",
     "id": 270
   },
   {
@@ -2978,7 +2978,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2024-03-28",
-    "customCoverUrl": "https://books.google.com/books/content?id=d4aEEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00271.jpg",
     "id": 271
   },
   {
@@ -2989,7 +2989,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2024-04-09",
-    "customCoverUrl": "https://books.google.com/books/content?id=8EUotAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00272.jpg",
     "id": 272
   },
   {
@@ -3000,7 +3000,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2024-04-16",
-    "customCoverUrl": "https://books.google.com/books/content?id=f1C9DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00273.jpg",
     "id": 273
   },
   {
@@ -3011,7 +3011,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2024-04-24",
-    "customCoverUrl": "https://books.google.com/books/content?id=-ymoMjoQgfwC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00274.jpg",
     "id": 274
   },
   {
@@ -3022,7 +3022,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2024-04-30",
-    "customCoverUrl": "https://books.google.com/books/content?id=AByWezmWXJoC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00275.jpg",
     "id": 275
   },
   {
@@ -3033,7 +3033,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2024-05-08",
-    "customCoverUrl": "https://books.google.com/books/content?id=b5bnAAAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00276.jpg",
     "id": 276
   },
   {
@@ -3044,7 +3044,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2024-05-15",
-    "customCoverUrl": "https://books.google.com/books/content?id=3Qibnqk2g4sC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00277.jpg",
     "id": 277
   },
   {
@@ -3055,7 +3055,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2024-05-18",
-    "customCoverUrl": "https://m.media-amazon.com/images/I/61CdpLBT7OL.jpg",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00278.jpg",
     "id": 278
   },
   {
@@ -3066,7 +3066,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2024-05-22",
-    "customCoverUrl": "https://play.google.com/books/publisher/content/images/frontcover/ZVadBAAAQBAJ?fife=w480-h690",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00279.jpg",
     "id": 279
   },
   {
@@ -3077,7 +3077,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2024-06-30",
-    "customCoverUrl": "https://books.google.com/books/content?id=vHnZCwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00280.jpg",
     "id": 280
   },
   {
@@ -3088,7 +3088,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2024-07-11",
-    "customCoverUrl": "https://books.google.com/books/content?id=meOgEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00281.jpg",
     "id": 281
   },
   {
@@ -3099,7 +3099,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2024-07-19",
-    "customCoverUrl": "https://books.google.com/books/content?id=WVe_EAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00282.jpg",
     "id": 282
   },
   {
@@ -3110,7 +3110,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2024-07-21",
-    "customCoverUrl": "https://books.google.com/books/content?id=FlkcyK7xwqMC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00283.jpg",
     "id": 283
   },
   {
@@ -3121,7 +3121,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2024-07-24",
-    "customCoverUrl": "https://books.google.com/books/content?id=WEzLalZtHeEC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00284.jpg",
     "id": 284
   },
   {
@@ -3132,7 +3132,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2024-07-25",
-    "customCoverUrl": "https://books.google.com/books/content?id=aisnk03zsZYC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00285.jpg",
     "id": 285
   },
   {
@@ -3143,7 +3143,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2024-07-28",
-    "customCoverUrl": "https://books.google.com/books/content?id=wlgsEQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00286.jpg",
     "id": 286
   },
   {
@@ -3154,7 +3154,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2024-08-02",
-    "customCoverUrl": "https://books.google.com/books/content?id=RcN_EAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00287.jpg",
     "id": 287
   },
   {
@@ -3165,7 +3165,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2024-08-05",
-    "customCoverUrl": "https://books.google.com/books/content?id=t2H6DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00288.jpg",
     "id": 288
   },
   {
@@ -3176,7 +3176,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2024-08-09",
-    "customCoverUrl": "https://books.google.com/books/content?id=8IHEDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00289.jpg",
     "id": 289
   },
   {
@@ -3187,7 +3187,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2024-08-11",
-    "customCoverUrl": "https://m.media-amazon.com/images/I/31rMxijditL._SL500_.jpg",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00290.jpg",
     "id": 290
   },
   {
@@ -3198,7 +3198,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2024-08-18",
-    "customCoverUrl": "https://books.google.com/books/content?id=MKcxHs_3gLUC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00291.jpg",
     "id": 291
   },
   {
@@ -3209,7 +3209,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2024-08-23",
-    "customCoverUrl": "https://books.google.com/books/content?id=SnTnEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00292.jpg",
     "id": 292
   },
   {
@@ -3220,7 +3220,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2024-09-22",
-    "customCoverUrl": "https://books.google.com/books/content?id=6eSAzgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00293.jpg",
     "id": 293
   },
   {
@@ -3231,7 +3231,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2024-10-04",
-    "customCoverUrl": "https://books.google.com/books/content?id=_BEcDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00294.jpg",
     "id": 294
   },
   {
@@ -3242,7 +3242,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2024-10-08",
-    "customCoverUrl": "https://books.google.com/books/content?id=U3v_EAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00295.jpg",
     "id": 295
   },
   {
@@ -3253,7 +3253,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2024-10-13",
-    "customCoverUrl": "https://books.google.com/books/content?id=qfUxDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00296.jpg",
     "id": 296
   },
   {
@@ -3264,7 +3264,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2024-10-14",
-    "customCoverUrl": "https://books.google.com/books/content?id=YF6vDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00297.jpg",
     "id": 297
   },
   {
@@ -3275,7 +3275,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2024-10-17",
-    "customCoverUrl": "https://books.google.com/books/content?id=Hv5zcgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00298.jpg",
     "id": 298
   },
   {
@@ -3286,7 +3286,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2024-10-18",
-    "customCoverUrl": "https://books.google.com/books/content?id=uGfoCwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00299.jpg",
     "id": 299
   },
   {
@@ -3297,7 +3297,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2024-10-22",
-    "customCoverUrl": "https://books.google.com/books/content?id=SbjrDwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00300.jpg",
     "id": 300
   },
   {
@@ -3308,7 +3308,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2024-10-28",
-    "customCoverUrl": "https://books.google.com/books/content?id=0HP0DwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00301.jpg",
     "id": 301
   },
   {
@@ -3319,7 +3319,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2024-11-06",
-    "customCoverUrl": "https://books.google.com/books/content?id=365wDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00302.jpg",
     "id": 302
   },
   {
@@ -3330,7 +3330,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2024-11-13",
-    "customCoverUrl": "https://books.google.com/books/content?id=knPoEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00303.jpg",
     "id": 303
   },
   {
@@ -3341,7 +3341,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2024-11-16",
-    "customCoverUrl": "https://books.google.com/books/content?id=8SzXDgAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00304.jpg",
     "id": 304
   },
   {
@@ -3352,7 +3352,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2024-11-26",
-    "customCoverUrl": "https://books.google.com/books/content?id=lUGVEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00305.jpg",
     "id": 305
   },
   {
@@ -3363,7 +3363,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2024-11-29",
-    "customCoverUrl": "https://books.google.com/books/content?id=UbS9EAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00306.jpg",
     "id": 306
   },
   {
@@ -3374,7 +3374,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2024-12-08",
-    "customCoverUrl": "https://books.google.com/books/publisher/content?id=B6eQBQAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00307.jpg",
     "id": 307
   },
   {
@@ -3385,7 +3385,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2024-12-10",
-    "customCoverUrl": "https://books.google.com/books/content?id=Pa3uAs9kgVMC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00308.jpg",
     "id": 308
   },
   {
@@ -3396,7 +3396,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2024-12-11",
-    "customCoverUrl": "https://books.google.com/books/content?id=22oMDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00309.jpg",
     "id": 309
   },
   {
@@ -3407,7 +3407,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2024-12-12",
-    "customCoverUrl": "https://books.google.com/books/content?id=ZgEAEQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00310.jpg",
     "id": 310
   },
   {
@@ -3418,7 +3418,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2024-12-29",
-    "customCoverUrl": "https://books.google.com/books/content?id=PYvsEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00311.jpg",
     "id": 311
   },
   {
@@ -3429,7 +3429,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2025-01-27",
-    "customCoverUrl": "https://books.google.com/books/content?id=rVhCCQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00312.jpg",
     "id": 312
   },
   {
@@ -3440,7 +3440,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2025-02-08",
-    "customCoverUrl": "https://books.google.com/books/content?id=Zo5REQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00313.jpg",
     "id": 313
   },
   {
@@ -3451,7 +3451,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2025-02-21",
-    "customCoverUrl": "https://books.google.com/books/content?id=bLrXEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00314.jpg",
     "id": 314
   },
   {
@@ -3462,7 +3462,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2025-02-28",
-    "customCoverUrl": "https://books.google.com/books/content?id=kwjCDQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00315.jpg",
     "id": 315
   },
   {
@@ -3473,7 +3473,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2025-03-05",
-    "customCoverUrl": "https://books.google.com/books/content?id=n8ULQFTGiMYC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00316.jpg",
     "id": 316
   },
   {
@@ -3484,7 +3484,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2025-03-07",
-    "customCoverUrl": "https://books.google.com/books/content?id=Coi9AwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00317.jpg",
     "id": 317
   },
   {
@@ -3495,7 +3495,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2025-03-08",
-    "customCoverUrl": "https://books.google.com/books/content?id=UTGnopblxt8C&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00318.jpg",
     "id": 318
   },
   {
@@ -3506,7 +3506,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2025-03-09",
-    "customCoverUrl": "https://play-lh.googleusercontent.com/tX-BTpCWigk5eewSy9Zqq91tyfPyfG1VEudgxEpFrB_NoXM511X3d-QsMX1k4Md3XMu86_Taz4Aw=w480-h690-rw",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00319.jpg",
     "id": 319
   },
   {
@@ -3517,7 +3517,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2025-03-10",
-    "customCoverUrl": "https://books.google.com/books/content?id=SIZiPwAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00320.jpg",
     "id": 320
   },
   {
@@ -3528,7 +3528,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2025-03-11",
-    "customCoverUrl": "https://books.google.com/books/content?id=btIQAAAAYAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00321.jpg",
     "id": 321
   },
   {
@@ -3539,7 +3539,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2025-03-14",
-    "customCoverUrl": "https://books.google.com/books/content?id=U9_9EAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00322.jpg",
     "id": 322
   },
   {
@@ -3550,7 +3550,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2023-03-25",
-    "customCoverUrl": "https://books.google.com/books/content?id=lScWAwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00323.jpg",
     "id": 323
   },
   {
@@ -3561,7 +3561,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2025-03-28",
-    "customCoverUrl": "https://books.google.com/books/content?id=M22fAwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00324.jpg",
     "id": 324
   },
   {
@@ -3572,7 +3572,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2025-04-17",
-    "customCoverUrl": "https://books.google.com/books/content?id=7LNMV4ivjGoC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00325.jpg",
     "id": 325
   },
   {
@@ -3583,7 +3583,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2025-04-19",
-    "customCoverUrl": "https://books.google.com/books/content?id=_uIlE7DkAzYC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00326.jpg",
     "id": 326
   },
   {
@@ -3594,7 +3594,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2025-04-20",
-    "customCoverUrl": "https://books.google.com/books/content?id=UoSeEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00327.jpg",
     "id": 327
   },
   {
@@ -3605,7 +3605,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2025-04-27",
-    "customCoverUrl": "https://books.google.com/books/content?id=VXBGswEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00328.jpg",
     "id": 328
   },
   {
@@ -3616,7 +3616,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2025-04-29",
-    "customCoverUrl": "https://books.google.com/books/content?id=TJGwEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00329.jpg",
     "id": 329
   },
   {
@@ -3627,7 +3627,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2025-05-01",
-    "customCoverUrl": "https://books.google.com/books/content?id=GH9-zwEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00330.jpg",
     "id": 330
   },
   {
@@ -3638,7 +3638,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2025-05-17",
-    "customCoverUrl": "https://books.google.com/books/content?id=3C-4dsIGlEgC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00331.jpg",
     "id": 331
   },
   {
@@ -3649,7 +3649,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2025-05-21",
-    "customCoverUrl": "https://books.google.com/books/content?id=aqe9RoZorLIC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00332.jpg",
     "id": 332
   },
   {
@@ -3660,7 +3660,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2025-05-29",
-    "customCoverUrl": "https://books.google.com/books/content?id=cpl8EAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00333.jpg",
     "id": 333
   },
   {
@@ -3671,7 +3671,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2025-06-09",
-    "customCoverUrl": "https://books.google.com/books/content?id=zK4sEQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00334.jpg",
     "id": 334
   },
   {
@@ -3682,7 +3682,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2025-06-26",
-    "customCoverUrl": "https://play.google.com/books/publisher/content/images/frontcover/FG7TEAAAQBAJ?fife=w480-h690",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00335.jpg",
     "id": 335
   },
   {
@@ -3693,7 +3693,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2025-07-09",
-    "customCoverUrl": "https://play.google.com/books/publisher/content/images/frontcover/QoTEDwAAQBAJ?fife=w480-h690",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00336.jpg",
     "id": 336
   },
   {
@@ -3704,7 +3704,7 @@ const books = [
     "ownership": "Digital",
     "status": "Finished",
     "dateCompleted": "2025-07-28",
-    "customCoverUrl": "https://play.google.com/books/publisher/content/images/frontcover/oHdJEQAAQBAJ?fife=w480-h690",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00337.jpg",
     "id": 337
   },
   {
@@ -3715,7 +3715,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2025-07-29",
-    "customCoverUrl": "https://m.media-amazon.com/images/I/71RXc0OoEwL.jpg",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00338.jpg",
     "id": 338
   },
   {
@@ -3726,7 +3726,7 @@ const books = [
     "ownership": "Library",
     "status": "Finished",
     "dateCompleted": "2025-07-30",
-    "customCoverUrl": "https://play-lh.googleusercontent.com/fquk_GgY47Z4JyIIAwPmIi6nwORco_9yvS99nG3Bp0kVIvcjBY57WTFnycSuU1ZXE5-ESHSzbMLHJA=w480-h690-rw",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00339.jpg",
     "id": 339
   },
   {
@@ -3737,7 +3737,7 @@ const books = [
     "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2025-07-31",
-    "customCoverUrl": "https://m.media-amazon.com/images/I/71Yq7brdaBL.jpg",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00340.jpg",
     "id": 340
   }
 ];
