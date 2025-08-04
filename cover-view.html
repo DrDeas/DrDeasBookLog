@@ -150,18 +150,25 @@
             height: 100%;
             overflow: auto;
             background-color: rgba(0,0,0,0.6);
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0}
+            to {opacity: 1}
         }
 
         .modal-content {
             background-color: #fefefe;
             margin: 5% auto;
-            padding: 20px;
+            padding: 25px;
             border: 1px solid #888;
             width: 80%;
             max-width: 600px;
             border-radius: 15px;
             display: flex;
-            gap: 20px;
+            gap: 25px;
+            position: relative;
         }
         
         .modal-cover {
@@ -172,15 +179,61 @@
         .modal-cover img {
             width: 100%;
             border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
         
         .modal-details {
             flex: 2;
         }
 
+        .modal-details h2 {
+            margin-top: 0;
+            color: var(--text-dark);
+        }
+        
+        .modal-details h3 {
+            margin-top: -10px;
+            font-weight: 400;
+            color: #555;
+        }
+
+        .modal-tags {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .modal-tag {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            color: white;
+            font-weight: 600;
+        }
+
+        .book-number-modal {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--brand-primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1em;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
         .close-button {
+            position: absolute;
+            top: 10px;
+            right: 20px;
             color: #aaa;
-            float: right;
             font-size: 28px;
             font-weight: bold;
         }
@@ -260,6 +313,10 @@
                 align-items: center;
                 text-align: center;
             }
+             .book-number-modal {
+                top: 15px;
+                left: 15px;
+            }
             .cover-view-container {
                 grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
                 gap: 15px;
@@ -321,16 +378,19 @@
     <div id="bookModal" class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
+            <div id="modalBookNumber" class="book-number-modal"></div>
             <div class="modal-cover">
                 <img id="modalCoverImg" src="" alt="Book Cover">
             </div>
             <div class="modal-details">
                 <h2 id="modalTitle"></h2>
                 <h3 id="modalAuthor"></h3>
-                <p><strong>Category:</strong> <span id="modalCategory"></span></p>
-                <p><strong>Ownership:</strong> <span id="modalOwnership"></span></p>
-                <p><strong>Status:</strong> <span id="modalStatus"></span></p>
-                <p><strong>Date Completed:</strong> <span id="modalDate"></span></p>
+                <div class="modal-tags">
+                    <span id="modalCategory" class="modal-tag"></span>
+                    <span id="modalOwnership" class="modal-tag"></span>
+                    <span id="modalStatus" class="modal-tag"></span>
+                    <span id="modalDate" class="modal-tag"></span>
+                </div>
             </div>
         </div>
     </div>
@@ -510,13 +570,31 @@
         
         function showBookDetails(book) {
             const modal = document.getElementById('bookModal');
+            document.getElementById('modalBookNumber').textContent = `#${book.number}`;
             document.getElementById('modalCoverImg').src = book.customCoverUrl;
             document.getElementById('modalTitle').textContent = book.title;
             document.getElementById('modalAuthor').textContent = book.author;
-            document.getElementById('modalCategory').textContent = book.category;
-            document.getElementById('modalOwnership').textContent = book.ownership;
-            document.getElementById('modalStatus').textContent = book.status;
-            document.getElementById('modalDate').textContent = book.dateCompleted;
+            
+            const categoryTag = document.getElementById('modalCategory');
+            categoryTag.textContent = book.category;
+            categoryTag.style.backgroundColor = getCoverColor(book.category);
+
+            const ownershipTag = document.getElementById('modalOwnership');
+            ownershipTag.textContent = book.ownership;
+            ownershipTag.style.backgroundColor = {
+                'Digital': '#2E8B57',
+                'Physical': '#4682B4',
+                'Library': '#B22222'
+            }[book.ownership] || '#6c757d';
+
+            const statusTag = document.getElementById('modalStatus');
+            statusTag.textContent = book.status;
+             statusTag.style.backgroundColor = book.status === 'Finished' ? '#32CD32' : '#FFA500';
+
+            const dateTag = document.getElementById('modalDate');
+            dateTag.textContent = `Completed: ${book.dateCompleted}`;
+            dateTag.style.backgroundColor = '#6c757d';
+
             modal.style.display = "block";
         }
 
