@@ -350,6 +350,14 @@
             <select id="statusFilter">
                 <option value="">All Statuses</option>
             </select>
+            <select id="sortFilter">
+                <option value="number">Sort by Number</option>
+                <option value="newest">Newest First</option>
+                <option value="oldest">Oldest First</option>
+                <option value="title">By Title</option>
+                <option value="author">By Author</option>
+                <option value="category">By Category</option>
+            </select>
         </div>
     </div>
 
@@ -410,6 +418,7 @@
             document.getElementById('categoryFilter').addEventListener('change', applyFilters);
             document.getElementById('ownershipFilter').addEventListener('change', applyFilters);
             document.getElementById('statusFilter').addEventListener('change', applyFilters);
+            document.getElementById('sortFilter').addEventListener('change', applyFilters);
             document.getElementById('itemsPerPage').addEventListener('change', handleItemsPerPageChange);
             
             document.getElementById('firstPageBtn').addEventListener('click', () => goToPage(1));
@@ -481,6 +490,7 @@
             const category = document.getElementById('categoryFilter').value;
             const ownership = document.getElementById('ownershipFilter').value;
             const status = document.getElementById('statusFilter').value;
+            const sortBy = document.getElementById('sortFilter').value;
 
             currentFilteredBooks = books.filter(book => {
                 const titleMatch = book.title.toLowerCase().includes(searchInput);
@@ -491,6 +501,28 @@
                 
                 return (titleMatch || authorMatch) && categoryMatch && ownershipMatch && statusMatch;
             });
+
+            // Sorting logic
+            switch (sortBy) {
+                case 'number':
+                    currentFilteredBooks.sort((a, b) => a.number - b.number);
+                    break;
+                case 'newest':
+                    currentFilteredBooks.sort((a, b) => new Date(b.dateCompleted) - new Date(a.dateCompleted));
+                    break;
+                case 'oldest':
+                    currentFilteredBooks.sort((a, b) => new Date(a.dateCompleted) - new Date(b.dateCompleted));
+                    break;
+                case 'title':
+                    currentFilteredBooks.sort((a, b) => a.title.localeCompare(b.title));
+                    break;
+                case 'author':
+                    currentFilteredBooks.sort((a, b) => a.author.localeCompare(b.author));
+                    break;
+                case 'category':
+                    currentFilteredBooks.sort((a, b) => a.category.localeCompare(b.category));
+                    break;
+            }
             
             currentPage = 1; // Reset to first page after filtering
             displayPage();
@@ -504,6 +536,7 @@
         }
 
         function getTotalPages() {
+            if (itemsPerPage === currentFilteredBooks.length) return 1;
             return Math.ceil(currentFilteredBooks.length / itemsPerPage);
         }
 
@@ -608,9 +641,7 @@
                  return;
             }
 
-            const sortedBooks = [...bookList].sort((a, b) => a.number - b.number);
-
-            sortedBooks.forEach(book => {
+            bookList.forEach(book => {
                 const coverItem = document.createElement('div');
                 coverItem.className = 'cover-item';
                 coverItem.title = `${book.title} by ${book.author}`;
