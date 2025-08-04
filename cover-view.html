@@ -56,6 +56,22 @@
         .header-nav a:hover {
             background-color: var(--brand-secondary);
         }
+        
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .filters input, .filters select {
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-family: 'Lato', sans-serif;
+        }
+
 
         /* Styles for the cover-only view */
         .cover-view-container {
@@ -126,6 +142,13 @@
                 grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
                 gap: 15px;
             }
+            .filters {
+                flex-direction: column;
+                align-items: center;
+            }
+            .filters input, .filters select {
+                width: 80%;
+            }
         }
     </style>
 </head>
@@ -133,20 +156,94 @@
     
     <div class="header-nav">
         <h1>Book Cover View</h1>
-        <!-- Add a link back to your main page -->
         <a href="index.html">Return to Main Log</a>
+        <div class="filters">
+            <input type="text" id="searchInput" placeholder="Search by title or author...">
+            <select id="categoryFilter">
+                <option value="">All Categories</option>
+            </select>
+            <select id="ownershipFilter">
+                <option value="">All Ownership</option>
+            </select>
+            <select id="statusFilter">
+                <option value="">All Statuses</option>
+            </select>
+        </div>
     </div>
 
     <div id="coverView" class="cover-view-container">
         <!-- Book covers will be dynamically inserted here by JavaScript -->
     </div>
 
-    <!-- Reference the existing data.js file instead of hardcoding the data -->
+    <!-- Reference the existing data.js file -->
     <script src="data.js"></script>
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Populate filters before rendering
+            populateFilters();
+            
+            // Initial render
+            applyFilters();
+
+            // Add event listeners to filters
+            document.getElementById('searchInput').addEventListener('input', applyFilters);
+            document.getElementById('categoryFilter').addEventListener('change', applyFilters);
+            document.getElementById('ownershipFilter').addEventListener('change', applyFilters);
+            document.getElementById('statusFilter').addEventListener('change', applyFilters);
+        });
+
+        function populateFilters() {
+            const categories = [...new Set(books.map(book => book.category))];
+            const ownerships = [...new Set(books.map(book => book.ownership))];
+            const statuses = [...new Set(books.map(book => book.status))];
+
+            const categoryFilter = document.getElementById('categoryFilter');
+            categories.sort().forEach(category => {
+                const option = document.createElement('option');
+                option.value = category;
+                option.textContent = category;
+                categoryFilter.appendChild(option);
+            });
+
+            const ownershipFilter = document.getElementById('ownershipFilter');
+            ownerships.sort().forEach(ownership => {
+                const option = document.createElement('option');
+                option.value = ownership;
+                option.textContent = ownership;
+                ownershipFilter.appendChild(option);
+            });
+
+            const statusFilter = document.getElementById('statusFilter');
+            statuses.sort().forEach(status => {
+                const option = document.createElement('option');
+                option.value = status;
+                option.textContent = status;
+                statusFilter.appendChild(option);
+            });
+        }
+
+        function applyFilters() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const category = document.getElementById('categoryFilter').value;
+            const ownership = document.getElementById('ownershipFilter').value;
+            const status = document.getElementById('statusFilter').value;
+
+            const filteredBooks = books.filter(book => {
+                const titleMatch = book.title.toLowerCase().includes(searchInput);
+                const authorMatch = book.author.toLowerCase().includes(searchInput);
+                const categoryMatch = category ? book.category === category : true;
+                const ownershipMatch = ownership ? book.ownership === ownership : true;
+                const statusMatch = status ? book.status === status : true;
+                
+                return (titleMatch || authorMatch) && categoryMatch && ownershipMatch && statusMatch;
+            });
+
+            renderCoverView(filteredBooks);
+        }
+
+
         // --- HELPER FUNCTIONS ---
 
-        // Determines a fallback color for book covers based on category
         function getCoverColor(category) {
             const colors = {
                 'Biography': '#F4C430', 'Business': '#CD5C5C', 'Education': '#32CD32',
@@ -156,13 +253,11 @@
                 'Race, Class, and Gender': '#228B22', 'Religion': '#556B2F', 'Science': '#87CEFA',
                 'Self-Development': '#9370DB', 'Social Science(s)': '#A0522D', 'Stage Play': '#5A9678', 'Technology': '#BC8F8F'
             };
-            return colors[category] || '#667eea'; // Default color
+            return colors[category] || '#667eea';
         }
 
-        // Generates initials from a book title for fallback cover display
         function getInitials(title) {
             if (!title) return '';
-            // A more robust way to get initials, ignoring small words
             const ignore = ['A', 'AN', 'THE', 'OF', 'IN', 'ON', 'AND'];
             return title.split(' ')
                         .filter(word => !ignore.includes(word.toUpperCase()))
@@ -172,24 +267,27 @@
                         .toUpperCase();
         }
 
-        // --- RENDER FUNCTION ---
-        function renderCoverView() {
+        // --- RENDER FUNCTION (now accepts a book list) ---
+        function renderCoverView(bookList) {
             const coverViewContainer = document.getElementById('coverView');
             if (!coverViewContainer) {
                 console.error("Cover view container not found!");
                 return;
             }
-            coverViewContainer.innerHTML = ''; // Clear previous content
+            coverViewContainer.innerHTML = ''; 
 
-            // The 'books' variable is now available from the linked data.js file
             if (typeof books === 'undefined') {
                 console.error("Book data not found. Make sure data.js is loaded correctly.");
                 coverViewContainer.innerHTML = '<p style="color: white;">Could not load book data.</p>';
                 return;
             }
+            
+            if (bookList.length === 0) {
+                 coverViewContainer.innerHTML = '<p style="color: white; text-align: center; grid-column: 1 / -1;">No books match the current filters.</p>';
+                 return;
+            }
 
-            // Sort books by number before rendering
-            const sortedBooks = [...books].sort((a, b) => a.number - b.number);
+            const sortedBooks = [...bookList].sort((a, b) => a.number - b.number);
 
             sortedBooks.forEach(book => {
                 const coverItem = document.createElement('div');
@@ -197,13 +295,9 @@
                 coverItem.title = `${book.title} by ${book.author}`;
 
                 const img = document.createElement('img');
-                // IMPORTANT: Use relative paths for local development and deployment
-                // The URL from your data.js is absolute, which is fine, but this shows how you'd use local files
-                // For this example, we will continue using the absolute URL from your data file.
                 img.src = book.customCoverUrl;
                 img.alt = book.title;
 
-                // Create a fallback div that will be shown if the image fails to load
                 const fallbackDiv = document.createElement('div');
                 fallbackDiv.className = 'cover-fallback';
                 fallbackDiv.style.backgroundColor = getCoverColor(book.category);
@@ -212,13 +306,11 @@
                     <div class="title-text">${book.title.length > 25 ? book.title.substring(0, 22) + '...' : book.title}</div>
                 `;
                 
-                // Hide fallback by default
                 fallbackDiv.style.display = 'none';
 
-                // Image error handling
                 img.onerror = () => {
-                    img.style.display = 'none'; // Hide the broken image icon
-                    fallbackDiv.style.display = 'flex'; // Show the fallback
+                    img.style.display = 'none';
+                    fallbackDiv.style.display = 'flex';
                 };
 
                 coverItem.appendChild(img);
@@ -226,11 +318,6 @@
                 coverViewContainer.appendChild(coverItem);
             });
         }
-
-        // --- INITIALIZATION ---
-        document.addEventListener('DOMContentLoaded', () => {
-            renderCoverView();
-        });
     </script>
 
 </body>
