@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Cover View</title>
+    <!-- Link to an external stylesheet for better organization -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* It's better to move these styles to a dedicated CSS file like 'styles.css' 
+           but they are kept here for a self-contained example. */
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+
+        :root {
+            --brand-primary: #667eea;
+            --brand-secondary: #764ba2;
+            --text-light: #ffffff;
+            --text-dark: #333;
+            --surface-main: rgba(255, 255, 255, 0.95);
+            --shadow-light: rgba(0,0,0,0.1);
+            --shadow-medium: rgba(0,0,0,0.2);
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-secondary) 100%);
+            padding: 20px;
+            margin: 0;
+        }
+
+        .header-nav {
+            max-width: 1200px;
+            margin: 0 auto 20px auto;
+            text-align: center;
+            background: var(--surface-main);
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px var(--shadow-light);
+        }
+
+        .header-nav h1 {
+            color: var(--text-dark);
+            margin: 0 0 10px 0;
+        }
+
+        .header-nav a {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: var(--brand-primary);
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .header-nav a:hover {
+            background-color: var(--brand-secondary);
+        }
+
+        /* Styles for the cover-only view */
+        .cover-view-container {
+            display: grid;
+            /* Create a responsive grid with columns that are at least 150px wide */
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 20px; /* Space between covers */
+            padding: 20px;
+            background: var(--surface-main);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px var(--shadow-medium);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cover-item {
+            position: relative;
+            aspect-ratio: 2 / 3; /* Maintain a consistent book cover aspect ratio */
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            background-color: #f0f0f0; /* A light background for the container */
+        }
+
+        .cover-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px var(--shadow-medium);
+        }
+        
+        .cover-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .cover-fallback {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9em;
+            text-align: center;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+
+        .cover-fallback .initials {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+        }
+
+        .cover-fallback .title-text {
+            font-size: 0.7em;
+            line-height: 1.1;
+            word-break: break-word;
+        }
+
+
+        @media (max-width: 480px) {
+            .cover-view-container {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="header-nav">
+        <h1>Book Cover View</h1>
+        <!-- Add a link back to your main page -->
+        <a href="index.html">Return to Main Log</a>
+    </div>
+
+    <div id="coverView" class="cover-view-container">
+        <!-- Book covers will be dynamically inserted here by JavaScript -->
+    </div>
+
+    <!-- Reference the existing data.js file instead of hardcoding the data -->
+    <script src="data.js"></script>
+    <script>
+        // --- HELPER FUNCTIONS ---
+
+        // Determines a fallback color for book covers based on category
+        function getCoverColor(category) {
+            const colors = {
+                'Biography': '#F4C430', 'Business': '#CD5C5C', 'Education': '#32CD32',
+                'Essay(s)/Short Stories': '#F0A0A0', 'Finance': '#483D8B', 'Informational': '#4682B4',
+                'Memoir/Autobiography': '#FF8C00', 'Novel': '#DA70D6', 'Philosophy': '#2F4F4F',
+                'Poetry': '#708090', 'Policy and Politics': '#477685',
+                'Race, Class, and Gender': '#228B22', 'Religion': '#556B2F', 'Science': '#87CEFA',
+                'Self-Development': '#9370DB', 'Social Science(s)': '#A0522D', 'Stage Play': '#5A9678', 'Technology': '#BC8F8F'
+            };
+            return colors[category] || '#667eea'; // Default color
+        }
+
+        // Generates initials from a book title for fallback cover display
+        function getInitials(title) {
+            if (!title) return '';
+            // A more robust way to get initials, ignoring small words
+            const ignore = ['A', 'AN', 'THE', 'OF', 'IN', 'ON', 'AND'];
+            return title.split(' ')
+                        .filter(word => !ignore.includes(word.toUpperCase()))
+                        .slice(0, 3)
+                        .map(word => word[0])
+                        .join('')
+                        .toUpperCase();
+        }
+
+        // --- RENDER FUNCTION ---
+        function renderCoverView() {
+            const coverViewContainer = document.getElementById('coverView');
+            if (!coverViewContainer) {
+                console.error("Cover view container not found!");
+                return;
+            }
+            coverViewContainer.innerHTML = ''; // Clear previous content
+
+            // The 'books' variable is now available from the linked data.js file
+            if (typeof books === 'undefined') {
+                console.error("Book data not found. Make sure data.js is loaded correctly.");
+                coverViewContainer.innerHTML = '<p style="color: white;">Could not load book data.</p>';
+                return;
+            }
+
+            // Sort books by number before rendering
+            const sortedBooks = [...books].sort((a, b) => a.number - b.number);
+
+            sortedBooks.forEach(book => {
+                const coverItem = document.createElement('div');
+                coverItem.className = 'cover-item';
+                coverItem.title = `${book.title} by ${book.author}`;
+
+                const img = document.createElement('img');
+                // IMPORTANT: Use relative paths for local development and deployment
+                // The URL from your data.js is absolute, which is fine, but this shows how you'd use local files
+                // For this example, we will continue using the absolute URL from your data file.
+                img.src = book.customCoverUrl;
+                img.alt = book.title;
+
+                // Create a fallback div that will be shown if the image fails to load
+                const fallbackDiv = document.createElement('div');
+                fallbackDiv.className = 'cover-fallback';
+                fallbackDiv.style.backgroundColor = getCoverColor(book.category);
+                fallbackDiv.innerHTML = `
+                    <div class="initials">${getInitials(book.title)}</div>
+                    <div class="title-text">${book.title.length > 25 ? book.title.substring(0, 22) + '...' : book.title}</div>
+                `;
+                
+                // Hide fallback by default
+                fallbackDiv.style.display = 'none';
+
+                // Image error handling
+                img.onerror = () => {
+                    img.style.display = 'none'; // Hide the broken image icon
+                    fallbackDiv.style.display = 'flex'; // Show the fallback
+                };
+
+                coverItem.appendChild(img);
+                coverItem.appendChild(fallbackDiv);
+                coverViewContainer.appendChild(coverItem);
+            });
+        }
+
+        // --- INITIALIZATION ---
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCoverView();
+        });
+    </script>
+
+</body>
+</html>
