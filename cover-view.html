@@ -138,6 +138,60 @@
             line-height: 1.1;
             word-break: break-word;
         }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.6);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 15px;
+            display: flex;
+            gap: 20px;
+        }
+        
+        .modal-cover {
+            flex: 1;
+            max-width: 200px;
+        }
+
+        .modal-cover img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        
+        .modal-details {
+            flex: 2;
+        }
+
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
 
         /* Pagination and Back to Top Styles */
         .pagination-controls {
@@ -200,7 +254,12 @@
         }
 
 
-        @media (max-width: 480px) {
+        @media (max-width: 600px) {
+             .modal-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
             .cover-view-container {
                 grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
                 gap: 15px;
@@ -258,6 +317,24 @@
 
     <button id="backToTopBtn" title="Go to top">Top</button>
 
+    <!-- The Modal -->
+    <div id="bookModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div class="modal-cover">
+                <img id="modalCoverImg" src="" alt="Book Cover">
+            </div>
+            <div class="modal-details">
+                <h2 id="modalTitle"></h2>
+                <h3 id="modalAuthor"></h3>
+                <p><strong>Category:</strong> <span id="modalCategory"></span></p>
+                <p><strong>Ownership:</strong> <span id="modalOwnership"></span></p>
+                <p><strong>Status:</strong> <span id="modalStatus"></span></p>
+                <p><strong>Date Completed:</strong> <span id="modalDate"></span></p>
+            </div>
+        </div>
+    </div>
+
     <script src="data.js"></script>
     <script>
         let currentPage = 1;
@@ -295,6 +372,18 @@
             backToTopBtn.addEventListener('click', () => {
                 window.scrollTo({top: 0, behavior: 'smooth'});
             });
+            
+            // Modal close logic
+            const modal = document.getElementById('bookModal');
+            const closeBtn = document.getElementsByClassName('close-button')[0];
+            closeBtn.onclick = () => {
+                modal.style.display = "none";
+            }
+            window.onclick = (event) => {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
         });
 
         function populateFilters() {
@@ -418,6 +507,19 @@
                         .join('')
                         .toUpperCase();
         }
+        
+        function showBookDetails(book) {
+            const modal = document.getElementById('bookModal');
+            document.getElementById('modalCoverImg').src = book.customCoverUrl;
+            document.getElementById('modalTitle').textContent = book.title;
+            document.getElementById('modalAuthor').textContent = book.author;
+            document.getElementById('modalCategory').textContent = book.category;
+            document.getElementById('modalOwnership').textContent = book.ownership;
+            document.getElementById('modalStatus').textContent = book.status;
+            document.getElementById('modalDate').textContent = book.dateCompleted;
+            modal.style.display = "block";
+        }
+
 
         function renderCoverView(bookList) {
             const coverViewContainer = document.getElementById('coverView');
@@ -434,6 +536,7 @@
                 const coverItem = document.createElement('div');
                 coverItem.className = 'cover-item';
                 coverItem.title = `${book.title} by ${book.author}`;
+                coverItem.onclick = () => showBookDetails(book);
 
                 const img = document.createElement('img');
                 img.src = book.customCoverUrl;
