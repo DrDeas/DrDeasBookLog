@@ -3745,7 +3745,7 @@ const books = [
     "title": "The Afrominimalist's Guide to Living with Less", 
     "author": "Christine A. Platt", 
     "category": "Self-Development", 
-    "ownsership": "Digital", 
+    "ownership": "Digital", 
     "status": "In Progress", 
     "dateCompleted": "", 
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00341.jpg",
