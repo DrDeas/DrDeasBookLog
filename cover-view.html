@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Cover View</title>
-    
+    <meta name="author" content="Dr. Eldrin L. Deas">
+    <title>Dr. Deas Book Log - Book Cover View</title>
+
     <meta property="og:title" content="Dr. Deas Book Log - 1,000 Books in 1,000 Weeks">
-    <meta property="og:description" content="Track Dr. Deas's progress in the 1,000 Books in 1,000 Weeks Reading Challenge.">
+    <meta property="og:description" content="Track Dr. Deas's progress in the 1,000 Books in 1,000 Weeks Reading Challenge—a journey through literature, science, and social commentary.">
+    <meta name="keywords" content="reading list, book log, literature, non-fiction, biography, science, technology, AI, artificial intelligence, business, education, poetry, philosophy, novel, policy, politics, religion, self-development, finance, memoir, autobiography, race, class, gender, social science, art, music, Dr. Deas">
     <meta property="og:image" content="https://drdeas.github.io/DrDeasBookLog/caged_bird.png">
     <meta property="og:url" content="https://drdeas.github.io/DrDeasBookLog/">
     <meta property="og:type" content="website">
@@ -223,8 +225,10 @@
             position: absolute;
             top: -15px;
             left: -15px;
-            width: 40px;
+            min-width: 40px; /* Changed from width to min-width */
+            width: auto; /* Allow width to expand */
             height: 40px;
+            padding: 0 8px; /* Add horizontal padding */
             border-radius: 50%;
             background-color: var(--brand-primary);
             color: white;
@@ -572,11 +576,28 @@
             const nextBtn = document.getElementById('nextPageBtn');
             const lastBtn = document.getElementById('lastPageBtn');
             const paginationControls = document.getElementById('paginationControls');
+            const itemsPerPageSelect = document.getElementById('itemsPerPage');
 
-            if (totalPages <= 1) {
+            if (currentFilteredBooks.length === 0) {
                 paginationControls.style.display = 'none';
+                return;
             } else {
                 paginationControls.style.display = 'flex';
+            }
+
+            if (itemsPerPageSelect.value === 'all' || totalPages <= 1) {
+                pageInfo.style.visibility = 'hidden';
+                firstBtn.style.visibility = 'hidden';
+                prevBtn.style.visibility = 'hidden';
+                nextBtn.style.visibility = 'hidden';
+                lastBtn.style.visibility = 'hidden';
+            } else {
+                pageInfo.style.visibility = 'visible';
+                firstBtn.style.visibility = 'visible';
+                prevBtn.style.visibility = 'visible';
+                nextBtn.style.visibility = 'visible';
+                lastBtn.style.visibility = 'visible';
+
                 pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
                 firstBtn.disabled = currentPage === 1;
                 prevBtn.disabled = currentPage === 1;
