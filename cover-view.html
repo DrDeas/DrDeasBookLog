@@ -170,7 +170,7 @@
         .modal-content {
             background-color: #fefefe;
             margin: 5% auto;
-            padding: 40px 25px 25px 25px;
+            padding: 50px 25px 25px 25px;
             border: 1px solid #888;
             width: 80%;
             max-width: 800px;
@@ -185,13 +185,13 @@
         .modal-upper {
             display: flex;
             gap: 25px;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
         
         .modal-cover {
             flex: 1;
-            max-width: 200px;
-            min-width: 150px;
+            max-width: 250px;
+            min-width: 200px;
         }
 
         .modal-cover img {
@@ -217,6 +217,7 @@
 
         .modal-tags {
             margin-top: 20px;
+            margin-bottom: 15px;
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
@@ -231,8 +232,8 @@
         }
 
         .modal-summary {
-            margin-top: 20px;
-            padding-top: 20px;
+            margin-top: 0;
+            padding-top: 15px;
             border-top: 1px solid #eee;
         }
 
@@ -251,21 +252,22 @@
 
         .book-number-modal {
             position: absolute;
-            top: -20px;
-            left: -20px;
-            min-width: 45px;
+            top: -25px;
+            left: -25px;
+            min-width: 50px;
             width: auto;
-            height: 45px;
-            padding: 0 10px;
+            height: 50px;
+            padding: 0 12px;
             border-radius: 50%;
             background-color: var(--brand-primary);
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.1em;
+            font-size: 1.2em;
             font-weight: bold;
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 10;
         }
 
         .close-button {
