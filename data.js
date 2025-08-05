@@ -58,7 +58,7 @@ const books = [
     "dateCompleted": "2020-10-28",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00005.jpg",
     "id": 5,
-    "summary": "This book explores the hidden patterns of our days, revealing how the timing of our actions can profoundly impact our success and well-being. Drawing on a wealth of research from psychology, biology, and economics, it delves into the science of \\\"when,\\\" offering practical insights on how to optimize our daily schedules, make better decisions, and boost our performance by understanding the natural rhythms of our lives. It highlights the importance of recognizing different \\\"temporal landmarks\\\" and utilizing strategic breaks to maximize productivity and personal satisfaction."
+    "summary": "This book explores the hidden patterns of our days, revealing how the timing of our actions can profoundly impact our success and well-being. Drawing on a wealth of research from psychology, biology, and economics, it delves into the science of \"when,\" offering practical insights on how to optimize our daily schedules, make better decisions, and boost our performance by understanding the natural rhythms of our lives. It highlights the importance of recognizing different \"temporal landmarks\" and utilizing strategic breaks to maximize productivity and personal satisfaction."
   },
   {
     "number": 6,
@@ -142,7 +142,7 @@ const books = [
     "dateCompleted": "2020-12-03",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00012.jpg",
     "id": 12,
-    "summary": "This seminal work explores the experience of African Americans in post-Civil War America, delving into concepts of race, identity, and the \\\"veil\\\" that separates black and white societies. It examines the psychological impact of slavery and racial discrimination, advocating for civil rights and intellectual development as paths to liberation. The book is a foundational text in African American literature and sociology, offering powerful insights into the struggles and aspirations of a community striving for equality and self-determination."
+    "summary": "This seminal work explores the experience of African Americans in post-Civil War America, delving into concepts of race, identity, and the \"veil\" that separates black and white societies. It examines the psychological impact of slavery and racial discrimination, advocating for civil rights and intellectual development as paths to liberation. The book is a foundational text in African American literature and sociology, offering powerful insights into the struggles and aspirations of a community striving for equality and self-determination."
   },
   {
     "number": 13,
@@ -334,7 +334,7 @@ const books = [
     "dateCompleted": "2021-01-20",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00028.jpg",
     "id": 28,
-    "summary": "This book explores the unique management philosophy and corporate culture of a major streaming company, focusing on its principles of freedom and responsibility. It details how radical transparency, high-performance expectations, and a \\\"no rules\\\" approach to policies allowed the company to innovate and grow. The authors provide insights into how to foster a culture of candor, give effective feedback, and cultivate employees who are not just competent but truly exceptional, ultimately transforming traditional workplace norms."
+    "summary": "This book explores the unique management philosophy and corporate culture of a major streaming company, focusing on its principles of freedom and responsibility. It details how radical transparency, high-performance expectations, and a \"no rules\" approach to policies allowed the company to innovate and grow. The authors provide insights into how to foster a culture of candor, give effective feedback, and cultivate employees who are not just competent but truly exceptional, ultimately transforming traditional workplace norms."
   },
   {
     "number": 29,
@@ -490,7 +490,7 @@ const books = [
     "dateCompleted": "2021-03-03",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00041.jpg",
     "id": 41,
-    "summary": "This collection of essays explores the concept of \\\"thick\\\" as a framework for understanding and analyzing various aspects of Black womanhood in America. Through personal anecdotes and sharp social commentary, the author delves into topics such as beauty, respectability, race, class, and the challenges of navigating systems designed to devalue Black lives. The book challenges readers to critically examine societal norms and offers a powerful perspective on the complexities of identity and resilience."
+    "summary": "This collection of essays explores the concept of \"thick\" as a framework for understanding and analyzing various aspects of Black womanhood in America. Through personal anecdotes and sharp social commentary, the author delves into topics such as beauty, respectability, race, class, and the challenges of navigating systems designed to devalue Black lives. The book challenges readers to critically examine societal norms and offers a powerful perspective on the complexities of identity and resilience."
   },
   {
     "number": 42,
@@ -550,7 +550,7 @@ const books = [
     "dateCompleted": "2021-04-07",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00046.jpg",
     "id": 46,
-    "summary": "This book explores the groundbreaking era of children's television programming that emerged in America, focusing on how shows like \\\"Sesame Street\\\" and \\\"Mister Rogers' Neighborhood\\\" revolutionized educational and developmental content for young viewers. It delves into the cultural impact and production philosophies behind these iconic programs, highlighting their lasting legacy on generations of children and the broader media landscape. The author examines the creative minds behind these shows and the societal shifts that led to their creation, offering a comprehensive look at a pivotal period in broadcast history."
+    "summary": "This book explores the groundbreaking era of children's television programming that emerged in America, focusing on how shows like \"Sesame Street\" and \"Mister Rogers' Neighborhood\" revolutionized educational and developmental content for young viewers. It delves into the cultural impact and production philosophies behind these iconic programs, highlighting their lasting legacy on generations of children and the broader media landscape. The author examines the creative minds behind these shows and the societal shifts that led to their creation, offering a comprehensive look at a pivotal period in broadcast history."
   },
   {
     "number": 47,
@@ -730,7 +730,7 @@ const books = [
     "dateCompleted": "2021-06-09",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00061.jpg",
     "id": 61,
-    "summary": "This book explores how our understanding of trauma, resilience, and healing can be transformed through a new framework that shifts the question from \\\"What's wrong with you?\\\" to \\\"What happened to you?\\\" It delves into how experiences, particularly in childhood, shape our brains and bodies, influencing our behaviors and well-being throughout life. Through powerful conversations, the authors illuminate the impact of trauma and offer profound insights into how we can heal and build a more compassionate, connected, and resilient society."
+    "summary": "This book explores how our understanding of trauma, resilience, and healing can be transformed through a new framework that shifts the question from \"What's wrong with you?\" to \"What happened to you?\" It delves into how experiences, particularly in childhood, shape our brains and bodies, influencing our behaviors and well-being throughout life. Through powerful conversations, the authors illuminate the impact of trauma and offer profound insights into how we can heal and build a more compassionate, connected, and resilient society."
   },
   {
     "number": 62,
@@ -778,7 +778,7 @@ const books = [
     "dateCompleted": "2021-06-24",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00065.jpg",
     "id": 65,
-    "summary": "This book explores the fascinating and often absurd history of how humans have sought, manipulated, and presented \\\"truth\\\" throughout the ages. It delves into the various forms that falsehoods have taken, from ancient myths and superstitions to modern-day misinformation and propaganda, revealing how people have been persuaded to believe things that are not true and the motivations behind these deceptions. Through humorous and insightful analysis, the author examines the impact of these fabricated realities on society and offers a witty perspective on the enduring human struggle to distinguish fact from fiction."
+    "summary": "This book explores the fascinating and often absurd history of how humans have sought, manipulated, and presented \"truth\" throughout the ages. It delves into the various forms that falsehoods have taken, from ancient myths and superstitions to modern-day misinformation and propaganda, revealing how people have been persuaded to believe things that are not true and the motivations behind these deceptions. Through humorous and insightful analysis, the author examines the impact of these fabricated realities on society and offers a witty perspective on the enduring human struggle to distinguish fact from fiction."
   },
   {
     "number": 66,
@@ -946,7 +946,7 @@ const books = [
     "dateCompleted": "2021-09-17",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00079.jpg",
     "id": 79,
-    "summary": "This groundbreaking work explores why even highly successful companies can fail when confronted with disruptive innovations. It introduces the concept of \\\"disruptive technology,\\\" which initially performs worse than existing technologies but offers different values that eventually allow it to overtake established products. The book illustrates how companies often prioritize improving existing products for their current customers, inadvertently creating opportunities for new entrants with disruptive technologies. It provides frameworks for understanding and managing these challenges, offering insights into how established firms can identify and respond to disruptive forces to maintain their competitive edge."
+    "summary": "This groundbreaking work explores why even highly successful companies can fail when confronted with disruptive innovations. It introduces the concept of \"disruptive technology,\" which initially performs worse than existing technologies but offers different values that eventually allow it to overtake established products. The book illustrates how companies often prioritize improving existing products for their current customers, inadvertently creating opportunities for new entrants with disruptive technologies. It provides frameworks for understanding and managing these challenges, offering insights into how established firms can identify and respond to disruptive forces to maintain their competitive edge."
   },
   {
     "number": 80,
@@ -1114,7 +1114,7 @@ const books = [
     "dateCompleted": "2021-11-21",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00093.jpg",
     "id": 93,
-    "summary": "This novel explores the complexities of racial identity and social conventions in 1920s New York. It follows two childhood friends, both light-skinned Black women, who reconnect after years. One has chosen to \\\"pass\\\" as white and lives a life of privilege, while the other remains deeply rooted in the Black community. Their reunion ignites a dangerous fascination and a series of events that challenge their perceptions of race, class, and personal freedom, ultimately leading to a tragic and ambiguous climax."
+    "summary": "This novel explores the complexities of racial identity and social conventions in 1920s New York. It follows two childhood friends, both light-skinned Black women, who reconnect after years. One has chosen to \"pass\" as white and lives a life of privilege, while the other remains deeply rooted in the Black community. Their reunion ignites a dangerous fascination and a series of events that challenge their perceptions of race, class, and personal freedom, ultimately leading to a tragic and ambiguous climax."
   },
   {
     "number": 94,
@@ -1162,7 +1162,7 @@ const books = [
     "dateCompleted": "2021-11-25",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00097.jpg",
     "id": 97,
-    "summary": "This novel follows an unnamed narrator born to a Black mother and a white father in the late 19th century. He navigates a complex journey of self-discovery and racial identity, choosing at different points to identify as Black and later to \\\"pass\\\" as white. His experiences expose the societal pressures, prejudices, and advantages associated with both racial affiliations, ultimately leading him to reflect on the consequences of his choices and the profound impact of race on American life."
+    "summary": "This novel follows an unnamed narrator born to a Black mother and a white father in the late 19th century. He navigates a complex journey of self-discovery and racial identity, choosing at different points to identify as Black and later to \"pass\" as white. His experiences expose the societal pressures, prejudices, and advantages associated with both racial affiliations, ultimately leading him to reflect on the consequences of his choices and the profound impact of race on American life."
   },
   {
     "number": 98,
@@ -1270,7 +1270,7 @@ const books = [
     "dateCompleted": "2022-02-28",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00106.jpg",
     "id": 106,
-    "summary": "This literary critique explores the pervasive influence of whiteness as a recurring, often unacknowledged, presence in American literature. The author meticulously dissects classic works, revealing how the construction of \\\"blackness\\\" has historically served to define and reinforce a dominant white identity. Through incisive analysis, the book challenges readers to re-examine beloved narratives and understand the profound impact of racialized assumptions on literary imagination, ultimately advocating for a more inclusive and truthful understanding of American literary history."
+    "summary": "This literary critique explores the pervasive influence of whiteness as a recurring, often unacknowledged, presence in American literature. The author meticulously dissects classic works, revealing how the construction of \"blackness\" has historically served to define and reinforce a dominant white identity. Through incisive analysis, the book challenges readers to re-examine beloved narratives and understand the profound impact of racialized assumptions on literary imagination, ultimately advocating for a more inclusive and truthful understanding of American literary history."
   },
   {
     "number": 107,
@@ -1390,7 +1390,7 @@ const books = [
     "dateCompleted": "2022-04-24",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00116.jpg",
     "id": 116,
-    "summary": "This book explores how new technologies, often presented as objective and progressive, can actually reinforce existing social hierarchies and racial biases. It delves into how discriminatory practices can be embedded in algorithms and digital platforms, creating a \\\"New Jim Code\\\" that perpetuates inequality in modern society. The author argues for an \\\"abolitionist\\\" approach to technology, advocating for critical engagement and redesign to ensure that technological advancements serve to dismantle rather than uphold systems of oppression."
+    "summary": "This book explores how new technologies, often presented as objective and progressive, can actually reinforce existing social hierarchies and racial biases. It delves into how discriminatory practices can be embedded in algorithms and digital platforms, creating a \"New Jim Code\" that perpetuates inequality in modern society. The author argues for an \"abolitionist\" approach to technology, advocating for critical engagement and redesign to ensure that technological advancements serve to dismantle rather than uphold systems of oppression."
   },
   {
     "number": 117,
@@ -1474,7 +1474,7 @@ const books = [
     "dateCompleted": "2022-05-14",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00123.jpg",
     "id": 123,
-    "summary": "This book explores how shame is weaponized in the digital age, particularly by those in power, to create profit and control. It delves into how online platforms and algorithms exploit human vulnerabilities, turning personal struggles and mistakes into public spectacles for financial gain and social manipulation. The author argues that this \\\"shame machine\\\" undermines empathy and justice, creating a society where humiliation is a commodity and individual dignity is eroded, ultimately calling for a re-evaluation of our digital interactions and the systems that govern them."
+    "summary": "This book explores how shame is weaponized in the digital age, particularly by those in power, to create profit and control. It delves into how online platforms and algorithms exploit human vulnerabilities, turning personal struggles and mistakes into public spectacles for financial gain and social manipulation. The author argues that this \"shame machine\" undermines empathy and justice, creating a society where humiliation is a commodity and individual dignity is eroded, ultimately calling for a re-evaluation of our digital interactions and the systems that govern them."
   },
   {
     "number": 124,
@@ -1690,7 +1690,7 @@ const books = [
     "dateCompleted": "2022-07-19",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00141.jpg",
     "id": 141,
-    "summary": "This work explores the author's experiences with mescaline, detailing the profound alterations in perception, consciousness, and the understanding of reality that result from the psychedelic drug. It delves into the philosophical and spiritual implications of these experiences, suggesting that such substances can open pathways to deeper insights and a different way of viewing the world, akin to a \\\"mind at large\\\" filtering reality. The narrative emphasizes the beauty and intensity of the author's altered sensory perceptions, particularly the heightened appreciation for the visual world, and contemplates the potential for such experiences to broaden human awareness and understanding beyond conventional limits."
+    "summary": "This work explores the author's experiences with mescaline, detailing the profound alterations in perception, consciousness, and the understanding of reality that result from the psychedelic drug. It delves into the philosophical and spiritual implications of these experiences, suggesting that such substances can open pathways to deeper insights and a different way of viewing the world, akin to a \"mind at large\" filtering reality. The narrative emphasizes the beauty and intensity of the author's altered sensory perceptions, particularly the heightened appreciation for the visual world, and contemplates the potential for such experiences to broaden human awareness and understanding beyond conventional limits."
   },
   {
     "number": 142,
@@ -1918,7 +1918,7 @@ const books = [
     "dateCompleted": "2022-09-09",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00160.jpg",
     "id": 160,
-    "summary": "This work explores the historical development of the concept of \\\"sexuality\\\" as a discursive construct in Western societies. It argues that sexuality is not a natural given, but rather a product of power relations and social norms that emerged in the 17th and 18th centuries, primarily through institutions like confession and medical discourse. The book examines how sex became an object of knowledge, surveillance, and control, leading to the proliferation of diverse sexual categories and practices, and how this process ultimately served to reinforce existing power structures rather than to liberate individuals."
+    "summary": "This work explores the historical development of the concept of \"sexuality\" as a discursive construct in Western societies. It argues that sexuality is not a natural given, but rather a product of power relations and social norms that emerged in the 17th and 18th centuries, primarily through institutions like confession and medical discourse. The book examines how sex became an object of knowledge, surveillance, and control, leading to the proliferation of diverse sexual categories and practices, and how this process ultimately served to reinforce existing power structures rather than to liberate individuals."
   },
   {
     "number": 161,
@@ -1978,7 +1978,7 @@ const books = [
     "dateCompleted": "2022-09-30",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00165.jpg",
     "id": 165,
-    "summary": "This book explores the psychological principles behind habit-forming products, revealing how successful companies create products that users can't get enough of. It introduces the \\\"Hook Model,\\\" a four-phase process—trigger, action, variable reward, and investment—that companies can use to build customer loyalty and engagement. The author provides practical insights and real-world examples to help product developers, designers, and marketers understand user behavior and create products that keep people coming back."
+    "summary": "This book explores the psychological principles behind habit-forming products, revealing how successful companies create products that users can't get enough of. It introduces the \"Hook Model,\" a four-phase process—trigger, action, variable reward, and investment—that companies can use to build customer loyalty and engagement. The author provides practical insights and real-world examples to help product developers, designers, and marketers understand user behavior and create products that keep people coming back."
   },
   {
     "number": 166,
@@ -2050,7 +2050,7 @@ const books = [
     "dateCompleted": "2022-10-23",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00171.jpg",
     "id": 171,
-    "summary": "This book explores the scientific and philosophical concepts surrounding the idea of \\\"nothing.\\\" It delves into various perspectives, from the vacuum of space to the quantum void, and examines how our understanding of emptiness has evolved throughout history. The author guides the reader through complex ideas, making them accessible to a general audience, and prompts reflection on the fundamental nature of existence and non-existence."
+    "summary": "This book explores the scientific and philosophical concepts surrounding the idea of \"nothing.\" It delves into various perspectives, from the vacuum of space to the quantum void, and examines how our understanding of emptiness has evolved throughout history. The author guides the reader through complex ideas, making them accessible to a general audience, and prompts reflection on the fundamental nature of existence and non-existence."
   },
   {
     "number": 172,
@@ -2098,7 +2098,7 @@ const books = [
     "dateCompleted": "2022-11-12",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00175.jpg",
     "id": 175,
-    "summary": "This book explores the critical importance of generating and developing a continuous stream of new ideas as the most vital metric for business success. It argues that a high \\\"ideaflow\\\" within an organization is essential for innovation, adaptability, and growth, outlining practical strategies and mindsets to cultivate such an environment. The authors delve into techniques for fostering creativity, overcoming barriers to ideation, and effectively translating concepts into tangible results, emphasizing that consistent ideation is the cornerstone of sustained competitive advantage in any industry."
+    "summary": "This book explores the critical importance of generating and developing a continuous stream of new ideas as the most vital metric for business success. It argues that a high \"ideaflow\" within an organization is essential for innovation, adaptability, and growth, outlining practical strategies and mindsets to cultivate such an environment. The authors delve into techniques for fostering creativity, overcoming barriers to ideation, and effectively translating concepts into tangible results, emphasizing that consistent ideation is the cornerstone of sustained competitive advantage in any industry."
   },
   {
     "number": 176,
@@ -2134,7 +2134,7 @@ const books = [
     "dateCompleted": "2022-11-28",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00178.jpg",
     "id": 178,
-    "summary": "This novel follows a group of American and British expatriates, disillusioned by World War I, as they travel from Paris to the bullfighting festivals in Pamplona, Spain. Their journey is marked by complex relationships, unrequited love, and a search for meaning in a world that seems to have lost its traditional values. The characters grapple with themes of masculinity, emotional impotence, and the hedonistic pursuits that define the \\\"Lost Generation.\\\""
+    "summary": "This novel follows a group of American and British expatriates, disillusioned by World War I, as they travel from Paris to the bullfighting festivals in Pamplona, Spain. Their journey is marked by complex relationships, unrequited love, and a search for meaning in a world that seems to have lost its traditional values. The characters grapple with themes of masculinity, emotional impotence, and the hedonistic pursuits that define the \"Lost Generation.\""
   },
   {
     "number": 179,
@@ -2146,7 +2146,7 @@ const books = [
     "dateCompleted": "2022-12-07",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00179.jpg",
     "id": 179,
-    "summary": "In a dystopian future, a charismatic and intelligent but ultraviolent youth leads his gang on a spree of \\\"ultraviolence.\\\" After being caught, he undergoes an experimental aversion therapy designed to cure him of his violent tendencies, but it leaves him unable to enjoy or even tolerate art, music, or sex, effectively robbing him of his free will and humanity. The narrative explores themes of free will, morality, and the nature of good and evil, questioning whether it is better to be forced into goodness or to choose evil."
+    "summary": "In a dystopian future, a charismatic and intelligent but ultraviolent youth leads his gang on a spree of \"ultraviolence.\" After being caught, he undergoes an experimental aversion therapy designed to cure him of his violent tendencies, but it leaves him unable to enjoy or even tolerate art, music, or sex, effectively robbing him of his free will and humanity. The narrative explores themes of free will, morality, and the nature of good and evil, questioning whether it is better to be forced into goodness or to choose evil."
   },
   {
     "number": 180,
@@ -2194,7 +2194,7 @@ const books = [
     "dateCompleted": "2023-01-08",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00183.jpg",
     "id": 183,
-    "summary": "This book explores the nature of truth and deception, arguing that while there are circumstances where lying may seem beneficial, it ultimately erodes trust and integrity. It delves into the neurological and psychological aspects of honesty, proposing that even well-intentioned \\\"white lies\\\" can have detrimental long-term effects on relationships and personal character. The author encourages readers to embrace radical honesty as a path to a more coherent and authentic life."
+    "summary": "This book explores the nature of truth and deception, arguing that while there are circumstances where lying may seem beneficial, it ultimately erodes trust and integrity. It delves into the neurological and psychological aspects of honesty, proposing that even well-intentioned \"white lies\" can have detrimental long-term effects on relationships and personal character. The author encourages readers to embrace radical honesty as a path to a more coherent and authentic life."
   },
   {
     "number": 184,
@@ -2338,7 +2338,7 @@ const books = [
     "dateCompleted": "2023-03-27",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00195.jpg",
     "id": 195,
-    "summary": "This work explores the history and theoretical contributions of the Combahee River Collective, a pivotal Black feminist lesbian organization active from 1974 to 1980. It delves into their groundbreaking statement, which articulated the concept of \\\"identity politics\\\" and advocated for the liberation of all oppressed people, particularly Black women. The book examines the collective's intersectional approach to understanding and dismantling systems of oppression, highlighting their critique of both racism and sexism within broader movements for social change. It emphasizes the enduring relevance of their ideas for contemporary social justice struggles."
+    "summary": "This work explores the history and theoretical contributions of the Combahee River Collective, a pivotal Black feminist lesbian organization active from 1974 to 1980. It delves into their groundbreaking statement, which articulated the concept of \"identity politics\" and advocated for the liberation of all oppressed people, particularly Black women. The book examines the collective's intersectional approach to understanding and dismantling systems of oppression, highlighting their critique of both racism and sexism within broader movements for social change. It emphasizes the enduring relevance of their ideas for contemporary social justice struggles."
   },
   {
     "number": 196,
@@ -2590,7 +2590,7 @@ const books = [
     "dateCompleted": "2023-07-16",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00216.jpg",
     "id": 216,
-    "summary": "This novel explores the emergence of a powerful, collective consciousness known as the \\\"Pattern,\\\" initiated by a woman with extraordinary mental abilities. As she awakens others to their latent powers, they form a vast, telepathic network, facing both the challenges of integrating disparate minds and the dangers posed by those who fear or seek to control their growing influence. The story delves into themes of identity, community, power, and the evolution of humanity."
+    "summary": "This novel explores the emergence of a powerful, collective consciousness known as the \"Pattern,\" initiated by a woman with extraordinary mental abilities. As she awakens others to their latent powers, they form a vast, telepathic network, facing both the challenges of integrating disparate minds and the dangers posed by those who fear or seek to control their growing influence. The story delves into themes of identity, community, power, and the evolution of humanity."
   },
   {
     "number": 217,
@@ -2650,7 +2650,7 @@ const books = [
     "dateCompleted": "2023-08-11",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00221.jpg",
     "id": 221,
-    "summary": "This book explores the complex interplay of race, class, and politics that shaped the city of Atlanta into a perceived haven for Black advancement. It delves into the historical narratives and power dynamics that contributed to the city's unique identity, examining how its image as a \\\"Black Mecca\\\" was constructed and maintained, often masking internal divisions and inequalities. The author critically analyzes the roles of various actors, from political leaders to grassroots activists, in shaping Atlanta's urban landscape and its ongoing struggle with issues of social justice and economic disparity."
+    "summary": "This book explores the complex interplay of race, class, and politics that shaped the city of Atlanta into a perceived haven for Black advancement. It delves into the historical narratives and power dynamics that contributed to the city's unique identity, examining how its image as a \"Black Mecca\" was constructed and maintained, often masking internal divisions and inequalities. The author critically analyzes the roles of various actors, from political leaders to grassroots activists, in shaping Atlanta's urban landscape and its ongoing struggle with issues of social justice and economic disparity."
   },
   {
     "number": 222,
@@ -2866,7 +2866,7 @@ const books = [
     "dateCompleted": "2023-11-04",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00239.jpg",
     "id": 239,
-    "summary": "This influential work proposes the creation of a modern, independent Jewish state to solve the \\\"Jewish question.\\\" It outlines the practical steps and considerations for establishing such a nation, emphasizing the necessity of a sovereign homeland to ensure the safety and self-determination of the Jewish people amidst rising antisemitism in Europe. The author argues that a Jewish state would not only provide a refuge but also allow for the flourishing of Jewish culture and identity."
+    "summary": "This influential work proposes the creation of a modern, independent Jewish state to solve the \"Jewish question.\" It outlines the practical steps and considerations for establishing such a nation, emphasizing the necessity of a sovereign homeland to ensure the safety and self-determination of the Jewish people amidst rising antisemitism in Europe. The author argues that a Jewish state would not only provide a refuge but also allow for the flourishing of Jewish culture and identity."
   },
   {
     "number": 240,
@@ -3058,7 +3058,7 @@ const books = [
     "dateCompleted": "2024-01-24",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00255.jpg",
     "id": 255,
-    "summary": "This book explores the idea that everyone, regardless of their profession, is involved in some form of \\\"selling\\\" or \\\"moving others.\\\" It challenges the traditional view of selling as a manipulative act, arguing that it's fundamentally about understanding, persuasion, and service. The author presents research and real-world examples to demonstrate how skills like attunement, buoyancy, and clarity are crucial for success in influencing others in various contexts, from business to personal life. Ultimately, it redefines selling as an essential human endeavor rooted in empathy and understanding."
+    "summary": "This book explores the idea that everyone, regardless of their profession, is involved in some form of \"selling\" or \"moving others.\" It challenges the traditional view of selling as a manipulative act, arguing that it's fundamentally about understanding, persuasion, and service. The author presents research and real-world examples to demonstrate how skills like attunement, buoyancy, and clarity are crucial for success in influencing others in various contexts, from business to personal life. Ultimately, it redefines selling as an essential human endeavor rooted in empathy and understanding."
   },
   {
     "number": 256,
@@ -3070,7 +3070,7 @@ const books = [
     "dateCompleted": "2024-01-25",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00256.jpg",
     "id": 256,
-    "summary": "This collection of short stories explores the complexities of contemporary masculinity through a series of \\\"interviews\\\" with various men, revealing their innermost thoughts, insecurities, and often unsettling perspectives on relationships, power dynamics, and identity. The narratives delve into the often-unspoken facets of male experience, presenting a mosaic of characters grappling with self-perception and societal expectations, all while experimenting with diverse narrative styles and challenging conventional literary forms."
+    "summary": "This collection of short stories explores the complexities of contemporary masculinity through a series of \"interviews\" with various men, revealing their innermost thoughts, insecurities, and often unsettling perspectives on relationships, power dynamics, and identity. The narratives delve into the often-unspoken facets of male experience, presenting a mosaic of characters grappling with self-perception and societal expectations, all while experimenting with diverse narrative styles and challenging conventional literary forms."
   },
   {
     "number": 257,
@@ -3454,7 +3454,7 @@ const books = [
     "dateCompleted": "2024-08-05",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00288.jpg",
     "id": 288,
-    "summary": "This book reexamines the historical and spiritual significance of Mary Magdalene, presenting her not just as a follower but as a pivotal figure—the \\\"first apostle.\\\" It explores her teachings and the potential impact of her \\\"feminist gospel\\\" on the evolution of Christianity, suggesting a different path that traditional interpretations may have overlooked. The author delves into how Mary Magdalene's true role could offer insights into a more inclusive and empowering form of faith, inviting readers to reconsider established narratives and discover a Christianity yet to be fully embraced."
+    "summary": "This book reexamines the historical and spiritual significance of Mary Magdalene, presenting her not just as a follower but as a pivotal figure—the \"first apostle.\" It explores her teachings and the potential impact of her \"feminist gospel\" on the evolution of Christianity, suggesting a different path that traditional interpretations may have overlooked. The author delves into how Mary Magdalene's true role could offer insights into a more inclusive and empowering form of faith, inviting readers to reconsider established narratives and discover a Christianity yet to be fully embraced."
   },
   {
     "number": 289,
@@ -3526,7 +3526,7 @@ const books = [
     "dateCompleted": "2024-10-04",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00294.jpg",
     "id": 294,
-    "summary": "This book explores the importance of adapting our thinking to a rapidly changing world. It delves into the concept of \\\"elastic thinking,\\\" which is the ability to embrace uncertainty, question assumptions, and develop innovative solutions. The author argues that in an increasingly complex and unpredictable environment, rigid thinking can be a hindrance, while a flexible and adaptable mindset is crucial for success and well-being. Through a blend of scientific research, historical anecdotes, and personal insights, the book encourages readers to cultivate their own cognitive flexibility to navigate challenges and opportunities in life and work."
+    "summary": "This book explores the importance of adapting our thinking to a rapidly changing world. It delves into the concept of \"elastic thinking,\" which is the ability to embrace uncertainty, question assumptions, and develop innovative solutions. The author argues that in an increasingly complex and unpredictable environment, rigid thinking can be a hindrance, while a flexible and adaptable mindset is crucial for success and well-being. Through a blend of scientific research, historical anecdotes, and personal insights, the book encourages readers to cultivate their own cognitive flexibility to navigate challenges and opportunities in life and work."
   },
   {
     "number": 295,
@@ -3550,7 +3550,7 @@ const books = [
     "dateCompleted": "2024-10-13",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00296.jpg",
     "id": 296,
-    "summary": "This book delves into the groundbreaking sketch comedy series \\\"In Living Color,\\\" exploring its origins, its impact on television, and its role in launching the careers of numerous Black comedians. It chronicles the show's daring approach to satire, its challenges to mainstream entertainment, and its lasting legacy in shaping the landscape of Black comedy and popular culture."
+    "summary": "This book delves into the groundbreaking sketch comedy series \"In Living Color,\" exploring its origins, its impact on television, and its role in launching the careers of numerous Black comedians. It chronicles the show's daring approach to satire, its challenges to mainstream entertainment, and its lasting legacy in shaping the landscape of Black comedy and popular culture."
   },
   {
     "number": 297,
@@ -3574,7 +3574,7 @@ const books = [
     "dateCompleted": "2024-10-17",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00298.jpg",
     "id": 298,
-    "summary": "This satirical novel follows a naive young man as he journeys across the world, experiencing countless misfortunes and injustices. Despite facing war, natural disasters, and human cruelty, he clings to his optimistic philosophy, constantly affirming that \\\"all is for the best\\\" in the best of all possible worlds. However, through his trials and tribulations, he slowly begins to question this worldview, ultimately concluding that one must cultivate their own garden to find true happiness, rather than relying on abstract philosophical ideals."
+    "summary": "This satirical novel follows a naive young man as he journeys across the world, experiencing countless misfortunes and injustices. Despite facing war, natural disasters, and human cruelty, he clings to his optimistic philosophy, constantly affirming that \"all is for the best\" in the best of all possible worlds. However, through his trials and tribulations, he slowly begins to question this worldview, ultimately concluding that one must cultivate their own garden to find true happiness, rather than relying on abstract philosophical ideals."
   },
   {
     "number": 299,
@@ -3586,7 +3586,7 @@ const books = [
     "dateCompleted": "2024-10-18",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00299.jpg",
     "id": 299,
-    "summary": "This philosophical work explores the historical progression of humanity from a hypothetical \\\"state of nature\\\" to civil society, arguing that the establishment of private property led to social and economic disparities. It examines the various forms of inequality that exist among humans and posits that these inequalities are not natural but rather a product of societal structures and the development of institutions. The author critically analyzes the origins of political power and the corruption that arises when individuals prioritize self-interest over the common good, ultimately suggesting that modern society has moved away from an ideal state of natural freedom and equality."
+    "summary": "This philosophical work explores the historical progression of humanity from a hypothetical \"state of nature\" to civil society, arguing that the establishment of private property led to social and economic disparities. It examines the various forms of inequality that exist among humans and posits that these inequalities are not natural but rather a product of societal structures and the development of institutions. The author critically analyzes the origins of political power and the corruption that arises when individuals prioritize self-interest over the common good, ultimately suggesting that modern society has moved away from an ideal state of natural freedom and equality."
   },
   {
     "number": 300,
@@ -3754,7 +3754,7 @@ const books = [
     "dateCompleted": "2025-02-08",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00313.jpg",
     "id": 313,
-    "summary": "This book explores how minor events or actions can lead to significant and widespread changes, similar to an epidemic. It delves into the underlying mechanisms that drive such transformations, examining how ideas, behaviors, and messages spread and influence society. The author illustrates these concepts through various real-world examples, highlighting the roles of \\\"connectors,\\\" \\\"mavens,\\\" and \\\"salesmen\\\" in disseminating information and shaping trends. The book also discusses the importance of context, the \\\"stickiness factor\\\" of messages, and the critical role of social engineering in prompting these shifts, ultimately demonstrating how seemingly small changes can have a disproportionately large impact on collective behavior."
+    "summary": "This book explores how minor events or actions can lead to significant and widespread changes, similar to an epidemic. It delves into the underlying mechanisms that drive such transformations, examining how ideas, behaviors, and messages spread and influence society. The author illustrates these concepts through various real-world examples, highlighting the roles of \"connectors,\" \"mavens,\" and \"salesmen\" in disseminating information and shaping trends. The book also discusses the importance of context, the \"stickiness factor\" of messages, and the critical role of social engineering in prompting these shifts, ultimately demonstrating how seemingly small changes can have a disproportionately large impact on collective behavior."
   },
   {
     "number": 314,
@@ -3802,7 +3802,7 @@ const books = [
     "dateCompleted": "2025-03-07",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00317.jpg",
     "id": 317,
-    "summary": "In a seemingly utopian society, a young boy is chosen to be the next \\\"Receiver of Memory,\\\" a unique role that holds all the memories of the past, both joyful and painful, that have been intentionally hidden from the community to maintain sameness and control. As he experiences the true depth of human emotion and history, he begins to question the foundations of his world and faces a difficult decision that could change everything for his community."
+    "summary": "In a seemingly utopian society, a young boy is chosen to be the next \"Receiver of Memory,\" a unique role that holds all the memories of the past, both joyful and painful, that have been intentionally hidden from the community to maintain sameness and control. As he experiences the true depth of human emotion and history, he begins to question the foundations of his world and faces a difficult decision that could change everything for his community."
   },
   {
     "number": 318,
@@ -3886,7 +3886,7 @@ const books = [
     "dateCompleted": "2025-03-28",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00324.jpg",
     "id": 324,
-    "summary": "This book explores the concept of creating truly new things, rather than just iterating on existing ideas. It emphasizes that real progress comes from going from \\\"zero to one\\\" by developing unique products or services, rather than competing in crowded markets. The authors argue that monopolies are not necessarily bad if they are built on innovation and provide genuine value, and they offer insights on how to build a successful startup by focusing on breakthrough technologies and a clear vision for the future."
+    "summary": "This book explores the concept of creating truly new things, rather than just iterating on existing ideas. It emphasizes that real progress comes from going from \"zero to one\" by developing unique products or services, rather than competing in crowded markets. The authors argue that monopolies are not necessarily bad if they are built on innovation and provide genuine value, and they offer insights on how to build a successful startup by focusing on breakthrough technologies and a clear vision for the future."
   },
   {
     "number": 325,
@@ -3922,7 +3922,7 @@ const books = [
     "dateCompleted": "2025-04-20",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00327.jpg",
     "id": 327,
-    "summary": "This book offers a unique and humorous perspective on the Swedish practice of \\\"death cleaning,\\\" a tradition of decluttering and organizing one's belongings to ease the burden on loved ones after passing. It encourages readers to embrace a pragmatic yet joyful approach to life's inevitable end, focusing on living fully in the present while thoughtfully preparing for the future. Through personal anecdotes and practical advice, the author guides readers on how to sort through their possessions, deciding what to keep, discard, or give away, all while reflecting on the memories and experiences that have shaped their lives. It's not just about cleaning, but about finding peace and contentment by simplifying one's life."
+    "summary": "This book offers a unique and humorous perspective on the Swedish practice of \"death cleaning,\" a tradition of decluttering and organizing one's belongings to ease the burden on loved ones after passing. It encourages readers to embrace a pragmatic yet joyful approach to life's inevitable end, focusing on living fully in the present while thoughtfully preparing for the future. Through personal anecdotes and practical advice, the author guides readers on how to sort through their possessions, deciding what to keep, discard, or give away, all while reflecting on the memories and experiences that have shaped their lives. It's not just about cleaning, but about finding peace and contentment by simplifying one's life."
   },
   {
     "number": 328,
@@ -3994,7 +3994,7 @@ const books = [
     "dateCompleted": "2025-05-29",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00333.jpg",
     "id": 333,
-    "summary": "This book explores the persistent disparities in wealth and opportunity within the startup investment landscape, particularly for underrepresented groups. It delves into the systemic issues that contribute to the \\\"equity gap\\\" and proposes actionable strategies to foster a more inclusive and equitable environment. The authors advocate for a re-evaluation of traditional investment practices and highlight the importance of conscious capital allocation to promote social justice and economic empowerment for all."
+    "summary": "This book explores the persistent disparities in wealth and opportunity within the startup investment landscape, particularly for underrepresented groups. It delves into the systemic issues that contribute to the \"equity gap\" and proposes actionable strategies to foster a more inclusive and equitable environment. The authors advocate for a re-evaluation of traditional investment practices and highlight the importance of conscious capital allocation to promote social justice and economic empowerment for all."
   },
   {
     "number": 334,
@@ -4090,6 +4090,6 @@ const books = [
     "dateCompleted": "",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00341.jpg",
     "id": 341,
-    "summary": "This book offers a fresh perspective on minimalism, specifically tailored for people of color, by exploring how to declutter not just physical spaces but also mental and emotional burdens. It delves into the historical and cultural aspects of consumerism within the Black community, encouraging readers to embrace intentional living and redefine what it means to have \\\"enough.\\\" Through practical advice and personal anecdotes, the author guides readers toward a more purposeful and less cluttered life, emphasizing sustainability, community, and personal well-being."
+    "summary": "This book offers a fresh perspective on minimalism, specifically tailored for people of color, by exploring how to declutter not just physical spaces but also mental and emotional burdens. It delves into the historical and cultural aspects of consumerism within the Black community, encouraging readers to embrace intentional living and redefine what it means to have \"enough.\" Through practical advice and personal anecdotes, the author guides readers toward a more purposeful and less cluttered life, emphasizing sustainability, community, and personal well-being."
   }
 ];
