@@ -732,18 +732,36 @@
             }
 
             initializeSimulation() {
-                this.simulation = d3.forceSimulation()
-                    .force('link', d3.forceLink().id(d => d.id).distance(d => {
-                        if (d.type === 'book-book') return 150;
-                        return 80;
-                    }))
-                    .force('charge', d3.forceManyBody().strength(d => {
-                        if (d.type === 'book') return -300;
-                        return -200;
-                    }))
-                    .force('center', d3.forceCenter(this.width / 2, this.height / 2))
-                    .force('collision', d3.forceCollide().radius(d => d.size + 5));
-            }
+    this.simulation = d3.forceSimulation()
+        .force('link', d3.forceLink()
+            .id(d => d.id)
+            .distance(d => {
+                // Longer distances for large networks
+                if (d.type === 'book-book') return 200; // Increased from 150
+                return 120; // Increased from 80
+            })
+            .strength(0.3) // Reduce link strength to allow more spreading
+        )
+        .force('charge', d3.forceManyBody()
+            .strength(d => {
+                // Stronger repulsion for large networks
+                if (d.type === 'book') return -800; // Increased from -300
+                return -600; // Increased from -200
+            })
+            .distanceMax(300) // Limit repulsion distance for performance
+        )
+        .force('center', d3.forceCenter(this.width / 2, this.height / 2))
+        .force('collision', d3.forceCollide()
+            .radius(d => d.size + 10) // Increased collision padding
+            .strength(0.8) // Stronger collision detection
+        )
+        // NEW: Add a clustering force to prevent all nodes from overlapping at center
+        .force('x', d3.forceX(this.width / 2).strength(0.1))
+        .force('y', d3.forceY(this.height / 2).strength(0.1))
+        // NEW: Longer simulation time for large networks
+        .alphaDecay(0.01) // Slower cooling (default is 0.0228)
+        .velocityDecay(0.3); // More damping (default is 0.4)
+}
 
             initializeInteractions() {
                 d3.select('#viewMode').on('change', (event) => {
@@ -772,17 +790,56 @@
 
             // STEP 5: Updated loadData method to use your book data
             loadData() {
-                // Check if we have book data
-                if (!bookData || bookData.length === 0) {
-                    document.getElementById('loading').innerHTML = `
-                        <div style="color: #ff4757; text-align: center;">
-                            <h2>❌ No book data found!</h2>
-                            <p>Make sure data.js is in the same folder and contains finished books.</p>
-                            <p>Check the browser console for more details.</p>
-                        </div>
-                    `;
-                    return;
-                }
+    // Show extended loading message for large collections
+    document.getElementById('loading').innerHTML = `
+        <div style="text-align: center; color: white;">
+            <h2>🧠 Building Knowledge Map...</h2>
+            <p>Processing ${bookData.length} books and extracting concepts...</p>
+            <p><em>This may take 10-15 seconds for large collections</em></p>
+        </div>
+    `;
+
+    // Use setTimeout to allow UI to update before heavy computation
+    setTimeout(() => {
+        if (!bookData || bookData.length === 0) {
+            document.getElementById('loading').innerHTML = `
+                <div style="color: #ff4757; text-align: center;">
+                    <h2>❌ No book data found!</h2>
+                    <p>Make sure data.js is in the same folder and contains finished books.</p>
+                </div>
+            `;
+            return;
+        }
+
+        const extractor = new ConceptExtractor();
+        console.log('🔍 Extracting concepts from books...');
+        const booksWithConcepts = extractor.extractAllConcepts(bookData);
+        
+        console.log('🕸️ Creating network structure...');
+        this.networkData = extractor.createConceptNetwork(booksWithConcepts);
+        
+        this.populateCategoryFilter();
+        this.updateStats();
+        
+        // Update loading message
+        document.getElementById('loading').innerHTML = `
+            <div style="text-align: center; color: white;">
+                <h2>🎨 Rendering visualization...</h2>
+                <p>Laying out ${this.networkData.nodes.length} nodes...</p>
+            </div>
+        `;
+        
+        // Small delay to show the rendering message
+        setTimeout(() => {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('network-svg').style.display = 'block';
+            
+            console.log('🎨 Starting network layout...');
+            this.renderNetwork();
+        }, 500);
+        
+    }, 100);
+}
 
                 const extractor = new ConceptExtractor();
                 const booksWithConcepts = extractor.extractAllConcepts(bookData);
@@ -825,65 +882,84 @@
             }
 
             renderNetwork() {
-                const data = this.getFilteredData();
-                
-                this.g.selectAll('*').remove();
+    const data = this.getFilteredData();
+    
+    this.g.selectAll('*').remove();
 
-                const link = this.g.append('g')
-                    .selectAll('line')
-                    .data(data.links)
-                    .enter().append('line')
-                    .attr('class', d => `link ${d.type}`)
-                    .attr('stroke-width', d => d.type === 'book-book' ? 2 : 1);
+    const link = this.g.append('g')
+        .selectAll('line')
+        .data(data.links)
+        .enter().append('line')
+        .attr('class', d => `link ${d.type}`)
+        .attr('stroke-width', d => d.type === 'book-book' ? 2 : 1);
 
-                const node = this.g.append('g')
-                    .selectAll('circle')
-                    .data(data.nodes)
-                    .enter().append('circle')
-                    .attr('class', d => `node ${d.type}`)
-                    .attr('r', d => d.size)
-                    .attr('fill', d => d.color)
-                    .call(this.createDragBehavior())
-                    .on('mouseover', (event, d) => this.showTooltip(event, d))
-                    .on('mouseout', () => this.hideTooltip())
-                    .on('click', (event, d) => this.showNodeDetails(d));
+    const node = this.g.append('g')
+        .selectAll('circle')
+        .data(data.nodes)
+        .enter().append('circle')
+        .attr('class', d => `node ${d.type}`)
+        .attr('r', d => d.size)
+        .attr('fill', d => d.color)
+        .call(this.createDragBehavior())
+        .on('mouseover', (event, d) => this.showTooltip(event, d))
+        .on('mouseout', () => this.hideTooltip())
+        .on('click', (event, d) => this.showNodeDetails(d));
 
-                const labels = this.g.append('g')
-                    .selectAll('text')
-                    .data(data.nodes.filter(d => d.size > 12))
-                    .enter().append('text')
-                    .attr('class', 'node-label')
-                    .text(d => {
-                        if (d.type === 'book') {
-                            return d.title.length > 20 ? d.title.substring(0, 17) + '...' : d.title;
-                        } else {
-                            return d.name.length > 15 ? d.name.substring(0, 12) + '...' : d.name;
-                        }
-                    })
-                    .attr('dy', d => d.size > 15 ? 4 : 3);
-
-                this.simulation.nodes(data.nodes);
-                this.simulation.force('link').links(data.links);
-                
-                this.simulation.on('tick', () => {
-                    link
-                        .attr('x1', d => d.source.x)
-                        .attr('y1', d => d.source.y)
-                        .attr('x2', d => d.target.x)
-                        .attr('y2', d => d.target.y);
-
-                    node
-                        .attr('cx', d => d.x)
-                        .attr('cy', d => d.y);
-
-                    labels
-                        .attr('x', d => d.x)
-                        .attr('y', d => d.y);
-                });
-
-                this.simulation.alpha(1).restart();
+    const labels = this.g.append('g')
+        .selectAll('text')
+        .data(data.nodes.filter(d => d.size > 15)) // Only show labels on larger nodes
+        .enter().append('text')
+        .attr('class', 'node-label')
+        .text(d => {
+            if (d.type === 'book') {
+                return d.title.length > 15 ? d.title.substring(0, 12) + '...' : d.title;
+            } else {
+                return d.name.length > 12 ? d.name.substring(0, 9) + '...' : d.name;
             }
+        })
+        .attr('dy', d => d.size > 15 ? 4 : 3);
 
+    // NEW: Initialize nodes with random positions to prevent overlap at center
+    data.nodes.forEach(d => {
+        if (!d.x && !d.y) {
+            const radius = Math.sqrt(data.nodes.length) * 10;
+            const angle = Math.random() * 2 * Math.PI;
+            d.x = this.width / 2 + Math.cos(angle) * Math.random() * radius;
+            d.y = this.height / 2 + Math.sin(angle) * Math.random() * radius;
+        }
+    });
+
+    this.simulation.nodes(data.nodes);
+    this.simulation.force('link').links(data.links);
+    
+    this.simulation.on('tick', () => {
+        link
+            .attr('x1', d => d.source.x)
+            .attr('y1', d => d.source.y)
+            .attr('x2', d => d.target.x)
+            .attr('y2', d => d.target.y);
+
+        node
+            .attr('cx', d => d.x)
+            .attr('cy', d => d.y);
+
+        labels
+            .attr('x', d => d.x)
+            .attr('y', d => d.y);
+    });
+
+    // NEW: Restart simulation with higher alpha for large networks
+    this.simulation.alpha(1).restart();
+    
+    // NEW: Add a timeout to ensure simulation has enough time to settle
+    setTimeout(() => {
+        if (this.simulation.alpha() > 0.1) {
+            console.log('🔄 Large network still settling, giving more time...');
+            this.simulation.alpha(0.3).restart();
+        }
+    }, 5000); // Give 5 seconds for initial layout
+}
+            
             getFilteredData() {
                 let filteredNodes = [...this.networkData.nodes];
                 let filteredLinks = [...this.networkData.links];
