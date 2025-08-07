@@ -106,51 +106,61 @@
         .node {
             cursor: pointer;
             transition: all 0.3s ease;
+            stroke-width: 2px;
         }
 
         .node:hover {
-            stroke-width: 3px;
-            stroke-opacity: 0.8;
+            stroke-width: 4px;
+            stroke-opacity: 1;
         }
 
         .node.book {
             stroke: #fff;
-            stroke-width: 2px;
+            opacity: 0.9;
         }
 
         .node.concept {
             stroke: rgba(255,255,255,0.8);
-            stroke-width: 1.5px;
+            opacity: 0.8;
         }
 
         .node.highlighted {
             stroke: #FFD700;
-            stroke-width: 4px;
+            stroke-width: 5px;
+            opacity: 1;
         }
 
         .node.dimmed {
-            opacity: 0.3;
+            opacity: 0.2;
+        }
+
+        .node.important {
+            stroke-width: 3px;
+            opacity: 1;
         }
 
         .link {
             stroke: rgba(255,255,255,0.4);
             stroke-width: 1;
             transition: all 0.3s ease;
+            opacity: 0.6;
         }
 
         .link.book-concept {
             stroke: rgba(255,255,255,0.3);
+            opacity: 0.4;
         }
 
         .link.book-book {
-            stroke: rgba(255,255,255,0.6);
+            stroke: rgba(255,255,255,0.7);
             stroke-width: 2;
+            opacity: 0.7;
         }
 
         .link.highlighted {
             stroke: #FFD700;
-            stroke-width: 3;
-            stroke-opacity: 0.8;
+            stroke-width: 4;
+            stroke-opacity: 1;
         }
 
         .link.dimmed {
@@ -159,12 +169,22 @@
 
         .node-label {
             fill: white;
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 600;
             text-anchor: middle;
             dominant-baseline: middle;
             pointer-events: none;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .node-label.visible {
+            opacity: 1;
+        }
+
+        .node-label.permanent {
+            opacity: 1;
         }
 
         .tooltip {
@@ -333,6 +353,27 @@
             font-size: 18px;
         }
 
+        .complexity-control {
+            position: absolute;
+            top: 200px;
+            left: 20px;
+            background: var(--surface-main);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px var(--shadow-medium);
+            min-width: 200px;
+        }
+
+        .complexity-control h4 {
+            margin: 0 0 10px 0;
+            color: var(--text-dark);
+        }
+
+        .complexity-slider {
+            width: 90%;
+            margin: 10px 0;
+        }
+
         @media (max-width: 768px) {
             .controls {
                 flex-direction: column;
@@ -417,6 +458,17 @@
             </div>
         </div>
 
+        <div class="complexity-control">
+            <h4>Network Complexity</h4>
+            <label for="complexitySlider">Detail Level:</label>
+            <input type="range" id="complexitySlider" class="complexity-slider" min="1" max="3" value="2" step="1">
+            <div style="display: flex; justify-content: space-between; font-size: 12px; margin-top: 5px;">
+                <span>Simple</span>
+                <span>Balanced</span>
+                <span>Detailed</span>
+            </div>
+        </div>
+
         <div class="legend">
             <h4>Legend</h4>
             <div class="legend-item">
@@ -429,11 +481,11 @@
             </div>
             <div class="legend-item">
                 <div style="width: 20px; height: 2px; background: rgba(255,255,255,0.6);"></div>
-                <span>Book-Book Connection</span>
+                <span>Strong Connection</span>
             </div>
             <div class="legend-item">
                 <div style="width: 20px; height: 1px; background: rgba(255,255,255,0.4);"></div>
-                <span>Book-Concept Connection</span>
+                <span>Weak Connection</span>
             </div>
         </div>
 
@@ -445,68 +497,68 @@
     </div>
 
     <script>
-        // Inline book data (first 50 books for demo)
+        // Sample book data (first 5 books)
         const books = [
             {
-    "number": 1,
-    "title": "Begin Again: James Baldwin's America and Its Urgent Lessons for Our Own",
-    "author": "Eddie S. Glaude, Jr.",
-    "category": "Biography",
-    "ownership": "Digital",
-    "status": "Finished",
-    "dateCompleted": "2020-10-03",
-    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00001.jpg",
-    "id": 1,
-    "summary": "This book offers a powerful examination of American history and identity through the lens of James Baldwin's work. It delves into Baldwin's observations on race, democracy, and the ongoing struggle for justice in the United States, drawing parallels between his era and contemporary challenges. The author argues that Baldwin's insights remain urgently relevant, urging readers to confront uncomfortable truths about the nation's past and present to forge a more equitable future."
-  },
-  {
-    "number": 2,
-    "title": "David and Goliath: Underdogs, Misfits, and the Art of Battling Giants",
-    "author": "Malcolm Gladwell",
-    "category": "Social Science(s)",
-    "ownership": "Physical",
-    "status": "Finished",
-    "dateCompleted": "2020-10-08",
-    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00002.jpg",
-    "id": 2,
-    "summary": "This book explores the dynamics of encounters between the powerful and the seemingly weak, challenging conventional wisdom about advantages and disadvantages. It argues that what appears to be a weakness can often be a source of unexpected strength, and that seemingly insurmountable odds can be overcome through unconventional strategies and a refusal to conform to traditional expectations. Through a series of compelling stories and examples, the author illustrates how underdogs can defy expectations and achieve remarkable success by leveraging their unique circumstances and embracing alternative approaches."
-  },
-  {
-    "number": 3,
-    "title": "Talking to Strangers: What We Should Know about the People We Don't Know",
-    "author": "Malcolm Gladwell",
-    "category": "Social Science(s)",
-    "ownership": "Digital",
-    "status": "Finished",
-    "dateCompleted": "2020-10-13",
-    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00003.jpg",
-    "id": 3,
-    "summary": "This book explores the misunderstandings and miscommunications that arise when people interact with strangers. It delves into the various tools and strategies individuals use to make sense of those they don't know, and how these methods can often lead to incorrect assumptions and catastrophic errors. Through a series of compelling stories and case studies, the author examines why trusting strangers can be both essential and dangerous, highlighting the complexities of human interaction and the importance of re-evaluating our default approaches to engaging with the unknown."
-  },
-  {
-    "number": 4,
-    "title": "Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones",
-    "author": "James Clear",
-    "category": "Self-Development",
-    "ownership": "Physical",
-    "status": "Finished",
-    "dateCompleted": "2020-10-24",
-    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00004.jpg",
-    "id": 4,
-    "summary": "This book explores the power of small, consistent actions in achieving significant results. It introduces practical strategies for forming good habits and breaking bad ones, emphasizing the importance of systems over goals. The author details how to make desired behaviors obvious, attractive, easy, and satisfying, offering actionable insights for personal and professional growth."
-  },
-  {
-    "number": 5,
-    "title": "When: The Scientific Secrets of Perfect Timing",
-    "author": "Dan H. Pink",
-    "category": "Self-Development",
-    "ownership": "Physical",
-    "status": "Finished",
-    "dateCompleted": "2020-10-28",
-    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00005.jpg",
-    "id": 5,
-    "summary": "This book explores the hidden patterns of our days, revealing how the timing of our actions can profoundly impact our success and well-being. Drawing on a wealth of research from psychology, biology, and economics, it delves into the science of \"when,\" offering practical insights on how to optimize our daily schedules, make better decisions, and boost our performance by understanding the natural rhythms of our lives. It highlights the importance of recognizing different \"temporal landmarks\" and utilizing strategic breaks to maximize productivity and personal satisfaction."
-  }
+                "number": 1,
+                "title": "Begin Again: James Baldwin's America and Its Urgent Lessons for Our Own",
+                "author": "Eddie S. Glaude, Jr.",
+                "category": "Biography",
+                "ownership": "Digital",
+                "status": "Finished",
+                "dateCompleted": "2020-10-03",
+                "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00001.jpg",
+                "id": 1,
+                "summary": "This book offers a powerful examination of American history and identity through the lens of James Baldwin's work. It delves into Baldwin's observations on race, democracy, and the ongoing struggle for justice in the United States, drawing parallels between his era and contemporary challenges. The author argues that Baldwin's insights remain urgently relevant, urging readers to confront uncomfortable truths about the nation's past and present to forge a more equitable future."
+            },
+            {
+                "number": 2,
+                "title": "David and Goliath: Underdogs, Misfits, and the Art of Battling Giants",
+                "author": "Malcolm Gladwell",
+                "category": "Social Science(s)",
+                "ownership": "Physical",
+                "status": "Finished",
+                "dateCompleted": "2020-10-08",
+                "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00002.jpg",
+                "id": 2,
+                "summary": "This book explores the dynamics of encounters between the powerful and the seemingly weak, challenging conventional wisdom about advantages and disadvantages. It argues that what appears to be a weakness can often be a source of unexpected strength, and that seemingly insurmountable odds can be overcome through unconventional strategies and a refusal to conform to traditional expectations. Through a series of compelling stories and examples, the author illustrates how underdogs can defy expectations and achieve remarkable success by leveraging their unique circumstances and embracing alternative approaches."
+            },
+            {
+                "number": 3,
+                "title": "Talking to Strangers: What We Should Know about the People We Don't Know",
+                "author": "Malcolm Gladwell",
+                "category": "Social Science(s)",
+                "ownership": "Digital",
+                "status": "Finished",
+                "dateCompleted": "2020-10-13",
+                "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00003.jpg",
+                "id": 3,
+                "summary": "This book explores the misunderstandings and miscommunications that arise when people interact with strangers. It delves into the various tools and strategies individuals use to make sense of those they don't know, and how these methods can often lead to incorrect assumptions and catastrophic errors. Through a series of compelling stories and case studies, the author examines why trusting strangers can be both essential and dangerous, highlighting the complexities of human interaction and the importance of re-evaluating our default approaches to engaging with the unknown."
+            },
+            {
+                "number": 4,
+                "title": "Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones",
+                "author": "James Clear",
+                "category": "Self-Development",
+                "ownership": "Physical",
+                "status": "Finished",
+                "dateCompleted": "2020-10-24",
+                "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00004.jpg",
+                "id": 4,
+                "summary": "This book explores the power of small, consistent actions in achieving significant results. It introduces practical strategies for forming good habits and breaking bad ones, emphasizing the importance of systems over goals. The author details how to make desired behaviors obvious, attractive, easy, and satisfying, offering actionable insights for personal and professional growth."
+            },
+            {
+                "number": 5,
+                "title": "When: The Scientific Secrets of Perfect Timing",
+                "author": "Dan H. Pink",
+                "category": "Self-Development",
+                "ownership": "Physical",
+                "status": "Finished",
+                "dateCompleted": "2020-10-28",
+                "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00005.jpg",
+                "id": 5,
+                "summary": "This book explores the hidden patterns of our days, revealing how the timing of our actions can profoundly impact our success and well-being. Drawing on a wealth of research from psychology, biology, and economics, it delves into the science of \"when,\" offering practical insights on how to optimize our daily schedules, make better decisions, and boost our performance by understanding the natural rhythms of our lives. It highlights the importance of recognizing different \"temporal landmarks\" and utilizing strategic breaks to maximize productivity and personal satisfaction."
+            }
         ];
 
         function loadFullBookData() {
@@ -518,7 +570,7 @@
 
         const bookData = loadFullBookData();
 
-        // Concept Extractor Class (simplified for demo)
+        // Enhanced Concept Extractor Class
         class ConceptExtractor {
             constructor() {
                 this.conceptCategories = {
@@ -541,11 +593,14 @@
                     politics: ['politics', 'government', 'policy', 'democracy', 'political', 'state'],
                     transformation: ['change', 'transformation', 'growth', 'evolution', 'revolution'],
                     resistance: ['resistance', 'rebellion', 'protest', 'activism', 'movement', 'struggle'],
-                    love: ['love', 'compassion', 'empathy', 'connection', 'relationship', 'care']
+                    love: ['love', 'compassion', 'empathy', 'connection', 'relationship', 'care'],
+                    habits: ['habits', 'routine', 'behavior', 'patterns', 'consistent'],
+                    timing: ['timing', 'time', 'schedule', 'when', 'rhythm'],
+                    communication: ['communication', 'strangers', 'interaction', 'understanding']
                 };
 
-						this.specificThemes = {
-                    'Black experience': ['black', 'african american', 'harlem', 'slavery', 'jim crow'],
+                this.specificThemes = {
+                    'Black experience': ['black', 'african american', 'harlem', 'slavery', 'jim crow', 'baldwin'],
                     'mindfulness': ['mindfulness', 'meditation', 'present moment', 'awareness', 'peace'],
                     'business innovation': ['startup', 'entrepreneurship', 'innovation', 'disruption'],
                     'artificial intelligence': ['ai', 'machine learning', 'algorithms', 'automation'],
@@ -559,19 +614,16 @@
                     'religious thought': ['christianity', 'buddhism', 'theology', 'spiritual practice'],
                     'scientific discovery': ['physics', 'biology', 'cosmology', 'evolution'],
                     'political philosophy': ['democracy', 'authoritarianism', 'political theory'],
-                    'creative process': ['artistic creation', 'writing', 'music', 'creative work']
+                    'creative process': ['artistic creation', 'writing', 'music', 'creative work'],
+                    'personal development': ['habits', 'growth', 'improvement', 'development'],
+                    'human behavior': ['psychology', 'behavior', 'decision making', 'social']
                 };
 
                 this.authorInfluenceMap = {
-                    'bell hooks': ['feminism', 'love', 'education', 'critical thinking', 'social justice'],
-                    'James Baldwin': ['racial identity', 'literature', 'civil rights', 'sexuality', 'social criticism'],
-                    'Ta-Nehisi Coates': ['racial injustice', 'american history', 'systemic racism', 'identity'],
+                    'Eddie S. Glaude, Jr.': ['racial identity', 'civil rights', 'social criticism', 'history'],
                     'Malcolm Gladwell': ['social science', 'human behavior', 'decision making', 'sociology'],
-                    'Thich Nhat Hanh': ['mindfulness', 'peace', 'compassion', 'spiritual practice'],
-                    'Michael Eric Dyson': ['race relations', 'civil rights', 'cultural criticism', 'theology'],
-                    'Octavia E. Butler': ['science fiction', 'power dynamics', 'social change', 'future society'],
-                    'Albert Camus': ['existentialism', 'absurd', 'philosophy', 'human condition'],
-                    'Noam Chomsky': ['political analysis', 'media criticism', 'power structures', 'linguistics']
+                    'James Clear': ['habits', 'productivity', 'self improvement', 'systems'],
+                    'Dan H. Pink': ['timing', 'motivation', 'psychology', 'productivity']
                 };
             }
 
@@ -586,7 +638,7 @@
                     }
                 });
 
-					 Object.entries(this.specificThemes).forEach(([theme, keywords]) => {
+                Object.entries(this.specificThemes).forEach(([theme, keywords]) => {
                     const matchCount = keywords.filter(keyword => text.includes(keyword)).length;
                     if (matchCount >= 1) {
                         concepts.add(theme);
@@ -640,13 +692,21 @@
                 return conceptFreq;
             }
 
-            createConceptNetwork(booksWithConcepts) {
+            createConceptNetwork(booksWithConcepts, complexityLevel = 2) {
                 const nodes = [];
                 const links = [];
                 const processedPairs = new Set();
 
-                // Create book nodes
+                // Adjust thresholds based on complexity level - make progression more gradual
+                const conceptThreshold = complexityLevel === 1 ? 3 : complexityLevel === 2 ? 3 : 2; // Keep Balanced same as Simple
+                const maxConcepts = complexityLevel === 1 ? 6 : complexityLevel === 2 ? 10 : 15; // More gradual progression
+                const maxBookConnections = complexityLevel === 1 ? 1 : complexityLevel === 2 ? 1 : 2; // Keep Balanced same as Simple
+
+                console.log(`Creating network: complexity=${complexityLevel}, conceptThreshold=${conceptThreshold}, maxConcepts=${maxConcepts}`);
+
+                // Create book nodes with enhanced properties
                 booksWithConcepts.forEach(book => {
+                    const importance = this.calculateBookImportance(book, booksWithConcepts);
                     nodes.push({
                         id: `book-${book.id}`,
                         type: 'book',
@@ -654,55 +714,61 @@
                         author: book.author,
                         category: book.category,
                         concepts: book.concepts,
-                        size: Math.min(book.concepts.length * 2 + 8, 20),
+                        size: Math.min(book.concepts.length * 3 + 12, 30),
                         color: this.getCategoryColor(book.category),
                         dateCompleted: book.dateCompleted,
-                        summary: book.summary
+                        summary: book.summary,
+                        importance: importance,
+                        isImportant: importance > 0.7
                     });
                 });
 
-                // Create concept nodes
+                // Create concept nodes with importance weighting
                 const conceptFreq = this.createConceptFrequencyMap(booksWithConcepts);
                 const importantConcepts = Object.entries(conceptFreq)
-                    .filter(([concept, freq]) => freq >= 2)
-                    .slice(0, 20);
+                    .filter(([concept, freq]) => freq >= conceptThreshold)
+                    .sort(([,a], [,b]) => b - a)
+                    .slice(0, maxConcepts);
 
                 importantConcepts.forEach(([concept, frequency]) => {
+                    const importance = frequency / booksWithConcepts.length;
                     nodes.push({
                         id: `concept-${concept}`,
                         type: 'concept',
                         name: concept,
                         frequency,
-                        size: Math.min(frequency * 3 + 10, 25),
-                        color: this.getConceptColor(concept)
+                        size: Math.min(frequency * 4 + 8, 20),
+                        color: this.getConceptColor(concept),
+                        importance: importance,
+                        isImportant: importance > 0.5
                     });
                 });
 
-                // Create book-concept links
+                // Create book-concept links with strength weighting
                 booksWithConcepts.forEach(book => {
                     book.concepts.forEach(concept => {
-                        if (conceptFreq[concept] >= 2) {
+                        if (conceptFreq[concept] >= conceptThreshold) {
                             links.push({
                                 source: `book-${book.id}`,
                                 target: `concept-${concept}`,
                                 type: 'book-concept',
-                                strength: 1
+                                strength: conceptFreq[concept] / booksWithConcepts.length
                             });
                         }
                     });
                 });
 
-                // Create book-book links
+                // Create book-book links with limited connections
                 booksWithConcepts.forEach(book => {
                     const related = this.findRelatedBooks(book, booksWithConcepts, 2);
-                    related.slice(0, 2).forEach(relation => {
+                    related.slice(0, maxBookConnections).forEach(relation => {
                         const pairKey = [book.id, relation.book.id].sort().join('-');
                         if (!processedPairs.has(pairKey)) {
                             links.push({
                                 source: `book-${book.id}`,
                                 target: `book-${relation.book.id}`,
                                 type: 'book-book',
-                                strength: relation.connectionStrength,
+                                strength: relation.connectionStrength / 5, // Normalize strength
                                 sharedConcepts: relation.sharedConcepts
                             });
                             processedPairs.add(pairKey);
@@ -712,6 +778,13 @@
 
                 console.log(`🎯 Network created: ${nodes.length} nodes, ${links.length} links`);
                 return { nodes, links };
+            }
+
+            calculateBookImportance(book, allBooks) {
+                // Calculate importance based on concept richness and connections
+                const conceptCount = book.concepts.length;
+                const maxConcepts = Math.max(...allBooks.map(b => b.concepts.length));
+                return conceptCount / maxConcepts;
             }
 
             getCategoryColor(category) {
@@ -736,18 +809,21 @@
                     'philosophy': '#673AB7', 'science': '#00BCD4', 'psychology': '#FF5722',
                     'history': '#8BC34A', 'politics': '#009688', 'transformation': '#CDDC39',
                     'resistance': '#FF6F00', 'love': '#E91E63', 'mindfulness': '#4CAF50',
-                    'Black experience': '#F44336', 'artificial intelligence': '#607D8B'
+                    'Black experience': '#F44336', 'artificial intelligence': '#607D8B',
+                    'habits': '#9C27B0', 'timing': '#FF9800', 'communication': '#2196F3',
+                    'human behavior': '#FF5722', 'personal development': '#9370DB'
                 };
                 return conceptColors[concept] || '#757575';
             }
         }
 
-        // Network Visualization Class (simplified)
+        // Enhanced Network Visualization Class
         class NetworkVisualization {
             constructor(containerSelector) {
                 this.container = d3.select(containerSelector);
                 this.width = window.innerWidth;
                 this.height = window.innerHeight - 80;
+                this.complexityLevel = 2;
                 
                 this.initializeSVG();
                 this.initializeSimulation();
@@ -772,24 +848,22 @@
             }
 
             initializeSimulation() {
-                this.simulation = d3.forceSimulation()
-                    .force('link', d3.forceLink()
-                        .id(d => d.id)
-                        .distance(100)
-                        .strength(0.5)
-                    )
-                    .force('charge', d3.forceManyBody()
-                        .strength(-300)
-                    )
-                    .force('center', d3.forceCenter(this.width / 2, this.height / 2))
-                    .force('collision', d3.forceCollide()
-                        .radius(d => d.size + 5)
-                    );
+                // Create a basic simulation - will be properly configured in renderNetwork
+                this.simulation = d3.forceSimulation();
             }
 
             initializeInteractions() {
                 d3.select('#resetBtn').on('click', () => this.resetView());
                 d3.select('#centerBtn').on('click', () => this.centerNetwork());
+                d3.select('#zoomIn').on('click', () => this.zoomIn());
+                d3.select('#zoomOut').on('click', () => this.zoomOut());
+                d3.select('#fitBtn').on('click', () => this.fitToScreen());
+                
+                // Complexity slider
+                d3.select('#complexitySlider').on('input', (event) => {
+                    this.complexityLevel = parseInt(event.target.value);
+                    this.updateComplexity();
+                });
             }
 
             loadData() {
@@ -805,14 +879,60 @@
 
                 const extractor = new ConceptExtractor();
                 const booksWithConcepts = extractor.extractAllConcepts(bookData);
-                this.networkData = extractor.createConceptNetwork(booksWithConcepts);
+                this.booksWithConcepts = booksWithConcepts;
+                this.extractor = extractor;
                 
+                this.updateNetworkData();
                 this.updateStats();
                 
                 document.getElementById('loading').style.display = 'none';
                 document.getElementById('network-svg').style.display = 'block';
                 
                 this.renderNetwork();
+            }
+
+            updateNetworkData() {
+                this.networkData = this.extractor.createConceptNetwork(this.booksWithConcepts, this.complexityLevel);
+            }
+
+            updateComplexity() {
+                this.updateNetworkData();
+                this.updateStats();
+                this.renderNetwork();
+                // Remove the setTimeout - forces are already updated in renderNetwork
+            }
+
+            updateForceParameters() {
+                if (!this.simulation) return;
+
+                // Use actual current node count, not bookData.length
+                const currentNodes = this.simulation.nodes();
+                const nodeCount = currentNodes.length;
+                const chargeStrength = Math.max(-400 - nodeCount * 10, -1200); // Adjusted calculation
+
+                console.log(`Updating forces for complexity ${this.complexityLevel}, nodeCount: ${nodeCount}, chargeStrength: ${chargeStrength}`);
+
+                // Update link strength based on complexity
+                const linkStrength = this.complexityLevel === 1 ? 0.3 : this.complexityLevel === 2 ? 0.4 : 0.2;
+                this.simulation.force('link').strength(d => {
+                    if (d.type === 'book-book') return linkStrength * 1.2;
+                    return linkStrength;
+                });
+
+                // Update charge strength - use current node count
+                this.simulation.force('charge').strength(d => {
+                    return d && d.isImportant ? chargeStrength * 1.5 : chargeStrength;
+                });
+
+                // Update clustering forces
+                const xStrength = 0.05;
+                const yStrength = 0.03;
+                this.simulation.force('x').strength(xStrength);
+                this.simulation.force('y').strength(yStrength);
+
+                // Use consistent cooling parameters
+                this.simulation.alphaDecay(0.008);
+                this.simulation.velocityDecay(0.25);
             }
 
             updateStats() {
@@ -831,37 +951,99 @@
                 
                 this.g.selectAll('*').remove();
 
+                // Create the simulation fresh each time with correct parameters
+                const nodeCount = data.nodes.length;
+                const linkDistance = Math.min(150 + nodeCount * 3, 300);
+                const chargeStrength = Math.max(-300 - nodeCount * 8, -800);
+                const collisionRadius = 20;
+
+                // Get complexity-specific parameters - reverse the logic
+                const linkStrength = this.complexityLevel === 1 ? 0.5 : this.complexityLevel === 2 ? 0.4 : 0.3;
+
+                console.log(`Creating simulation: complexity=${this.complexityLevel}, nodes=${nodeCount}, linkStrength=${linkStrength}, charge=${chargeStrength}`);
+
+                // Stop any existing simulation
+                this.simulation.stop();
+
+                // Reconfigure the simulation with correct parameters
+                this.simulation
+                    .force('link', d3.forceLink()
+                        .id(d => d.id)
+                        .distance(d => {
+                            if (d.type === 'book-book') return linkDistance * 1.3;
+                            return linkDistance;
+                        })
+                        .strength(d => {
+                            if (d.type === 'book-book') return linkStrength * 1.2;
+                            return linkStrength;
+                        })
+                    )
+                    .force('charge', d3.forceManyBody()
+                        .strength(d => {
+                            return d && d.isImportant ? chargeStrength * 1.5 : chargeStrength;
+                        })
+                        .distanceMax(500)
+                    )
+                    .force('center', d3.forceCenter(this.width / 2, this.height / 2))
+                    .force('collision', d3.forceCollide()
+                        .radius(d => d.size + collisionRadius)
+                        .strength(0.9)
+                    )
+                    .force('x', d3.forceX()
+                        .x(d => {
+                            if (d.type === 'book') return this.width * 0.3;
+                            return this.width * 0.7;
+                        })
+                        .strength(0.05)
+                    )
+                    .force('y', d3.forceY(this.height / 2).strength(0.03))
+                    .alphaDecay(0.008)
+                    .velocityDecay(0.25);
+
+                // Create links with varying opacity and width
                 const link = this.g.append('g')
                     .selectAll('line')
                     .data(data.links)
                     .enter().append('line')
                     .attr('class', d => `link ${d.type}`)
-                    .attr('stroke-width', d => d.type === 'book-book' ? 2 : 1);
+                    .attr('stroke-width', d => {
+                        if (d.type === 'book-book') return Math.max(d.strength * 8, 1);
+                        return Math.max(d.strength * 4, 0.5);
+                    })
+                    .attr('opacity', d => Math.max(d.strength * 2, 0.3));
 
+                // Create nodes with enhanced styling
                 const node = this.g.append('g')
                     .selectAll('circle')
                     .data(data.nodes)
                     .enter().append('circle')
-                    .attr('class', d => `node ${d.type}`)
+                    .attr('class', d => `node ${d.type} ${d.isImportant ? 'important' : ''}`)
                     .attr('r', d => d.size)
                     .attr('fill', d => d.color)
+                    .attr('opacity', d => d.isImportant ? 1 : 0.8)
                     .call(this.createDragBehavior())
                     .on('mouseover', (event, d) => this.showTooltip(event, d))
-                    .on('mouseout', () => this.hideTooltip());
+                    .on('mouseout', () => this.hideTooltip())
+                    .on('click', (event, d) => this.showNodeDetails(d));
 
+                // Create labels with smart visibility
                 const labels = this.g.append('g')
                     .selectAll('text')
-                    .data(data.nodes.filter(d => d.size > 10))
+                    .data(data.nodes)
                     .enter().append('text')
-                    .attr('class', 'node-label')
+                    .attr('class', d => `node-label ${d.isImportant ? 'permanent' : ''}`)
                     .text(d => {
                         if (d.type === 'book') {
-                            return d.title.length > 15 ? d.title.substring(0, 12) + '...' : d.title;
+                            return d.title.length > 20 ? d.title.substring(0, 17) + '...' : d.title;
                         } else {
-                            return d.name;
+                            return d.name.length > 15 ? d.name.substring(0, 12) + '...' : d.name;
                         }
                     })
-                    .attr('dy', 4);
+                    .attr('dy', 4)
+                    .style('font-size', d => d.isImportant ? '13px' : '11px');
+
+                // Initialize nodes with spiral positioning to avoid center clustering
+                this.initializeNodePositions(data.nodes);
 
                 this.simulation.nodes(data.nodes);
                 this.simulation.force('link').links(data.links);
@@ -882,7 +1064,39 @@
                         .attr('y', d => d.y);
                 });
 
+                // Enhanced label visibility on hover
+                node.on('mouseenter', function(event, d) {
+                    d3.select(this.parentNode).selectAll('.node-label')
+                        .filter(labelData => labelData.id === d.id)
+                        .classed('visible', true);
+                }).on('mouseleave', function(event, d) {
+                    d3.select(this.parentNode).selectAll('.node-label')
+                        .filter(labelData => labelData.id === d.id && !labelData.isImportant)
+                        .classed('visible', false);
+                });
+
                 this.simulation.alpha(1).restart();
+
+                // Gradual cooling for large networks
+                setTimeout(() => {
+                    this.simulation.alpha(0.3).restart();
+                }, 3000);
+            }
+
+            initializeNodePositions(nodes) {
+                const radius = Math.min(this.width, this.height) * 0.3;
+                const centerX = this.width / 2;
+                const centerY = this.height / 2;
+
+                nodes.forEach((d, i) => {
+                    if (!d.x && !d.y) {
+                        // Spiral positioning
+                        const angle = (i / nodes.length) * 4 * Math.PI;
+                        const r = (i / nodes.length) * radius;
+                        d.x = centerX + Math.cos(angle) * r;
+                        d.y = centerY + Math.sin(angle) * r;
+                    }
+                });
             }
 
             createDragBehavior() {
@@ -911,12 +1125,14 @@
                         <strong>${d.title}</strong><br>
                         <em>by ${d.author}</em><br>
                         Category: ${d.category}<br>
-                        Concepts: ${d.concepts.length}
+                        Concepts: ${d.concepts.length}<br>
+                        Importance: ${(d.importance * 100).toFixed(0)}%
                     `;
                 } else {
                     content = `
                         <strong>Concept: ${d.name}</strong><br>
-                        Appears in ${d.frequency} books
+                        Appears in ${d.frequency} books<br>
+                        Importance: ${(d.importance * 100).toFixed(0)}%
                     `;
                 }
                 
@@ -930,7 +1146,124 @@
                 this.tooltip.classed('visible', false);
             }
 
+            showNodeDetails(d) {
+                const sidebar = d3.select('#sidebar');
+                const content = d3.select('#sidebar-content');
+                
+                if (d.type === 'book') {
+                    this.showBookDetails(d, content);
+                } else {
+                    this.showConceptDetails(d, content);
+                }
+                
+                sidebar.classed('open', true);
+                this.highlightConnections(d);
+            }
+
+            showBookDetails(book, content) {
+                const relatedBooks = this.extractor.findRelatedBooks(
+                    book, 
+                    this.networkData.nodes.filter(n => n.type === 'book'),
+                    1
+                );
+
+                content.html(`
+                    <h3>📚 ${book.title}</h3>
+                    <p><strong>Author:</strong> ${book.author}</p>
+                    <p><strong>Category:</strong> ${book.category}</p>
+                    <p><strong>Importance:</strong> ${(book.importance * 100).toFixed(0)}%</p>
+                    ${book.dateCompleted ? `<p><strong>Completed:</strong> ${book.dateCompleted}</p>` : ''}
+                    
+                    <h4>Key Concepts</h4>
+                    <div>
+                        ${book.concepts.map(concept => 
+                            `<span class="concept-tag">${concept}</span>`
+                        ).join('')}
+                    </div>
+                    
+                    ${book.summary ? `
+                        <h4>Summary</h4>
+                        <p style="font-size: 13px; line-height: 1.4;">${book.summary}</p>
+                    ` : ''}
+                    
+                    <h4>Related Books</h4>
+                    <div>
+                        ${relatedBooks.slice(0, 3).map(rel => `
+                            <div class="related-item">
+                                <h4>${rel.book.title}</h4>
+                                <p>${rel.book.author} - ${rel.connectionStrength} shared concepts</p>
+                                <p style="font-size: 12px;">Shared: ${rel.sharedConcepts.slice(0, 3).join(', ')}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+                `);
+            }
+
+            showConceptDetails(concept, content) {
+                const relatedBooks = this.networkData.nodes
+                    .filter(n => n.type === 'book' && n.concepts.includes(concept.name))
+                    .sort((a, b) => new Date(a.dateCompleted || '1900') - new Date(b.dateCompleted || '1900'));
+
+                content.html(`
+                    <h3>💡 ${concept.name}</h3>
+                    <p><strong>Frequency:</strong> Appears in ${concept.frequency} books</p>
+                    <p><strong>Importance:</strong> ${(concept.importance * 100).toFixed(0)}%</p>
+                    <p><strong>Theme:</strong> Core concept in your intellectual journey</p>
+                    
+                    <h4>Books Exploring This Concept</h4>
+                    <div>
+                        ${relatedBooks.map(book => `
+                            <div class="related-item">
+                                <h4>${book.title}</h4>
+                                <p>${book.author} (${book.dateCompleted || 'Date unknown'})</p>
+                                <p style="font-size: 12px;">${book.category}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+                `);
+            }
+
+            highlightConnections(selectedNode) {
+                const connectedIds = new Set();
+                connectedIds.add(selectedNode.id);
+                
+                this.networkData.links.forEach(link => {
+                    const sourceId = link.source.id || link.source;
+                    const targetId = link.target.id || link.target;
+                    
+                    if (sourceId === selectedNode.id) connectedIds.add(targetId);
+                    if (targetId === selectedNode.id) connectedIds.add(sourceId);
+                });
+
+                this.g.selectAll('.node')
+                    .classed('highlighted', d => d.id === selectedNode.id)
+                    .classed('dimmed', d => !connectedIds.has(d.id));
+
+                this.g.selectAll('.link')
+                    .classed('highlighted', d => {
+                        const sourceId = d.source.id || d.source;
+                        const targetId = d.target.id || d.target;
+                        return sourceId === selectedNode.id || targetId === selectedNode.id;
+                    })
+                    .classed('dimmed', d => {
+                        const sourceId = d.source.id || d.source;
+                        const targetId = d.target.id || d.target;
+                        return sourceId !== selectedNode.id && targetId !== selectedNode.id;
+                    });
+            }
+
+            clearHighlights() {
+                this.g.selectAll('.node')
+                    .classed('highlighted', false)
+                    .classed('dimmed', false);
+                
+                this.g.selectAll('.link')
+                    .classed('highlighted', false)
+                    .classed('dimmed', false);
+            }
+
             resetView() {
+                this.clearHighlights();
                 const transform = d3.zoomIdentity.translate(this.width / 2, this.height / 2).scale(1);
                 this.container.transition().duration(750).call(this.zoomBehavior.transform, transform);
             }
@@ -939,16 +1272,46 @@
                 const transform = d3.zoomIdentity.translate(this.width / 2, this.height / 2).scale(1);
                 this.container.transition().duration(750).call(this.zoomBehavior.transform, transform);
             }
+
+            zoomIn() {
+                this.container.transition().duration(300).call(this.zoomBehavior.scaleBy, 1.5);
+            }
+
+            zoomOut() {
+                this.container.transition().duration(300).call(this.zoomBehavior.scaleBy, 0.67);
+            }
+
+            fitToScreen() {
+                const bounds = this.g.node().getBBox();
+                const parent = this.g.node().parentElement;
+                const fullWidth = parent.clientWidth || parent.parentNode.clientWidth;
+                const fullHeight = parent.clientHeight || parent.parentNode.clientHeight;
+                const width = bounds.width;
+                const height = bounds.height;
+                const midX = bounds.x + width / 2;
+                const midY = bounds.y + height / 2;
+                
+                if (width == 0 || height == 0) return;
+                
+                const scale = Math.min(fullWidth / width, fullHeight / height) * 0.8;
+                const translate = [fullWidth / 2 - scale * midX, fullHeight / 2 - scale * midY];
+                
+                const transform = d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale);
+                this.container.transition().duration(750).call(this.zoomBehavior.transform, transform);
+            }
         }
 
         // Global function to close sidebar
         function closeSidebar() {
             d3.select('#sidebar').classed('open', false);
+            if (window.network) {
+                window.network.clearHighlights();
+            }
         }
 
         // Initialize the visualization when the page loads
         document.addEventListener('DOMContentLoaded', () => {
-            console.log('🚀 Initializing Knowledge Map...');
+            console.log('🚀 Initializing Enhanced Knowledge Map...');
             
             if (bookData.length === 0) {
                 console.error('❌ No finished books found!');
@@ -956,7 +1319,7 @@
             }
 
             window.network = new NetworkVisualization('#network-svg');
-            console.log('✅ Knowledge Map initialized successfully!');
+            console.log('✅ Enhanced Knowledge Map initialized successfully!');
         });
     </script>
 </body>
