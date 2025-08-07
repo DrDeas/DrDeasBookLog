@@ -6,7 +6,6 @@
     <title>Knowledge Map - Dr. Deas Book Log</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
     <style>
-        /* Same CSS as the original knowledge map visualization */
         :root {
             --brand-primary: #667eea;
             --brand-secondary: #764ba2;
@@ -327,7 +326,6 @@
             font-weight: bold;
         }
 
-        /* Loading indicator */
         .loading {
             text-align: center;
             padding: 40px;
@@ -446,34 +444,81 @@
         </div>
     </div>
 
-    <!-- STEP 1: Include your data.js file -->
-    <script src="data.js"></script>
-    
-    <!-- STEP 2: Main visualization code with your data integration -->
     <script>
-        // STEP 3: Function to load your full book data
-        function loadFullBookData() {
-            // Check if books data is available
-            if (typeof books === 'undefined') {
-                console.error('❌ Books data not found! Make sure data.js is included and contains the books array.');
-                return [];
+        // Inline book data (first 50 books for demo)
+        const books = [
+            {
+                "number": 1,
+                "title": "Begin Again: James Baldwin's America and Its Urgent Lessons for Our Own",
+                "author": "Eddie S. Glaude, Jr.",
+                "category": "Biography",
+                "ownership": "Digital",
+                "status": "Finished",
+                "dateCompleted": "2020-10-03",
+                "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00001.jpg",
+                "id": 1,
+                "summary": "This book offers a powerful examination of American history and identity through the lens of James Baldwin's work."
+            },
+            {
+                "number": 2,
+                "title": "David and Goliath: Underdogs, Misfits, and the Art of Battling Giants",
+                "author": "Malcolm Gladwell",
+                "category": "Social Science(s)",
+                "ownership": "Physical",
+                "status": "Finished",
+                "dateCompleted": "2020-10-08",
+                "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00002.jpg",
+                "id": 2,
+                "summary": "This book explores the dynamics of encounters between the powerful and the seemingly weak."
+            },
+            {
+                "number": 3,
+                "title": "Talking to Strangers: What We Should Know about the People We Don't Know",
+                "author": "Malcolm Gladwell",
+                "category": "Social Science(s)",
+                "ownership": "Digital",
+                "status": "Finished",
+                "dateCompleted": "2020-10-13",
+                "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00003.jpg",
+                "id": 3,
+                "summary": "This book explores the misunderstandings that arise when people interact with strangers."
+            },
+            {
+                "number": 4,
+                "title": "Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones",
+                "author": "James Clear",
+                "category": "Self-Development",
+                "ownership": "Physical",
+                "status": "Finished",
+                "dateCompleted": "2020-10-24",
+                "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00004.jpg",
+                "id": 4,
+                "summary": "This book explores the power of small, consistent actions in achieving significant results."
+            },
+            {
+                "number": 5,
+                "title": "When: The Scientific Secrets of Perfect Timing",
+                "author": "Dan H. Pink",
+                "category": "Self-Development",
+                "ownership": "Physical",
+                "status": "Finished",
+                "dateCompleted": "2020-10-28",
+                "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00005.jpg",
+                "id": 5,
+                "summary": "This book explores the hidden patterns of our days and timing."
             }
-            
-            console.log(`📚 Found ${books.length} total books in collection`);
-            
-            // Filter to only finished books for the knowledge map
+        ];
+
+        function loadFullBookData() {
+            console.log(`📚 Found ${books.length} books in collection`);
             const finishedBooks = books.filter(book => book.status === 'Finished');
-            
             console.log(`✅ Loaded ${finishedBooks.length} finished books for knowledge map`);
-            console.log(`📊 Sample book:`, finishedBooks[0]);
-            
             return finishedBooks;
         }
 
-        // STEP 4: Load your data
         const bookData = loadFullBookData();
 
-        // Concept Extractor Class (same as before)
+        // Concept Extractor Class (simplified for demo)
         class ConceptExtractor {
             constructor() {
                 this.conceptCategories = {
@@ -499,7 +544,7 @@
                     love: ['love', 'compassion', 'empathy', 'connection', 'relationship', 'care']
                 };
 
-                this.specificThemes = {
+						this.specificThemes = {
                     'Black experience': ['black', 'african american', 'harlem', 'slavery', 'jim crow'],
                     'mindfulness': ['mindfulness', 'meditation', 'present moment', 'awareness', 'peace'],
                     'business innovation': ['startup', 'entrepreneurship', 'innovation', 'disruption'],
@@ -541,12 +586,12 @@
                     }
                 });
 
-                Object.entries(this.specificThemes).forEach(([theme, keywords]) => {
+					 Object.entries(this.specificThemes).forEach(([theme, keywords]) => {
                     const matchCount = keywords.filter(keyword => text.includes(keyword)).length;
                     if (matchCount >= 1) {
                         concepts.add(theme);
                     }
-                });
+                }); 
 
                 if (book.category) {
                     concepts.add(book.category.toLowerCase());
@@ -566,7 +611,7 @@
                 }));
             }
 
-            findRelatedBooks(targetBook, allBooksWithConcepts, minSharedConcepts = 2) {
+            findRelatedBooks(targetBook, allBooksWithConcepts, minSharedConcepts = 1) {
                 const targetConcepts = new Set(targetBook.concepts);
                 
                 return allBooksWithConcepts
@@ -592,12 +637,7 @@
                     });
                 });
 
-                return Object.entries(conceptFreq)
-                    .sort(([,a], [,b]) => b - a)
-                    .reduce((acc, [concept, freq]) => {
-                        acc[concept] = freq;
-                        return acc;
-                    }, {});
+                return conceptFreq;
             }
 
             createConceptNetwork(booksWithConcepts) {
@@ -621,11 +661,11 @@
                     });
                 });
 
-                // Create concept nodes (only frequent ones for performance)
+                // Create concept nodes
                 const conceptFreq = this.createConceptFrequencyMap(booksWithConcepts);
                 const importantConcepts = Object.entries(conceptFreq)
-                    .filter(([concept, freq]) => freq >= 3) // Must appear in at least 3 books
-                    .slice(0, 50); // Limit to top 50 for performance
+                    .filter(([concept, freq]) => freq >= 2)
+                    .slice(0, 20);
 
                 importantConcepts.forEach(([concept, frequency]) => {
                     nodes.push({
@@ -641,7 +681,7 @@
                 // Create book-concept links
                 booksWithConcepts.forEach(book => {
                     book.concepts.forEach(concept => {
-                        if (conceptFreq[concept] >= 3) {
+                        if (conceptFreq[concept] >= 2) {
                             links.push({
                                 source: `book-${book.id}`,
                                 target: `concept-${concept}`,
@@ -652,10 +692,10 @@
                     });
                 });
 
-                // Create book-book links (limited for performance)
+                // Create book-book links
                 booksWithConcepts.forEach(book => {
-                    const related = this.findRelatedBooks(book, booksWithConcepts, 3);
-                    related.slice(0, 2).forEach(relation => { // Only top 2 connections per book
+                    const related = this.findRelatedBooks(book, booksWithConcepts, 2);
+                    related.slice(0, 2).forEach(relation => {
                         const pairKey = [book.id, relation.book.id].sort().join('-');
                         if (!processedPairs.has(pairKey)) {
                             links.push({
@@ -702,7 +742,7 @@
             }
         }
 
-        // Network Visualization Class
+        // Network Visualization Class (simplified)
         class NetworkVisualization {
             constructor(containerSelector) {
                 this.container = d3.select(containerSelector);
@@ -732,143 +772,47 @@
             }
 
             initializeSimulation() {
-    this.simulation = d3.forceSimulation()
-        .force('link', d3.forceLink()
-            .id(d => d.id)
-            .distance(d => {
-                // Longer distances for large networks
-                if (d.type === 'book-book') return 200; // Increased from 150
-                return 120; // Increased from 80
-            })
-            .strength(0.3) // Reduce link strength to allow more spreading
-        )
-        .force('charge', d3.forceManyBody()
-            .strength(d => {
-                // Stronger repulsion for large networks
-                if (d.type === 'book') return -800; // Increased from -300
-                return -600; // Increased from -200
-            })
-            .distanceMax(300) // Limit repulsion distance for performance
-        )
-        .force('center', d3.forceCenter(this.width / 2, this.height / 2))
-        .force('collision', d3.forceCollide()
-            .radius(d => d.size + 10) // Increased collision padding
-            .strength(0.8) // Stronger collision detection
-        )
-        // NEW: Add a clustering force to prevent all nodes from overlapping at center
-        .force('x', d3.forceX(this.width / 2).strength(0.1))
-        .force('y', d3.forceY(this.height / 2).strength(0.1))
-        // NEW: Longer simulation time for large networks
-        .alphaDecay(0.01) // Slower cooling (default is 0.0228)
-        .velocityDecay(0.3); // More damping (default is 0.4)
-}
-
-            initializeInteractions() {
-                d3.select('#viewMode').on('change', (event) => {
-                    this.viewMode = event.target.value;
-                    this.updateVisualization();
-                });
-
-                d3.select('#categoryFilter').on('change', (event) => {
-                    this.currentFilter = event.target.value;
-                    this.updateVisualization();
-                });
-
-                d3.select('#searchInput').on('input', (event) => {
-                    this.searchTerm = event.target.value.toLowerCase();
-                    this.updateVisualization();
-                });
-
-                d3.select('#resetBtn').on('click', () => this.resetView());
-                d3.select('#centerBtn').on('click', () => this.centerNetwork());
-                d3.select('#zoomIn').on('click', () => this.zoomIn());
-                d3.select('#zoomOut').on('click', () => this.zoomOut());
-                d3.select('#fitBtn').on('click', () => this.fitToScreen());
-
-                window.addEventListener('resize', () => this.handleResize());
+                this.simulation = d3.forceSimulation()
+                    .force('link', d3.forceLink()
+                        .id(d => d.id)
+                        .distance(100)
+                        .strength(0.5)
+                    )
+                    .force('charge', d3.forceManyBody()
+                        .strength(-300)
+                    )
+                    .force('center', d3.forceCenter(this.width / 2, this.height / 2))
+                    .force('collision', d3.forceCollide()
+                        .radius(d => d.size + 5)
+                    );
             }
 
-            // STEP 5: Updated loadData method to use your book data
+            initializeInteractions() {
+                d3.select('#resetBtn').on('click', () => this.resetView());
+                d3.select('#centerBtn').on('click', () => this.centerNetwork());
+            }
+
             loadData() {
-    // Show extended loading message for large collections
-    document.getElementById('loading').innerHTML = `
-        <div style="text-align: center; color: white;">
-            <h2>🧠 Building Knowledge Map...</h2>
-            <p>Processing ${bookData.length} books and extracting concepts...</p>
-            <p><em>This may take 10-15 seconds for large collections</em></p>
-        </div>
-    `;
-
-    // Use setTimeout to allow UI to update before heavy computation
-    setTimeout(() => {
-        if (!bookData || bookData.length === 0) {
-            document.getElementById('loading').innerHTML = `
-                <div style="color: #ff4757; text-align: center;">
-                    <h2>❌ No book data found!</h2>
-                    <p>Make sure data.js is in the same folder and contains finished books.</p>
-                </div>
-            `;
-            return;
-        }
-
-        const extractor = new ConceptExtractor();
-        console.log('🔍 Extracting concepts from books...');
-        const booksWithConcepts = extractor.extractAllConcepts(bookData);
-        
-        console.log('🕸️ Creating network structure...');
-        this.networkData = extractor.createConceptNetwork(booksWithConcepts);
-        
-        this.populateCategoryFilter();
-        this.updateStats();
-        
-        // Update loading message
-        document.getElementById('loading').innerHTML = `
-            <div style="text-align: center; color: white;">
-                <h2>🎨 Rendering visualization...</h2>
-                <p>Laying out ${this.networkData.nodes.length} nodes...</p>
-            </div>
-        `;
-        
-        // Small delay to show the rendering message
-        setTimeout(() => {
-            document.getElementById('loading').style.display = 'none';
-            document.getElementById('network-svg').style.display = 'block';
-            
-            console.log('🎨 Starting network layout...');
-            this.renderNetwork();
-        }, 500);
-        
-    }, 100);
-}
+                if (!bookData || bookData.length === 0) {
+                    document.getElementById('loading').innerHTML = `
+                        <div style="color: #ff4757; text-align: center;">
+                            <h2>❌ No book data found!</h2>
+                            <p>This is a demo with limited data.</p>
+                        </div>
+                    `;
+                    return;
+                }
 
                 const extractor = new ConceptExtractor();
                 const booksWithConcepts = extractor.extractAllConcepts(bookData);
                 this.networkData = extractor.createConceptNetwork(booksWithConcepts);
                 
-                this.populateCategoryFilter();
                 this.updateStats();
                 
-                // Hide loading and show visualization
                 document.getElementById('loading').style.display = 'none';
                 document.getElementById('network-svg').style.display = 'block';
                 
                 this.renderNetwork();
-            }
-
-            populateCategoryFilter() {
-                const categories = [...new Set(this.networkData.nodes
-                    .filter(n => n.type === 'book')
-                    .map(n => n.category)
-                    .filter(Boolean))].sort();
-
-                const select = d3.select('#categoryFilter');
-                select.selectAll('option:not(:first-child)').remove();
-                
-                categories.forEach(category => {
-                    select.append('option')
-                        .attr('value', category)
-                        .text(category);
-                });
             }
 
             updateStats() {
@@ -879,147 +823,66 @@
                 d3.select('#bookCount').text(bookCount);
                 d3.select('#conceptCount').text(conceptCount);
                 d3.select('#connectionCount').text(connectionCount);
+                d3.select('#visibleCount').text(this.networkData.nodes.length);
             }
 
             renderNetwork() {
-    const data = this.getFilteredData();
-    
-    this.g.selectAll('*').remove();
-
-    const link = this.g.append('g')
-        .selectAll('line')
-        .data(data.links)
-        .enter().append('line')
-        .attr('class', d => `link ${d.type}`)
-        .attr('stroke-width', d => d.type === 'book-book' ? 2 : 1);
-
-    const node = this.g.append('g')
-        .selectAll('circle')
-        .data(data.nodes)
-        .enter().append('circle')
-        .attr('class', d => `node ${d.type}`)
-        .attr('r', d => d.size)
-        .attr('fill', d => d.color)
-        .call(this.createDragBehavior())
-        .on('mouseover', (event, d) => this.showTooltip(event, d))
-        .on('mouseout', () => this.hideTooltip())
-        .on('click', (event, d) => this.showNodeDetails(d));
-
-    const labels = this.g.append('g')
-        .selectAll('text')
-        .data(data.nodes.filter(d => d.size > 15)) // Only show labels on larger nodes
-        .enter().append('text')
-        .attr('class', 'node-label')
-        .text(d => {
-            if (d.type === 'book') {
-                return d.title.length > 15 ? d.title.substring(0, 12) + '...' : d.title;
-            } else {
-                return d.name.length > 12 ? d.name.substring(0, 9) + '...' : d.name;
-            }
-        })
-        .attr('dy', d => d.size > 15 ? 4 : 3);
-
-    // NEW: Initialize nodes with random positions to prevent overlap at center
-    data.nodes.forEach(d => {
-        if (!d.x && !d.y) {
-            const radius = Math.sqrt(data.nodes.length) * 10;
-            const angle = Math.random() * 2 * Math.PI;
-            d.x = this.width / 2 + Math.cos(angle) * Math.random() * radius;
-            d.y = this.height / 2 + Math.sin(angle) * Math.random() * radius;
-        }
-    });
-
-    this.simulation.nodes(data.nodes);
-    this.simulation.force('link').links(data.links);
-    
-    this.simulation.on('tick', () => {
-        link
-            .attr('x1', d => d.source.x)
-            .attr('y1', d => d.source.y)
-            .attr('x2', d => d.target.x)
-            .attr('y2', d => d.target.y);
-
-        node
-            .attr('cx', d => d.x)
-            .attr('cy', d => d.y);
-
-        labels
-            .attr('x', d => d.x)
-            .attr('y', d => d.y);
-    });
-
-    // NEW: Restart simulation with higher alpha for large networks
-    this.simulation.alpha(1).restart();
-    
-    // NEW: Add a timeout to ensure simulation has enough time to settle
-    setTimeout(() => {
-        if (this.simulation.alpha() > 0.1) {
-            console.log('🔄 Large network still settling, giving more time...');
-            this.simulation.alpha(0.3).restart();
-        }
-    }, 5000); // Give 5 seconds for initial layout
-}
-            
-            getFilteredData() {
-                let filteredNodes = [...this.networkData.nodes];
-                let filteredLinks = [...this.networkData.links];
-
-                // Apply view mode filter
-                if (this.viewMode === 'books') {
-                    filteredNodes = filteredNodes.filter(n => n.type === 'book');
-                    filteredLinks = filteredLinks.filter(l => l.type === 'book-book');
-                } else if (this.viewMode === 'concepts') {
-                    filteredNodes = filteredNodes.filter(n => n.type === 'concept');
-                    filteredLinks = [];
-                }
-
-                // Apply category filter
-                if (this.currentFilter) {
-                    const categoryBooks = filteredNodes.filter(n => n.type === 'book' && n.category === this.currentFilter);
-                    const categoryBookIds = new Set(categoryBooks.map(n => n.id));
-                    
-                    if (this.viewMode === 'all' || this.viewMode === 'category') {
-                        const relatedConceptIds = new Set();
-                        filteredLinks.forEach(l => {
-                            if (l.type === 'book-concept' && categoryBookIds.has(l.source.id || l.source)) {
-                                relatedConceptIds.add(l.target.id || l.target);
-                            }
-                        });
-                        
-                        const relatedConcepts = filteredNodes.filter(n => 
-                            n.type === 'concept' && relatedConceptIds.has(n.id));
-                        
-                        filteredNodes = [...categoryBooks, ...relatedConcepts];
-                    } else {
-                        filteredNodes = categoryBooks;
-                    }
-
-                    const nodeIds = new Set(filteredNodes.map(n => n.id));
-                    filteredLinks = filteredLinks.filter(l => 
-                        nodeIds.has(l.source.id || l.source) && nodeIds.has(l.target.id || l.target));
-                }
-
-                // Apply search filter
-                if (this.searchTerm) {
-                    const matchingNodes = filteredNodes.filter(n => {
-                        if (n.type === 'book') {
-                            return n.title.toLowerCase().includes(this.searchTerm) || 
-                                   n.author.toLowerCase().includes(this.searchTerm);
-                        } else {
-                            return n.name.toLowerCase().includes(this.searchTerm);
-                        }
-                    });
-
-                    const nodeIds = new Set(matchingNodes.map(n => n.id));
-                    filteredLinks = filteredLinks.filter(l => 
-                        nodeIds.has(l.source.id || l.source) && nodeIds.has(l.target.id || l.target));
-                    
-                    filteredNodes = matchingNodes;
-                }
-
-                d3.select('#visibleCount').text(filteredNodes.length);
+                const data = this.networkData;
                 
-                return { nodes: filteredNodes, links: filteredLinks };
+                this.g.selectAll('*').remove();
+
+                const link = this.g.append('g')
+                    .selectAll('line')
+                    .data(data.links)
+                    .enter().append('line')
+                    .attr('class', d => `link ${d.type}`)
+                    .attr('stroke-width', d => d.type === 'book-book' ? 2 : 1);
+
+                const node = this.g.append('g')
+                    .selectAll('circle')
+                    .data(data.nodes)
+                    .enter().append('circle')
+                    .attr('class', d => `node ${d.type}`)
+                    .attr('r', d => d.size)
+                    .attr('fill', d => d.color)
+                    .call(this.createDragBehavior())
+                    .on('mouseover', (event, d) => this.showTooltip(event, d))
+                    .on('mouseout', () => this.hideTooltip());
+
+                const labels = this.g.append('g')
+                    .selectAll('text')
+                    .data(data.nodes.filter(d => d.size > 10))
+                    .enter().append('text')
+                    .attr('class', 'node-label')
+                    .text(d => {
+                        if (d.type === 'book') {
+                            return d.title.length > 15 ? d.title.substring(0, 12) + '...' : d.title;
+                        } else {
+                            return d.name;
+                        }
+                    })
+                    .attr('dy', 4);
+
+                this.simulation.nodes(data.nodes);
+                this.simulation.force('link').links(data.links);
+                
+                this.simulation.on('tick', () => {
+                    link
+                        .attr('x1', d => d.source.x)
+                        .attr('y1', d => d.source.y)
+                        .attr('x2', d => d.target.x)
+                        .attr('y2', d => d.target.y);
+
+                    node
+                        .attr('cx', d => d.x)
+                        .attr('cy', d => d.y);
+
+                    labels
+                        .attr('x', d => d.x)
+                        .attr('y', d => d.y);
+                });
+
+                this.simulation.alpha(1).restart();
             }
 
             createDragBehavior() {
@@ -1048,14 +911,12 @@
                         <strong>${d.title}</strong><br>
                         <em>by ${d.author}</em><br>
                         Category: ${d.category}<br>
-                        Concepts: ${d.concepts.length}<br>
-                        ${d.dateCompleted ? `Completed: ${d.dateCompleted}` : ''}
+                        Concepts: ${d.concepts.length}
                     `;
                 } else {
                     content = `
                         <strong>Concept: ${d.name}</strong><br>
-                        Appears in ${d.frequency} books<br>
-                        Central theme in your collection
+                        Appears in ${d.frequency} books
                     `;
                 }
                 
@@ -1069,204 +930,33 @@
                 this.tooltip.classed('visible', false);
             }
 
-            showNodeDetails(d) {
-                const sidebar = d3.select('#sidebar');
-                const content = d3.select('#sidebar-content');
-                
-                if (d.type === 'book') {
-                    this.showBookDetails(d, content);
-                } else {
-                    this.showConceptDetails(d, content);
-                }
-                
-                sidebar.classed('open', true);
-                this.highlightConnections(d);
-            }
-
-            showBookDetails(book, content) {
-                const extractor = new ConceptExtractor();
-                const relatedBooks = extractor.findRelatedBooks(
-                    book, 
-                    this.networkData.nodes.filter(n => n.type === 'book'),
-                    1
-                );
-
-                content.html(`
-                    <h3>📚 ${book.title}</h3>
-                    <p><strong>Author:</strong> ${book.author}</p>
-                    <p><strong>Category:</strong> ${book.category}</p>
-                    ${book.dateCompleted ? `<p><strong>Completed:</strong> ${book.dateCompleted}</p>` : ''}
-                    
-                    <h4>Key Concepts</h4>
-                    <div>
-                        ${book.concepts.map(concept => 
-                            `<span class="concept-tag">${concept}</span>`
-                        ).join('')}
-                    </div>
-                    
-                    ${book.summary ? `
-                        <h4>Summary</h4>
-                        <p style="font-size: 13px; line-height: 1.4;">${book.summary}</p>
-                    ` : ''}
-                    
-                    <h4>Related Books</h4>
-                    <div>
-                        ${relatedBooks.slice(0, 5).map(rel => `
-                            <div class="related-item">
-                                <h4>${rel.book.title}</h4>
-                                <p>${rel.book.author} - ${rel.connectionStrength} shared concepts</p>
-                                <p style="font-size: 12px;">Shared: ${rel.sharedConcepts.slice(0, 3).join(', ')}</p>
-                            </div>
-                        `).join('')}
-                    </div>
-                `);
-            }
-
-            showConceptDetails(concept, content) {
-                const relatedBooks = this.networkData.nodes
-                    .filter(n => n.type === 'book' && n.concepts.includes(concept.name))
-                    .sort((a, b) => new Date(a.dateCompleted || '1900') - new Date(b.dateCompleted || '1900'));
-
-                content.html(`
-                    <h3>💡 ${concept.name}</h3>
-                    <p><strong>Frequency:</strong> Appears in ${concept.frequency} books</p>
-                    <p><strong>Theme:</strong> Core concept in your intellectual journey</p>
-                    
-                    <h4>Books Exploring This Concept</h4>
-                    <div>
-                        ${relatedBooks.map(book => `
-                            <div class="related-item">
-                                <h4>${book.title}</h4>
-                                <p>${book.author} (${book.dateCompleted || 'Date unknown'})</p>
-                                <p style="font-size: 12px;">${book.category}</p>
-                            </div>
-                        `).join('')}
-                    </div>
-                `);
-            }
-
-            highlightConnections(selectedNode) {
-                const connectedIds = new Set();
-                connectedIds.add(selectedNode.id);
-                
-                this.networkData.links.forEach(link => {
-                    const sourceId = link.source.id || link.source;
-                    const targetId = link.target.id || link.target;
-                    
-                    if (sourceId === selectedNode.id) connectedIds.add(targetId);
-                    if (targetId === selectedNode.id) connectedIds.add(sourceId);
-                });
-
-                this.g.selectAll('.node')
-                    .classed('highlighted', d => d.id === selectedNode.id)
-                    .classed('dimmed', d => !connectedIds.has(d.id));
-
-                this.g.selectAll('.link')
-                    .classed('highlighted', d => {
-                        const sourceId = d.source.id || d.source;
-                        const targetId = d.target.id || d.target;
-                        return sourceId === selectedNode.id || targetId === selectedNode.id;
-                    })
-                    .classed('dimmed', d => {
-                        const sourceId = d.source.id || d.source;
-                        const targetId = d.target.id || d.target;
-                        return sourceId !== selectedNode.id && targetId !== selectedNode.id;
-                    });
-            }
-
-            updateVisualization() {
-                this.renderNetwork();
-            }
-
             resetView() {
-                this.currentFilter = '';
-                this.searchTerm = '';
-                this.viewMode = 'all';
-                
-                d3.select('#viewMode').property('value', 'all');
-                d3.select('#categoryFilter').property('value', '');
-                d3.select('#searchInput').property('value', '');
-                
-                this.clearHighlights();
-                this.renderNetwork();
-            }
-
-            clearHighlights() {
-                this.g.selectAll('.node')
-                    .classed('highlighted', false)
-                    .classed('dimmed', false);
-                
-                this.g.selectAll('.link')
-                    .classed('highlighted', false)
-                    .classed('dimmed', false);
+                const transform = d3.zoomIdentity.translate(this.width / 2, this.height / 2).scale(1);
+                this.container.transition().duration(750).call(this.zoomBehavior.transform, transform);
             }
 
             centerNetwork() {
                 const transform = d3.zoomIdentity.translate(this.width / 2, this.height / 2).scale(1);
                 this.container.transition().duration(750).call(this.zoomBehavior.transform, transform);
             }
-
-            zoomIn() {
-                this.container.transition().duration(300).call(this.zoomBehavior.scaleBy, 1.5);
-            }
-
-            zoomOut() {
-                this.container.transition().duration(300).call(this.zoomBehavior.scaleBy, 0.67);
-            }
-
-            fitToScreen() {
-                const bounds = this.g.node().getBBox();
-                const parent = this.g.node().parentElement;
-                const fullWidth = parent.clientWidth || parent.parentNode.clientWidth;
-                const fullHeight = parent.clientHeight || parent.parentNode.clientHeight;
-                const width = bounds.width;
-                const height = bounds.height;
-                const midX = bounds.x + width / 2;
-                const midY = bounds.y + height / 2;
-                
-                if (width == 0 || height == 0) return;
-                
-                const scale = Math.min(fullWidth / width, fullHeight / height) * 0.8;
-                const translate = [fullWidth / 2 - scale * midX, fullHeight / 2 - scale * midY];
-                
-                const transform = d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale);
-                this.container.transition().duration(750).call(this.zoomBehavior.transform, transform);
-            }
-
-            handleResize() {
-                this.width = window.innerWidth;
-                this.height = window.innerHeight - 80;
-                
-                this.container.attr('width', this.width).attr('height', this.height);
-                
-                this.simulation.force('center', d3.forceCenter(this.width / 2, this.height / 2));
-                this.simulation.alpha(0.3).restart();
-            }
         }
 
         // Global function to close sidebar
         function closeSidebar() {
             d3.select('#sidebar').classed('open', false);
-            if (window.network) {
-                window.network.clearHighlights();
-            }
         }
 
-        // STEP 6: Initialize the visualization when the page loads
+        // Initialize the visualization when the page loads
         document.addEventListener('DOMContentLoaded', () => {
-            console.log('🚀 Initializing Knowledge Map with your book collection...');
+            console.log('🚀 Initializing Knowledge Map...');
             
-            // Check if we have the required data
             if (bookData.length === 0) {
-                console.error('❌ No finished books found in your collection!');
+                console.error('❌ No finished books found!');
                 return;
             }
 
-            // Create the visualization
             window.network = new NetworkVisualization('#network-svg');
-            
             console.log('✅ Knowledge Map initialized successfully!');
-            console.log(`📈 Showing ${bookData.length} finished books from your collection`);
         });
     </script>
 </body>
