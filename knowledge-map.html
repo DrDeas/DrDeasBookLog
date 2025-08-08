@@ -4745,7 +4745,12 @@
                 });
 
                 // Get all concepts for small dataset
-                const topConcepts = Object.keys(conceptFreq);
+                const minFrequency = Math.max(2, Math.ceil(books.length * 0.05)); // At least 2 books or 5% of collection
+const topConcepts = Object.entries(conceptFreq)
+    .filter(([concept, freq]) => freq >= minFrequency)
+    .sort(([,a], [,b]) => b - a)
+    .slice(0, 50) // Limit to top 50 concepts
+    .map(([concept]) => concept);
 
                 // Add nodes based on view mode
                 if (viewMode === 'all' || viewMode === 'concepts' || viewMode === 'category') {
@@ -4956,19 +4961,63 @@
                 });
             }
 
-            loadData() {
-                this.extractor = new EnhancedConceptExtractor();
-                this.updateNetwork();
-                
-                document.getElementById('loading').style.display = 'none';
-                document.getElementById('network-svg').style.display = 'block';
+            async loadData() {
+    try {
+        console.log('📥 Loading pre-computed network data...');
+        
+        // Load all pre-computed network data
+        this.precomputedData = {};
+        const modes = ['all', 'books', 'concepts', 'category'];
+        
+        // Show loading progress
+        document.getElementById('loading').innerHTML = 'Loading optimized data...';
+        
+        for (const mode of modes) {
+            const response = await fetch(`network-data-${mode}.json`);
+            if (!response.ok) {
+                throw new Error(`Failed to load network-data-${mode}.json`);
             }
+            this.precomputedData[mode] = await response.json();
+            console.log(`✅ Loaded ${mode} mode - ${this.precomputedData[mode].nodes.length} nodes`);
+        }
+        
+        console.log('🎉 All pre-computed data loaded successfully');
+        this.updateNetwork();
+        
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('network-svg').style.display = 'block';
+        
+    } catch (error) {
+        console.error('❌ Failed to load pre-computed data:', error);
+        console.log('🔄 Falling back to client-side generation...');
+        
+        // Fallback to original method
+        document.getElementById('loading').innerHTML = 'Generating network (this may take a moment)...';
+        this.extractor = new EnhancedConceptExtractor();
+        this.updateNetwork();
+        
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('network-svg').style.display = 'block';
+    }
+}
 
-            updateNetwork() {
-                this.networkData = this.extractor.createNetworkData(books, this.viewMode);
-                this.updateStats();
-                this.renderNetwork();
-            }
+updateNetwork() {
+    if (this.precomputedData && this.precomputedData[this.viewMode]) {
+        // Use pre-computed data - lightning fast! ⚡
+        console.log(`⚡ Using pre-computed data for ${this.viewMode} mode`);
+        this.networkData = this.precomputedData[this.viewMode];
+    } else {
+        // Fallback to client-side generation
+        console.log(`🔄 Generating data client-side for ${this.viewMode} mode`);
+        if (!this.extractor) {
+            this.extractor = new EnhancedConceptExtractor();
+        }
+        this.networkData = this.extractor.createNetworkData(books, this.viewMode);
+    }
+    
+    this.updateStats();
+    this.renderNetwork();
+}
 
             renderNetwork() {
                 // Clear existing elements
