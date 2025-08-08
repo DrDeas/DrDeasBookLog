@@ -1,0 +1,5742 @@
+{
+  "nodes": [
+    {
+      "id": "concept-gender",
+      "type": "concept",
+      "name": "gender",
+      "frequency": 192,
+      "size": 25,
+      "color": "#9C27B0",
+      "group": "concept"
+    },
+    {
+      "id": "concept-community",
+      "type": "concept",
+      "name": "community",
+      "frequency": 159,
+      "size": 25,
+      "color": "#4CAF50",
+      "group": "concept"
+    },
+    {
+      "id": "concept-artificial intelligence",
+      "type": "concept",
+      "name": "artificial intelligence",
+      "frequency": 153,
+      "size": 25,
+      "color": "#607D8B",
+      "group": "concept"
+    },
+    {
+      "id": "concept-history",
+      "type": "concept",
+      "name": "history",
+      "frequency": 126,
+      "size": 25,
+      "color": "#8BC34A",
+      "group": "concept"
+    },
+    {
+      "id": "concept-power",
+      "type": "concept",
+      "name": "power",
+      "frequency": 124,
+      "size": 25,
+      "color": "#9C27B0",
+      "group": "concept"
+    },
+    {
+      "id": "concept-creativity",
+      "type": "concept",
+      "name": "creativity",
+      "frequency": 116,
+      "size": 25,
+      "color": "#E91E63",
+      "group": "concept"
+    },
+    {
+      "id": "concept-identity",
+      "type": "concept",
+      "name": "identity",
+      "frequency": 112,
+      "size": 25,
+      "color": "#E91E63",
+      "group": "concept"
+    },
+    {
+      "id": "concept-justice",
+      "type": "concept",
+      "name": "justice",
+      "frequency": 106,
+      "size": 25,
+      "color": "#3F51B5",
+      "group": "concept"
+    },
+    {
+      "id": "concept-love",
+      "type": "concept",
+      "name": "love",
+      "frequency": 96,
+      "size": 25,
+      "color": "#E91E63",
+      "group": "concept"
+    },
+    {
+      "id": "concept-psychology",
+      "type": "concept",
+      "name": "psychology",
+      "frequency": 95,
+      "size": 25,
+      "color": "#FF5722",
+      "group": "concept"
+    },
+    {
+      "id": "concept-communication",
+      "type": "concept",
+      "name": "communication",
+      "frequency": 85,
+      "size": 25,
+      "color": "#2196F3",
+      "group": "concept"
+    },
+    {
+      "id": "concept-resistance",
+      "type": "concept",
+      "name": "resistance",
+      "frequency": 84,
+      "size": 25,
+      "color": "#FF6F00",
+      "group": "concept"
+    },
+    {
+      "id": "concept-transformation",
+      "type": "concept",
+      "name": "transformation",
+      "frequency": 80,
+      "size": 25,
+      "color": "#CDDC39",
+      "group": "concept"
+    },
+    {
+      "id": "concept-philosophy",
+      "type": "concept",
+      "name": "philosophy",
+      "frequency": 79,
+      "size": 25,
+      "color": "#673AB7",
+      "group": "concept"
+    },
+    {
+      "id": "concept-human behavior",
+      "type": "concept",
+      "name": "human behavior",
+      "frequency": 76,
+      "size": 25,
+      "color": "#FF5722",
+      "group": "concept"
+    },
+    {
+      "id": "concept-science",
+      "type": "concept",
+      "name": "science",
+      "frequency": 75,
+      "size": 25,
+      "color": "#00BCD4",
+      "group": "concept"
+    },
+    {
+      "id": "concept-Black experience",
+      "type": "concept",
+      "name": "Black experience",
+      "frequency": 74,
+      "size": 25,
+      "color": "#F44336",
+      "group": "concept"
+    },
+    {
+      "id": "concept-politics",
+      "type": "concept",
+      "name": "politics",
+      "frequency": 66,
+      "size": 25,
+      "color": "#009688",
+      "group": "concept"
+    },
+    {
+      "id": "concept-racism",
+      "type": "concept",
+      "name": "racism",
+      "frequency": 58,
+      "size": 25,
+      "color": "#F44336",
+      "group": "concept"
+    },
+    {
+      "id": "concept-economics",
+      "type": "concept",
+      "name": "economics",
+      "frequency": 53,
+      "size": 25,
+      "color": "#FFC107",
+      "group": "concept"
+    },
+    {
+      "id": "concept-timing",
+      "type": "concept",
+      "name": "timing",
+      "frequency": 50,
+      "size": 25,
+      "color": "#FF9800",
+      "group": "concept"
+    },
+    {
+      "id": "concept-education",
+      "type": "concept",
+      "name": "education",
+      "frequency": 49,
+      "size": 25,
+      "color": "#2196F3",
+      "group": "concept"
+    },
+    {
+      "id": "concept-Novel",
+      "type": "concept",
+      "name": "Novel",
+      "frequency": 45,
+      "size": 25,
+      "color": "#757575",
+      "group": "concept"
+    },
+    {
+      "id": "concept-scientific discovery",
+      "type": "concept",
+      "name": "scientific discovery",
+      "frequency": 41,
+      "size": 25,
+      "color": "#00BCD4",
+      "group": "concept"
+    },
+    {
+      "id": "concept-Race, Class, and Gender",
+      "type": "concept",
+      "name": "Race, Class, and Gender",
+      "frequency": 41,
+      "size": 25,
+      "color": "#757575",
+      "group": "concept"
+    },
+    {
+      "id": "concept-Informational",
+      "type": "concept",
+      "name": "Informational",
+      "frequency": 41,
+      "size": 25,
+      "color": "#757575",
+      "group": "concept"
+    },
+    {
+      "id": "concept-Self-Development",
+      "type": "concept",
+      "name": "Self-Development",
+      "frequency": 38,
+      "size": 25,
+      "color": "#757575",
+      "group": "concept"
+    },
+    {
+      "id": "concept-oppression",
+      "type": "concept",
+      "name": "oppression",
+      "frequency": 37,
+      "size": 25,
+      "color": "#795548",
+      "group": "concept"
+    },
+    {
+      "id": "concept-gender equality",
+      "type": "concept",
+      "name": "gender equality",
+      "frequency": 34,
+      "size": 25,
+      "color": "#9C27B0",
+      "group": "concept"
+    },
+    {
+      "id": "concept-personal development",
+      "type": "concept",
+      "name": "personal development",
+      "frequency": 33,
+      "size": 25,
+      "color": "#9370DB",
+      "group": "concept"
+    },
+    {
+      "id": "concept-mindfulness",
+      "type": "concept",
+      "name": "mindfulness",
+      "frequency": 32,
+      "size": 25,
+      "color": "#4CAF50",
+      "group": "concept"
+    },
+    {
+      "id": "concept-spirituality",
+      "type": "concept",
+      "name": "spirituality",
+      "frequency": 32,
+      "size": 25,
+      "color": "#FF9800",
+      "group": "concept"
+    },
+    {
+      "id": "concept-Social Science(s)",
+      "type": "concept",
+      "name": "Social Science(s)",
+      "frequency": 27,
+      "size": 25,
+      "color": "#757575",
+      "group": "concept"
+    },
+    {
+      "id": "concept-Memoir/Autobiography",
+      "type": "concept",
+      "name": "Memoir/Autobiography",
+      "frequency": 27,
+      "size": 25,
+      "color": "#757575",
+      "group": "concept"
+    },
+    {
+      "id": "concept-technology",
+      "type": "concept",
+      "name": "technology",
+      "frequency": 27,
+      "size": 25,
+      "color": "#607D8B",
+      "group": "concept"
+    },
+    {
+      "id": "concept-habits",
+      "type": "concept",
+      "name": "habits",
+      "frequency": 22,
+      "size": 25,
+      "color": "#9370DB",
+      "group": "concept"
+    },
+    {
+      "id": "concept-economic inequality",
+      "type": "concept",
+      "name": "economic inequality",
+      "frequency": 21,
+      "size": 25,
+      "color": "#FFC107",
+      "group": "concept"
+    },
+    {
+      "id": "concept-climate change",
+      "type": "concept",
+      "name": "climate change",
+      "frequency": 21,
+      "size": 25,
+      "color": "#4CAF50",
+      "group": "concept"
+    },
+    {
+      "id": "concept-Essay(s)/Short Stories",
+      "type": "concept",
+      "name": "Essay(s)/Short Stories",
+      "frequency": 20,
+      "size": 25,
+      "color": "#757575",
+      "group": "concept"
+    },
+    {
+      "id": "concept-mental health",
+      "type": "concept",
+      "name": "mental health",
+      "frequency": 19,
+      "size": 25,
+      "color": "#FF5722",
+      "group": "concept"
+    },
+    {
+      "id": "concept-creative process",
+      "type": "concept",
+      "name": "creative process",
+      "frequency": 19,
+      "size": 25,
+      "color": "#E91E63",
+      "group": "concept"
+    },
+    {
+      "id": "concept-Philosophy",
+      "type": "concept",
+      "name": "Philosophy",
+      "frequency": 19,
+      "size": 25,
+      "color": "#757575",
+      "group": "concept"
+    },
+    {
+      "id": "concept-Policy and Politics",
+      "type": "concept",
+      "name": "Policy and Politics",
+      "frequency": 18,
+      "size": 25,
+      "color": "#757575",
+      "group": "concept"
+    },
+    {
+      "id": "concept-Science",
+      "type": "concept",
+      "name": "Science",
+      "frequency": 14,
+      "size": 25,
+      "color": "#757575",
+      "group": "concept"
+    },
+    {
+      "id": "concept-Business",
+      "type": "concept",
+      "name": "Business",
+      "frequency": 12,
+      "size": 25,
+      "color": "#757575",
+      "group": "concept"
+    },
+    {
+      "id": "concept-business innovation",
+      "type": "concept",
+      "name": "business innovation",
+      "frequency": 11,
+      "size": 25,
+      "color": "#CD5C5C",
+      "group": "concept"
+    },
+    {
+      "id": "concept-education reform",
+      "type": "concept",
+      "name": "education reform",
+      "frequency": 10,
+      "size": 25,
+      "color": "#2196F3",
+      "group": "concept"
+    },
+    {
+      "id": "concept-political philosophy",
+      "type": "concept",
+      "name": "political philosophy",
+      "frequency": 9,
+      "size": 25,
+      "color": "#009688",
+      "group": "concept"
+    },
+    {
+      "id": "concept-Poetry",
+      "type": "concept",
+      "name": "Poetry",
+      "frequency": 9,
+      "size": 25,
+      "color": "#757575",
+      "group": "concept"
+    },
+    {
+      "id": "concept-Biography",
+      "type": "concept",
+      "name": "Biography",
+      "frequency": 8,
+      "size": 25,
+      "color": "#757575",
+      "group": "concept"
+    }
+  ],
+  "links": [
+    {
+      "source": "concept-identity",
+      "target": "concept-power",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-identity",
+      "target": "concept-justice",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-identity",
+      "target": "concept-philosophy",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-history",
+      "target": "concept-identity",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-identity",
+      "target": "concept-politics",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-identity",
+      "target": "concept-resistance",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Black experience",
+      "target": "concept-identity",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-artificial intelligence",
+      "target": "concept-identity",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-identity",
+      "target": "concept-political philosophy",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Biography",
+      "target": "concept-identity",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-justice",
+      "target": "concept-power",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-philosophy",
+      "target": "concept-power",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-history",
+      "target": "concept-power",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-politics",
+      "target": "concept-power",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-power",
+      "target": "concept-resistance",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Black experience",
+      "target": "concept-power",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-artificial intelligence",
+      "target": "concept-power",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-political philosophy",
+      "target": "concept-power",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Biography",
+      "target": "concept-power",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-justice",
+      "target": "concept-philosophy",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-history",
+      "target": "concept-justice",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-justice",
+      "target": "concept-politics",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-justice",
+      "target": "concept-resistance",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Black experience",
+      "target": "concept-justice",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-artificial intelligence",
+      "target": "concept-justice",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-justice",
+      "target": "concept-political philosophy",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Biography",
+      "target": "concept-justice",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-history",
+      "target": "concept-philosophy",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-philosophy",
+      "target": "concept-politics",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-philosophy",
+      "target": "concept-resistance",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Black experience",
+      "target": "concept-philosophy",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-artificial intelligence",
+      "target": "concept-philosophy",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-philosophy",
+      "target": "concept-political philosophy",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-history",
+      "target": "concept-politics",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-history",
+      "target": "concept-resistance",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Black experience",
+      "target": "concept-history",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-artificial intelligence",
+      "target": "concept-history",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-history",
+      "target": "concept-political philosophy",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Biography",
+      "target": "concept-history",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-politics",
+      "target": "concept-resistance",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Black experience",
+      "target": "concept-politics",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-artificial intelligence",
+      "target": "concept-politics",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-political philosophy",
+      "target": "concept-politics",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Biography",
+      "target": "concept-politics",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Black experience",
+      "target": "concept-resistance",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-artificial intelligence",
+      "target": "concept-resistance",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Biography",
+      "target": "concept-resistance",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Black experience",
+      "target": "concept-artificial intelligence",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Black experience",
+      "target": "concept-political philosophy",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-artificial intelligence",
+      "target": "concept-political philosophy",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Biography",
+      "target": "concept-artificial intelligence",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-creativity",
+      "target": "concept-power",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Social Science(s)",
+      "target": "concept-power",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-creativity",
+      "target": "concept-history",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Social Science(s)",
+      "target": "concept-creativity",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Social Science(s)",
+      "target": "concept-history",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-communication",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Social Science(s)",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Social Science(s)",
+      "target": "concept-communication",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-power",
+      "target": "concept-psychology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-power",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-habits",
+      "target": "concept-power",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-personal development",
+      "target": "concept-power",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-human behavior",
+      "target": "concept-power",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Self-Development",
+      "target": "concept-power",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-psychology",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-habits",
+      "target": "concept-psychology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-artificial intelligence",
+      "target": "concept-psychology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-personal development",
+      "target": "concept-psychology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-human behavior",
+      "target": "concept-psychology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Self-Development",
+      "target": "concept-psychology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-habits",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-artificial intelligence",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-personal development",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-human behavior",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Self-Development",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-artificial intelligence",
+      "target": "concept-habits",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-habits",
+      "target": "concept-personal development",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-habits",
+      "target": "concept-human behavior",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Self-Development",
+      "target": "concept-habits",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-artificial intelligence",
+      "target": "concept-personal development",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-artificial intelligence",
+      "target": "concept-human behavior",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Self-Development",
+      "target": "concept-artificial intelligence",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-human behavior",
+      "target": "concept-personal development",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Self-Development",
+      "target": "concept-personal development",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Self-Development",
+      "target": "concept-human behavior",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-economics",
+      "target": "concept-science",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-economics",
+      "target": "concept-psychology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-economics",
+      "target": "concept-habits",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-economics",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-communication",
+      "target": "concept-economics",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-artificial intelligence",
+      "target": "concept-economics",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-economics",
+      "target": "concept-scientific discovery",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-economics",
+      "target": "concept-human behavior",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-psychology",
+      "target": "concept-science",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-habits",
+      "target": "concept-science",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-science",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-communication",
+      "target": "concept-science",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-artificial intelligence",
+      "target": "concept-science",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-science",
+      "target": "concept-scientific discovery",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-human behavior",
+      "target": "concept-science",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Self-Development",
+      "target": "concept-science",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-psychology",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-communication",
+      "target": "concept-psychology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-psychology",
+      "target": "concept-scientific discovery",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-habits",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-communication",
+      "target": "concept-habits",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-habits",
+      "target": "concept-scientific discovery",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-artificial intelligence",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-scientific discovery",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-human behavior",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Self-Development",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-artificial intelligence",
+      "target": "concept-communication",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-communication",
+      "target": "concept-scientific discovery",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-communication",
+      "target": "concept-human behavior",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Self-Development",
+      "target": "concept-communication",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-artificial intelligence",
+      "target": "concept-scientific discovery",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-human behavior",
+      "target": "concept-scientific discovery",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Self-Development",
+      "target": "concept-scientific discovery",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-oppression",
+      "target": "concept-power",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-love",
+      "target": "concept-power",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Memoir/Autobiography",
+      "target": "concept-power",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-justice",
+      "target": "concept-oppression",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-justice",
+      "target": "concept-love",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Memoir/Autobiography",
+      "target": "concept-justice",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-love",
+      "target": "concept-oppression",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Memoir/Autobiography",
+      "target": "concept-oppression",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Memoir/Autobiography",
+      "target": "concept-love",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-power",
+      "target": "concept-racism",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-communication",
+      "target": "concept-power",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Essay(s)/Short Stories",
+      "target": "concept-power",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-history",
+      "target": "concept-racism",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-politics",
+      "target": "concept-racism",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-racism",
+      "target": "concept-resistance",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-communication",
+      "target": "concept-racism",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Black experience",
+      "target": "concept-racism",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Essay(s)/Short Stories",
+      "target": "concept-racism",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-communication",
+      "target": "concept-history",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Essay(s)/Short Stories",
+      "target": "concept-history",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-communication",
+      "target": "concept-politics",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-communication",
+      "target": "concept-resistance",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Essay(s)/Short Stories",
+      "target": "concept-resistance",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Black experience",
+      "target": "concept-communication",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Essay(s)/Short Stories",
+      "target": "concept-communication",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Black experience",
+      "target": "concept-Essay(s)/Short Stories",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-community",
+      "target": "concept-power",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-mindfulness",
+      "target": "concept-power",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-justice",
+      "target": "concept-racism",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-community",
+      "target": "concept-justice",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-justice",
+      "target": "concept-mindfulness",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-oppression",
+      "target": "concept-racism",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-community",
+      "target": "concept-racism",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-love",
+      "target": "concept-racism",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-mindfulness",
+      "target": "concept-racism",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-artificial intelligence",
+      "target": "concept-racism",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Memoir/Autobiography",
+      "target": "concept-racism",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-community",
+      "target": "concept-oppression",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-history",
+      "target": "concept-oppression",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Black experience",
+      "target": "concept-oppression",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-mindfulness",
+      "target": "concept-oppression",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-artificial intelligence",
+      "target": "concept-oppression",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-community",
+      "target": "concept-history",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-community",
+      "target": "concept-love",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Black experience",
+      "target": "concept-community",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-community",
+      "target": "concept-mindfulness",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-artificial intelligence",
+      "target": "concept-community",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Memoir/Autobiography",
+      "target": "concept-community",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-history",
+      "target": "concept-love",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-history",
+      "target": "concept-mindfulness",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Memoir/Autobiography",
+      "target": "concept-history",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Black experience",
+      "target": "concept-love",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-love",
+      "target": "concept-mindfulness",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-artificial intelligence",
+      "target": "concept-love",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Black experience",
+      "target": "concept-mindfulness",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Black experience",
+      "target": "concept-Memoir/Autobiography",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-artificial intelligence",
+      "target": "concept-mindfulness",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Memoir/Autobiography",
+      "target": "concept-mindfulness",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Memoir/Autobiography",
+      "target": "concept-artificial intelligence",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-gender",
+      "target": "concept-power",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-gender equality",
+      "target": "concept-power",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-creativity",
+      "target": "concept-justice",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-gender",
+      "target": "concept-justice",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-justice",
+      "target": "concept-psychology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-justice",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-gender equality",
+      "target": "concept-justice",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-human behavior",
+      "target": "concept-justice",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-creativity",
+      "target": "concept-oppression",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-gender",
+      "target": "concept-oppression",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-oppression",
+      "target": "concept-psychology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-oppression",
+      "target": "concept-politics",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-oppression",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-gender equality",
+      "target": "concept-oppression",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-human behavior",
+      "target": "concept-oppression",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-community",
+      "target": "concept-creativity",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-community",
+      "target": "concept-gender",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-community",
+      "target": "concept-psychology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-community",
+      "target": "concept-politics",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-community",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-community",
+      "target": "concept-gender equality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-community",
+      "target": "concept-human behavior",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-creativity",
+      "target": "concept-gender",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-creativity",
+      "target": "concept-psychology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-creativity",
+      "target": "concept-politics",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-creativity",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Black experience",
+      "target": "concept-creativity",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-creativity",
+      "target": "concept-gender equality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-creativity",
+      "target": "concept-human behavior",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Memoir/Autobiography",
+      "target": "concept-creativity",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-gender",
+      "target": "concept-psychology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-gender",
+      "target": "concept-history",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-gender",
+      "target": "concept-politics",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-gender",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Black experience",
+      "target": "concept-gender",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-gender",
+      "target": "concept-gender equality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-gender",
+      "target": "concept-human behavior",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Memoir/Autobiography",
+      "target": "concept-gender",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-history",
+      "target": "concept-psychology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-politics",
+      "target": "concept-psychology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Black experience",
+      "target": "concept-psychology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-gender equality",
+      "target": "concept-psychology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Memoir/Autobiography",
+      "target": "concept-psychology",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-history",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-gender equality",
+      "target": "concept-history",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-history",
+      "target": "concept-human behavior",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-politics",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-gender equality",
+      "target": "concept-politics",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-human behavior",
+      "target": "concept-politics",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Memoir/Autobiography",
+      "target": "concept-politics",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Black experience",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-gender equality",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Memoir/Autobiography",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Black experience",
+      "target": "concept-gender equality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Black experience",
+      "target": "concept-human behavior",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-gender equality",
+      "target": "concept-human behavior",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Memoir/Autobiography",
+      "target": "concept-gender equality",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Memoir/Autobiography",
+      "target": "concept-human behavior",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-power",
+      "target": "concept-spirituality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-education",
+      "target": "concept-power",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-education reform",
+      "target": "concept-power",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-justice",
+      "target": "concept-spirituality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-education",
+      "target": "concept-justice",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-education reform",
+      "target": "concept-justice",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-justice",
+      "target": "concept-personal development",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-oppression",
+      "target": "concept-spirituality",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-education",
+      "target": "concept-oppression",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-education reform",
+      "target": "concept-oppression",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-oppression",
+      "target": "concept-personal development",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-community",
+      "target": "concept-spirituality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-community",
+      "target": "concept-education",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-community",
+      "target": "concept-education reform",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-community",
+      "target": "concept-personal development",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-education",
+      "target": "concept-spirituality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-gender",
+      "target": "concept-spirituality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-history",
+      "target": "concept-spirituality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-spirituality",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-gender equality",
+      "target": "concept-spirituality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-personal development",
+      "target": "concept-spirituality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-human behavior",
+      "target": "concept-spirituality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-education",
+      "target": "concept-gender",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-education",
+      "target": "concept-history",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-education",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-education",
+      "target": "concept-education reform",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-education",
+      "target": "concept-gender equality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-education",
+      "target": "concept-personal development",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-education",
+      "target": "concept-human behavior",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-education reform",
+      "target": "concept-gender",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-gender",
+      "target": "concept-personal development",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-education reform",
+      "target": "concept-history",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-history",
+      "target": "concept-personal development",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-education reform",
+      "target": "concept-human behavior",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-gender equality",
+      "target": "concept-personal development",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-education",
+      "target": "concept-psychology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-education",
+      "target": "concept-love",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Social Science(s)",
+      "target": "concept-education",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-gender",
+      "target": "concept-love",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Social Science(s)",
+      "target": "concept-gender",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-love",
+      "target": "concept-psychology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Social Science(s)",
+      "target": "concept-psychology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Social Science(s)",
+      "target": "concept-love",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-identity",
+      "target": "concept-racism",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-community",
+      "target": "concept-identity",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-education",
+      "target": "concept-identity",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-gender",
+      "target": "concept-identity",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-gender equality",
+      "target": "concept-identity",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-identity",
+      "target": "concept-personal development",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Race, Class, and Gender",
+      "target": "concept-identity",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Race, Class, and Gender",
+      "target": "concept-power",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Race, Class, and Gender",
+      "target": "concept-justice",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-education",
+      "target": "concept-racism",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-gender",
+      "target": "concept-racism",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-gender equality",
+      "target": "concept-racism",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-personal development",
+      "target": "concept-racism",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Race, Class, and Gender",
+      "target": "concept-racism",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-community",
+      "target": "concept-resistance",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Race, Class, and Gender",
+      "target": "concept-community",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-education",
+      "target": "concept-resistance",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Black experience",
+      "target": "concept-education",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Race, Class, and Gender",
+      "target": "concept-education",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-gender",
+      "target": "concept-resistance",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Race, Class, and Gender",
+      "target": "concept-gender",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-gender equality",
+      "target": "concept-resistance",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-personal development",
+      "target": "concept-resistance",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Race, Class, and Gender",
+      "target": "concept-resistance",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Black experience",
+      "target": "concept-personal development",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Black experience",
+      "target": "concept-Race, Class, and Gender",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Race, Class, and Gender",
+      "target": "concept-gender equality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Race, Class, and Gender",
+      "target": "concept-personal development",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-justice",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-racism",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-oppression",
+      "target": "concept-resistance",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-oppression",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Race, Class, and Gender",
+      "target": "concept-oppression",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-community",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-gender",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-artificial intelligence",
+      "target": "concept-gender",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-politics",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Race, Class, and Gender",
+      "target": "concept-politics",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-resistance",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Black experience",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Race, Class, and Gender",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Race, Class, and Gender",
+      "target": "concept-artificial intelligence",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-creativity",
+      "target": "concept-identity",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-economics",
+      "target": "concept-identity",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-identity",
+      "target": "concept-love",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-identity",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-economic inequality",
+      "target": "concept-identity",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Memoir/Autobiography",
+      "target": "concept-identity",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-community",
+      "target": "concept-economics",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-community",
+      "target": "concept-economic inequality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-creativity",
+      "target": "concept-economics",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-creativity",
+      "target": "concept-resistance",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-creativity",
+      "target": "concept-love",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-creativity",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-creativity",
+      "target": "concept-economic inequality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-economics",
+      "target": "concept-resistance",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-economics",
+      "target": "concept-love",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Black experience",
+      "target": "concept-economics",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-economic inequality",
+      "target": "concept-economics",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Memoir/Autobiography",
+      "target": "concept-economics",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-love",
+      "target": "concept-resistance",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-economic inequality",
+      "target": "concept-resistance",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Memoir/Autobiography",
+      "target": "concept-resistance",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-love",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-economic inequality",
+      "target": "concept-love",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Black experience",
+      "target": "concept-economic inequality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Memoir/Autobiography",
+      "target": "concept-economic inequality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-economics",
+      "target": "concept-power",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-power",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Policy and Politics",
+      "target": "concept-power",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-economics",
+      "target": "concept-justice",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Policy and Politics",
+      "target": "concept-justice",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-community",
+      "target": "concept-philosophy",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-community",
+      "target": "concept-political philosophy",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Policy and Politics",
+      "target": "concept-community",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-economics",
+      "target": "concept-gender",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-economics",
+      "target": "concept-philosophy",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-economics",
+      "target": "concept-politics",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-economics",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-economics",
+      "target": "concept-gender equality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-economics",
+      "target": "concept-political philosophy",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Policy and Politics",
+      "target": "concept-economics",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-gender",
+      "target": "concept-philosophy",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-gender",
+      "target": "concept-political philosophy",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Policy and Politics",
+      "target": "concept-gender",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-philosophy",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-philosophy",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-gender equality",
+      "target": "concept-philosophy",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Policy and Politics",
+      "target": "concept-politics",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-timing",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Policy and Politics",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-gender equality",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-political philosophy",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Policy and Politics",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-artificial intelligence",
+      "target": "concept-gender equality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Policy and Politics",
+      "target": "concept-artificial intelligence",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-gender equality",
+      "target": "concept-political philosophy",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Policy and Politics",
+      "target": "concept-gender equality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Policy and Politics",
+      "target": "concept-political philosophy",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-climate change",
+      "target": "concept-gender",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-climate change",
+      "target": "concept-history",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-identity",
+      "target": "concept-psychology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-identity",
+      "target": "concept-mental health",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-mental health",
+      "target": "concept-psychology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-history",
+      "target": "concept-mental health",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-love",
+      "target": "concept-mental health",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Black experience",
+      "target": "concept-mental health",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-artificial intelligence",
+      "target": "concept-mental health",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Memoir/Autobiography",
+      "target": "concept-mental health",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-communication",
+      "target": "concept-identity",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-human behavior",
+      "target": "concept-identity",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-communication",
+      "target": "concept-justice",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-human behavior",
+      "target": "concept-racism",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-communication",
+      "target": "concept-community",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-communication",
+      "target": "concept-gender",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Race, Class, and Gender",
+      "target": "concept-communication",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Race, Class, and Gender",
+      "target": "concept-human behavior",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-economic inequality",
+      "target": "concept-justice",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-economics",
+      "target": "concept-oppression",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-economic inequality",
+      "target": "concept-oppression",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-artificial intelligence",
+      "target": "concept-creativity",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Race, Class, and Gender",
+      "target": "concept-creativity",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Race, Class, and Gender",
+      "target": "concept-economics",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-love",
+      "target": "concept-politics",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-economic inequality",
+      "target": "concept-politics",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-human behavior",
+      "target": "concept-love",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Race, Class, and Gender",
+      "target": "concept-love",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-artificial intelligence",
+      "target": "concept-economic inequality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-economic inequality",
+      "target": "concept-human behavior",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Race, Class, and Gender",
+      "target": "concept-economic inequality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-communication",
+      "target": "concept-creativity",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Race, Class, and Gender",
+      "target": "concept-history",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-creativity",
+      "target": "concept-racism",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-racism",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Biography",
+      "target": "concept-racism",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Biography",
+      "target": "concept-community",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Biography",
+      "target": "concept-creativity",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Biography",
+      "target": "concept-gender",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-resistance",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-human behavior",
+      "target": "concept-resistance",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Biography",
+      "target": "concept-human behavior",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-identity",
+      "target": "concept-spirituality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-identity",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Essay(s)/Short Stories",
+      "target": "concept-identity",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Essay(s)/Short Stories",
+      "target": "concept-justice",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-racism",
+      "target": "concept-spirituality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-economics",
+      "target": "concept-racism",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Essay(s)/Short Stories",
+      "target": "concept-community",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-economics",
+      "target": "concept-spirituality",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-spirituality",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-communication",
+      "target": "concept-spirituality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Black experience",
+      "target": "concept-spirituality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-artificial intelligence",
+      "target": "concept-spirituality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Essay(s)/Short Stories",
+      "target": "concept-spirituality",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Essay(s)/Short Stories",
+      "target": "concept-economics",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-communication",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Essay(s)/Short Stories",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Essay(s)/Short Stories",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-communication",
+      "target": "concept-gender equality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Essay(s)/Short Stories",
+      "target": "concept-artificial intelligence",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Essay(s)/Short Stories",
+      "target": "concept-gender equality",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Essay(s)/Short Stories",
+      "target": "concept-human behavior",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-history",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-community",
+      "target": "concept-habits",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Social Science(s)",
+      "target": "concept-community",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-gender",
+      "target": "concept-habits",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Social Science(s)",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Social Science(s)",
+      "target": "concept-habits",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Social Science(s)",
+      "target": "concept-human behavior",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Social Science(s)",
+      "target": "concept-economics",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Social Science(s)",
+      "target": "concept-artificial intelligence",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-philosophy",
+      "target": "concept-racism",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-economics",
+      "target": "concept-history",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-communication",
+      "target": "concept-philosophy",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Race, Class, and Gender",
+      "target": "concept-philosophy",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-mental health",
+      "target": "concept-power",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-gender",
+      "target": "concept-mental health",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-mental health",
+      "target": "concept-resistance",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Business",
+      "target": "concept-justice",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Business",
+      "target": "concept-gender",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Business",
+      "target": "concept-philosophy",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Business",
+      "target": "concept-history",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Business",
+      "target": "concept-artificial intelligence",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-creativity",
+      "target": "concept-science",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-business innovation",
+      "target": "concept-creativity",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-creativity",
+      "target": "concept-scientific discovery",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Business",
+      "target": "concept-creativity",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-science",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-business innovation",
+      "target": "concept-science",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Business",
+      "target": "concept-science",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-business innovation",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-scientific discovery",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Business",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-artificial intelligence",
+      "target": "concept-business innovation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-business innovation",
+      "target": "concept-scientific discovery",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Business",
+      "target": "concept-business innovation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Business",
+      "target": "concept-scientific discovery",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-oppression",
+      "target": "concept-philosophy",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-communication",
+      "target": "concept-oppression",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-creativity",
+      "target": "concept-philosophy",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-climate change",
+      "target": "concept-justice",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-justice",
+      "target": "concept-mental health",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Novel",
+      "target": "concept-justice",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-climate change",
+      "target": "concept-racism",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-mental health",
+      "target": "concept-racism",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Novel",
+      "target": "concept-racism",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-climate change",
+      "target": "concept-oppression",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-mental health",
+      "target": "concept-oppression",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Novel",
+      "target": "concept-oppression",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Novel",
+      "target": "concept-gender",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-climate change",
+      "target": "concept-resistance",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Novel",
+      "target": "concept-resistance",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Black experience",
+      "target": "concept-climate change",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Black experience",
+      "target": "concept-Novel",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-artificial intelligence",
+      "target": "concept-climate change",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Novel",
+      "target": "concept-artificial intelligence",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-climate change",
+      "target": "concept-mental health",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Novel",
+      "target": "concept-climate change",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Novel",
+      "target": "concept-mental health",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-identity",
+      "target": "concept-oppression",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Memoir/Autobiography",
+      "target": "concept-philosophy",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-gender",
+      "target": "concept-science",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-gender",
+      "target": "concept-scientific discovery",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Science",
+      "target": "concept-gender",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-philosophy",
+      "target": "concept-science",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-philosophy",
+      "target": "concept-psychology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-philosophy",
+      "target": "concept-scientific discovery",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Science",
+      "target": "concept-philosophy",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-history",
+      "target": "concept-science",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Black experience",
+      "target": "concept-science",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Science",
+      "target": "concept-science",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Science",
+      "target": "concept-psychology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-history",
+      "target": "concept-scientific discovery",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Science",
+      "target": "concept-history",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Science",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Science",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Science",
+      "target": "concept-communication",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Black experience",
+      "target": "concept-scientific discovery",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Science",
+      "target": "concept-scientific discovery",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-identity",
+      "target": "concept-science",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Novel",
+      "target": "concept-identity",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-racism",
+      "target": "concept-science",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-community",
+      "target": "concept-science",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Novel",
+      "target": "concept-community",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-science",
+      "target": "concept-spirituality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-resistance",
+      "target": "concept-spirituality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-love",
+      "target": "concept-spirituality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Novel",
+      "target": "concept-spirituality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-resistance",
+      "target": "concept-science",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-love",
+      "target": "concept-science",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Novel",
+      "target": "concept-science",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Novel",
+      "target": "concept-history",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Novel",
+      "target": "concept-love",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Novel",
+      "target": "concept-human behavior",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-gender",
+      "target": "concept-mindfulness",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-mindfulness",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-mindfulness",
+      "target": "concept-resistance",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Policy and Politics",
+      "target": "concept-resistance",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-human behavior",
+      "target": "concept-mindfulness",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Policy and Politics",
+      "target": "concept-mindfulness",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Policy and Politics",
+      "target": "concept-human behavior",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-climate change",
+      "target": "concept-identity",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Business",
+      "target": "concept-identity",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-communication",
+      "target": "concept-love",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-climate change",
+      "target": "concept-love",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-climate change",
+      "target": "concept-communication",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Business",
+      "target": "concept-communication",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Business",
+      "target": "concept-climate change",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-climate change",
+      "target": "concept-community",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-community",
+      "target": "concept-scientific discovery",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Science",
+      "target": "concept-community",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-climate change",
+      "target": "concept-science",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-climate change",
+      "target": "concept-psychology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-habits",
+      "target": "concept-history",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-love",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-climate change",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-habits",
+      "target": "concept-love",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-love",
+      "target": "concept-scientific discovery",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Science",
+      "target": "concept-love",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-climate change",
+      "target": "concept-habits",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Science",
+      "target": "concept-habits",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-climate change",
+      "target": "concept-scientific discovery",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-climate change",
+      "target": "concept-human behavior",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Science",
+      "target": "concept-human behavior",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Essay(s)/Short Stories",
+      "target": "concept-oppression",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Essay(s)/Short Stories",
+      "target": "concept-gender",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-economic inequality",
+      "target": "concept-power",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-economic inequality",
+      "target": "concept-gender",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-communication",
+      "target": "concept-economic inequality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Memoir/Autobiography",
+      "target": "concept-communication",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-creativity",
+      "target": "concept-education",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-creativity",
+      "target": "concept-education reform",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-economics",
+      "target": "concept-education",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-economic inequality",
+      "target": "concept-education",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-economics",
+      "target": "concept-education reform",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-economic inequality",
+      "target": "concept-history",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-education reform",
+      "target": "concept-love",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-community",
+      "target": "concept-technology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Informational",
+      "target": "concept-community",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-gender",
+      "target": "concept-technology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-science",
+      "target": "concept-technology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-technology",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Informational",
+      "target": "concept-technology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Informational",
+      "target": "concept-gender",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Informational",
+      "target": "concept-science",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Informational",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Informational",
+      "target": "concept-power",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Informational",
+      "target": "concept-justice",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Informational",
+      "target": "concept-creativity",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Informational",
+      "target": "concept-economics",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Informational",
+      "target": "concept-history",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Informational",
+      "target": "concept-politics",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Informational",
+      "target": "concept-artificial intelligence",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-economic inequality",
+      "target": "concept-gender equality",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Informational",
+      "target": "concept-gender equality",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Informational",
+      "target": "concept-political philosophy",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-education",
+      "target": "concept-science",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-education",
+      "target": "concept-scientific discovery",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Informational",
+      "target": "concept-education",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-personal development",
+      "target": "concept-science",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Informational",
+      "target": "concept-psychology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Informational",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-personal development",
+      "target": "concept-scientific discovery",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Informational",
+      "target": "concept-scientific discovery",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Informational",
+      "target": "concept-personal development",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Self-Development",
+      "target": "concept-identity",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Self-Development",
+      "target": "concept-love",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-power",
+      "target": "concept-technology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-politics",
+      "target": "concept-technology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-communication",
+      "target": "concept-technology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-artificial intelligence",
+      "target": "concept-technology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Policy and Politics",
+      "target": "concept-communication",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Novel",
+      "target": "concept-power",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-economic inequality",
+      "target": "concept-racism",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-economic inequality",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Race, Class, and Gender",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-creative process",
+      "target": "concept-creativity",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Science",
+      "target": "concept-creativity",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-creative process",
+      "target": "concept-gender",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-love",
+      "target": "concept-philosophy",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-creative process",
+      "target": "concept-philosophy",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-creative process",
+      "target": "concept-science",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-creative process",
+      "target": "concept-psychology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-creative process",
+      "target": "concept-love",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-creative process",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-creative process",
+      "target": "concept-scientific discovery",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Novel",
+      "target": "concept-economics",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Novel",
+      "target": "concept-communication",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-power",
+      "target": "concept-science",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-climate change",
+      "target": "concept-power",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-justice",
+      "target": "concept-science",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-climate change",
+      "target": "concept-creativity",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Race, Class, and Gender",
+      "target": "concept-science",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Race, Class, and Gender",
+      "target": "concept-climate change",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Science",
+      "target": "concept-artificial intelligence",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-business innovation",
+      "target": "concept-community",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Business",
+      "target": "concept-community",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-creativity",
+      "target": "concept-habits",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-creativity",
+      "target": "concept-personal development",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-business innovation",
+      "target": "concept-gender",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-politics",
+      "target": "concept-science",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-business innovation",
+      "target": "concept-psychology",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Business",
+      "target": "concept-psychology",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-habits",
+      "target": "concept-politics",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-politics",
+      "target": "concept-scientific discovery",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-personal development",
+      "target": "concept-politics",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-business innovation",
+      "target": "concept-habits",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Business",
+      "target": "concept-habits",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-business innovation",
+      "target": "concept-communication",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-communication",
+      "target": "concept-personal development",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-business innovation",
+      "target": "concept-personal development",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-business innovation",
+      "target": "concept-human behavior",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Business",
+      "target": "concept-personal development",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Business",
+      "target": "concept-human behavior",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-identity",
+      "target": "concept-mindfulness",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-business innovation",
+      "target": "concept-power",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Business",
+      "target": "concept-power",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-creativity",
+      "target": "concept-mindfulness",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-mindfulness",
+      "target": "concept-philosophy",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-business innovation",
+      "target": "concept-philosophy",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-human behavior",
+      "target": "concept-philosophy",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-mindfulness",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-business innovation",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Business",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-justice",
+      "target": "concept-technology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-education",
+      "target": "concept-technology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-education",
+      "target": "concept-politics",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-artificial intelligence",
+      "target": "concept-education",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-economics",
+      "target": "concept-technology",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-gender equality",
+      "target": "concept-technology",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-political philosophy",
+      "target": "concept-technology",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-creativity",
+      "target": "concept-technology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-philosophy",
+      "target": "concept-technology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-personal development",
+      "target": "concept-technology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-personal development",
+      "target": "concept-philosophy",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Philosophy",
+      "target": "concept-identity",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Philosophy",
+      "target": "concept-philosophy",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-community",
+      "target": "concept-mental health",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Self-Development",
+      "target": "concept-community",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-creativity",
+      "target": "concept-mental health",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Self-Development",
+      "target": "concept-creativity",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-habits",
+      "target": "concept-mental health",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-communication",
+      "target": "concept-mental health",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-human behavior",
+      "target": "concept-mental health",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Self-Development",
+      "target": "concept-mental health",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Self-Development",
+      "target": "concept-philosophy",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-love",
+      "target": "concept-technology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Informational",
+      "target": "concept-philosophy",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Informational",
+      "target": "concept-resistance",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-justice",
+      "target": "concept-scientific discovery",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-creativity",
+      "target": "concept-spirituality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-creative process",
+      "target": "concept-spirituality",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Novel",
+      "target": "concept-creativity",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-creative process",
+      "target": "concept-history",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-artificial intelligence",
+      "target": "concept-creative process",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Novel",
+      "target": "concept-creative process",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Philosophy",
+      "target": "concept-creativity",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-scientific discovery",
+      "target": "concept-technology",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Philosophy",
+      "target": "concept-communication",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Philosophy",
+      "target": "concept-artificial intelligence",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-communication",
+      "target": "concept-education",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-psychology",
+      "target": "concept-technology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Social Science(s)",
+      "target": "concept-technology",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-climate change",
+      "target": "concept-economics",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-climate change",
+      "target": "concept-philosophy",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Novel",
+      "target": "concept-philosophy",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Novel",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-climate change",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Novel",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-education",
+      "target": "concept-philosophy",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Social Science(s)",
+      "target": "concept-philosophy",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Philosophy",
+      "target": "concept-gender",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Philosophy",
+      "target": "concept-community",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Philosophy",
+      "target": "concept-psychology",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Philosophy",
+      "target": "concept-history",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Philosophy",
+      "target": "concept-politics",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-business innovation",
+      "target": "concept-technology",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-psychology",
+      "target": "concept-spirituality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-politics",
+      "target": "concept-spirituality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-psychology",
+      "target": "concept-resistance",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Novel",
+      "target": "concept-psychology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-climate change",
+      "target": "concept-politics",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Novel",
+      "target": "concept-politics",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-identity",
+      "target": "concept-scientific discovery",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Informational",
+      "target": "concept-identity",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-education reform",
+      "target": "concept-identity",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-education reform",
+      "target": "concept-psychology",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-education reform",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Novel",
+      "target": "concept-education reform",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Philosophy",
+      "target": "concept-power",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-mindfulness",
+      "target": "concept-personal development",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Philosophy",
+      "target": "concept-mindfulness",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Philosophy",
+      "target": "concept-personal development",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Informational",
+      "target": "concept-love",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Informational",
+      "target": "concept-habits",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Informational",
+      "target": "concept-human behavior",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Informational",
+      "target": "concept-communication",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-power",
+      "target": "concept-scientific discovery",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-history",
+      "target": "concept-technology",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-technology",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-climate change",
+      "target": "concept-technology",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-business innovation",
+      "target": "concept-history",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-business innovation",
+      "target": "concept-climate change",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Informational",
+      "target": "concept-climate change",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Novel",
+      "target": "concept-economic inequality",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Self-Development",
+      "target": "concept-gender",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-mindfulness",
+      "target": "concept-psychology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Self-Development",
+      "target": "concept-mindfulness",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Philosophy",
+      "target": "concept-justice",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Poetry",
+      "target": "concept-identity",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Poetry",
+      "target": "concept-power",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Poetry",
+      "target": "concept-community",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Poetry",
+      "target": "concept-creativity",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Poetry",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Social Science(s)",
+      "target": "concept-justice",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Social Science(s)",
+      "target": "concept-politics",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-habits",
+      "target": "concept-mindfulness",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-gender equality",
+      "target": "concept-love",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Race, Class, and Gender",
+      "target": "concept-psychology",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-love",
+      "target": "concept-personal development",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-economic inequality",
+      "target": "concept-philosophy",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-mindfulness",
+      "target": "concept-spirituality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Self-Development",
+      "target": "concept-spirituality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-education",
+      "target": "concept-mindfulness",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Self-Development",
+      "target": "concept-education",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Self-Development",
+      "target": "concept-justice",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-communication",
+      "target": "concept-mindfulness",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-creative process",
+      "target": "concept-power",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-creative process",
+      "target": "concept-justice",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-creative process",
+      "target": "concept-racism",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-community",
+      "target": "concept-creative process",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-creative process",
+      "target": "concept-resistance",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Black experience",
+      "target": "concept-creative process",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-creative process",
+      "target": "concept-human behavior",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Race, Class, and Gender",
+      "target": "concept-creative process",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Social Science(s)",
+      "target": "concept-science",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Social Science(s)",
+      "target": "concept-scientific discovery",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Social Science(s)",
+      "target": "concept-oppression",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-habits",
+      "target": "concept-resistance",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Social Science(s)",
+      "target": "concept-resistance",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Social Science(s)",
+      "target": "concept-personal development",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Social Science(s)",
+      "target": "concept-identity",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Black experience",
+      "target": "concept-Social Science(s)",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-racism",
+      "target": "concept-technology",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-oppression",
+      "target": "concept-technology",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-human behavior",
+      "target": "concept-technology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Race, Class, and Gender",
+      "target": "concept-technology",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Policy and Politics",
+      "target": "concept-science",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Policy and Politics",
+      "target": "concept-history",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-creative process",
+      "target": "concept-mental health",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Biography",
+      "target": "concept-creative process",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-resistance",
+      "target": "concept-scientific discovery",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-resistance",
+      "target": "concept-technology",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Essay(s)/Short Stories",
+      "target": "concept-creativity",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Poetry",
+      "target": "concept-justice",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Poetry",
+      "target": "concept-spirituality",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Poetry",
+      "target": "concept-gender",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Black experience",
+      "target": "concept-Poetry",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Poetry",
+      "target": "concept-human behavior",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-oppression",
+      "target": "concept-science",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-oppression",
+      "target": "concept-scientific discovery",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-psychology",
+      "target": "concept-racism",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-racism",
+      "target": "concept-scientific discovery",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Policy and Politics",
+      "target": "concept-racism",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Policy and Politics",
+      "target": "concept-creativity",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-gender equality",
+      "target": "concept-science",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Policy and Politics",
+      "target": "concept-psychology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Policy and Politics",
+      "target": "concept-love",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-gender equality",
+      "target": "concept-scientific discovery",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Memoir/Autobiography",
+      "target": "concept-spirituality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Race, Class, and Gender",
+      "target": "concept-scientific discovery",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-climate change",
+      "target": "concept-education",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Black experience",
+      "target": "concept-education reform",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-climate change",
+      "target": "concept-education reform",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Novel",
+      "target": "concept-scientific discovery",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-philosophy",
+      "target": "concept-spirituality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Social Science(s)",
+      "target": "concept-spirituality",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Novel",
+      "target": "concept-technology",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Essay(s)/Short Stories",
+      "target": "concept-philosophy",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Essay(s)/Short Stories",
+      "target": "concept-science",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Policy and Politics",
+      "target": "concept-oppression",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-economic inequality",
+      "target": "concept-psychology",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Policy and Politics",
+      "target": "concept-economic inequality",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-education",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Novel",
+      "target": "concept-education",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Essay(s)/Short Stories",
+      "target": "concept-scientific discovery",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Philosophy",
+      "target": "concept-love",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-scientific discovery",
+      "target": "concept-spirituality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-identity",
+      "target": "concept-technology",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-habits",
+      "target": "concept-identity",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-habits",
+      "target": "concept-technology",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-artificial intelligence",
+      "target": "concept-education reform",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-creative process",
+      "target": "concept-education",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Biography",
+      "target": "concept-education",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Policy and Politics",
+      "target": "concept-climate change",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-mental health",
+      "target": "concept-personal development",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Memoir/Autobiography",
+      "target": "concept-personal development",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Self-Development",
+      "target": "concept-resistance",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Philosophy",
+      "target": "concept-education",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Informational",
+      "target": "concept-spirituality",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-mental health",
+      "target": "concept-science",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Informational",
+      "target": "concept-mental health",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-creative process",
+      "target": "concept-identity",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-creative process",
+      "target": "concept-politics",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-creative process",
+      "target": "concept-personal development",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Social Science(s)",
+      "target": "concept-creative process",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-economics",
+      "target": "concept-personal development",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Poetry",
+      "target": "concept-science",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Poetry",
+      "target": "concept-love",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-creative process",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Poetry",
+      "target": "concept-history",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Poetry",
+      "target": "concept-resistance",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Poetry",
+      "target": "concept-racism",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Poetry",
+      "target": "concept-philosophy",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Science",
+      "target": "concept-identity",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Self-Development",
+      "target": "concept-creative process",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-mental health",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-communication",
+      "target": "concept-creative process",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Informational",
+      "target": "concept-creative process",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Essay(s)/Short Stories",
+      "target": "concept-love",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Policy and Politics",
+      "target": "concept-identity",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Black experience",
+      "target": "concept-Policy and Politics",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-habits",
+      "target": "concept-philosophy",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-mindfulness",
+      "target": "concept-politics",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Self-Development",
+      "target": "concept-politics",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-education",
+      "target": "concept-mental health",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Essay(s)/Short Stories",
+      "target": "concept-psychology",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Memoir/Autobiography",
+      "target": "concept-science",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Memoir/Autobiography",
+      "target": "concept-scientific discovery",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Memoir/Autobiography",
+      "target": "concept-education",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-business innovation",
+      "target": "concept-education",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-business innovation",
+      "target": "concept-love",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Self-Development",
+      "target": "concept-history",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Philosophy",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 1
+    },
+    {
+      "source": "concept-Philosophy",
+      "target": "concept-gender equality",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-Philosophy",
+      "target": "concept-human behavior",
+      "type": "concept-concept",
+      "strength": 0.8999999999999999
+    },
+    {
+      "source": "concept-economics",
+      "target": "concept-mindfulness",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Poetry",
+      "target": "concept-transformation",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Informational",
+      "target": "concept-education reform",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Black experience",
+      "target": "concept-Informational",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-personal development",
+      "target": "concept-timing",
+      "type": "concept-concept",
+      "strength": 0.6
+    },
+    {
+      "source": "concept-Novel",
+      "target": "concept-habits",
+      "type": "concept-concept",
+      "strength": 0.6
+    }
+  ]
+}
