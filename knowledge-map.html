@@ -4746,11 +4746,11 @@
 
                 // Get all concepts for small dataset
                 const minFrequency = Math.max(2, Math.ceil(books.length * 0.05)); // At least 2 books or 5% of collection
-const topConcepts = Object.entries(conceptFreq)
-    .filter(([concept, freq]) => freq >= minFrequency)
-    .sort(([,a], [,b]) => b - a)
-    .slice(0, 50) // Limit to top 50 concepts
-    .map(([concept]) => concept);
+            const topConcepts = Object.entries(conceptFreq)
+                .filter(([concept, freq]) => freq >= minFrequency)
+                .sort(([,a], [,b]) => b - a)
+                .slice(0, 50) // Limit to top 50 concepts
+                .map(([concept]) => concept);
 
                 // Add nodes based on view mode
                 if (viewMode === 'all' || viewMode === 'concepts' || viewMode === 'category') {
@@ -4963,7 +4963,16 @@ const topConcepts = Object.entries(conceptFreq)
 
             async loadData() {
     try {
-        console.log('📥 Loading pre-computed network data...');
+        console.log('📥 Loading books data and pre-computed network data...');
+        
+        // First, load the books data from the external JSON file
+        console.log('📚 Loading books from books.json...');
+        const booksResponse = await fetch('books.json');
+        if (!booksResponse.ok) {
+            throw new Error('Failed to load books.json');
+        }
+        window.books = await booksResponse.json(); // Make books globally available
+        console.log(`✅ Loaded ${window.books.length} books from books.json`);
         
         // Load all pre-computed network data
         this.precomputedData = {};
@@ -4973,31 +4982,32 @@ const topConcepts = Object.entries(conceptFreq)
         document.getElementById('loading').innerHTML = 'Loading optimized data...';
         
         for (const mode of modes) {
-            const response = await fetch(`network-data-${mode}.json`);
-            if (!response.ok) {
-                throw new Error(`Failed to load network-data-${mode}.json`);
+            try {
+                const response = await fetch(`network-data-${mode}.json`);
+                if (!response.ok) {
+                    throw new Error(`Failed to load network-data-${mode}.json`);
+                }
+                this.precomputedData[mode] = await response.json();
+                console.log(`✅ Loaded ${mode} mode - ${this.precomputedData[mode].nodes.length} nodes`);
+            } catch (error) {
+                console.warn(`⚠️ Could not load pre-computed data for ${mode} mode:`, error);
+                // Continue without this pre-computed data
             }
-            this.precomputedData[mode] = await response.json();
-            console.log(`✅ Loaded ${mode} mode - ${this.precomputedData[mode].nodes.length} nodes`);
         }
         
-        console.log('🎉 All pre-computed data loaded successfully');
+        console.log('🎉 Data loading completed successfully');
         this.updateNetwork();
         
         document.getElementById('loading').style.display = 'none';
         document.getElementById('network-svg').style.display = 'block';
         
     } catch (error) {
-        console.error('❌ Failed to load pre-computed data:', error);
-        console.log('🔄 Falling back to client-side generation...');
+        console.error('❌ Failed to load books data:', error);
+        console.log('🔄 Make sure books.json is in the same directory as this HTML file');
         
-        // Fallback to original method
-        document.getElementById('loading').innerHTML = 'Generating network (this may take a moment)...';
-        this.extractor = new EnhancedConceptExtractor();
-        this.updateNetwork();
-        
-        document.getElementById('loading').style.display = 'none';
-        document.getElementById('network-svg').style.display = 'block';
+        // Show error message to user
+        document.getElementById('loading').innerHTML = 
+            'Error loading data. Please make sure books.json is available in the same directory.';
     }
 }
 
@@ -5012,7 +5022,8 @@ updateNetwork() {
         if (!this.extractor) {
             this.extractor = new EnhancedConceptExtractor();
         }
-        this.networkData = this.extractor.createNetworkData(books, this.viewMode);
+        // Use window.books instead of books
+        this.networkData = this.extractor.createNetworkData(window.books, this.viewMode);
     }
     
     this.updateStats();
@@ -5152,7 +5163,7 @@ const labels = this.g.append('g')
                 this.currentBook = bookData;
                 
                 // Find the full book data
-                const fullBook = books.find(book => book.id === parseInt(bookData.id.replace('book-', '')));
+                const fullBook = window.books.find(book => book.id === parseInt(bookData.id.replace('book-', '')));
                 
                 // Update sidebar content
                 document.getElementById('sidebarBookCover').src = fullBook.customCoverUrl;
@@ -5173,14 +5184,14 @@ const labels = this.g.append('g')
                 
                 // Update summary
                 document.getElementById('sidebarSummary').textContent = fullBook.summary;
-                
+    
                 // Update related books
                 this.updateRelatedBooks(fullBook);
-                
+    
                 // Show sidebar
                 document.getElementById('sidebar').classList.add('open');
                 document.body.classList.add('sidebar-open');
-                
+    
                 // Adjust SVG width
                 this.updateSVGWidth();
             }
@@ -5209,45 +5220,45 @@ const labels = this.g.append('g')
             }
 
             updateRelatedBooks(currentBook) {
-                const relatedContainer = document.getElementById('sidebarRelatedBooks');
-                relatedContainer.innerHTML = '';
-                
-                // Find books with shared concepts
-                const relatedBooks = books
-                    .filter(book => book.id !== currentBook.id)
-                    .map(book => {
-                        const bookConcepts = this.extractor.extractBookConcepts(book);
-                        const currentConcepts = this.extractor.extractBookConcepts(currentBook);
-                        const sharedConcepts = bookConcepts.filter(c => currentConcepts.includes(c));
-                        return {
-                            ...book,
-                            sharedConcepts: sharedConcepts,
-                            sharedCount: sharedConcepts.length
-                        };
-                    })
-                    .filter(book => book.sharedCount > 0)
-                    .sort((a, b) => b.sharedCount - a.sharedCount)
-                    .slice(0, 3);
+    const relatedContainer = document.getElementById('sidebarRelatedBooks');
+    relatedContainer.innerHTML = '';
+    
+    // Use window.books instead of books
+    const relatedBooks = window.books
+        .filter(book => book.id !== currentBook.id)
+        .map(book => {
+            const bookConcepts = this.extractor.extractBookConcepts(book);
+            const currentConcepts = this.extractor.extractBookConcepts(currentBook);
+            const sharedConcepts = bookConcepts.filter(c => currentConcepts.includes(c));
+            return {
+                ...book,
+                sharedConcepts: sharedConcepts,
+                sharedCount: sharedConcepts.length
+            };
+        })
+        .filter(book => book.sharedCount > 0)
+        .sort((a, b) => b.sharedCount - a.sharedCount)
+        .slice(0, 3);
 
-                relatedBooks.forEach(book => {
-                    const bookDiv = document.createElement('div');
-                    bookDiv.className = 'related-book';
-                    bookDiv.onclick = () => {
-                        const bookNode = this.networkData.nodes.find(n => n.id === `book-${book.id}`);
-                        if (bookNode) {
-                            this.openBookSidebar(bookNode);
-                        }
-                    };
-                    
-                    bookDiv.innerHTML = `
-                        <div class="related-book-title">${book.title}</div>
-                        <div class="related-book-author">${book.author} - ${book.sharedCount} shared concepts</div>
-                        <div class="related-book-shared">Shared: ${book.sharedConcepts.join(', ')}</div>
-                    `;
-                    
-                    relatedContainer.appendChild(bookDiv);
-                });
+    relatedBooks.forEach(book => {
+        const bookDiv = document.createElement('div');
+        bookDiv.className = 'related-book';
+        bookDiv.onclick = () => {
+            const bookNode = this.networkData.nodes.find(n => n.id === `book-${book.id}`);
+            if (bookNode) {
+                this.openBookSidebar(bookNode);
             }
+        };
+        
+        bookDiv.innerHTML = `
+            <div class="related-book-title">${book.title}</div>
+            <div class="related-book-author">${book.author} - ${book.sharedCount} shared concepts</div>
+            <div class="related-book-shared">Shared: ${book.sharedConcepts.join(', ')}</div>
+        `;
+        
+        relatedContainer.appendChild(bookDiv);
+    });
+}
 
             createClusters(data) {
                 const groups = d3.group(data.nodes.filter(d => d.type === 'book'), d => d.category);
