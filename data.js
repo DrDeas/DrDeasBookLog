@@ -4087,9 +4087,21 @@ const books = [
     "category": "Self-Development",
     "ownership": "Digital",
     "status": "In Progress",
-    "dateCompleted": "",
+    "dateCompleted": "2025-08-08",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00341.jpg",
     "id": 341,
     "summary": "This book offers a fresh perspective on minimalism, specifically tailored for people of color, by exploring how to declutter not just physical spaces but also mental and emotional burdens. It delves into the historical and cultural aspects of consumerism within the Black community, encouraging readers to embrace intentional living and redefine what it means to have \"enough.\" Through practical advice and personal anecdotes, the author guides readers toward a more purposeful and less cluttered life, emphasizing sustainability, community, and personal well-being."
+  },
+    {
+    "number": 342,
+    "title": "In Open Contempt: Confronting White Supremacy in Art and Public Space",
+    "author": "Irvin Weathersby Jr.",
+    "category": "Social Science(s)",
+    "ownership": "Digital",
+    "status": "Finished",
+    "dateCompleted": "2025-08-17",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00342.jpg",
+    "id": 342,
+    "summary": "This book delves into the pervasive issue of white supremacy as it manifests in artistic expressions and public spaces. It explores how art and public monuments can perpetuate or challenge dominant narratives, offering a critical examination of historical and contemporary instances where these elements either reinforce or confront systems of racial hierarchy. The author advocates for a re-evaluation of public art and spaces to foster more inclusive and equitable environments."
   }
 ];
