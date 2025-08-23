@@ -4092,7 +4092,7 @@ const books = [
     "id": 341,
     "summary": "This book offers a fresh perspective on minimalism, specifically tailored for people of color, by exploring how to declutter not just physical spaces but also mental and emotional burdens. It delves into the historical and cultural aspects of consumerism within the Black community, encouraging readers to embrace intentional living and redefine what it means to have \"enough.\" Through practical advice and personal anecdotes, the author guides readers toward a more purposeful and less cluttered life, emphasizing sustainability, community, and personal well-being."
   },
-    {
+  {
     "number": 342,
     "title": "In Open Contempt: Confronting White Supremacy in Art and Public Space",
     "author": "Irvin Weathersby Jr.",
@@ -4103,5 +4103,17 @@ const books = [
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00342.jpg",
     "id": 342,
     "summary": "This book delves into the pervasive issue of white supremacy as it manifests in artistic expressions and public spaces. It explores how art and public monuments can perpetuate or challenge dominant narratives, offering a critical examination of historical and contemporary instances where these elements either reinforce or confront systems of racial hierarchy. The author advocates for a re-evaluation of public art and spaces to foster more inclusive and equitable environments."
+  },
+  {
+    "number": 343,
+    "title": "Leaves of Grass",
+    "author": "Walt Whitman",
+    "category": "Poetry",
+    "ownership": "Library",
+    "status": "Finished",
+    "dateCompleted": "2025-08-23",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00343.jpg",
+    "id": 343,
+    "summary": "This groundbreaking collection of poetry celebrates individualism, nature, and the American spirit. It explores themes of democracy, sexuality, and the interconnectedness of all life, often employing free verse and a sprawling, inclusive voice to capture the vastness and diversity of human experience. The work is considered a seminal text in American literature, radically redefining poetic form and subject matter."
   }
 ];
