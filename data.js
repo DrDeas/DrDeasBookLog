@@ -4115,5 +4115,41 @@ const books = [
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00343.jpg",
     "id": 343,
     "summary": "This groundbreaking collection of poetry celebrates individualism, nature, and the American spirit. It explores themes of democracy, sexuality, and the interconnectedness of all life, often employing free verse and a sprawling, inclusive voice to capture the vastness and diversity of human experience. The work is considered a seminal text in American literature, radically redefining poetic form and subject matter."
+  },
+  { 
+    "number": 344,
+    "title": "Fourth Grade Rats",
+    "author": "Jerry Spinelli",
+    "category": "Novel",
+    "ownsership": "Physical",
+    "status": "Finished",
+    "dateCompleted": "45896",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00344.jpg",
+    "id": 344,
+    "summary": "This story follows a fourth-grader who decides he's tired of being a \"rat\" and wants to become a \"fourth-grade rat\" like his best friend. This involves activities like not holding hands with girls, fighting, and generally being tougher. However, he soon discovers that trying to live up to this new identity might mean sacrificing some of the things he actually enjoys."
+  },
+  {
+    "number": 345,
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "category": "Novel",
+    "ownsership": "Library",
+    "status": "In Progress",
+    "dateCompleted": "",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00345.jpg",
+    "id": 345,
+    "summary": "A wealthy newcomer to West Egg, New York, becomes entangled in the opulent and decadent lives of his wealthy neighbors, particularly a mysterious millionaire known for his lavish parties and his unrequited love for a married woman. The narrative explores themes of the American Dream, social class, idealism, and illusion, culminating in tragedy amidst the glittering facade of the Jazz Age."
+  },
+  {
+    "number": 346,
+    "title": "Founder vs Investor: The Honest Truth About Venture Capital from Startup to IPO",
+    "author": "Elizabeth Joy Zalman, Jerry Neumann",
+    "category": "Business",
+    "ownsership": "Library",
+    "status": "In Progress",
+    "dateCompleted": "",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00346.jpg",
+    "id": 346,
+    "summary": "This book offers a comprehensive look into the complex relationship between startup founders and venture capitalists, tracing the journey from initial seed funding through to a successful IPO. It delves into the often-misunderstood dynamics, providing honest insights into the challenges, motivations, and strategic decisions that shape the trajectory of a startup. The authors illuminate key aspects of securing investment, navigating growth, and ultimately achieving a lucrative exit, drawing from their extensive experience in the venture capital ecosystem."
   }
 ];
