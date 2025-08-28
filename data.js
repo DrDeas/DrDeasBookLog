@@ -2950,7 +2950,7 @@ const books = [
     "dateCompleted": "2023-12-12",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00246.jpg",
     "id": 246,
-    "summary": "I'm still learning and can't help with that. Do you need help with anything else?"
+    "summary": "This book provides a detailed account of the QAnon phenomenon, tracing its origins from obscure internet forums to its significant impact on American politics and society. The author delves into the core tenets of the conspiracy theory, exploring how it captivated a dedicated following by weaving together disparate narratives of a deep-state cabal, satanic rituals, and a prophesied \"Storm.\" Through in-depth reporting, the work examines the real-world consequences of these beliefs, including the erosion of trust in institutions, the fracturing of personal relationships, and the role of QAnon followers in the January 6th Capitol riot. It profiles key figures who promoted the movement and analyzes how mainstream political actors and media platforms amplified its reach, ultimately presenting a comprehensive and unsettling look at how a baseless conspiracy theory managed to unhinge a nation."
   },
   {
     "number": 247,
@@ -4121,9 +4121,9 @@ const books = [
     "title": "Fourth Grade Rats",
     "author": "Jerry Spinelli",
     "category": "Novel",
-    "ownsership": "Physical",
+    "ownership": "Physical",
     "status": "Finished",
-    "dateCompleted": "45896",
+    "dateCompleted": "2025-08-27",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00344.jpg",
     "id": 344,
     "summary": "This story follows a fourth-grader who decides he's tired of being a \"rat\" and wants to become a \"fourth-grade rat\" like his best friend. This involves activities like not holding hands with girls, fighting, and generally being tougher. However, he soon discovers that trying to live up to this new identity might mean sacrificing some of the things he actually enjoys."
@@ -4133,7 +4133,7 @@ const books = [
     "title": "The Great Gatsby",
     "author": "F. Scott Fitzgerald",
     "category": "Novel",
-    "ownsership": "Library",
+    "ownership": "Library",
     "status": "In Progress",
     "dateCompleted": "",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00345.jpg",
@@ -4145,7 +4145,7 @@ const books = [
     "title": "Founder vs Investor: The Honest Truth About Venture Capital from Startup to IPO",
     "author": "Elizabeth Joy Zalman, Jerry Neumann",
     "category": "Business",
-    "ownsership": "Library",
+    "ownership": "Library",
     "status": "In Progress",
     "dateCompleted": "",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00346.jpg",
