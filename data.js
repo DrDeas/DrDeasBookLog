@@ -4086,7 +4086,7 @@ const books = [
     "author": "Christine A. Platt",
     "category": "Self-Development",
     "ownership": "Digital",
-    "status": "In Progress",
+    "status": "Finished",
     "dateCompleted": "2025-08-08",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00341.jpg",
     "id": 341,
