@@ -4126,7 +4126,7 @@ const books = [
     "dateCompleted": "2025-08-27",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00344.jpg",
     "id": 344,
-    "summary": "This story follows a fourth-grader who decides he's tired of being a \"rat\" and wants to become a \"fourth-grade rat\" like his best friend. This involves activities like not holding hands with girls, fighting, and generally being tougher. However, he soon discovers that trying to live up to this new identity might mean sacrificing some of the things he actually enjoys."
+    "summary": "This story follows a fourth-grader who decides he's tired of being an \"angel\" and wants to become a \"fourth-grade rat\" like his best friend. This involves activities like not holding hands with girls, fighting, and generally being tougher. However, he soon discovers that trying to live up to this new identity might mean sacrificing some of the things he actually enjoys."
   },
   {
     "number": 345,
