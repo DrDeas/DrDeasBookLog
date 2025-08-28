@@ -4134,7 +4134,7 @@ const books = [
     "author": "F. Scott Fitzgerald",
     "category": "Novel",
     "ownership": "Library",
-    "status": "In Progress",
+    "status": "Finished",
     "dateCompleted": "2025-08-28",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00345.jpg",
     "id": 345,
