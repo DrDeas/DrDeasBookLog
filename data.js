@@ -4146,7 +4146,7 @@ const books = [
     "author": "Elizabeth Joy Zalman, Jerry Neumann",
     "category": "Business",
     "ownership": "Library",
-    "status": "Finihsed",
+    "status": "Finished",
     "dateCompleted": "2025-09-06",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00346.jpg",
     "id": 346,
