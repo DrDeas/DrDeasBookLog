@@ -4133,7 +4133,7 @@ const books = [
     "title": "The Great Gatsby",
     "author": "F. Scott Fitzgerald",
     "category": "Novel",
-    "ownership": "Library",
+    "ownership": "Physical",
     "status": "Finished",
     "dateCompleted": "2025-08-30",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00345.jpg",
