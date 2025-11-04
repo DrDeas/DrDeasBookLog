@@ -4276,7 +4276,7 @@ const books = [
     "number": 357,
     "title": "The Beautiful Ones",
     "author": "Prince",
-    "category": "Memoir / Autobiography",
+    "category": "Memoir/Autobiography",
     "ownership": "Digital",
     "status": "In Progress",
     "dateCompleted": "",
