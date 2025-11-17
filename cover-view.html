@@ -22,7 +22,7 @@
             --brand-secondary: #764ba2;
             --text-light: #ffffff;
             --text-dark: #333;
-            --surface-main: rgba(255, 255, 255, 0.95);
+            --surface-main: rgba(30, 30, 40, 0.85);
             --shadow-light: rgba(0,0,0,0.1);
             --shadow-medium: rgba(0,0,0,0.2);
         }
@@ -68,6 +68,7 @@
             margin: 0 auto 30px auto;
             max-width: 1180px;
             box-shadow: 0 10px 30px var(--shadow-medium);
+            color: white;
         }
 
         .progress-bar-container, .weeks-progress-bar-container {
@@ -121,6 +122,7 @@
             max-width: 1200px;
             margin: 0 auto 20px auto;
             box-shadow: 0 10px 30px var(--shadow-medium);
+            color: white;
         }
 
         .filters {
@@ -134,8 +136,19 @@
         .filters input, .filters select {
             padding: 8px 12px;
             border-radius: 8px;
-            border: 1px solid #ccc;
+            border: 1px solid rgba(255, 255, 255, 0.3);
             font-family: 'Lato', sans-serif;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .filters input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .filters select option {
+            background: #2a2a3a;
+            color: white;
         }
 
         /* Styles for the cover-only view */
@@ -376,6 +389,7 @@
             background: var(--surface-main);
             border-radius: 15px;
             box-shadow: 0 5px 15px var(--shadow-light);
+            color: white;
         }
 
         .page-button {
@@ -399,7 +413,7 @@
 
         .page-info {
             font-weight: bold;
-            color: var(--text-dark);
+            color: white;
         }
 
         #backToTopBtn {
@@ -847,7 +861,7 @@
             coverViewContainer.innerHTML = ''; 
 
             if (bookList.length === 0) {
-                 coverViewContainer.innerHTML = '<p style="color: #666; text-align: center; grid-column: 1 / -1; padding: 40px;">No books match the current filters.</p>';
+                 coverViewContainer.innerHTML = '<p style="color: white; text-align: center; grid-column: 1 / -1; padding: 40px;">No books match the current filters.</p>';
                  return;
             }
 
