@@ -141,7 +141,7 @@
         /* Styles for the cover-only view */
         .cover-view-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(150px, 150px));
             gap: 20px;
             padding: 20px;
             background: var(--surface-main);
@@ -149,6 +149,7 @@
             box-shadow: 0 10px 30px var(--shadow-medium);
             max-width: 1200px;
             margin: 20px auto;
+            justify-content: center;
         }
 
         .cover-item {
