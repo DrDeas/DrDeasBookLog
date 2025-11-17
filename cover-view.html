@@ -13,11 +13,8 @@
     <meta property="og:url" content="https://drdeas.github.io/DrDeasBookLog/cover-view.html">
     <meta property="og:type" content="website">
     
-    <!-- Link to an external stylesheet for better organization -->
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* It's better to move these styles to a dedicated CSS file like 'styles.css' 
-           but they are kept here for a self-contained example. */
         @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
 
         :root {
@@ -46,43 +43,22 @@
             margin: 0 auto 20px auto;
             text-align: center;
             background: var(--surface-main);
-            padding: 15px;
+            padding: 20px 15px;
             border-radius: 15px;
             box-shadow: 0 5px 15px var(--shadow-light);
         }
 
         .header-nav h1 {
             color: var(--text-dark);
-            margin: 0 0 10px 0;
+            margin: 0 0 5px 0;
+            font-size: 2em;
         }
 
-        .header-nav a {
-            display: inline-block;
-            padding: 8px 15px;
-            background-color: var(--brand-primary);
-            color: var(--text-light);
-            text-decoration: none;
-            border-radius: 8px;
-            transition: background-color 0.3s ease;
-        }
-
-        .header-nav a:hover {
-            background-color: var(--brand-secondary);
-        }
-        
-        .filters {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 15px;
-            flex-wrap: wrap;
-        }
-
-        .filters input, .filters select {
-            padding: 8px 12px;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            font-family: 'Lato', sans-serif;
+        .header-nav p {
+            color: #666;
+            margin: 0;
+            font-size: 1.1em;
+            font-weight: 400;
         }
 
         /* Progress Section Styles */
@@ -138,17 +114,37 @@
             100% { transform: translateX(100%); }
         }
 
+        /* Book Collection Container */
+        .book-collection-wrapper {
+            background: var(--surface-main);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto 20px auto;
+            box-shadow: 0 10px 30px var(--shadow-medium);
+        }
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .filters input, .filters select {
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-family: 'Lato', sans-serif;
+        }
+
         /* Styles for the cover-only view */
         .cover-view-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 150px));
             gap: 20px;
-            padding: 20px;
-            background: var(--surface-main);
-            border-radius: 15px;
-            box-shadow: 0 10px 30px var(--shadow-medium);
-            max-width: 1200px;
-            margin: 20px auto;
+            padding: 20px 0;
             justify-content: center;
         }
 
@@ -368,7 +364,6 @@
             cursor: pointer;
         }
 
-
         /* Pagination and Back to Top Styles */
         .pagination-controls {
             display: flex;
@@ -429,8 +424,15 @@
             background-color: var(--brand-secondary);
         }
 
-
         @media (max-width: 600px) {
+            .header-nav h1 {
+                font-size: 1.5em;
+            }
+
+            .header-nav p {
+                font-size: 0.9em;
+            }
+
             .modal-content {
                 width: 85%;
                 margin: 2% auto;
@@ -465,7 +467,7 @@
                 padding: 0 8px;
             }
             .cover-view-container {
-                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(120px, 120px));
                 gap: 15px;
             }
             .filters {
@@ -484,8 +486,27 @@
 <body>
     
     <div class="header-nav">
-        <h1>Dr. Deas Book Log - Book Cover View</h1>
-        <a href="index.html">Switch to List View</a>
+        <h1>📚 Dr. Deas Book Log</h1>
+        <p>1,000 Books in 1,000 Weeks Challenge</p>
+    </div>
+
+    <!-- Progress Section -->
+    <div class="progress-section">
+        <div class="weeks-progress-container">
+            <div class="weeks-progress-bar-container">
+                <div class="weeks-progress-bar" id="weeksProgressBar" style="width: 0%"></div>
+            </div>
+            <p style="text-align: center; margin-top: 5px; font-weight: bold;" id="weeksProgressText">Week 1 of 1000 (0.1% Complete)</p>
+        </div>
+        
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="progressBar" style="width: 0%"></div>
+        </div>
+        <p style="text-align: center; margin-top: 10px; font-weight: bold;" id="progressText">0% of Book Goal Complete (0 / 1000)</p>
+    </div>
+
+    <!-- Book Collection with Filters -->
+    <div class="book-collection-wrapper">
         <div class="filters">
             <input type="text" id="searchInput" placeholder="Search by title or author...">
             <select id="categoryFilter">
@@ -506,25 +527,10 @@
                 <option value="category">By Category</option>
             </select>
         </div>
-    </div>
 
-    <!-- Progress Section -->
-    <div class="progress-section">
-        <div class="weeks-progress-container">
-            <div class="weeks-progress-bar-container">
-                <div class="weeks-progress-bar" id="weeksProgressBar" style="width: 0%"></div>
-            </div>
-            <p style="text-align: center; margin-top: 5px; font-weight: bold;" id="weeksProgressText">Week 1 of 1000 (0.1% Complete)</p>
+        <div id="coverView" class="cover-view-container">
+            <!-- Book covers will be dynamically inserted here -->
         </div>
-        
-        <div class="progress-bar-container">
-            <div class="progress-bar" id="progressBar" style="width: 0%"></div>
-        </div>
-        <p style="text-align: center; margin-top: 10px; font-weight: bold;" id="progressText">0% of Book Goal Complete (0 / 1000)</p>
-    </div>
-
-    <div id="coverView" class="cover-view-container">
-        <!-- Book covers will be dynamically inserted here -->
     </div>
 
     <div class="pagination-controls" id="paginationControls">
@@ -585,10 +591,9 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             populateFilters();
-            updateProgress(); // Calculate and display progress
+            updateProgress();
             applyFilters();
 
-            // Add event listeners
             document.getElementById('searchInput').addEventListener('input', applyFilters);
             document.getElementById('categoryFilter').addEventListener('change', applyFilters);
             document.getElementById('ownershipFilter').addEventListener('change', applyFilters);
@@ -604,7 +609,6 @@
                 goToPage(totalPages);
             });
 
-            // Back to Top button logic
             const backToTopBtn = document.getElementById('backToTopBtn');
             window.onscroll = () => {
                 if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
@@ -617,7 +621,6 @@
                 window.scrollTo({top: 0, behavior: 'smooth'});
             });
             
-            // Modal close logic
             const modal = document.getElementById('bookModal');
             const closeBtn = document.getElementsByClassName('close-button')[0];
             closeBtn.onclick = () => {
@@ -630,19 +633,16 @@
             }
         });
 
-        // Updates progress bars and statistics
         function updateProgress() {
             const finished = books.filter(b => b.status === 'Finished').length;
             
             const today = new Date();
             const weeksElapsed = Math.max(1, Math.floor((today - challengeStartDate) / (1000 * 60 * 60 * 24 * 7)));
 
-            // Update weeks progress bar (green)
             const weeksProgressPercent = (weeksElapsed / 1000 * 100).toFixed(1);
             document.getElementById('weeksProgressBar').style.width = `${weeksProgressPercent}%`;
             document.getElementById('weeksProgressText').textContent = `Week ${weeksElapsed} of 1000 (${weeksProgressPercent}% Complete)`;
 
-            // Update books progress bar (purple)
             const progressPercent = books.length > 0 ? (finished / 1000 * 100).toFixed(1) : 0;
             document.getElementById('progressBar').style.width = `${progressPercent}%`;
             document.getElementById('progressText').textContent = `${progressPercent}% of 1000 Book Goal Complete (${finished} / 1000)`;
@@ -695,7 +695,6 @@
                 return (titleMatch || authorMatch) && categoryMatch && ownershipMatch && statusMatch;
             });
 
-            // Sorting logic
             switch (sortBy) {
                 case 'number':
                     currentFilteredBooks.sort((a, b) => a.number - b.number);
@@ -717,7 +716,7 @@
                     break;
             }
             
-            currentPage = 1; // Reset to first page after filtering
+            currentPage = 1;
             displayPage();
         }
 
@@ -832,26 +831,24 @@
 
             const statusTag = document.getElementById('modalStatus');
             statusTag.textContent = book.status;
-             statusTag.style.backgroundColor = book.status === 'Finished' ? '#32CD32' : '#FFA500';
+            statusTag.style.backgroundColor = book.status === 'Finished' ? '#32CD32' : '#FFA500';
 
             const dateTag = document.getElementById('modalDate');
             dateTag.textContent = `Completed: ${book.dateCompleted}`;
             dateTag.style.backgroundColor = '#6c757d';
 
-            // Add the summary
             const summaryText = document.getElementById('modalSummaryText');
             summaryText.textContent = book.summary || 'No summary available for this book.';
 
             modal.style.display = "block";
         }
 
-
         function renderCoverView(bookList) {
             const coverViewContainer = document.getElementById('coverView');
             coverViewContainer.innerHTML = ''; 
 
             if (bookList.length === 0) {
-                 coverViewContainer.innerHTML = '<p style="color: white; text-align: center; grid-column: 1 / -1;">No books match the current filters.</p>';
+                 coverViewContainer.innerHTML = '<p style="color: #666; text-align: center; grid-column: 1 / -1; padding: 40px;">No books match the current filters.</p>';
                  return;
             }
 
