@@ -85,6 +85,58 @@
             font-family: 'Lato', sans-serif;
         }
 
+        /* Progress Section Styles */
+        .progress-section {
+            background: var(--surface-main);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 0 auto 30px auto;
+            max-width: 1200px;
+            box-shadow: 0 10px 30px var(--shadow-medium);
+        }
+
+        .progress-bar-container, .weeks-progress-bar-container {
+            background: #e0e0e0;
+            border-radius: 25px;
+            height: 20px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+        
+        .weeks-progress-container {
+            margin: 20px 0;
+        }
+
+        .progress-bar, .weeks-progress-bar {
+            height: 100%;
+            border-radius: 25px;
+            transition: width 0.5s ease;
+            position: relative;
+        }
+        
+        .weeks-progress-bar {
+            background: linear-gradient(90deg, #28a745, #20c997);
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, var(--brand-primary), var(--brand-secondary));
+        }
+
+        .progress-bar::after, .weeks-progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.3) 50%, transparent 60%);
+            animation: shine 2s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
 
         /* Styles for the cover-only view */
         .cover-view-container {
@@ -455,6 +507,21 @@
         </div>
     </div>
 
+    <!-- Progress Section -->
+    <div class="progress-section">
+        <div class="weeks-progress-container">
+            <div class="weeks-progress-bar-container">
+                <div class="weeks-progress-bar" id="weeksProgressBar" style="width: 0%"></div>
+            </div>
+            <p style="text-align: center; margin-top: 5px; font-weight: bold;" id="weeksProgressText">Week 1 of 1000 (0.1% Complete)</p>
+        </div>
+        
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="progressBar" style="width: 0%"></div>
+        </div>
+        <p style="text-align: center; margin-top: 10px; font-weight: bold;" id="progressText">0% of Book Goal Complete (0 / 1000)</p>
+    </div>
+
     <div id="coverView" class="cover-view-container">
         <!-- Book covers will be dynamically inserted here -->
     </div>
@@ -507,12 +574,17 @@
 
     <script src="data.js"></script>
     <script>
+        // Challenge dates
+        const challengeStartDate = new Date('2020-09-27');
+        const challengeEndDate = new Date('2039-11-27');
+        
         let currentPage = 1;
         let itemsPerPage = 20;
         let currentFilteredBooks = [];
 
         document.addEventListener('DOMContentLoaded', () => {
             populateFilters();
+            updateProgress(); // Calculate and display progress
             applyFilters();
 
             // Add event listeners
@@ -556,6 +628,24 @@
                 }
             }
         });
+
+        // Updates progress bars and statistics
+        function updateProgress() {
+            const finished = books.filter(b => b.status === 'Finished').length;
+            
+            const today = new Date();
+            const weeksElapsed = Math.max(1, Math.floor((today - challengeStartDate) / (1000 * 60 * 60 * 24 * 7)));
+
+            // Update weeks progress bar (green)
+            const weeksProgressPercent = (weeksElapsed / 1000 * 100).toFixed(1);
+            document.getElementById('weeksProgressBar').style.width = `${weeksProgressPercent}%`;
+            document.getElementById('weeksProgressText').textContent = `Week ${weeksElapsed} of 1000 (${weeksProgressPercent}% Complete)`;
+
+            // Update books progress bar (purple)
+            const progressPercent = books.length > 0 ? (finished / 1000 * 100).toFixed(1) : 0;
+            document.getElementById('progressBar').style.width = `${progressPercent}%`;
+            document.getElementById('progressText').textContent = `${progressPercent}% of 1000 Book Goal Complete (${finished} / 1000)`;
+        }
 
         function populateFilters() {
             const categories = [...new Set(books.map(book => book.category))];
