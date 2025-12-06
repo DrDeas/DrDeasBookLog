@@ -830,8 +830,16 @@
                 align-items: center;
                 text-align: center;
                 padding: 48px 24px 24px;
+                position: relative;
             }
-
+        
+            .modal-book-number {
+                position: absolute;
+                top: 48px;
+                left: 50%;
+                transform: translateX(calc(-50% - 90px));
+            }
+        
             .modal-details {
                 padding-right: 0;
             }
@@ -1428,11 +1436,12 @@
 
             // Tags
             const tagsContainer = document.getElementById('modalTags');
+            const showDate = book.status === 'Finished' && book.dateCompleted;
             tagsContainer.innerHTML = `
                 <span class="modal-tag" style="background: ${getTagColor('category', book.category)}">${book.category}</span>
                 <span class="modal-tag" style="background: ${getTagColor('ownership', book.ownership)}">${book.ownership}</span>
                 <span class="modal-tag" style="background: ${getTagColor('status', book.status)}">${book.status}</span>
-                <span class="modal-tag" style="background: #8B9EAB">${book.dateCompleted}</span>
+                ${showDate ? `<span class="modal-tag" style="background: #8B9EAB">${book.dateCompleted}</span>` : ''}
             `;
 
             elements.modal.classList.add('active');
