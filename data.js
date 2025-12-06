@@ -4319,5 +4319,41 @@ const books = [
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00360.jpg",
     "id": 360,
     "summary": "This work explores the foundational principles of moral philosophy, arguing that the only thing good without qualification is a good will. It establishes that duty is the necessity of acting from reverence for the moral law, which is expressed through the categorical imperative. This imperative dictates that one should only act upon maxims that they can simultaneously will to become a universal law, thereby providing a supreme principle for morality independent of consequences or personal desires."
+  },
+  {
+    "number": 361,
+    "title": "Elite Capture: How the Powerful Took Over Identity Politics (And Everything Else)",
+    "author": "Olúfẹ́mi O. Táíwò",
+    "category": "Informational",
+    "ownership": "Digital",
+    "status": "In Progress",
+    "dateCompleted": "",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00361.jpg",
+    "id": 361,
+    "summary": "This thought-provoking work examines how movements, particularly those involving identity politics, can be co-opted by powerful individuals, diverting the focus from achieving tangible outcomes to processes that primarily benefit the elite. The author argues for building constructive political movements centered on results rather than merely avoiding complicity in injustice, offering a sober assessment of contemporary racial politics and a path toward building more effective political action."
+  },
+  {
+    "number": 362,
+    "title": "A Christmas Carol",
+    "author": "Charles Dickens",
+    "category": "Novel",
+    "ownership": "Digital",
+    "status": "In Progress",
+    "dateCompleted": "",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00362.jpg",
+    "id": 362,
+    "summary": "The narrative follows a bitter, miserly old man who despises Christmas and treats everyone around him with disdain, including his overworked clerk and cheerful nephew. On Christmas Eve, he is visited by the ghost of his deceased business partner, who warns him that he must change his ways to avoid a terrible fate. Following this warning, the protagonist is visited by three spirits—the Ghosts of Past, Present, and Yet to Come—who take him on transformative journeys to witness scenes from his life and the lives of others, forcing him to confront the consequences of his callous behavior and potentially leading him toward a path of redemption."
+  },
+  {
+    "number": 363,
+    "title": "Never Let Me Go",
+    "author": "Kazuo Ishiguro",
+    "category": "Novel",
+    "ownership": "Library",
+    "status": "In Progress",
+    "dateCompleted": "",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00363.jpg",
+    "id": 363,
+    "summary": "Set in an alternate 1990s England, the narrative follows Kathy H., a thirty-one-year-old carer, as she reflects on her childhood at the seemingly elite boarding school, Hailsham, where she grew up with friends like Ruth and Tommy. The students at Hailsham are raised with an unusual sense of destiny, understanding that their purpose is linked to an impending role as "donors." As the friends transition into young adulthood and confront the truth about their existence as clones, they grapple with themes of friendship, love, memory, and what it truly means to be human, all while passively accepting the roles society has assigned them."
   }
 ];
