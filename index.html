@@ -931,7 +931,7 @@
 
             <!-- Navigation -->
             <nav class="sidebar-nav">
-                <a class="nav-item active" href="#">
+                <a class="nav-item active" href="#" id="navAllBooks">
                     <span class="nav-icon">📖</span>
                     <span>All Books</span>
                 </a>
@@ -1114,16 +1114,28 @@
             elements.sidebarOverlay.addEventListener('click', toggleSidebar);
 
             // Nav items for quick filters
+            document.getElementById('navAllBooks').addEventListener('click', (e) => {
+                e.preventDefault();
+                elements.statusFilter.value = '';
+                elements.categoryFilter.value = '';
+                elements.ownershipFilter.value = '';
+                elements.searchInput.value = '';
+                applyFilters();
+                updateNavActive('navAllBooks');
+                closeSidebarOnMobile();
+            });
             document.getElementById('navFinished').addEventListener('click', (e) => {
                 e.preventDefault();
                 elements.statusFilter.value = 'Finished';
                 applyFilters();
+                updateNavActive('navFinished');
                 closeSidebarOnMobile();
             });
             document.getElementById('navReading').addEventListener('click', (e) => {
                 e.preventDefault();
-                elements.statusFilter.value = 'Reading';
+                elements.statusFilter.value = 'In Progress';
                 applyFilters();
+                updateNavActive('navReading');
                 closeSidebarOnMobile();
             });
         }
@@ -1151,7 +1163,14 @@
                 elements.sidebarOverlay.classList.remove('active');
             }
         }
-
+        
+        function updateNavActive(activeId) {
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            document.getElementById(activeId).classList.add('active');
+        }
+        
         function updateProgress() {
             const finished = books.filter(b => b.status === 'Finished').length;
             const today = new Date();
