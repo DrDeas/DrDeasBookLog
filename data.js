@@ -4326,8 +4326,8 @@ const books = [
     "author": "Olúfẹ́mi O. Táíwò",
     "category": "Informational",
     "ownership": "Digital",
-    "status": "In Progress",
-    "dateCompleted": "",
+    "status": "Finished",
+    "dateCompleted": "2025-12-09",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00361.jpg",
     "id": 361,
     "summary": "This thought-provoking work examines how movements, particularly those involving identity politics, can be co-opted by powerful individuals, diverting the focus from achieving tangible outcomes to processes that primarily benefit the elite. The author argues for building constructive political movements centered on results rather than merely avoiding complicity in injustice, offering a sober assessment of contemporary racial politics and a path toward building more effective political action."
