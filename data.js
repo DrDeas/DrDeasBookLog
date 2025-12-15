@@ -4338,8 +4338,8 @@ const books = [
     "author": "Charles Dickens",
     "category": "Novel",
     "ownership": "Digital",
-    "status": "In Progress",
-    "dateCompleted": "",
+    "status": "Finished",
+    "dateCompleted": "2025-12-15",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00362.jpg",
     "id": 362,
     "summary": "The narrative follows a bitter, miserly old man who despises Christmas and treats everyone around him with disdain, including his overworked clerk and cheerful nephew. On Christmas Eve, he is visited by the ghost of his deceased business partner, who warns him that he must change his ways to avoid a terrible fate. Following this warning, the protagonist is visited by three spirits—the Ghosts of Past, Present, and Yet to Come—who take him on transformative journeys to witness scenes from his life and the lives of others, forcing him to confront the consequences of his callous behavior and potentially leading him toward a path of redemption."
