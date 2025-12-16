@@ -156,7 +156,7 @@
 
         .progress-value {
             font-family: 'Quicksand', sans-serif;
-            font-size: 1.5rem;
+            font-size: 2rem;
             font-weight: 700;
             color: var(--cream);
             margin-bottom: 12px;
@@ -1223,12 +1223,14 @@
             
             .book-content-row {
                 padding: 16px;
-                flex-direction: column;
-                align-items: flex-start;
+                flex-direction: row; /* CHANGED from column to row */
+                align-items: flex-start; /* Aligned to top */
+                gap: 16px;
             }
             
             .book-cover-small {
-                width: 100px;
+                width: 80px; /* CHANGED from 100px back to 80px for better fit */
+                min-width: 80px; /* Ensure it doesn't shrink */
             }
             
             .quarter-divider,
