@@ -6,12 +6,8 @@
     <meta name="author" content="Dr. Eldrin L. Deas">
     <title>Dr. Deas Book Log - 1,000 Books in 1,000 Weeks</title>
 
-    <meta property="og:title" content="Dr. Deas Book Log - 1,000 Books in 1,000 Weeks">
-    <meta property="og:description" content="Track Dr. Deas's progress in the 1,000 Books in 1,000 Weeks Reading Challenge — a journey through literature, science, and social commentary.">
-    <meta name="keywords" content="reading list, book log, literature, non-fiction, biography, science, technology, AI, artificial intelligence, business, education, poetry, philosophy, novel, policy, politics, religion, self-development, finance, memoir, autobiography, race, class, gender, social science, art, music, Dr. Deas">
-    <meta property="og:image" content="https://drdeas.github.io/DrDeasBookLog/caged_bird.png">
-    <meta property="og:url" content="https://drdeas.com/DrDeasBookLog/index.html">
-    <meta property="og:type" content="website">
+    <meta property="og:title" content="Dr. Deas Book Log">
+    <meta property="og:description" content="Track Dr. Deas's progress in the 1,000 Books in 1,000 Weeks Reading Challenge and the 2026 Book Recs.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,10 +29,14 @@
             --charcoal: #4A4A4A;
             --charcoal-light: #6B6B6B;
             
-            /* Status Colors - Muted Pastels */
+            /* Status Colors */
             --status-finished: #7BA37B;
             --status-reading: #E8B86D;
             --status-queued: #B8A8C8;
+            --status-completed: #7BA37B;
+            --status-current: #E8B86D;
+            --status-upcoming: #B8A8C8;
+            --status-bonus: #9B59B6;
             
             /* Ownership Colors */
             --ownership-digital: #7B9EAB;
@@ -107,11 +107,19 @@
             box-shadow: var(--shadow-medium);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
+            overflow: hidden;
         }
 
         .sidebar-logo:hover {
             transform: scale(1.05);
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .sidebar-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
         }
         
         .sidebar-title {
@@ -148,7 +156,7 @@
 
         .progress-value {
             font-family: 'Quicksand', sans-serif;
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--cream);
             margin-bottom: 12px;
@@ -235,9 +243,36 @@
             min-height: 100vh;
         }
 
+        /* VIEW TOGGLING */
+        #view-library, #view-challenge {
+            animation: fadeIn 0.4s ease;
+        }
+
         /* Header */
         .page-header {
             margin-bottom: 32px;
+            text-align: left;
+        }
+        /* Center header specifically for challenge view for better aesthetic */
+        #view-challenge .page-header {
+            text-align: center;
+            padding: 40px 20px;
+            background: white;
+            border-radius: 24px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .page-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--peach), var(--coral-soft));
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 8px 20px;
+            border-radius: 100px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .page-title {
@@ -251,6 +286,12 @@
         .page-description {
             color: var(--charcoal-light);
             font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        #view-challenge .page-description {
+            max-width: 600px;
+            margin: 0 auto 24px;
         }
 
         /* Filter Bar */
@@ -323,11 +364,6 @@
             background-color: white;
         }
 
-        .filter-select option {
-            background: white;
-            color: var(--charcoal);
-        }
-
         /* Results Info */
         .results-info {
             display: flex;
@@ -347,7 +383,7 @@
             font-weight: 600;
         }
 
-        /* Book Grid */
+        /* --- LIBRARY VIEW: Book Grid --- */
         .book-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -454,6 +490,289 @@
             overflow: hidden;
         }
 
+        /* --- CHALLENGE VIEW SPECIFIC STYLES --- */
+        .current-week-highlight {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--cream);
+            padding: 16px 28px;
+            border-radius: 16px;
+            border: 2px solid var(--sage-light);
+            margin-top: 16px;
+        }
+
+        .current-week-highlight .week-badge {
+            background: var(--sage);
+            color: white;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 100px;
+            font-size: 0.9rem;
+        }
+
+        .current-week-highlight .week-text {
+            font-weight: 600;
+            color: var(--charcoal);
+        }
+
+        .welcome-section {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 32px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .welcome-title {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .welcome-title::before {
+            content: '📚';
+            font-size: 2rem;
+        }
+
+        .welcome-content {
+            color: var(--charcoal);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .welcome-content p {
+            margin-bottom: 20px;
+        }
+
+        .welcome-highlight {
+            background: linear-gradient(135deg, var(--cream), var(--cream-dark));
+            padding: 24px;
+            border-radius: 16px;
+            border-left: 4px solid var(--sage);
+            margin-top: 24px;
+        }
+
+        .welcome-highlight strong {
+            color: var(--sage);
+            font-weight: 700;
+        }
+
+        .week-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .week-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition-smooth);
+            display: flex;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .week-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .week-card.current {
+            border: 3px solid var(--golden);
+            box-shadow: 0 8px 32px rgba(248, 197, 109, 0.25);
+        }
+
+        .week-card.completed {
+            opacity: 0.85;
+        }
+
+        .week-card.bonus {
+            border: 3px solid var(--status-bonus);
+            box-shadow: 0 8px 32px rgba(155, 89, 182, 0.25);
+        }
+
+        .week-indicator {
+            width: 100px;
+            min-width: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 24px 16px;
+            position: relative;
+        }
+
+        .week-indicator.completed {
+            background: linear-gradient(135deg, var(--status-completed), #5A8D5A);
+        }
+
+        .week-indicator.current {
+            background: linear-gradient(135deg, var(--golden), var(--peach));
+        }
+
+        .week-indicator.upcoming {
+            background: linear-gradient(135deg, var(--sage-light), var(--sage-muted));
+        }
+
+        .week-indicator.bonus {
+            background: linear-gradient(135deg, #9B59B6, #8E44AD);
+        }
+
+        .week-number {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            line-height: 1;
+        }
+
+        .week-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-top: 4px;
+            font-weight: 600;
+        }
+
+        .week-status-icon {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            font-size: 1rem;
+        }
+
+        .book-content-row {
+            flex: 1;
+            display: flex;
+            gap: 20px;
+            padding: 20px 24px;
+            align-items: center;
+        }
+
+        .book-cover-small {
+            width: 80px;
+            min-width: 80px;
+            aspect-ratio: 2 / 3;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            background: var(--cream-dark);
+        }
+
+        .book-cover-small img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cover-fallback-small {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .cover-fallback-small .initials {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: white;
+            opacity: 0.9;
+        }
+
+        .book-details-col {
+            flex: 1;
+        }
+
+        .book-title-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 6px;
+        }
+
+        .book-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .book-tag {
+            padding: 5px 12px;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        /* Quarter Dividers */
+        .quarter-divider {
+            background: linear-gradient(135deg, var(--sage), #5A7D5A);
+            color: white;
+            padding: 16px 24px;
+            border-radius: 16px;
+            margin: 32px 0 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .quarter-icon {
+            font-size: 2rem;
+        }
+
+        .quarter-info h3 {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .quarter-info p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .bonus-divider {
+            background: linear-gradient(135deg, #9B59B6, #8E44AD);
+            color: white;
+            padding: 16px 24px;
+            border-radius: 16px;
+            margin: 40px 0 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .bonus-icon {
+            font-size: 2rem;
+        }
+
+        .bonus-info h3 {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .bonus-info p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
         /* Pagination */
         .pagination {
             display: flex;
@@ -488,15 +807,6 @@
         .page-btn:disabled {
             opacity: 0.4;
             cursor: not-allowed;
-        }
-
-        .page-btn.primary {
-            background: var(--sage);
-            color: white;
-        }
-
-        .page-btn.primary:hover:not(:disabled) {
-            background: #5A7D5A;
         }
 
         .page-info {
@@ -625,6 +935,21 @@
             padding-right: 40px;
         }
 
+        .modal-week-badge {
+            display: none; /* Hidden by default, shown for challenge items */
+            background: linear-gradient(135deg, var(--peach), var(--coral-soft));
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 100px;
+            margin-bottom: 8px;
+        }
+        
+        .modal-week-badge.bonus {
+            background: linear-gradient(135deg, #9B59B6, #8E44AD);
+        }
+
         .modal-book-number {
             display: inline-block;
             background: var(--sage);
@@ -741,7 +1066,7 @@
             color: var(--charcoal-light);
         }
 
-        /* Mobile Sidebar Toggle */
+        /* Mobile Header */
         .mobile-header {
             display: none;
             position: fixed;
@@ -847,13 +1172,12 @@
                 padding: 48px 24px 24px;
                 position: relative;
             }
-        
+            
             .modal-book-number {
-                position: absolute;
-                top: 48px;
-                left: 24px;
+               /* Allow standard flow in mobile unless needed absolute */
+               margin-bottom: 8px;
             }
-        
+            
             .modal-details {
                 padding-right: 0;
             }
@@ -879,9 +1203,42 @@
                 padding: 10px 16px;
                 font-size: 0.85rem;
             }
+            
+            /* Challenge Responsive */
+            .week-card {
+                flex-direction: column;
+            }
+            
+            .week-indicator {
+                width: 100%;
+                min-width: auto;
+                flex-direction: row;
+                padding: 16px 20px;
+                gap: 12px;
+            }
+            
+            .week-number {
+                font-size: 1.5rem;
+            }
+            
+            .book-content-row {
+                padding: 16px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .book-cover-small {
+                width: 100px;
+            }
+            
+            .quarter-divider,
+            .bonus-divider {
+                flex-direction: column;
+                text-align: center;
+            }
         }
 
-        /* Category Colors for Fallback Covers */
+        /* Category Colors */
         .category-biography { background: linear-gradient(135deg, #F4A259 0%, #D94E41 100%); }
         .category-business { background: linear-gradient(135deg, #7B9EAB 0%, #5A7D8A 100%); }
         .category-education { background: linear-gradient(135deg, #6B8E6B 0%, #4A6D4A 100%); }
@@ -919,7 +1276,7 @@
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
                 <a href="https://drdeas.com" class="sidebar-logo">
-                    <img src="https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/DrDeas_curious.jpeg" alt="Dr. Deas" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                    <img src="https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/DrDeas_curious.jpeg" alt="Dr. Deas">
                 </a>
                 <h1 class="sidebar-title">Dr. Deas Book Log</h1>
             </div>
@@ -958,65 +1315,111 @@
                     <span class="nav-icon">📑</span>
                     <span>Currently Reading</span>
                 </a>
+                <a class="nav-item" href="#" id="navChallenge">
+                    <span class="nav-icon">📅</span>
+                    <span>2026 Book Recs</span>
+                </a>
             </nav>
         </aside>
 
         <!-- Main Content -->
         <main class="main-content">
-            <header class="page-header">
-                <h2 class="page-title">1,000 Books in 1,000 Weeks</h2>
-                <p class="page-description">A journey through literature, science, and social commentary</p>
-            </header>
+            
+            <!-- VIEW 1: STANDARD LIBRARY VIEW -->
+            <div id="view-library">
+                <header class="page-header">
+                    <h2 class="page-title">1,000 Books in 1,000 Weeks</h2>
+                    <p class="page-description">A journey through literature, science, and social commentary</p>
+                </header>
 
-            <!-- Filters -->
-            <div class="filter-bar">
-                <div class="search-wrapper">
-                    <span class="search-icon">🔍</span>
-                    <input type="text" class="search-input" id="searchInput" placeholder="Search by title or author...">
+                <!-- Filters -->
+                <div class="filter-bar">
+                    <div class="search-wrapper">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" class="search-input" id="searchInput" placeholder="Search by title or author...">
+                    </div>
+                    <select class="filter-select" id="categoryFilter">
+                        <option value="">All Categories</option>
+                    </select>
+                    <select class="filter-select" id="ownershipFilter">
+                        <option value="">All Formats</option>
+                    </select>
+                    <select class="filter-select" id="statusFilter">
+                        <option value="">All Status</option>
+                    </select>
+                    <select class="filter-select" id="sortFilter">
+                        <option value="number">Sort by Number</option>
+                        <option value="newest">Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                        <option value="title">By Title</option>
+                        <option value="author">By Author</option>
+                        <option value="category">By Category</option>
+                    </select>
                 </div>
-                <select class="filter-select" id="categoryFilter">
-                    <option value="">All Categories</option>
-                </select>
-                <select class="filter-select" id="ownershipFilter">
-                    <option value="">All Formats</option>
-                </select>
-                <select class="filter-select" id="statusFilter">
-                    <option value="">All Status</option>
-                </select>
-                <select class="filter-select" id="sortFilter">
-                    <option value="number">Sort by Number</option>
-                    <option value="newest">Newest First</option>
-                    <option value="oldest">Oldest First</option>
-                    <option value="title">By Title</option>
-                    <option value="author">By Author</option>
-                    <option value="category">By Category</option>
-                </select>
+
+                <!-- Results Info -->
+                <div class="results-info">
+                    <span class="results-count" id="resultsCount">Showing <strong>0</strong> books</span>
+                </div>
+
+                <!-- Book Grid -->
+                <div class="book-grid" id="bookGrid">
+                    <!-- Books will be dynamically inserted here -->
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination" id="pagination">
+                    <button class="page-btn" id="firstPageBtn">« First</button>
+                    <button class="page-btn" id="prevPageBtn">‹ Prev</button>
+                    <span class="page-info" id="pageInfo">Page 1 of 1</span>
+                    <button class="page-btn" id="nextPageBtn">Next ›</button>
+                    <button class="page-btn" id="lastPageBtn">Last »</button>
+                    <select class="items-per-page" id="itemsPerPage">
+                        <option value="12">12 per page</option>
+                        <option value="24" selected>24 per page</option>
+                        <option value="48">48 per page</option>
+                        <option value="96">96 per page</option>
+                        <option value="all">View All</option>
+                    </select>
+                </div>
             </div>
 
-            <!-- Results Info -->
-            <div class="results-info">
-                <span class="results-count" id="resultsCount">Showing <strong>0</strong> books</span>
-            </div>
+            <!-- VIEW 2: 2026 CHALLENGE VIEW -->
+            <div id="view-challenge" style="display: none;">
+                <header class="page-header">
+                    <span class="page-badge">📅 2026 Reading Challenge</span>
+                    <h2 class="page-title">Recommended Reading</h2>
+                    <p class="page-description">
+                        A curated journey through 52 transformative books — one for each week of the year.
+                    </p>
+                    <div class="current-week-highlight">
+                        <span class="week-badge" id="currentWeekBadge">Week 1</span>
+                        <span class="week-text" id="currentWeekText">Starting your journey...</span>
+                    </div>
+                </header>
 
-            <!-- Book Grid -->
-            <div class="book-grid" id="bookGrid">
-                <!-- Books will be dynamically inserted here -->
-            </div>
+                <!-- Welcome Section -->
+                <section class="welcome-section">
+                    <h3 class="welcome-title">Welcome to the Challenge</h3>
+                    <div class="welcome-content">
+                        <p>
+                            Over the years, a lot of people have asked me for book recommendations. I also regularly get some form of the question, "So, which book is your favorite?" This reading challenge represents my best attempt to answer that question.
+                        </p>
+                        <p>
+                            I've selected 52 books that have shaped my thinking, broadened my perspective, and enriched my life. Whether you're looking to explore new ideas, deepen your understanding of critical social issues, or simply enjoy compelling narratives, this curated list offers something meaningful for every reader.
+                        </p>
+                        <div class="welcome-highlight">
+                            <p>
+                                <strong>How it works:</strong> Read one book per week for a full year. Click on any week to see the book details and summary. Track your progress as you go!
+                            </p>
+                        </div>
+                    </div>
+                </section>
 
-            <!-- Pagination -->
-            <div class="pagination" id="pagination">
-                <button class="page-btn" id="firstPageBtn">« First</button>
-                <button class="page-btn" id="prevPageBtn">‹ Prev</button>
-                <span class="page-info" id="pageInfo">Page 1 of 1</span>
-                <button class="page-btn" id="nextPageBtn">Next ›</button>
-                <button class="page-btn" id="lastPageBtn">Last »</button>
-                <select class="items-per-page" id="itemsPerPage">
-                    <option value="12">12 per page</option>
-                    <option value="24" selected>24 per page</option>
-                    <option value="48">48 per page</option>
-                    <option value="96">96 per page</option>
-                    <option value="all">View All</option>
-                </select>
+                <!-- Week List -->
+                <div class="week-list" id="weekList">
+                    <!-- Week cards will be dynamically inserted here -->
+                </div>
             </div>
         </main>
     </div>
@@ -1033,6 +1436,8 @@
                     <img id="modalCoverImg" src="" alt="Book Cover">
                 </div>
                 <div class="modal-details">
+                    <!-- Challenge specific badge, hidden by default -->
+                    <span class="modal-week-badge" id="modalWeekBadge">Week 1</span>
                     <span class="modal-book-number" id="modalBookNumber">#1</span>
                     <h3 class="modal-title" id="modalTitle">Book Title</h3>
                     <p class="modal-author" id="modalAuthor">Author Name</p>
@@ -1050,16 +1455,90 @@
 
     <script src="data.js"></script>
     <script>
-        // Challenge dates
+        // --- 1000 BOOKS CHALLENGE CONFIG ---
         const challengeStartDate = new Date('2020-09-27');
         const challengeEndDate = new Date('2039-11-27');
         
+        // --- 2026 CHALLENGE CONFIG ---
+        const challenge2026StartDate = new Date('2026-01-01');
+        
+        // 2026 Book per Week List (Maps week to book number in main data)
+        const weeklyReadingList = [
+            { week: 1, bookNumber: 2 },    // David and Goliath
+            { week: 2, bookNumber: 12 },   // The Souls of Black Folk
+            { week: 3, bookNumber: 13 },   // Faces at the Bottom of the Well
+            { week: 4, bookNumber: 20 },   // Caste
+            { week: 5, bookNumber: 22 },   // The Fire Next Time
+            { week: 6, bookNumber: 35 },   // A Brief History of Time
+            { week: 7, bookNumber: 39 },   // Sapiens
+            { week: 8, bookNumber: 43 },   // Invisible Women
+            { week: 9, bookNumber: 45 },   // How the Other Half Banks
+            { week: 10, bookNumber: 51 },  // The Color of Law
+            { week: 11, bookNumber: 61 },  // What Happened to You?
+            { week: 12, bookNumber: 63 },  // You Look Like a Thing and I Love You
+            { week: 13, bookNumber: 66 },  // The Disordered Cosmos
+            { week: 14, bookNumber: 73 },  // Parable of the Sower
+            { week: 15, bookNumber: 75 },  // The Social Construction of Reality
+            { week: 16, bookNumber: 79 },  // The Innovator's Dilemma
+            { week: 17, bookNumber: 91 },  // The House on Mango Street
+            { week: 18, bookNumber: 100 }, // Call Us What We Carry
+            { week: 19, bookNumber: 105 }, // The Will to Change
+            { week: 20, bookNumber: 108 }, // The Four Agreements
+            { week: 21, bookNumber: 109 }, // No Mud, No Lotus
+            { week: 22, bookNumber: 114 }, // South to America
+            { week: 23, bookNumber: 128 }, // The 1619 Project
+            { week: 24, bookNumber: 133 }, // The Wretched of the Earth
+            { week: 25, bookNumber: 135 }, // Where Do We Go from Here
+            { week: 26, bookNumber: 143 }, // 1984
+            { week: 27, bookNumber: 147 }, // The Color of Christ
+            { week: 28, bookNumber: 150 }, // We Are Called to Be a Movement
+            { week: 29, bookNumber: 170 }, // Man's Search for Meaning
+            { week: 30, bookNumber: 174 }, // Rest is Resistance
+            { week: 31, bookNumber: 175 }, // Ideaflow
+            { week: 32, bookNumber: 181 }, // The Matter of Black Lives
+            { week: 33, bookNumber: 186 }, // How to Change Your Mind
+            { week: 34, bookNumber: 188 }, // Chronicling Stankonia
+            { week: 35, bookNumber: 197 }, // Black Skin, White Masks
+            { week: 36, bookNumber: 208 }, // The Creative Act
+            { week: 37, bookNumber: 210 }, // Together
+            { week: 38, bookNumber: 214 }, // Brave New World
+            { week: 39, bookNumber: 226 }, // Creative Quest
+            { week: 40, bookNumber: 230 }, // Psychedelics For Everyone
+            { week: 41, bookNumber: 241 }, // Unmasking AI
+            { week: 42, bookNumber: 244 }, // Flatland
+            { week: 43, bookNumber: 263 }, // The Emperor of All Maladies
+            { week: 44, bookNumber: 273 }, // The Immortality Key
+            { week: 45, bookNumber: 296 }, // Homey Don't Play That!
+            { week: 46, bookNumber: 300 }, // Klara and the Sun
+            { week: 47, bookNumber: 303 }, // Memento Mori
+            { week: 48, bookNumber: 304 }, // The Gentle Art of Swedish Death Cleaning
+            { week: 49, bookNumber: 321 }, // Alice's Adventures in Wonderland
+            { week: 50, bookNumber: 323 }, // The Ark Before Noah
+            { week: 51, bookNumber: 332 }, // Charlotte's Web
+            { week: 52, bookNumber: 352 }  // A Lesson Before Dying
+        ];
+
+        // Bonus Book for 2026
+        const bonusBook = { bookNumber: 68 }; // Quantum Entanglement
+
+        // Library State
         let currentPage = 1;
         let itemsPerPage = 24;
         let currentFilteredBooks = [];
 
         // DOM Elements
         const elements = {
+            // Main Views
+            viewLibrary: document.getElementById('view-library'),
+            viewChallenge: document.getElementById('view-challenge'),
+            
+            // Sidebar Nav
+            navAllBooks: document.getElementById('navAllBooks'),
+            navFinished: document.getElementById('navFinished'),
+            navReading: document.getElementById('navReading'),
+            navChallenge: document.getElementById('navChallenge'),
+
+            // Filters & Library View
             searchInput: document.getElementById('searchInput'),
             categoryFilter: document.getElementById('categoryFilter'),
             ownershipFilter: document.getElementById('ownershipFilter'),
@@ -1074,6 +1553,13 @@
             prevPageBtn: document.getElementById('prevPageBtn'),
             nextPageBtn: document.getElementById('nextPageBtn'),
             lastPageBtn: document.getElementById('lastPageBtn'),
+            
+            // Challenge View
+            weekList: document.getElementById('weekList'),
+            currentWeekBadge: document.getElementById('currentWeekBadge'),
+            currentWeekText: document.getElementById('currentWeekText'),
+            
+            // Global
             backToTop: document.getElementById('backToTop'),
             modal: document.getElementById('modal'),
             modalClose: document.getElementById('modalClose'),
@@ -1085,12 +1571,15 @@
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             populateFilters();
-            updateProgress();
-            applyFilters();
+            updateProgress(); // 1000 Books Progress
+            updateChallenge2026Progress(); // 2026 Header Progress
+            applyFilters(); // Initial Library Load
+            renderWeekList(); // Initial Challenge Load
             setupEventListeners();
         });
 
         function setupEventListeners() {
+            // Filter Events
             elements.searchInput.addEventListener('input', debounce(applyFilters, 300));
             elements.categoryFilter.addEventListener('change', applyFilters);
             elements.ownershipFilter.addEventListener('change', applyFilters);
@@ -1098,6 +1587,7 @@
             elements.sortFilter.addEventListener('change', applyFilters);
             elements.itemsPerPage.addEventListener('change', handleItemsPerPageChange);
             
+            // Pagination Events
             elements.firstPageBtn.addEventListener('click', () => goToPage(1));
             elements.prevPageBtn.addEventListener('click', () => goToPage(currentPage - 1));
             elements.nextPageBtn.addEventListener('click', () => goToPage(currentPage + 1));
@@ -1128,33 +1618,69 @@
             elements.mobileMenuBtn.addEventListener('click', toggleSidebar);
             elements.sidebarOverlay.addEventListener('click', toggleSidebar);
 
-            // Nav items for quick filters
-            document.getElementById('navAllBooks').addEventListener('click', (e) => {
+            // NAVIGATION EVENTS
+            elements.navAllBooks.addEventListener('click', (e) => {
                 e.preventDefault();
-                elements.statusFilter.value = '';
-                elements.categoryFilter.value = '';
-                elements.ownershipFilter.value = '';
-                elements.searchInput.value = '';
-                applyFilters();
+                switchView('library');
+                resetFilters();
                 updateNavActive('navAllBooks');
                 closeSidebarOnMobile();
             });
-            document.getElementById('navFinished').addEventListener('click', (e) => {
+            elements.navFinished.addEventListener('click', (e) => {
                 e.preventDefault();
+                switchView('library');
+                resetFilters();
                 elements.statusFilter.value = 'Finished';
                 applyFilters();
                 updateNavActive('navFinished');
                 closeSidebarOnMobile();
             });
-            document.getElementById('navReading').addEventListener('click', (e) => {
+            elements.navReading.addEventListener('click', (e) => {
                 e.preventDefault();
+                switchView('library');
+                resetFilters();
                 elements.statusFilter.value = 'In Progress';
                 applyFilters();
                 updateNavActive('navReading');
                 closeSidebarOnMobile();
             });
+            elements.navChallenge.addEventListener('click', (e) => {
+                e.preventDefault();
+                switchView('challenge');
+                updateNavActive('navChallenge');
+                closeSidebarOnMobile();
+            });
         }
 
+        // --- VIEW SWITCHING LOGIC ---
+        function switchView(viewName) {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            if (viewName === 'library') {
+                elements.viewLibrary.style.display = 'block';
+                elements.viewChallenge.style.display = 'none';
+            } else if (viewName === 'challenge') {
+                elements.viewLibrary.style.display = 'none';
+                elements.viewChallenge.style.display = 'block';
+                renderWeekList(); // Re-render to ensure cleanliness
+            }
+        }
+
+        function resetFilters() {
+            elements.statusFilter.value = '';
+            elements.categoryFilter.value = '';
+            elements.ownershipFilter.value = '';
+            elements.searchInput.value = '';
+            applyFilters();
+        }
+
+        function updateNavActive(activeId) {
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            document.getElementById(activeId).classList.add('active');
+        }
+
+        // --- UTILITIES ---
         function debounce(func, wait) {
             let timeout;
             return function executedFunction(...args) {
@@ -1179,13 +1705,17 @@
             }
         }
         
-        function updateNavActive(activeId) {
-            document.querySelectorAll('.nav-item').forEach(item => {
-                item.classList.remove('active');
-            });
-            document.getElementById(activeId).classList.add('active');
+        function getInitials(title) {
+            if (!title) return '';
+            const ignore = ['A', 'AN', 'THE', 'OF', 'IN', 'ON', 'AND', 'TO', 'FOR'];
+            return title.split(' ')
+                .filter(word => !ignore.includes(word.toUpperCase()))
+                .slice(0, 3)
+                .map(word => word[0])
+                .join('')
+                .toUpperCase();
         }
-        
+
         function updateProgress() {
             const finished = books.filter(b => b.status === 'Finished').length;
             const today = new Date();
@@ -1204,6 +1734,7 @@
             document.getElementById('weeksPercent').textContent = `${weeksPercent}% elapsed`;
         }
 
+        // --- LIBRARY LOGIC ---
         function populateFilters() {
             const categories = [...new Set(books.map(book => book.category))].sort();
             const ownerships = [...new Set(books.map(book => book.ownership))].sort();
@@ -1343,6 +1874,37 @@
             }
         }
 
+        function renderBooks(bookList) {
+            if (bookList.length === 0) {
+                elements.bookGrid.innerHTML = `
+                    <div class="empty-state" style="grid-column: 1 / -1;">
+                        <div class="empty-state-icon">📚</div>
+                        <h3 class="empty-state-title">No books found</h3>
+                        <p class="empty-state-text">Try adjusting your search or filters</p>
+                    </div>
+                `;
+                return;
+            }
+
+            elements.bookGrid.innerHTML = bookList.map(book => `
+                <div class="book-card" onclick="openModal(${book.number}, null)">
+                    <div class="book-cover-wrapper">
+                        <span class="book-number-badge">#${book.number}</span>
+                        <img src="${book.customCoverUrl}" alt="${book.title}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="cover-fallback ${getCategoryClass(book.category)}" style="display: none;">
+                            <div class="initials">${getInitials(book.title)}</div>
+                            <div class="title-text">${book.title.length > 30 ? book.title.substring(0, 27) + '...' : book.title}</div>
+                        </div>
+                    </div>
+                    <div class="book-info">
+                        <h3 class="book-title">${book.title}</h3>
+                        <p class="book-author">${book.author}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // --- 2026 CHALLENGE LOGIC ---
         function getCategoryClass(category) {
             const classMap = {
                 'Biography': 'category-biography',
@@ -1396,57 +1958,189 @@
                 },
                 status: {
                     'Finished': '#7BA37B',
-                    'Reading': '#E8B86D',
-                    'Queued': '#B8A8C8'
+                    'In Progress': '#E8B86D',
+                    'Queued': '#B8A8C8',
+                    'Reading': '#E8B86D'
                 }
             };
-            return colors[type][value] || '#A8B5A0';
+            return colors[type]?.[value] || '#A8B5A0';
         }
 
-        function getInitials(title) {
-            if (!title) return '';
-            const ignore = ['A', 'AN', 'THE', 'OF', 'IN', 'ON', 'AND', 'TO', 'FOR'];
-            return title.split(' ')
-                .filter(word => !ignore.includes(word.toUpperCase()))
-                .slice(0, 3)
-                .map(word => word[0])
-                .join('')
-                .toUpperCase();
+        function getCurrentWeek() {
+            const now = new Date();
+            const startOfYear = new Date(now.getFullYear(), 0, 1);
+            const days = Math.floor((now - startOfYear) / (24 * 60 * 60 * 1000));
+            return Math.ceil((days + startOfYear.getDay() + 1) / 7);
         }
 
-        function renderBooks(bookList) {
-            if (bookList.length === 0) {
-                elements.bookGrid.innerHTML = `
-                    <div class="empty-state" style="grid-column: 1 / -1;">
-                        <div class="empty-state-icon">📚</div>
-                        <h3 class="empty-state-title">No books found</h3>
-                        <p class="empty-state-text">Try adjusting your search or filters</p>
-                    </div>
-                `;
-                return;
+        function isChallenge2026Active() {
+            const now = new Date();
+            return now.getFullYear() === 2026;
+        }
+
+        function getWeekStatus(week) {
+            if (!isChallenge2026Active()) return 'upcoming';
+            const currentWeek = getCurrentWeek();
+            if (week < currentWeek) return 'completed';
+            if (week === currentWeek) return 'current';
+            return 'upcoming';
+        }
+
+        function getQuarterInfo(week) {
+            if (week === 1) return { icon: '🌱', title: 'Quarter 1: Foundations', subtitle: 'Building your reading practice' };
+            if (week === 14) return { icon: '🌿', title: 'Quarter 2: Growth', subtitle: 'Expanding perspectives' };
+            if (week === 27) return { icon: '🌻', title: 'Quarter 3: Flourishing', subtitle: 'Deepening understanding' };
+            if (week === 40) return { icon: '🍂', title: 'Quarter 4: Harvest', subtitle: 'Integrating wisdom' };
+            return null;
+        }
+
+        function updateChallenge2026Progress() {
+            const currentWeek = isChallenge2026Active() ? Math.min(getCurrentWeek(), 52) : 1;
+            
+            const currentBookEntry = weeklyReadingList.find(w => w.week === currentWeek);
+            if (currentBookEntry) {
+                const book = books.find(b => b.number === currentBookEntry.bookNumber);
+                if (book) {
+                    elements.currentWeekBadge.textContent = `Week ${currentWeek}`;
+                    elements.currentWeekText.textContent = book.title;
+                }
+            } else {
+                 elements.currentWeekBadge.textContent = `Week ${currentWeek}`;
+                 elements.currentWeekText.textContent = "Prepare for next week";
             }
+        }
 
-            elements.bookGrid.innerHTML = bookList.map(book => `
-                <div class="book-card" onclick="openModal(${book.id})">
-                    <div class="book-cover-wrapper">
-                        <span class="book-number-badge">#${book.number}</span>
-                        <img src="${book.customCoverUrl}" alt="${book.title}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="cover-fallback ${getCategoryClass(book.category)}" style="display: none;">
-                            <div class="initials">${getInitials(book.title)}</div>
-                            <div class="title-text">${book.title.length > 30 ? book.title.substring(0, 27) + '...' : book.title}</div>
+        function renderWeekList() {
+            let html = '';
+            
+            // Render weekly books
+            weeklyReadingList.forEach(({ week, bookNumber }) => {
+                const book = books.find(b => b.number === bookNumber);
+                if (!book) {
+                    console.warn(`⚠️ Week ${week}: Book #${bookNumber} not found in data.js`);
+                    return;
+                }
+
+                const status = getWeekStatus(week);
+                const quarter = getQuarterInfo(week);
+
+                // Add quarter divider
+                if (quarter) {
+                    html += `
+                        <div class="quarter-divider">
+                            <span class="quarter-icon">${quarter.icon}</span>
+                            <div class="quarter-info">
+                                <h3>${quarter.title}</h3>
+                                <p>${quarter.subtitle}</p>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                const statusIcon = status === 'completed' ? '✓' : status === 'current' ? '📖' : '';
+
+                // Note: Passing the challenge context object to openModal
+                const contextStr = `{ week: ${week}, isBonus: false }`;
+
+                html += `
+                    <div class="week-card ${status}" onclick='openModal(${book.number}, ${JSON.stringify({week: week, isBonus: false})})'>
+                        <div class="week-indicator ${status}">
+                            ${statusIcon ? `<span class="week-status-icon">${statusIcon}</span>` : ''}
+                            <span class="week-number">${week}</span>
+                            <span class="week-label">Week</span>
+                        </div>
+                        <div class="book-content-row">
+                            <div class="book-cover-small">
+                                <img src="${book.customCoverUrl}" alt="${book.title}" 
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="cover-fallback-small ${getCategoryClass(book.category)}" style="display: none;">
+                                    <div class="initials">${getInitials(book.title)}</div>
+                                </div>
+                            </div>
+                            <div class="book-details-col">
+                                <div class="book-title-row">
+                                    <span class="book-number-badge">#${book.number}</span>
+                                </div>
+                                <h3 class="book-title">${book.title}</h3>
+                                <p class="book-author">${book.author}</p>
+                                <div class="book-tags">
+                                    <span class="book-tag" style="background: ${getTagColor('category', book.category)}">${book.category}</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="book-info">
-                        <h3 class="book-title">${book.title}</h3>
-                        <p class="book-author">${book.author}</p>
+                `;
+            });
+
+            // Add Bonus Book section
+            const bonusBookData = books.find(b => b.number === bonusBook.bookNumber);
+            if (bonusBookData) {
+                html += `
+                    <div class="bonus-divider">
+                        <span class="bonus-icon">🎁</span>
+                        <div class="bonus-info">
+                            <h3>Bonus Book</h3>
+                            <p>An extra recommendation for those who want more!</p>
+                        </div>
                     </div>
-                </div>
-            `).join('');
+                `;
+
+                html += `
+                    <div class="week-card bonus" onclick='openModal(${bonusBookData.number}, ${JSON.stringify({week: null, isBonus: true})})'>
+                        <div class="week-indicator bonus">
+                            <span class="week-status-icon">⭐</span>
+                            <span class="week-number">+1</span>
+                            <span class="week-label">Bonus</span>
+                        </div>
+                        <div class="book-content-row">
+                            <div class="book-cover-small">
+                                <img src="${bonusBookData.customCoverUrl}" alt="${bonusBookData.title}" 
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="cover-fallback-small ${getCategoryClass(bonusBookData.category)}" style="display: none;">
+                                    <div class="initials">${getInitials(bonusBookData.title)}</div>
+                                </div>
+                            </div>
+                            <div class="book-details-col">
+                                <div class="book-title-row">
+                                    <span class="book-number-badge">#${bonusBookData.number}</span>
+                                </div>
+                                <h3 class="book-title">${bonusBookData.title}</h3>
+                                <p class="book-author">${bonusBookData.author}</p>
+                                <div class="book-tags">
+                                    <span class="book-tag" style="background: ${getTagColor('category', bonusBookData.category)}">${bonusBookData.category}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            elements.weekList.innerHTML = html;
         }
 
-        function openModal(bookId) {
-            const book = books.find(b => b.id === bookId);
+        // --- UNIFIED MODAL LOGIC ---
+        function openModal(bookNumber, challengeContext) {
+            // Find book by number (robust approach for both views)
+            const book = books.find(b => b.number === bookNumber);
             if (!book) return;
+
+            // Handle "Week X" badge visibility
+            const weekBadge = document.getElementById('modalWeekBadge');
+            
+            if (challengeContext) {
+                // If coming from Challenge view
+                weekBadge.style.display = 'inline-block';
+                if (challengeContext.isBonus) {
+                    weekBadge.textContent = 'Bonus Book';
+                    weekBadge.classList.add('bonus');
+                } else {
+                    weekBadge.textContent = `Week ${challengeContext.week}`;
+                    weekBadge.classList.remove('bonus');
+                }
+            } else {
+                // If coming from Library view
+                weekBadge.style.display = 'none';
+            }
 
             document.getElementById('modalBookNumber').textContent = `#${book.number}`;
             document.getElementById('modalTitle').textContent = book.title;
