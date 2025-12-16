@@ -1224,13 +1224,32 @@
             .book-content-row {
                 padding: 16px;
                 flex-direction: row; /* CHANGED from column to row */
-                align-items: flex-start; /* Aligned to top */
+                align-items: stretch; /* Aligned to stretch */
                 gap: 16px;
             }
             
             .book-cover-small {
                 width: 80px; /* CHANGED from 100px back to 80px for better fit */
                 min-width: 80px; /* Ensure it doesn't shrink */
+            }
+
+            .book-details-col {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+            .book-tags {
+                margin-top: auto;
+            }
+
+            /* Remove title truncation on mobile */
+            .book-title {
+                display: block;
+                -webkit-line-clamp: unset;
+                white-space: normal;
+                overflow: visible;
+                margin-bottom: 4px;
             }
             
             .quarter-divider,
