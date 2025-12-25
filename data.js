@@ -4350,8 +4350,8 @@ const books = [
     "author": "Kazuo Ishiguro",
     "category": "Novel",
     "ownership": "Library",
-    "status": "In Progress",
-    "dateCompleted": "",
+    "status": "Finished",
+    "dateCompleted": "2025-12-24",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00363.jpg",
     "id": 363,
     "summary": "Set in an alternate 1990s England, the narrative follows Kathy H., a thirty-one-year-old carer, as she reflects on her childhood at the seemingly elite boarding school, Hailsham, where she grew up with friends like Ruth and Tommy. The students at Hailsham are raised with an unusual sense of destiny, understanding that their purpose is linked to an impending role as \"donors.\" As the friends transition into young adulthood and confront the truth about their existence as clones, they grapple with themes of friendship, love, memory, and what it truly means to be human, all while passively accepting the roles society has assigned them."
