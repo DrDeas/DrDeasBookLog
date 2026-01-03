@@ -4355,5 +4355,17 @@ const books = [
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00363.jpg",
     "id": 363,
     "summary": "Set in an alternate 1990s England, the narrative follows Kathy H., a thirty-one-year-old carer, as she reflects on her childhood at the seemingly elite boarding school, Hailsham, where she grew up with friends like Ruth and Tommy. The students at Hailsham are raised with an unusual sense of destiny, understanding that their purpose is linked to an impending role as \"donors.\" As the friends transition into young adulthood and confront the truth about their existence as clones, they grapple with themes of friendship, love, memory, and what it truly means to be human, all while passively accepting the roles society has assigned them."
-  }
+  },
+  {
+    "number": 364,
+    "title": "Black-Owned: The Revolutionary Life of the Black Bookstore",
+    "author": "Char Adams",
+    "category": "Informational",
+    "ownership": "Library",
+    "status": "In Progress",
+    "dateCompleted": "",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00364.jpg",
+    "id": 364,
+    "summary": "This book offers a deeply compelling and rigorously reported history of Black political movements, told through the lens of Black-owned bookstores. These institutions have been essential centers for organizing, from the abolition movement to the Civil Rights Movement and Black Lives Matter. Populated by vibrant characters and written with cinematic flair, this book is an enlightening story of community, resistance, and joy, highlighting the courageous, determined, and tenacious people who ran legendary bookstores across the country, emphasizing their importance in providing space to voices that matter despite struggles like overt racism, gentrification, and the online revolution."
+    }
 ];
