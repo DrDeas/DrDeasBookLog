@@ -1594,8 +1594,31 @@
             populateFilters();
             updateProgress(); // 1000 Books Progress
             updateChallenge2026Progress(); // 2026 Header Progress
-            applyFilters(); // Initial Library Load
-            renderWeekList(); // Initial Challenge Load
+            
+            // Handle URL hash for navigation from 2026-Book-Recs page
+            const hash = window.location.hash.substring(1); // Remove the '#'
+            if (hash === 'finished') {
+                switchView('library');
+                resetFilters();
+                elements.statusFilter.value = 'Finished';
+                applyFilters();
+                updateNavActive('navFinished');
+            } else if (hash === 'reading') {
+                switchView('library');
+                resetFilters();
+                elements.statusFilter.value = 'In Progress';
+                applyFilters();
+                updateNavActive('navReading');
+            } else if (hash === 'all') {
+                switchView('library');
+                resetFilters();
+                updateNavActive('navAllBooks');
+            } else {
+                // Default behavior - no hash in URL
+                applyFilters(); // Initial Library Load
+                renderWeekList(); // Initial Challenge Load
+            }
+            
             setupEventListeners();
         });
 
