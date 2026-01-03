@@ -1336,7 +1336,7 @@
                     <span class="nav-icon">📑</span>
                     <span>Currently Reading</span>
                 </a>
-                <a class="nav-item" href="#" id="navChallenge">
+                <a class="nav-item" href="2026-Book-Recs" id="navChallenge">
                     <span class="nav-icon">📅</span>
                     <span>2026 Book Recs</span>
                 </a>
@@ -1663,12 +1663,6 @@
                 elements.statusFilter.value = 'In Progress';
                 applyFilters();
                 updateNavActive('navReading');
-                closeSidebarOnMobile();
-            });
-            elements.navChallenge.addEventListener('click', (e) => {
-                e.preventDefault();
-                switchView('challenge');
-                updateNavActive('navChallenge');
                 closeSidebarOnMobile();
             });
         }
