@@ -4367,5 +4367,41 @@ const books = [
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00364.jpg",
     "id": 364,
     "summary": "This book offers a deeply compelling and rigorously reported history of Black political movements, told through the lens of Black-owned bookstores. These institutions have been essential centers for organizing, from the abolition movement to the Civil Rights Movement and Black Lives Matter. Populated by vibrant characters and written with cinematic flair, this book is an enlightening story of community, resistance, and joy, highlighting the courageous, determined, and tenacious people who ran legendary bookstores across the country, emphasizing their importance in providing space to voices that matter despite struggles like overt racism, gentrification, and the online revolution."
-    }
+  },
+  {
+    "number": 365,
+    "title": "In the Realm of Hungry Ghosts: Close Encounters with Addiction",
+    "author": "Gabor Maté",
+    "category": "Self-Development",
+    "ownership": "Library",
+    "status": "In Progress",
+    "dateCompleted": "",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00365.jpg",
+    "id": 365,
+    "summary": "This book offers a deeply compelling and rigorously reported history of Black political movements, told through the lens of Black-owned bookstores. These institutions have been essential centers for organizing, from the abolition movement to the Civil Rights Movement and Black Lives Matter. Populated by vibrant characters and written with cinematic flair, this book is an enlightening story of community, resistance, and joy, highlighting the courageous, determined, and tenacious people who ran legendary bookstores across the country, emphasizing their importance in providing space to voices that matter despite struggles like overt racism, gentrification, and the online revolution."
+  },
+  {
+    "number": 366,
+    "title": "Who Is Government?: The Untold Story of Public Service",
+    "author": "Michael Lewis",
+    "category": "Policy and Politics",
+    "ownership": "Library",
+    "status": "In Progress",
+    "dateCompleted": "",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00366.jpg",
+    "id": 366,
+    "summary": "This work explores the often-overlooked lives of dedicated public servants who are essential to maintaining the operational integrity of the government. Michael Lewis uncovers the stories of these individuals—the unsung heroes—whose knowledge, commitment, and proactive efforts form the linchpins of the entire system. Through insightful narratives, the book examines the critical, yet rarely acknowledged, roles they play and investigates the personal motivations and concerns that drive them in their demanding positions."
+  },
+  {
+    "number": 367,
+    "title": "The Big Leap: Conquer Your Hidden Fear and Take Life to the Next Level",
+    "author": "Gay Hendricks",
+    "category": "Self-Development",
+    "ownership": "Library",
+    "status": "In Progress",
+    "dateCompleted": "",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00367.jpg",
+    "id": 367,
+    "summary": "This book explores the \"Upper Limit Problem,\" which is the tendency people have to sabotage their success and happiness when things are going well, due to unconscious fears and limiting beliefs. It teaches readers how to overcome these self-imposed barriers by identifying four different zones of operation—Incompetence, Competence, Excellence, and Genius—and provides strategies, such as using the Ultimate Success Mantra and the Enlightened No, to consistently live in their Zone of Genius, where they can achieve their full potential in love, abundance, and creativity."
+  }
 ];
