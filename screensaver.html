@@ -625,35 +625,66 @@
         function loadImages() {
             return new Promise((resolve) => {
                 let loaded = 0;
+                let successCount = 0;
                 
-                bookUrls.forEach((url, index) => {
-                    const img = new Image();
-                    img.crossOrigin = 'anonymous';
+                // On mobile, load in batches to avoid overwhelming the browser
+                const batchSize = isMobile ? 50 : bookUrls.length;
+                const totalToLoad = isMobile ? Math.min(100, bookUrls.length) : bookUrls.length;
+                const urlsToLoad = bookUrls.slice(0, totalToLoad);
+                
+                console.log(`Loading ${urlsToLoad.length} images (mobile: ${isMobile})`);
+                
+                function loadBatch(startIndex) {
+                    const endIndex = Math.min(startIndex + batchSize, urlsToLoad.length);
+                    const batch = urlsToLoad.slice(startIndex, endIndex);
                     
-                    img.onload = () => {
-                        loadedImages.push(img);
-                        loaded++;
-                        loadedCount = loaded;
-                        document.getElementById('loadProgress').textContent = `${loaded}/${bookUrls.length}`;
-                        document.getElementById('loadedCount').textContent = loaded;
+                    batch.forEach((url, index) => {
+                        const img = new Image();
                         
-                        if (loaded === bookUrls.length) {
-                            resolve();
-                        }
-                    };
-                    
-                    img.onerror = () => {
-                        loaded++;
-                        loadedCount = loaded;
-                        document.getElementById('loadProgress').textContent = `${loaded}/${bookUrls.length}`;
+                        img.onload = () => {
+                            loadedImages.push(img);
+                            loaded++;
+                            successCount++;
+                            loadedCount = successCount;
+                            document.getElementById('loadProgress').textContent = `${loaded}/${urlsToLoad.length}`;
+                            document.getElementById('loadedCount').textContent = successCount;
+                            
+                            if (loaded === urlsToLoad.length) {
+                                resolve();
+                            }
+                        };
                         
-                        if (loaded === bookUrls.length) {
-                            resolve();
-                        }
-                    };
+                        img.onerror = (e) => {
+                            loaded++;
+                            document.getElementById('loadProgress').textContent = `${loaded}/${urlsToLoad.length}`;
+                            console.warn(`Failed to load image ${startIndex + index + 1}:`, url);
+                            
+                            if (loaded === urlsToLoad.length) {
+                                resolve();
+                            }
+                        };
+                        
+                        img.src = url;
+                    });
                     
-                    img.src = url;
-                });
+                    // Load next batch after a small delay
+                    if (endIndex < urlsToLoad.length) {
+                        setTimeout(() => loadBatch(endIndex), 100);
+                    }
+                }
+                
+                loadBatch(0);
+                
+                // Timeout fallback
+                setTimeout(() => {
+                    if (loaded < urlsToLoad.length && loadedImages.length > 0) {
+                        console.warn(`Image loading timeout - proceeding with ${loadedImages.length} loaded images`);
+                        resolve();
+                    } else if (loadedImages.length === 0) {
+                        console.error('No images loaded after timeout');
+                        resolve();
+                    }
+                }, 30000);
             });
         }
         
@@ -859,7 +890,19 @@
         // INITIALIZATION
         // ========================================
         
+        console.log('Starting to load images...');
+        console.log('Is mobile?', isMobile);
+        console.log('Total URLs:', bookUrls.length);
+        
         loadImages().then(() => {
+            console.log('Load complete! Loaded images:', loadedImages.length);
+            
+            if (loadedImages.length === 0) {
+                document.getElementById('loading').innerHTML = 'Failed to load images.<br>Check console for errors.';
+                console.error('No images loaded! Check network and CORS settings.');
+                return;
+            }
+            
             document.getElementById('loading').style.display = 'none';
             resetBooks();
             animate(performance.now());
@@ -882,6 +925,9 @@ ${isMobile ? '• Optimized for mobile performance\n• Double-tap screen to tog
 
 Enjoy your flying library! 📚✨
             `);
+        }).catch((error) => {
+            console.error('Error during initialization:', error);
+            document.getElementById('loading').innerHTML = 'Error: ' + error.message;
         });
     </script>
 </body>
