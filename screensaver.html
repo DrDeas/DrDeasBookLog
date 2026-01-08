@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <title>Book Cover Screensaver</title>
     <style>
         * {
@@ -32,6 +34,63 @@
             border-radius: 8px;
             z-index: 1000;
             max-width: 350px;
+        }
+        
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .controls {
+                top: 10px;
+                left: 10px;
+                right: 10px;
+                padding: 15px;
+                max-width: none;
+                font-size: 14px;
+            }
+            
+            .controls h3 {
+                font-size: 16px;
+                margin-bottom: 10px;
+            }
+            
+            label {
+                width: 110px;
+                font-size: 12px;
+            }
+            
+            input[type="range"] {
+                width: 120px;
+            }
+            
+            .value {
+                width: 40px;
+                font-size: 12px;
+            }
+            
+            button {
+                font-size: 12px;
+                padding: 6px 12px;
+                margin-top: 8px;
+            }
+            
+            .info {
+                bottom: 10px;
+                right: 10px;
+                padding: 10px;
+                font-size: 10px;
+            }
+            
+            .loading {
+                font-size: 18px;
+            }
+        }
+        
+        /* Prevent scrolling on mobile */
+        html, body {
+            position: fixed;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            -webkit-overflow-scrolling: touch;
         }
         
         .controls h3 {
@@ -103,7 +162,7 @@
     <canvas id="canvas"></canvas>
     
     <div class="controls">
-        <h3>📚 Dr. Deas Book Journey</h3>
+        <h3>📚 BOOK COVER SCREENSAVER</h3>
         
         <div class="control-group">
             <label>Book Count:</label>
@@ -522,18 +581,51 @@
         ];
         
         // ========================================
+        // MOBILE DETECTION & OPTIMIZATION
+        // ========================================
+        
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        
+        // Adjust default settings for mobile
+        if (isMobile) {
+            settings.bookCount = 15; // Fewer books for better performance
+            settings.trailLength = 0.1; // Slightly longer trail
+            document.getElementById('bookCount').value = 15;
+            document.getElementById('bookCountValue').textContent = 15;
+        }
+        
+        // ========================================
         // CANVAS SETUP
         // ========================================
         
         const canvas = document.getElementById('canvas');
-        const ctx = canvas.getContext('2d');
+        const ctx = canvas.getContext('2d', {
+            alpha: false, // Disable alpha for better performance
+            desynchronized: true // Improve rendering performance
+        });
         
         function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+            // Use device pixel ratio for sharp rendering on high-DPI screens
+            const dpr = isMobile ? Math.min(window.devicePixelRatio, 2) : window.devicePixelRatio || 1;
+            const rect = canvas.getBoundingClientRect();
+            
+            canvas.width = rect.width * dpr;
+            canvas.height = rect.height * dpr;
+            
+            canvas.style.width = rect.width + 'px';
+            canvas.style.height = rect.height + 'px';
+            
+            ctx.scale(dpr, dpr);
         }
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
+        
+        // Pause animation when page is hidden (saves battery on mobile)
+        let isAnimating = true;
+        document.addEventListener('visibilitychange', () => {
+            isAnimating = !document.hidden;
+        });
         
         // ========================================
         // IMAGE LOADING
@@ -702,6 +794,9 @@
         function animate(currentTime) {
             requestAnimationFrame(animate);
             
+            // Skip rendering if page is hidden
+            if (!isAnimating) return;
+            
             const deltaTime = (currentTime - lastTime) / 1000;
             lastTime = currentTime;
             
@@ -741,6 +836,38 @@
         }
         
         // ========================================
+        // TOUCH CONTROLS FOR MOBILE
+        // ========================================
+        
+        if (isTouch) {
+            let touchStartX = 0;
+            let touchStartY = 0;
+            
+            canvas.addEventListener('touchstart', (e) => {
+                touchStartX = e.touches[0].clientX;
+                touchStartY = e.touches[0].clientY;
+            });
+            
+            canvas.addEventListener('touchmove', (e) => {
+                e.preventDefault(); // Prevent scrolling
+            }, { passive: false });
+            
+            // Double tap to toggle controls
+            let lastTap = 0;
+            canvas.addEventListener('touchend', (e) => {
+                const currentTime = new Date().getTime();
+                const tapLength = currentTime - lastTap;
+                
+                if (tapLength < 500 && tapLength > 0) {
+                    // Double tap detected
+                    toggleControls();
+                }
+                
+                lastTap = currentTime;
+            });
+        }
+        
+        // ========================================
         // INITIALIZATION
         // ========================================
         
@@ -755,6 +882,7 @@
 ╚═══════════════════════════════════════════════╝
 
 Successfully loaded ${loadedImages.length} book covers!
+Mobile device: ${isMobile ? 'Yes' : 'No'}
 
 FEATURES:
 • Each book has random position, velocity & rotation
@@ -762,6 +890,7 @@ FEATURES:
 • Adjustable count, speed, size & rotation
 • Trail effect for motion blur
 • Real book covers from your collection
+${isMobile ? '• Optimized for mobile performance\n• Double-tap screen to toggle controls' : ''}
 
 Enjoy your flying library! 📚✨
             `);
