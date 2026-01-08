@@ -86,6 +86,18 @@
             border-radius: 8px;
             font-size: 12px;
         }
+        
+        .show-controls-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 12px 20px;
+            border: 2px solid #0f0;
+            border-radius: 8px;
+            font-size: 14px;
+            z-index: 1000;
+        }
 
         .loading {
             position: fixed;
@@ -102,7 +114,7 @@
     <div class="loading" id="loading">Loading book covers... <span id="loadProgress">0/144</span></div>
     <canvas id="canvas"></canvas>
     
-    <div class="controls">
+    <div class="controls" id="controls">
         <h3>📚 Dr. Deas Book Journey</h3>
         
         <div class="control-group">
@@ -136,15 +148,18 @@
         </div>
         
         <button onclick="resetBooks()">🔄 Reset Books</button>
-        <button onclick="toggleControls()">👁️ Hide Controls</button>
+        <button onclick="hideControls()">👁️ Hide Controls</button>
     </div>
     
-    <div class="info">
+    <div class="info" id="info">
         <strong>Dr. Deas Book Journey</strong><br>
         • Loaded: <span id="loadedCount">0</span>/144 books<br>
-        • Active books: <span id="activeCount">0</span><br>
-        • FPS: <span id="fps">0</span>
+        • Active books: <span id="activeCount">0</span>
     </div>
+    
+    <button class="show-controls-btn" id="showControlsBtn" onclick="showControls()" style="display: none;">
+        👁️ Show Controls
+    </button>
 
     <script>
         // ========================================
@@ -482,14 +497,6 @@
             const deltaTime = (currentTime - lastTime) / 1000;
             lastTime = currentTime;
             
-            // Update FPS counter
-            frameCount++;
-            if (currentTime - lastFpsUpdate > 1000) {
-                document.getElementById('fps').textContent = frameCount;
-                frameCount = 0;
-                lastFpsUpdate = currentTime;
-            }
-            
             // Create trail effect
             ctx.fillStyle = `rgba(0, 0, 0, ${settings.trailLength})`;
             ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -505,16 +512,16 @@
         // UI HELPER FUNCTIONS
         // ========================================
         
-        function toggleControls() {
-            const controls = document.querySelector('.controls');
-            const button = event.target;
-            if (controls.style.display === 'none') {
-                controls.style.display = 'block';
-                button.textContent = '👁️ Hide Controls';
-            } else {
-                controls.style.display = 'none';
-                button.textContent = '👁️ Show Controls';
-            }
+        function hideControls() {
+            document.getElementById('controls').style.display = 'none';
+            document.getElementById('info').style.display = 'none';
+            document.getElementById('showControlsBtn').style.display = 'block';
+        }
+        
+        function showControls() {
+            document.getElementById('controls').style.display = 'block';
+            document.getElementById('info').style.display = 'block';
+            document.getElementById('showControlsBtn').style.display = 'none';
         }
         
         // ========================================
