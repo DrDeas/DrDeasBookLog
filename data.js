@@ -4059,7 +4059,7 @@ const books = [
   {
     "number": 339,
     "title": "Isn't Her Grace Amazing!: The Women Who Changed Gospel Music",
-    "author": "Cheryl Willis",
+    "author": "Cheryl Wills",
     "category": "Informational",
     "ownership": "Library",
     "status": "Finished",
