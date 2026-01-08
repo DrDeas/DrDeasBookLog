@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Cover Screensaver</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        body {
+            background: #000;
+            font-family: 'Courier New', monospace;
+            color: #0f0;
+        }
+        
+        canvas {
+            display: block;
+            background: #000;
+        }
+        
+        .controls {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border: 2px solid #0f0;
+            border-radius: 8px;
+            z-index: 1000;
+            max-width: 350px;
+        }
+        
+        .controls h3 {
+            margin-bottom: 15px;
+            color: #0f0;
+        }
+        
+        .control-group {
+            margin-bottom: 10px;
+        }
+        
+        label {
+            display: inline-block;
+            width: 150px;
+            color: #0f0;
+        }
+        
+        input[type="range"] {
+            width: 150px;
+        }
+        
+        .value {
+            display: inline-block;
+            width: 50px;
+            text-align: right;
+            color: #0f0;
+        }
+        
+        button {
+            margin-top: 10px;
+            margin-right: 5px;
+            padding: 8px 16px;
+            background: #000;
+            color: #0f0;
+            border: 1px solid #0f0;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        
+        button:hover {
+            background: #0f0;
+            color: #000;
+        }
+        
+        .info {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            border: 1px solid #0f0;
+            border-radius: 8px;
+            font-size: 12px;
+        }
+
+        .loading {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #0f0;
+            font-size: 24px;
+            z-index: 2000;
+        }
+    </style>
+</head>
+<body>
+    <div class="loading" id="loading">Loading book covers... <span id="loadProgress">0/367</span></div>
+    <canvas id="canvas"></canvas>
+    
+    <div class="controls">
+        <h3>📚 Dr. Deas Book Journey</h3>
+        
+        <div class="control-group">
+            <label>Book Count:</label>
+            <input type="range" id="bookCount" min="5" max="100" value="30" step="5">
+            <span class="value" id="bookCountValue">30</span>
+        </div>
+        
+        <div class="control-group">
+            <label>Speed:</label>
+            <input type="range" id="speed" min="0.1" max="5" value="1" step="0.1">
+            <span class="value" id="speedValue">1.0</span>
+        </div>
+        
+        <div class="control-group">
+            <label>Book Size:</label>
+            <input type="range" id="bookSize" min="50" max="200" value="100" step="10">
+            <span class="value" id="bookSizeValue">100</span>
+        </div>
+        
+        <div class="control-group">
+            <label>Rotation Speed:</label>
+            <input type="range" id="rotationSpeed" min="0" max="5" value="1" step="0.5">
+            <span class="value" id="rotationSpeedValue">1.0</span>
+        </div>
+        
+        <div class="control-group">
+            <label>Trail Length:</label>
+            <input type="range" id="trailLength" min="0" max="1" value="0.05" step="0.05">
+            <span class="value" id="trailLengthValue">0.05</span>
+        </div>
+        
+        <button onclick="resetBooks()">🔄 Reset Books</button>
+        <button onclick="toggleControls()">👁️ Hide Controls</button>
+    </div>
+    
+    <div class="info">
+        <strong>Book Cover Screensaver</strong><br>
+        • Loaded: <span id="loadedCount">0</span>/367 books<br>
+        • Active books: <span id="activeCount">0</span><br>
+        • FPS: <span id="fps">0</span>
+    </div>
+
+    <script>
+        // ========================================
+        // BOOK COVER URLS
+        // ========================================
+        
+        const bookUrls = [
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00001.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00002.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00003.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00004.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00005.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00006.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00007.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00008.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00009.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00010.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00011.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00012.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00013.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00014.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00015.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00016.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00017.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00018.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00019.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00020.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00021.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00022.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00023.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00024.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00025.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00026.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00027.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00028.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00029.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00030.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00031.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00032.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00033.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00034.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00035.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00036.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00037.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00038.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00039.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00040.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00041.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00042.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00043.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00044.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00045.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00046.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00047.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00048.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00049.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00050.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00051.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00052.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00053.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00054.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00055.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00056.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00057.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00058.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00059.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00060.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00061.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00062.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00063.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00064.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00065.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00066.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00067.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00068.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00069.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00070.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00071.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00072.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00073.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00074.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00075.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00076.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00077.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00078.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00079.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00080.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00081.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00082.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00083.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00084.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00085.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00086.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00087.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00088.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00089.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00090.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00091.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00092.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00093.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00094.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00095.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00096.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00097.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00098.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00099.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00100.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00101.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00102.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00103.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00104.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00105.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00106.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00107.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00108.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00109.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00110.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00111.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00112.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00113.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00114.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00115.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00116.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00117.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00118.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00119.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00120.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00121.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00122.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00123.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00124.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00125.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00126.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00127.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00128.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00129.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00130.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00131.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00132.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00133.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00134.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00135.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00136.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00137.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00138.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00139.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00140.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00141.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00142.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00143.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00144.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00145.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00146.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00147.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00148.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00149.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00150.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00151.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00152.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00153.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00154.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00155.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00156.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00157.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00158.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00159.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00160.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00161.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00162.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00163.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00164.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00165.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00166.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00167.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00168.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00169.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00170.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00171.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00172.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00173.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00174.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00175.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00176.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00177.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00178.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00179.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00180.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00181.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00182.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00183.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00184.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00185.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00186.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00187.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00188.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00189.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00190.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00191.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00192.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00193.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00194.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00195.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00196.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00197.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00198.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00199.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00200.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00201.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00202.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00203.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00204.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00205.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00206.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00207.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00208.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00209.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00210.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00211.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00212.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00213.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00214.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00215.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00216.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00217.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00218.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00219.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00220.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00221.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00222.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00223.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00224.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00225.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00226.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00227.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00228.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00229.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00230.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00231.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00232.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00233.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00234.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00235.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00236.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00237.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00238.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00239.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00240.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00241.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00242.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00243.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00244.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00245.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00246.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00247.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00248.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00249.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00250.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00251.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00252.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00253.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00254.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00255.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00256.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00257.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00258.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00259.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00260.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00261.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00262.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00263.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00264.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00265.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00266.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00267.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00268.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00269.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00270.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00271.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00272.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00273.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00274.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00275.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00276.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00277.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00278.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00279.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00280.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00281.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00282.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00283.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00284.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00285.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00286.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00287.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00288.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00289.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00290.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00291.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00292.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00293.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00294.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00295.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00296.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00297.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00298.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00299.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00300.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00301.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00302.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00303.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00304.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00305.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00306.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00307.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00308.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00309.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00310.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00311.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00312.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00313.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00314.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00315.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00316.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00317.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00318.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00319.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00320.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00321.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00322.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00323.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00324.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00325.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00326.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00327.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00328.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00329.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00330.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00331.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00332.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00333.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00334.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00335.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00336.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00337.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00338.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00339.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00340.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00341.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00342.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00343.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00344.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00345.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00346.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00347.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00348.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00349.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00350.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00351.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00352.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00353.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00354.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00355.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00356.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00357.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00358.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00359.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00360.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00361.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00362.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00363.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00364.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00365.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00366.jpg',
+            'https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00367.jpg'
+        ];
+        
+        // ========================================
+        // CANVAS SETUP
+        // ========================================
+        
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+        
+        // ========================================
+        // IMAGE LOADING
+        // ========================================
+        
+        let loadedImages = [];
+        let loadedCount = 0;
+        
+        function loadImages() {
+            return new Promise((resolve) => {
+                let loaded = 0;
+                
+                bookUrls.forEach((url, index) => {
+                    const img = new Image();
+                    img.crossOrigin = 'anonymous';
+                    
+                    img.onload = () => {
+                        loadedImages.push(img);
+                        loaded++;
+                        loadedCount = loaded;
+                        document.getElementById('loadProgress').textContent = `${loaded}/${bookUrls.length}`;
+                        document.getElementById('loadedCount').textContent = loaded;
+                        
+                        if (loaded === bookUrls.length) {
+                            resolve();
+                        }
+                    };
+                    
+                    img.onerror = () => {
+                        loaded++;
+                        loadedCount = loaded;
+                        document.getElementById('loadProgress').textContent = `${loaded}/${bookUrls.length}`;
+                        
+                        if (loaded === bookUrls.length) {
+                            resolve();
+                        }
+                    };
+                    
+                    img.src = url;
+                });
+            });
+        }
+        
+        // ========================================
+        // BOOK CLASS
+        // ========================================
+        
+        class Book {
+            constructor() {
+                if (loadedImages.length === 0) return;
+                
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                
+                // Random velocity
+                const angle = Math.random() * Math.PI * 2;
+                const speed = Math.random() * 2 + 1;
+                this.vx = Math.cos(angle) * speed;
+                this.vy = Math.sin(angle) * speed;
+                
+                // Random rotation
+                this.rotation = Math.random() * Math.PI * 2;
+                this.rotationSpeed = (Math.random() - 0.5) * 0.02;
+                
+                // Random image
+                this.image = loadedImages[Math.floor(Math.random() * loadedImages.length)];
+                
+                // Random size variation
+                this.sizeMultiplier = 0.8 + Math.random() * 0.4;
+            }
+            
+            update(settings) {
+                // Move book
+                this.x += this.vx * settings.speed;
+                this.y += this.vy * settings.speed;
+                
+                // Wrap around edges
+                if (this.x < -settings.bookSize) this.x = canvas.width + settings.bookSize;
+                if (this.x > canvas.width + settings.bookSize) this.x = -settings.bookSize;
+                if (this.y < -settings.bookSize) this.y = canvas.height + settings.bookSize;
+                if (this.y > canvas.height + settings.bookSize) this.y = -settings.bookSize;
+                
+                // Rotate
+                this.rotation += this.rotationSpeed * settings.rotationSpeed;
+            }
+            
+            draw(ctx, settings) {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.rotation);
+                
+                const size = settings.bookSize * this.sizeMultiplier;
+                const aspectRatio = this.image.height / this.image.width;
+                const width = size;
+                const height = size * aspectRatio;
+                
+                // Draw book cover with slight shadow for depth
+                ctx.shadowColor = 'rgba(0, 255, 0, 0.3)';
+                ctx.shadowBlur = 10;
+                ctx.drawImage(this.image, -width / 2, -height / 2, width, height);
+                
+                ctx.restore();
+            }
+        }
+        
+        // ========================================
+        // SIMULATION STATE
+        // ========================================
+        
+        let books = [];
+        let settings = {
+            bookCount: 30,
+            speed: 1.0,
+            bookSize: 100,
+            rotationSpeed: 1.0,
+            trailLength: 0.05
+        };
+        
+        function resetBooks() {
+            books = [];
+            for (let i = 0; i < settings.bookCount && i < loadedImages.length; i++) {
+                books.push(new Book());
+            }
+            document.getElementById('activeCount').textContent = books.length;
+        }
+        
+        // ========================================
+        // UPDATE SETTINGS FROM UI
+        // ========================================
+        
+        function updateSetting(id, property) {
+            const element = document.getElementById(id);
+            const valueElement = document.getElementById(id + 'Value');
+            
+            element.addEventListener('input', (e) => {
+                const value = parseFloat(e.target.value);
+                settings[property] = value;
+                valueElement.textContent = value;
+                
+                if (property === 'bookCount') {
+                    while (books.length < value && books.length < loadedImages.length) {
+                        books.push(new Book());
+                    }
+                    while (books.length > value) {
+                        books.pop();
+                    }
+                    document.getElementById('activeCount').textContent = books.length;
+                }
+            });
+        }
+        
+        updateSetting('bookCount', 'bookCount');
+        updateSetting('speed', 'speed');
+        updateSetting('bookSize', 'bookSize');
+        updateSetting('rotationSpeed', 'rotationSpeed');
+        updateSetting('trailLength', 'trailLength');
+        
+        // ========================================
+        // MAIN ANIMATION LOOP
+        // ========================================
+        
+        let lastTime = performance.now();
+        let frameCount = 0;
+        let lastFpsUpdate = lastTime;
+        
+        function animate(currentTime) {
+            requestAnimationFrame(animate);
+            
+            const deltaTime = (currentTime - lastTime) / 1000;
+            lastTime = currentTime;
+            
+            // Update FPS counter
+            frameCount++;
+            if (currentTime - lastFpsUpdate > 1000) {
+                document.getElementById('fps').textContent = frameCount;
+                frameCount = 0;
+                lastFpsUpdate = currentTime;
+            }
+            
+            // Create trail effect
+            ctx.fillStyle = `rgba(0, 0, 0, ${settings.trailLength})`;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Update and draw all books
+            books.forEach(book => {
+                book.update(settings);
+                book.draw(ctx, settings);
+            });
+        }
+        
+        // ========================================
+        // UI HELPER FUNCTIONS
+        // ========================================
+        
+        function toggleControls() {
+            const controls = document.querySelector('.controls');
+            const button = event.target;
+            if (controls.style.display === 'none') {
+                controls.style.display = 'block';
+                button.textContent = '👁️ Hide Controls';
+            } else {
+                controls.style.display = 'none';
+                button.textContent = '👁️ Show Controls';
+            }
+        }
+        
+        // ========================================
+        // INITIALIZATION
+        // ========================================
+        
+        loadImages().then(() => {
+            document.getElementById('loading').style.display = 'none';
+            resetBooks();
+            animate(performance.now());
+            
+            console.log(`
+╔═══════════════════════════════════════════════╗
+║  BOOK COVER SCREENSAVER LOADED               ║
+╚═══════════════════════════════════════════════╝
+
+Successfully loaded ${loadedImages.length} book covers!
+
+FEATURES:
+• Each book has random position, velocity & rotation
+• Books wrap around screen edges
+• Adjustable count, speed, size & rotation
+• Trail effect for motion blur
+• Real book covers from your collection
+
+Enjoy your flying library! 📚✨
+            `);
+        });
+    </script>
+</body>
+</html>
