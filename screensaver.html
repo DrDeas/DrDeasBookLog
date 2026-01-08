@@ -600,23 +600,11 @@
         // ========================================
         
         const canvas = document.getElementById('canvas');
-        const ctx = canvas.getContext('2d', {
-            alpha: false, // Disable alpha for better performance
-            desynchronized: true // Improve rendering performance
-        });
+        const ctx = canvas.getContext('2d');
         
         function resizeCanvas() {
-            // Use device pixel ratio for sharp rendering on high-DPI screens
-            const dpr = isMobile ? Math.min(window.devicePixelRatio, 2) : window.devicePixelRatio || 1;
-            const rect = canvas.getBoundingClientRect();
-            
-            canvas.width = rect.width * dpr;
-            canvas.height = rect.height * dpr;
-            
-            canvas.style.width = rect.width + 'px';
-            canvas.style.height = rect.height + 'px';
-            
-            ctx.scale(dpr, dpr);
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
         }
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
