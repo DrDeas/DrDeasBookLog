@@ -4362,8 +4362,8 @@ const books = [
     "author": "Char Adams",
     "category": "Informational",
     "ownership": "Library",
-    "status": "In Progress",
-    "dateCompleted": "",
+    "status": "Finished",
+    "dateCompleted": "2026-01-08",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00364.jpg",
     "id": 364,
     "summary": "This book offers a deeply compelling and rigorously reported history of Black political movements, told through the lens of Black-owned bookstores. These institutions have been essential centers for organizing, from the abolition movement to the Civil Rights Movement and Black Lives Matter. Populated by vibrant characters and written with cinematic flair, this book is an enlightening story of community, resistance, and joy, highlighting the courageous, determined, and tenacious people who ran legendary bookstores across the country, emphasizing their importance in providing space to voices that matter despite struggles like overt racism, gentrification, and the online revolution."
