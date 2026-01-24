@@ -4383,7 +4383,7 @@ const books = [
   {
     "number": 366,
     "title": "Who Is Government?: The Untold Story of Public Service",
-    "author": "Michael Lewis",
+    "author": "Michael Lewis (Editor)",
     "category": "Policy and Politics",
     "ownership": "Library",
     "status": "Finished",
