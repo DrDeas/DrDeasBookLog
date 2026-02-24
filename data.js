@@ -4399,7 +4399,7 @@ const books = [
     "category": "Self-Development",
     "ownership": "Library",
     "status": "In Progress",
-    "dateCompleted": "",
+    "dateCompleted": "2026-02-24",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00367.jpg",
     "id": 367,
     "summary": "This book explores the \"Upper Limit Problem,\" which is the tendency people have to sabotage their success and happiness when things are going well, due to unconscious fears and limiting beliefs. It teaches readers how to overcome these self-imposed barriers by identifying four different zones of operation—Incompetence, Competence, Excellence, and Genius—and provides strategies, such as using the Ultimate Success Mantra and the Enlightened No, to consistently live in their Zone of Genius, where they can achieve their full potential in love, abundance, and creativity."
