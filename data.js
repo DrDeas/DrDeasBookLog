@@ -4420,7 +4420,7 @@ const books = [
     "number": 369,
     "title": "Liliana's Invincible Summer",
     "author": "Cristina Rivera Garza",
-    "category": "Biography",
+    "category": "Memoir/Autobiography",
     "ownership": "Physical",
     "status": "In Progress",
     "dateCompleted": "",
