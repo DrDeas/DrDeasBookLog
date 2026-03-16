@@ -4410,8 +4410,8 @@ const books = [
     "author": "Ezra Klein, Derek Thompson",
     "category": "Policy and Politics",
     "ownership": "Digital",
-    "status": "In Progress",
-    "dateCompleted": "",
+    "status": "Finished",
+    "dateCompleted": "2026-03-11",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00368.jpg",
     "id": 368,
     "summary": "This book argues that modern American life is defined by artificial scarcities in housing, energy, and innovation caused by a regulatory environment that prioritizes process and blocking harm over building and progress. The authors trace how well-intentioned laws from the 1970s have become bureaucratic obstacles to solving 21st-century crises like climate change and unaffordability. By proposing a \"liberalism that builds,\" the text calls for a shift toward a supply-side politics of plenty that empowers the government to accelerate scientific research, streamline infrastructure projects, and reform land-use laws to create a more prosperous and equitable future."
