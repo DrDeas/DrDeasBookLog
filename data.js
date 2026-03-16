@@ -4415,5 +4415,41 @@ const books = [
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00368.jpg",
     "id": 368,
     "summary": "This book argues that modern American life is defined by artificial scarcities in housing, energy, and innovation caused by a regulatory environment that prioritizes process and blocking harm over building and progress. The authors trace how well-intentioned laws from the 1970s have become bureaucratic obstacles to solving 21st-century crises like climate change and unaffordability. By proposing a \"liberalism that builds,\" the text calls for a shift toward a supply-side politics of plenty that empowers the government to accelerate scientific research, streamline infrastructure projects, and reform land-use laws to create a more prosperous and equitable future."
+  },
+  {
+    "number": 369,
+    "title": "Liliana's Invincible Summer",
+    "author": "Cristina Rivera Garza",
+    "category": "Biography",
+    "ownership": "Physical",
+    "status": "In Progress",
+    "dateCompleted": "",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00369.jpg",
+    "id": 369,
+    "summary": "This genre-defying memoir follows the author's return to Mexico City nearly thirty years after her sister’s murder to search for an unresolved criminal file. Through a blend of investigative journalism, poetic biography, and personal archive, the author reconstructs the life of a spirited architecture student who was killed by an abusive ex-boyfriend in 1990. By curating letters, police reports, and interviews with loved ones, the narrative confronts the trauma of loss while examining the systemic issue of femicide and the failure of the justice system. Ultimately, the work serves as both a searing account of grief and a powerful tribute that restores the victim's voice and vitality."
+  },
+  {
+    "number": 370,
+    "title": "A Worthy Piece of Work: The Untold Story of Madeline Morgan and the Fight for Black History in Schools",
+    "author": "Michael Hines",
+    "category": "Biography",
+    "ownership": "Physical",
+    "status": "In Progress",
+    "dateCompleted": "",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00370.jpg",
+    "id": 370,
+    "summary": "This biography tells the story of Madeline Morgan, a pioneering Black educator and activist in WWII-era Chicago who fought to include Black history in the curriculum of one of the nation's largest school systems. By authoring original curricula and creating powerful counternarratives, Morgan bolstered claims for Black recognition and equal citizenship during a time of intense segregation. Her work gained national attention as a model for schools across the country, highlighting the transformative role of Black women teachers in challenging systemic racism. This study situates her contributions within the broader struggle for racial representation in American education, offering a timely exploration of how educators have historically spoken truth to power."
+  },
+  {
+    "number": 371,
+    "title": "How to Breathe: 25 Simple Practices for Calm, Joy, and Resilience",
+    "author": "Ashley Neese",
+    "category": "Self-Development",
+    "ownership": "Physical",
+    "status": "In Progress",
+    "dateCompleted": "",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00371.jpg",
+    "id": 371,
+    "summary": "This practical guide introduces twenty-five simple breathing exercises designed to help readers manage stress, find calm, and build emotional resilience. By focusing on the foundational power of the breath, the author provides accessible tools for navigating daily challenges and improving overall well-being. Each practice is intended to be integrated easily into a busy life, offering a holistic approach to mindfulness and self-care."
   }
 ];
