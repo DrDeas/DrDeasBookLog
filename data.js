@@ -4422,8 +4422,8 @@ const books = [
     "author": "Cristina Rivera Garza",
     "category": "Memoir/Autobiography",
     "ownership": "Physical",
-    "status": "In Progress",
-    "dateCompleted": "",
+    "status": "Finished",
+    "dateCompleted": "2026-03-31",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00369.jpg",
     "id": 369,
     "summary": "This genre-defying memoir follows the author's return to Mexico City nearly thirty years after her sister’s murder to search for an unresolved criminal file. Through a blend of investigative journalism, poetic biography, and personal archive, the author reconstructs the life of a spirited architecture student who was killed by an abusive ex-boyfriend in 1990. By curating letters, police reports, and interviews with loved ones, the narrative confronts the trauma of loss while examining the systemic issue of femicide and the failure of the justice system. Ultimately, the work serves as both a searing account of grief and a powerful tribute that restores the victim's voice and vitality."
