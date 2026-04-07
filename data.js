@@ -4434,8 +4434,8 @@ const books = [
     "author": "Michael Hines",
     "category": "Biography",
     "ownership": "Physical",
-    "status": "In Progress",
-    "dateCompleted": "",
+    "status": "Finished",
+    "dateCompleted": "2026-04-07",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00370.jpg",
     "id": 370,
     "summary": "This biography tells the story of Madeline Morgan, a pioneering Black educator and activist in WWII-era Chicago who fought to include Black history in the curriculum of one of the nation's largest school systems. By authoring original curricula and creating powerful counternarratives, Morgan bolstered claims for Black recognition and equal citizenship during a time of intense segregation. Her work gained national attention as a model for schools across the country, highlighting the transformative role of Black women teachers in challenging systemic racism. This study situates her contributions within the broader struggle for racial representation in American education, offering a timely exploration of how educators have historically spoken truth to power."
