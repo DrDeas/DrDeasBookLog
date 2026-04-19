@@ -4442,14 +4442,26 @@ const books = [
   },
   {
     "number": 371,
+    "title": "Open to Work: How to Get Ahead in the Age of AI",
+    "author": "Ryan Roslansky, Aneesh Raman",
+    "category": "Business",
+    "ownership": "Digital",
+    "status": "Finished",
+    "dateCompleted": "2026-04-18",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00371.jpg",
+    "id": 371,
+    "summary": "This book serves as a practical guide for navigating the evolving professional landscape as artificial intelligence transforms the nature of work. Drawing on real-time data from LinkedIn and Microsoft, the authors argue that success in this new era requires moving beyond outdated career models to embrace a mindset centered on adaptability and uniquely human strengths. The authors provide actionable frameworks to help individuals determine which tasks to delegate to technology and which core capabilities to deepen. Ultimately, the text encourages readers to view AI as a collaborative tool rather than a threat, ensuring they remain competitive and irreplaceable in a rapidly changing global economy."
+  },
+  {
+    "number": 372,
     "title": "How to Breathe: 25 Simple Practices for Calm, Joy, and Resilience",
     "author": "Ashley Neese",
     "category": "Self-Development",
     "ownership": "Physical",
     "status": "In Progress",
     "dateCompleted": "",
-    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00371.jpg",
-    "id": 371,
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00372.jpg",
+    "id": 372,
     "summary": "This practical guide introduces twenty-five simple breathing exercises designed to help readers manage stress, find calm, and build emotional resilience. By focusing on the foundational power of the breath, the author provides accessible tools for navigating daily challenges and improving overall well-being. Each practice is intended to be integrated easily into a busy life, offering a holistic approach to mindfulness and self-care."
   }
 ];
