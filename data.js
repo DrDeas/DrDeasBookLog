@@ -4458,8 +4458,8 @@ const books = [
     "author": "Ashley Neese",
     "category": "Self-Development",
     "ownership": "Physical",
-    "status": "In Progress",
-    "dateCompleted": "",
+    "status": "Finished",
+    "dateCompleted": "2026-04-22",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00372.jpg",
     "id": 372,
     "summary": "This practical guide introduces twenty-five simple breathing exercises designed to help readers manage stress, find calm, and build emotional resilience. By focusing on the foundational power of the breath, the author provides accessible tools for navigating daily challenges and improving overall well-being. Each practice is intended to be integrated easily into a busy life, offering a holistic approach to mindfulness and self-care."
