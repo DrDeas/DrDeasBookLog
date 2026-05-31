@@ -4471,7 +4471,7 @@ const books = [
     "category": "Philosophy",
     "ownership": "Physical",
     "status": "Finished",
-    "dateCompleted": "46144",
+    "dateCompleted": "2026-05-02",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00373.jpg",
     "id": 373,
     "summary": "This 1927 treatise by prominent American philosopher John Dewey explores the viability of democracy in an increasingly complex, technological, and bureaucratic society. Written as a response to contemporary critics who advocated for technocratic rule by elites, the work argues that a \"public\" is formed when individuals recognize that private transactions have indirect consequences—or externalities—that require systematic management by a state. The author contends that democracy is not merely a set of institutional arrangements but a social and ethical ideal that requires active civic participation and robust communication to overcome the distortions of special interests and specialized labor. Ultimately, the book presents democracy as an ongoing experimental project rooted in local communal life, suggesting that the solution to its flaws lies in better education and the collaborative exchange of knowledge between citizens and experts."
@@ -4483,7 +4483,7 @@ const books = [
     "category": "Novel",
     "ownership": "Digital",
     "status": "Finished",
-    "dateCompleted": "46165",
+    "dateCompleted": "2026-05-23",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00374.jpg",
     "id": 374,
     "summary": "This classic gothic novella explores the duality of human nature and the thin line between respectability and depravity. Set in the fog-shrouded streets of Victorian London, the story follows a rational lawyer who becomes increasingly concerned by the mysterious connection between his esteemed friend, a brilliant doctor, and a violent, loathsome individual. As a series of disturbing crimes and strange occurrences unfold, the narrative delves into the consequences of suppressing one's darker impulses and the ethical limits of scientific experimentation. The atmospheric tale serves as a chilling examination of the internal struggle between good and evil that exists within every individual."
@@ -4495,7 +4495,7 @@ const books = [
     "category": "Biography",
     "ownership": "Physical",
     "status": "Finished",
-    "dateCompleted": "46167",
+    "dateCompleted": "2026-05-25",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00375.jpg",
     "id": 375,
     "summary": "This volume brings together nearly all of the artwork to date by acclaimed contemporary portraitist Amy Sherald, situating her work within the context of American realist and figurative painting. The book explores the artist's unique method of selecting subjects and using facial expressions, body language, and vibrant clothing to create paintings that expand the canon of American art and challenge traditional notions of identity. Featuring her most iconic portraits alongside rarely seen early works and new pieces, the collection is enriched by essays from curators and scholars who contextualize her use of grayscale skin tones and monochromatic backgrounds as a way to focus on the interiority and humanity of Black Americans. Ultimately, the work offers a powerful examination of race and representation, inviting readers to engage with the wide-open possibilities and complexities of every individual."
@@ -4507,7 +4507,7 @@ const books = [
     "category": "Philosophy",
     "ownership": "Physical",
     "status": "Finished",
-    "dateCompleted": "46170",
+    "dateCompleted": "2026-05-28",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00376.jpg",
     "id": 376,
     "summary": "This accessible introduction to philosophy explores nine fundamental problems that naturally puzzle the human mind, including the nature of reality, the mind-body problem, free will, morality, and the meaning of life. The author avoids technical jargon and historical context, instead using everyday analogies and direct inquiry to guide readers through complex concepts like solipsism, skepticism, and determinism. Rather than prescribing definitive answers, the text encourages readers to think critically and form their own conclusions about the world and their place within it."
@@ -4518,8 +4518,8 @@ const books = [
     "author": "William Shakespeare",
     "category": "Stage Play",
     "ownership": "Physical",
-    "status": "In Progress",
-    "dateCompleted": "",
+    "status": "Finished",
+    "dateCompleted": "2026-05-31",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00377.jpg",
     "id": 377,
     "summary": "In this classic tragedy by William Shakespeare, a noble and celebrated general of the Venetian army secretly marries a senator's daughter, sparking a series of events driven by deep-seated resentment and professional jealousy. The narrative centers on the calculated manipulation of the protagonist by his trusted but treacherous ensign, who orchestrates a complex web of lies to sow seeds of doubt regarding the wife's fidelity. As the setting shifts from Venice to the military outpost of Cyprus, the general is increasingly consumed by suspicion and insecurity, leading to a harrowing exploration of the destructive power of jealousy and the tragic consequences of misplaced trust."
