@@ -4530,8 +4530,8 @@ const books = [
     "author": "Jonah Berger",
     "category": "Social Science(s)",
     "ownership": "Physical",
-    "status": "In Progress",
-    "dateCompleted": "",
+    "status": "Finished",
+    "dateCompleted": "2026-06-16",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00378.jpg",
     "id": 378,
     "summary": "This book examines the science behind why certain products, ideas, and behaviors become popular and go viral. Drawing on extensive research, the author identifies six key principles—social currency, triggers, emotion, public visibility, practical value, and stories—that drive social transmission and word-of-mouth marketing. By analyzing case studies and psychological patterns, the text demonstrates that virality is not a matter of luck but a predictable result of how information is packaged and shared. The author provides a practical framework for creating contagious content that resonates with audiences and spreads effectively in both online and offline environments."
