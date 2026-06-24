@@ -1352,7 +1352,7 @@ body {
     color: var(--text-primary);
 }
 
-/* Modal footer: prev/next + share */
+/* Modal footer: prev/next + share — always a single row, 3 items */
 .modal-footer {
     display: flex;
     align-items: center;
@@ -1360,6 +1360,7 @@ body {
     padding: 16px 32px 24px;
     border-top: 1px solid var(--border-color);
     gap: 12px;
+    flex-wrap: nowrap;  /* never allow wrapping */
 }
 
 .modal-nav-btn {
@@ -1653,8 +1654,7 @@ body {
     }
 
     .modal-footer {
-        padding: 16px 24px 20px;
-        flex-wrap: wrap;
+        padding: 12px 20px 18px;
     }
 
     .page-title {
@@ -1724,8 +1724,29 @@ body {
     }
 
     .category-pills-wrapper {
-        max-height: 120px;
-        overflow-y: auto;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+        padding-bottom: 2px;
+    }
+
+    .category-pills-wrapper::-webkit-scrollbar {
+        display: none; /* Chrome/Safari */
+    }
+
+    .year-pills-wrapper {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 2px;
+    }
+
+    .year-pills-wrapper::-webkit-scrollbar {
+        display: none;
     }
 
     .book-list-meta {
@@ -2252,6 +2273,40 @@ body {
                 el.searchInput.select();
             }
         }
+
+        // ═══════════════════════════════════════════════
+        //  SWIPE GESTURES (modal prev/next on touch)
+        // ═══════════════════════════════════════════════
+        (function initSwipe() {
+            let touchStartX = 0;
+            let touchStartY = 0;
+            const SWIPE_THRESHOLD = 60;   // minimum px horizontal travel
+            const AXIS_LOCK = 40;         // if vertical travel exceeds this, ignore
+
+            const modalContent = document.querySelector('.modal-content');
+
+            modalContent.addEventListener('touchstart', e => {
+                touchStartX = e.touches[0].clientX;
+                touchStartY = e.touches[0].clientY;
+            }, { passive: true });
+
+            modalContent.addEventListener('touchend', e => {
+                if (!el.modal.classList.contains('active')) return;
+                const dx = e.changedTouches[0].clientX - touchStartX;
+                const dy = e.changedTouches[0].clientY - touchStartY;
+
+                // Ignore if primarily a vertical scroll
+                if (Math.abs(dy) > AXIS_LOCK) return;
+
+                if (dx < -SWIPE_THRESHOLD) {
+                    // Swiped left → next book
+                    navigateModal(1);
+                } else if (dx > SWIPE_THRESHOLD) {
+                    // Swiped right → previous book
+                    navigateModal(-1);
+                }
+            }, { passive: true });
+        })();
 
         // ═══════════════════════════════════════════════
         //  VIEW SWITCHING
