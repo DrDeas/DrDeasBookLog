@@ -2687,6 +2687,8 @@ body {
             if (newIdx < 0 || newIdx >= currentFilteredBooks.length) return;
             currentModalIndex = newIdx;
             renderModalContent(currentFilteredBooks[newIdx], null);
+            // Return to top of modal so user sees title/cover, not mid-summary
+            document.querySelector('.modal-content').scrollTop = 0;
         }
 
         function closeModal() {
