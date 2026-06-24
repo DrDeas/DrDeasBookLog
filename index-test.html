@@ -1364,19 +1364,26 @@ body {
 }
 
 .modal-nav-btn {
-    padding: 10px 20px;
+    padding: 10px 16px;
     border: 2px solid var(--border-color);
     border-radius: 12px;
     background: var(--surface-input);
     color: var(--text-primary);
     font-family: 'Nunito', sans-serif;
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     font-weight: 600;
     cursor: pointer;
     transition: var(--transition-smooth);
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 6px;
+    gap: 4px;
+    min-width: 64px;
+}
+
+.modal-nav-btn .btn-icon {
+    font-size: 1.1rem;
+    line-height: 1;
 }
 
 .modal-nav-btn:hover:not(:disabled) {
@@ -1395,19 +1402,26 @@ body {
 }
 
 .modal-share-btn {
-    padding: 10px 20px;
+    padding: 10px 16px;
     border: 2px solid var(--border-color);
     border-radius: 12px;
     background: var(--surface-input);
     color: var(--text-secondary);
     font-family: 'Nunito', sans-serif;
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     font-weight: 600;
     cursor: pointer;
     transition: var(--transition-smooth);
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 6px;
+    gap: 4px;
+    min-width: 64px;
+}
+
+.modal-share-btn .btn-icon {
+    font-size: 1.1rem;
+    line-height: 1;
 }
 
 .modal-share-btn:hover {
@@ -1986,9 +2000,18 @@ body {
                 <p class="modal-summary" id="modalSummary">Book summary goes here...</p>
             </div>
             <div class="modal-footer">
-                <button class="modal-nav-btn" id="modalPrevBtn" aria-label="Previous book">← Prev</button>
-                <button class="modal-share-btn" id="modalShareBtn" aria-label="Copy link to this book">🔗 Share</button>
-                <button class="modal-nav-btn" id="modalNextBtn" aria-label="Next book">Next →</button>
+                <button class="modal-nav-btn" id="modalPrevBtn" aria-label="Previous book">
+                    <span class="btn-icon">←</span>
+                    <span>Prev</span>
+                </button>
+                <button class="modal-share-btn" id="modalShareBtn" aria-label="Copy link to this book">
+                    <span class="btn-icon">🔗</span>
+                    <span>Share</span>
+                </button>
+                <button class="modal-nav-btn" id="modalNextBtn" aria-label="Next book">
+                    <span class="btn-icon">→</span>
+                    <span>Next</span>
+                </button>
             </div>
         </div>
     </div>
@@ -2678,7 +2701,7 @@ body {
 
             el.modalPrevBtn.disabled = currentModalIndex <= 0;
             el.modalNextBtn.disabled = currentModalIndex >= currentFilteredBooks.length - 1;
-            el.modalShareBtn.innerHTML = '🔗 Share';
+            el.modalShareBtn.innerHTML = '<span class="btn-icon">🔗</span><span>Share</span>';
             el.modalShareBtn.classList.remove('copied');
         }
 
@@ -2708,9 +2731,9 @@ body {
             const book = currentFilteredBooks[currentModalIndex];
             const url  = `${window.location.origin}${window.location.pathname}?book=${book.number}`;
             navigator.clipboard.writeText(url).then(() => {
-                el.modalShareBtn.innerHTML = '✓ Copied!';
+                el.modalShareBtn.innerHTML = '<span class="btn-icon">✓</span><span>Copied!</span>';
                 el.modalShareBtn.classList.add('copied');
-                setTimeout(() => { el.modalShareBtn.innerHTML = '🔗 Share'; el.modalShareBtn.classList.remove('copied'); }, 2000);
+                setTimeout(() => { el.modalShareBtn.innerHTML = '<span class="btn-icon">🔗</span><span>Share</span>'; el.modalShareBtn.classList.remove('copied'); }, 2000);
             }).catch(() => showToast('Could not copy. URL: ' + url));
         }
 
