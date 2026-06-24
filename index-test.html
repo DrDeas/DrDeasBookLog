@@ -467,6 +467,61 @@ body {
     border-color: var(--sage);
 }
 
+/* Year filter pills — reuse category pill styles, slight accent difference */
+.year-pills-wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.year-pills-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-secondary);
+    margin-right: 4px;
+    white-space: nowrap;
+}
+
+.year-pill {
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 2px solid var(--border-color);
+    background: var(--surface-input);
+    color: var(--text-secondary);
+    transition: var(--transition-smooth);
+    white-space: nowrap;
+    font-family: 'Nunito', sans-serif;
+}
+
+.year-pill:hover {
+    border-color: var(--peach);
+    color: var(--peach);
+}
+
+.year-pill.active {
+    background: var(--peach);
+    border-color: var(--peach);
+    color: white;
+}
+
+.year-pill.all-year-pill.active {
+    background: var(--charcoal);
+    border-color: var(--charcoal);
+    color: white;
+}
+
+[data-theme="dark"] .year-pill.all-year-pill.active {
+    background: var(--peach);
+    border-color: var(--peach);
+}
+
 /* Results info row */
 .results-info {
     display: flex;
@@ -1494,6 +1549,25 @@ body {
     cursor: pointer;
 }
 
+.mobile-dark-btn {
+    width: 44px;
+    height: 44px;
+    border: none;
+    background: rgba(253, 246, 233, 0.15);
+    border-radius: 12px;
+    color: #FDF6E9;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-smooth);
+}
+
+.mobile-dark-btn:hover {
+    background: rgba(253, 246, 233, 0.25);
+}
+
 .sidebar-overlay {
     display: none;
     position: fixed;
@@ -1737,7 +1811,10 @@ body {
     <div class="mobile-header">
         <div class="mobile-header-content">
             <span class="mobile-title">📚 Dr. Deas Book Log</span>
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation menu">☰</button>
+            <div style="display:flex;gap:8px;align-items:center;">
+                <button class="mobile-dark-btn" id="mobileDarkBtn" aria-label="Toggle dark mode">🌙</button>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation menu">☰</button>
+            </div>
         </div>
     </div>
 
@@ -1747,7 +1824,7 @@ body {
         <aside class="sidebar" id="sidebar" aria-label="Site navigation">
             <div class="sidebar-header">
                 <a href="https://drdeas.com" class="sidebar-logo" aria-label="Visit drdeas.com">
-                    <img src="https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/DrDeas_curious.jpeg" alt="Dr. Deas">
+                    <img src="https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/DrDeas_curious.jpeg" alt="Dr. Deas" loading="lazy">
                 </a>
                 <h1 class="sidebar-title">Dr. Deas Book Log</h1>
             </div>
@@ -1793,7 +1870,7 @@ body {
                     <div class="search-wrapper">
                         <span class="search-icon" aria-hidden="true">🔍</span>
                         <input type="text" class="search-input" id="searchInput"
-                               placeholder="Search by title or author... (press / to focus)"
+                               placeholder="Search by title or author..."
                                aria-label="Search books by title or author">
                     </div>
                     <select class="filter-select" id="ownershipFilter" aria-label="Filter by format">
@@ -1811,6 +1888,7 @@ body {
                         <option value="category">By Category</option>
                     </select>
                     <div class="category-pills-wrapper" id="categoryPillsWrapper" role="group" aria-label="Filter by category"></div>
+                    <div class="year-pills-wrapper" id="yearPillsWrapper" role="group" aria-label="Filter by year completed"></div>
                 </div>
 
                 <div class="results-info">
@@ -1933,6 +2011,7 @@ body {
         let currentFilteredBooks = [];
         let currentViewMode      = localStorage.getItem('drdeas-viewmode') || 'grid';
         let activeCategoryPills  = new Set();
+        let activeYearPills      = new Set();   // year filter state
         let currentModalIndex    = -1;
 
         // ═══════════════════════════════════════════════
@@ -1950,6 +2029,7 @@ body {
             statusFilter:   document.getElementById('statusFilter'),
             sortFilter:     document.getElementById('sortFilter'),
             categoryPills:  document.getElementById('categoryPillsWrapper'),
+            yearPills:      document.getElementById('yearPillsWrapper'),
             bookGrid:       document.getElementById('bookGrid'),
             resultsCount:   document.getElementById('resultsCount'),
             pagination:     document.getElementById('pagination'),
@@ -1971,6 +2051,7 @@ body {
             modalNextBtn:   document.getElementById('modalNextBtn'),
             modalShareBtn:  document.getElementById('modalShareBtn'),
             mobileMenuBtn:  document.getElementById('mobileMenuBtn'),
+            mobileDarkBtn:  document.getElementById('mobileDarkBtn'),
             sidebar:        document.getElementById('sidebar'),
             sidebarOverlay: document.getElementById('sidebarOverlay'),
             darkModeToggle: document.getElementById('darkModeToggle'),
@@ -1986,6 +2067,7 @@ body {
             initDarkMode();
             populateFilters();
             buildCategoryPills();
+            buildYearPills();
             updateProgress();
             updateChallenge2026Progress();
             applyInitialViewMode();
@@ -2006,6 +2088,11 @@ body {
             localStorage.setItem('drdeas-theme', theme);
             el.darkModeIcon.textContent  = theme === 'dark' ? '☀️' : '🌙';
             el.darkModeLabel.textContent = theme === 'dark' ? 'Light mode' : 'Dark mode';
+            // Sync mobile header button
+            if (el.mobileDarkBtn) {
+                el.mobileDarkBtn.textContent = theme === 'dark' ? '☀️' : '🌙';
+                el.mobileDarkBtn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+            }
         }
 
         // ═══════════════════════════════════════════════
@@ -2062,6 +2149,12 @@ body {
                 refreshPillUI();
             }
 
+            const yrs = params.get('years');
+            if (yrs) {
+                activeYearPills = new Set(yrs.split(',').map(Number).filter(y => !isNaN(y)));
+                refreshYearPillUI();
+            }
+
             // Legacy hash-based nav
             if (hash === 'finished') {
                 switchView('library'); el.statusFilter.value = 'Finished';
@@ -2088,6 +2181,7 @@ body {
             if (el.sortFilter.value && el.sortFilter.value !== 'number') params.set('sort', el.sortFilter.value);
             if (currentPage > 1)          params.set('page',      currentPage);
             if (activeCategoryPills.size > 0) params.set('categories', [...activeCategoryPills].join(','));
+            if (activeYearPills.size > 0)     params.set('years',      [...activeYearPills].join(','));
             const qs = params.toString();
             history.replaceState(null, '', qs ? `${window.location.pathname}?${qs}` : window.location.pathname);
         }
@@ -2125,6 +2219,10 @@ body {
             el.sidebarOverlay.addEventListener('click', toggleSidebar);
 
             el.darkModeToggle.addEventListener('click', () => {
+                const cur = document.documentElement.getAttribute('data-theme');
+                applyTheme(cur === 'dark' ? 'light' : 'dark');
+            });
+            el.mobileDarkBtn.addEventListener('click', () => {
                 const cur = document.documentElement.getAttribute('data-theme');
                 applyTheme(cur === 'dark' ? 'light' : 'dark');
             });
@@ -2207,12 +2305,66 @@ body {
             });
         }
 
+        function buildYearPills() {
+            // Collect all years from finished books with a valid dateCompleted
+            const years = [...new Set(
+                books
+                    .filter(b => b.status === 'Finished' && b.dateCompleted)
+                    .map(b => new Date(b.dateCompleted).getFullYear())
+                    .filter(y => !isNaN(y))
+            )].sort((a, b) => b - a); // newest year first
+
+            el.yearPills.innerHTML = '<span class="year-pills-label">Year:</span>';
+
+            const allPill = document.createElement('button');
+            allPill.className = 'year-pill all-year-pill' + (activeYearPills.size === 0 ? ' active' : '');
+            allPill.textContent = 'All years';
+            allPill.setAttribute('aria-pressed', activeYearPills.size === 0 ? 'true' : 'false');
+            allPill.addEventListener('click', () => {
+                activeYearPills.clear();
+                refreshYearPillUI();
+                applyFilters();
+            });
+            el.yearPills.appendChild(allPill);
+
+            years.forEach(year => {
+                const pill = document.createElement('button');
+                pill.className = 'year-pill' + (activeYearPills.has(year) ? ' active' : '');
+                pill.textContent = year;
+                pill.dataset.year = year;
+                pill.setAttribute('aria-pressed', activeYearPills.has(year) ? 'true' : 'false');
+                pill.addEventListener('click', () => {
+                    activeYearPills.has(year) ? activeYearPills.delete(year) : activeYearPills.add(year);
+                    refreshYearPillUI();
+                    applyFilters();
+                });
+                el.yearPills.appendChild(pill);
+            });
+        }
+
+        function refreshYearPillUI() {
+            el.yearPills.querySelectorAll('.year-pill').forEach(pill => {
+                if (pill.classList.contains('all-year-pill')) {
+                    const isAll = activeYearPills.size === 0;
+                    pill.classList.toggle('active', isAll);
+                    pill.setAttribute('aria-pressed', isAll ? 'true' : 'false');
+                } else {
+                    const year = parseInt(pill.dataset.year, 10);
+                    const isActive = activeYearPills.has(year);
+                    pill.classList.toggle('active', isActive);
+                    pill.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+                }
+            });
+        }
+
         // ═══════════════════════════════════════════════
         //  FILTERS
         // ═══════════════════════════════════════════════
         function resetFilters() {
             el.statusFilter.value = ''; el.ownershipFilter.value = ''; el.searchInput.value = '';
-            activeCategoryPills.clear(); refreshPillUI(); applyFilters();
+            activeCategoryPills.clear(); refreshPillUI();
+            activeYearPills.clear(); refreshYearPillUI();
+            applyFilters();
         }
 
         function applyFilters() {
@@ -2227,7 +2379,13 @@ body {
                 const ownerMatch    = !ownership || book.ownership === ownership;
                 const statusMatch   = !status    || book.status    === status;
                 const catMatch      = activeCategoryPills.size === 0 || activeCategoryPills.has(book.category);
-                return (titleMatch || authorMatch) && ownerMatch && statusMatch && catMatch;
+                // Year filter: only applies to books with a parseable dateCompleted
+                const yearMatch     = activeYearPills.size === 0 || (() => {
+                    if (!book.dateCompleted) return false;
+                    const y = new Date(book.dateCompleted).getFullYear();
+                    return !isNaN(y) && activeYearPills.has(y);
+                })();
+                return (titleMatch || authorMatch) && ownerMatch && statusMatch && catMatch && yearMatch;
             });
 
             switch (sortBy) {
@@ -2339,7 +2497,7 @@ body {
                         <div class="book-list-row">
                             <span class="book-number-badge" aria-hidden="true">#${book.number}</span>
                             <div class="book-list-cover">
-                                <img src="${book.customCoverUrl}" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                                <img src="${book.customCoverUrl}" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
                                 <div class="cover-fallback ${getCategoryClass(book.category)}" style="display:none;" aria-hidden="true">
                                     <div class="initials">${getInitials(book.title)}</div>
                                 </div>
@@ -2362,7 +2520,7 @@ body {
                          aria-label="${book.title} by ${book.author}">
                         <div class="book-cover-wrapper">
                             <span class="book-number-badge" aria-hidden="true">#${book.number}</span>
-                            <img src="${book.customCoverUrl}" alt="${book.title}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                            <img src="${book.customCoverUrl}" alt="${book.title}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
                             <div class="cover-fallback ${getCategoryClass(book.category)}" style="display:none;" aria-hidden="true">
                                 <div class="initials">${getInitials(book.title)}</div>
                                 <div class="title-text">${book.title.length>30?book.title.substring(0,27)+'...':book.title}</div>
@@ -2445,7 +2603,7 @@ body {
             document.getElementById('modalSummary').textContent    = book.summary || 'No summary available for this book.';
 
             const coverWrapper = document.getElementById('modalCoverWrapper');
-            coverWrapper.innerHTML = '<img id="modalCoverImg" src="" alt="Book Cover">';
+            coverWrapper.innerHTML = '<img id="modalCoverImg" src="" alt="Book Cover" loading="lazy">';
             const coverImg = document.getElementById('modalCoverImg');
             coverImg.src   = book.customCoverUrl;
             coverImg.alt   = `Cover of ${book.title}`;
@@ -2480,6 +2638,9 @@ body {
             el.modal.classList.remove('active');
             document.body.style.overflow = '';
             currentModalIndex = -1;
+            // Strip ?book= from URL and restore active filter params.
+            // Prevents stale ?book= re-opening the modal on refresh.
+            pushUrlParams();
         }
 
         // ═══════════════════════════════════════════════
@@ -2568,7 +2729,7 @@ body {
                         </div>
                         <div class="book-content-row">
                             <div class="book-cover-small">
-                                <img src="${book.customCoverUrl}" alt="${book.title}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                                <img src="${book.customCoverUrl}" alt="${book.title}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
                                 <div class="cover-fallback-small ${getCategoryClass(book.category)}" style="display:none;" aria-hidden="true"><div class="initials">${getInitials(book.title)}</div></div>
                             </div>
                             <div class="book-details-col">
@@ -2590,7 +2751,7 @@ body {
                         <div class="week-indicator bonus" aria-hidden="true"><span class="week-status-icon">⭐</span><span class="week-number">+1</span><span class="week-label">Bonus</span></div>
                         <div class="book-content-row">
                             <div class="book-cover-small">
-                                <img src="${bonus.customCoverUrl}" alt="${bonus.title}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                                <img src="${bonus.customCoverUrl}" alt="${bonus.title}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
                                 <div class="cover-fallback-small ${getCategoryClass(bonus.category)}" style="display:none;" aria-hidden="true"><div class="initials">${getInitials(bonus.title)}</div></div>
                             </div>
                             <div class="book-details-col">
