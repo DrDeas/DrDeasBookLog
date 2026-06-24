@@ -4542,8 +4542,8 @@ const books = [
     "author": "Guy Debord",
     "category": "Philosophy",
     "ownership": "Physical",
-    "status": "In Progress",
-    "dateCompleted": "",
+    "status": "Finished",
+    "dateCompleted": "2026-06-23",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00379.jpg",
     "id": 379,
     "summary": "This seminal work of Marxist critical theory argues that modern life has been replaced by its representation, a phenomenon termed the spectacle. The author contends that authentic social existence has declined from being into having, and finally into merely appearing, where genuine human relationships are supplanted by those mediated through images and commodities. By analyzing the shift of alienation from the workplace to the marketplace, the text critiques how consumer culture and mass media function as a social organization that separates individuals from reality and their own historical agency. Ultimately, the work serves as a radical call for revolutionary change, urging the reclamation of directly lived experience and the overthrow of the capitalist structures that prioritize appearance over essence."
@@ -4554,8 +4554,8 @@ const books = [
     "author": "Guy Debord",
     "category": "Philosophy",
     "ownership": "Physical",
-    "status": "In Progress",
-    "dateCompleted": "",
+    "status": "Finished",
+    "dateCompleted": "2026-06-24",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00380.jpg",
     "id": 380,
     "summary": "Published twenty years after the author's seminal work, this text revisits and updates the theory of a society dominated by images and representations. The author argues that the earlier forms of spectacular control have fused into an \"integrated spectacle,\" a totalizing system that combines the features of previous models to achieve a more pervasive and undisputed reign over reality. Through a series of brief observations, the book examines how this evolved state of affairs has successfully eroded historical knowledge, fostered a permanent present, and neutralized critical thought. It highlights the expansion of the market economy's autocratic rule and the emergence of new techniques of government that utilize the media to obfuscate truth, effectively turning the world into a site where genuine human interaction is increasingly mediated and replaced by the dictates of a quasi-autonomous economy."
