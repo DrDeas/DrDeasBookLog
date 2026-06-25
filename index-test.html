@@ -357,7 +357,7 @@ body {
 
 .search-wrapper {
     flex: 1;
-    min-width: 250px;
+    min-width: 200px;
     position: relative;
 }
 
@@ -1626,8 +1626,10 @@ body {
     }
 
     .filter-bar {
-        padding: 16px 20px;
+        padding: 14px 16px;
         border-radius: 20px;
+        gap: 10px;
+        margin-bottom: 16px;
     }
 
     .search-wrapper {
@@ -1636,12 +1638,26 @@ body {
 
     .filter-select {
         flex: 1;
-        min-width: calc(50% - 8px);
+        min-width: calc(50% - 6px);
+        max-width: calc(50% - 6px);
+        font-size: 0.85rem;
+        padding: 10px 32px 10px 12px;
+    }
+
+    .category-pills-wrapper,
+    .year-pills-wrapper {
+        gap: 6px;
+    }
+
+    .category-pill,
+    .year-pill {
+        padding: 5px 11px;
+        font-size: 0.75rem;
     }
 
     .book-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
+        gap: 12px;
     }
 
     .modal-header {
@@ -1669,6 +1685,10 @@ body {
 
     .modal-footer {
         padding: 12px 20px 18px;
+    }
+
+    .results-info {
+        margin-bottom: 12px;
     }
 
     .page-title {
