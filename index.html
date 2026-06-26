@@ -1,1378 +1,1951 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Dr. Eldrin L. Deas">
     <title>Dr. Deas Book Log - 1,000 Books in 1,000 Weeks</title>
-
     <meta property="og:title" content="Dr. Deas Book Log">
     <meta property="og:description" content="Track Dr. Deas's progress in the 1,000 Books in 1,000 Weeks Reading Challenge and the 2026 Book Recs.">
     <meta name="keywords" content="reading list, book log, literature, non-fiction, biography, science, technology, AI, artificial intelligence, business, education, poetry, philosophy, novel, policy, politics, religion, self-development, finance, memoir, autobiography, race, class, gender, social science, art, music, Dr. Deas">
     <meta property="og:image" content="https://drdeas.github.io/DrDeasBookLog/caged_bird.png">
     <meta property="og:url" content="https://drdeas.com/DrDeasBookLog/index.html">
     <meta property="og:type" content="website">
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
     <style>
-        :root {
-            /* Warm Color Palette */
-            --cream: #FDF6E9;
-            --cream-dark: #F5ECD8;
-            --sage: #6B8E6B;
-            --sage-light: #A8B5A0;
-            --sage-muted: #C4D1BC;
-            --coral: #D94E41;
-            --coral-soft: #E85D4A;
-            --peach: #F4A259;
-            --golden: #F8C56D;
-            --sunshine: #F8D54C;
-            --charcoal: #4A4A4A;
-            --charcoal-light: #6B6B6B;
-            
-            /* Status Colors */
-            --status-finished: #7BA37B;
-            --status-reading: #E8B86D;
-            --status-queued: #B8A8C8;
-            --status-completed: #7BA37B;
-            --status-current: #E8B86D;
-            --status-upcoming: #B8A8C8;
-            --status-bonus: #9B59B6;
-            
-            /* Ownership Colors */
-            --ownership-digital: #7B9EAB;
-            --ownership-physical: #C4A67C;
-            --ownership-library: #B08D8D;
-            
-            /* Shadows */
-            --shadow-soft: 0 4px 20px rgba(74, 74, 74, 0.08);
-            --shadow-medium: 0 8px 32px rgba(74, 74, 74, 0.12);
-            --shadow-hover: 0 12px 40px rgba(74, 74, 74, 0.16);
-            
-            /* Transitions */
-            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Nunito', sans-serif;
-            background: var(--cream);
-            color: var(--charcoal);
-            line-height: 1.6;
-            min-height: 100vh;
-        }
-
-        /* Layout */
-        .app-container {
-            display: flex;
-            min-height: 100vh;
-        }
-
-        /* Sidebar */
-        .sidebar {
-            width: 280px;
-            background: linear-gradient(180deg, var(--sage) 0%, #5A7D5A 100%);
-            padding: 32px 24px;
-            position: fixed;
-            height: 100vh;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            z-index: 50;
-        }
-
-        .sidebar-header {
-            text-align: center;
-            margin-bottom: 32px;
-        }
-
-        .sidebar-logo {
-            width: 80px;
-            height: 80px;
-            background: var(--cream);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 16px;
-            font-size: 36px;
-            box-shadow: var(--shadow-medium);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-            overflow: hidden;
-        }
-
-        .sidebar-logo:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-        }
-
-        .sidebar-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-        
-        .sidebar-title {
-            font-family: 'Quicksand', sans-serif;
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--cream);
-            margin-bottom: 4px;
-        }
-
-        .sidebar-subtitle {
-            font-size: 0.85rem;
-            color: var(--sage-muted);
-            font-weight: 400;
-        }
-
-        /* Progress Cards in Sidebar */
-        .progress-card {
-            background: rgba(253, 246, 233, 0.15);
-            border-radius: 16px;
-            padding: 20px;
-            margin-bottom: 16px;
-            backdrop-filter: blur(10px);
-        }
-
-        .progress-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: var(--sage-muted);
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .progress-value {
-            font-family: 'Quicksand', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--cream);
-            margin-bottom: 12px;
-        }
-
-        .progress-value span {
-            font-size: 1rem;
-            font-weight: 400;
-            opacity: 0.8;
-        }
-
-        .progress-bar-wrapper {
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 100px;
-            height: 8px;
-            overflow: hidden;
-        }
-
-        .progress-bar-fill {
-            height: 100%;
-            border-radius: 100px;
-            transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-        }
-
-        .progress-bar-fill.books {
-            background: linear-gradient(90deg, var(--peach), var(--golden));
-        }
-
-        .progress-bar-fill.weeks {
-            background: linear-gradient(90deg, #9878B8, #C8A8D8);
-        }
-
-        .progress-detail {
-            font-size: 0.8rem;
-            color: var(--sage-muted);
-            margin-top: 8px;
-            text-align: right;
-        }
-
-        /* Sidebar Navigation */
-        .sidebar-nav {
-            margin-top: auto;
-            padding-top: 24px;
-            border-top: 1px solid rgba(253, 246, 233, 0.2);
-        }
-
-        .nav-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 16px;
-            color: var(--sage-muted);
-            text-decoration: none;
-            border-radius: 12px;
-            transition: var(--transition-smooth);
-            font-weight: 500;
-            cursor: pointer;
-        }
-
-        .nav-item:hover, .nav-item.active {
-            background: rgba(253, 246, 233, 0.15);
-            color: var(--cream);
-        }
-
-        .nav-icon {
-            font-size: 1.2rem;
-        }
-
-        /* Main Content */
-        .main-content {
-            flex: 1;
-            margin-left: 280px;
-            padding: 32px 40px;
-            background: 
-                linear-gradient(
-                    rgba(253, 246, 233, 0.6), 
-                    rgba(253, 246, 233, 0.6)
-                ),
-                url('https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/paper_background.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            min-height: 100vh;
-        }
-
-        /* VIEW TOGGLING */
-        #view-library, #view-challenge {
-            animation: fadeIn 0.4s ease;
-        }
-
-        /* Header */
-        .page-header {
-            margin-bottom: 32px;
-            text-align: left;
-        }
-        /* Center header specifically for challenge view for better aesthetic */
-        #view-challenge .page-header {
-            text-align: center;
-            padding: 40px 20px;
-            background: white;
-            border-radius: 24px;
-            box-shadow: var(--shadow-soft);
-        }
-
-        .page-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--peach), var(--coral-soft));
-            color: white;
-            font-size: 0.85rem;
-            font-weight: 700;
-            padding: 8px 20px;
-            border-radius: 100px;
-            margin-bottom: 16px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .page-title {
-            font-family: 'Quicksand', sans-serif;
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--charcoal);
-            margin-bottom: 8px;
-        }
-
-        .page-description {
-            color: var(--charcoal-light);
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-        
-        #view-challenge .page-description {
-            max-width: 600px;
-            margin: 0 auto 24px;
-        }
-
-        /* Filter Bar */
-        .filter-bar {
-            background: white;
-            border-radius: 24px;
-            padding: 20px 28px;
-            margin-bottom: 32px;
-            box-shadow: var(--shadow-soft);
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            align-items: center;
-        }
-
-        .search-wrapper {
-            flex: 1;
-            min-width: 250px;
-            position: relative;
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--sage-light);
-            font-size: 1.1rem;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 14px 16px 14px 48px;
-            border: 2px solid var(--cream-dark);
-            border-radius: 16px;
-            font-family: 'Nunito', sans-serif;
-            font-size: 0.95rem;
-            color: var(--charcoal);
-            background: var(--cream);
-            transition: var(--transition-smooth);
-        }
-
-        .search-input:focus {
-            outline: none;
-            border-color: var(--sage);
-            background: white;
-        }
-
-        .search-input::placeholder {
-            color: var(--sage-light);
-        }
-
-        .filter-select {
-            padding: 14px 40px 14px 16px;
-            border: 2px solid var(--cream-dark);
-            border-radius: 16px;
-            font-family: 'Nunito', sans-serif;
-            font-size: 0.9rem;
-            color: var(--charcoal);
-            background: var(--cream) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236B8E6B' d='M6 8L1 3h10z'/%3E%3C/svg%3E") no-repeat right 16px center;
-            appearance: none;
-            cursor: pointer;
-            transition: var(--transition-smooth);
-            min-width: 150px;
-        }
-
-        .filter-select:focus {
-            outline: none;
-            border-color: var(--sage);
-            background-color: white;
-        }
-
-        /* Results Info */
-        .results-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 24px;
-            padding: 0 8px;
-        }
-
-        .results-count {
-            font-size: 0.9rem;
-            color: var(--charcoal-light);
-        }
-
-        .results-count strong {
-            color: var(--sage);
-            font-weight: 600;
-        }
-
-        /* --- LIBRARY VIEW: Book Grid --- */
-        .book-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-            gap: 24px;
-            margin-bottom: 32px;
-        }
-
-        .book-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow-soft);
-            transition: var(--transition-smooth);
-            cursor: pointer;
-            position: relative;
-        }
-
-        .book-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .book-cover-wrapper {
-            aspect-ratio: 2 / 3;
-            position: relative;
-            overflow: hidden;
-            background: var(--cream-dark);
-        }
-
-        .book-cover-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition-smooth);
-        }
-
-        .book-card:hover .book-cover-wrapper img {
-            transform: scale(1.05);
-        }
-
-        .book-number-badge {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            background: white;
-            color: var(--sage);
-            font-size: 0.75rem;
-            font-weight: 700;
-            padding: 4px 10px;
-            border-radius: 100px;
-            box-shadow: var(--shadow-soft);
-        }
-
-        .cover-fallback {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 16px;
-            text-align: center;
-        }
-
-        .cover-fallback .initials {
-            font-family: 'Quicksand', sans-serif;
-            font-size: 2rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 8px;
-            opacity: 0.9;
-        }
-
-        .cover-fallback .title-text {
-            font-size: 0.75rem;
-            color: white;
-            opacity: 0.8;
-            line-height: 1.3;
-        }
-
-        .book-info {
-            padding: 16px;
-        }
-
-        .book-title {
-            font-family: 'Quicksand', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--charcoal);
-            margin-bottom: 4px;
-            line-height: 1.3;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .book-author {
-            font-size: 0.8rem;
-            color: var(--charcoal-light);
-            display: -webkit-box;
-            -webkit-line-clamp: 1;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        /* --- CHALLENGE VIEW SPECIFIC STYLES --- */
-        .current-week-highlight {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background: var(--cream);
-            padding: 16px 28px;
-            border-radius: 16px;
-            border: 2px solid var(--sage-light);
-            margin-top: 16px;
-        }
-
-        .current-week-highlight .week-badge {
-            background: var(--sage);
-            color: white;
-            font-weight: 700;
-            padding: 6px 14px;
-            border-radius: 100px;
-            font-size: 0.9rem;
-        }
-
-        .current-week-highlight .week-text {
-            font-weight: 600;
-            color: var(--charcoal);
-        }
-
-        .welcome-section {
-            background: white;
-            border-radius: 24px;
-            padding: 40px;
-            margin-bottom: 32px;
-            box-shadow: var(--shadow-soft);
-        }
-
-        .welcome-title {
-            font-family: 'Quicksand', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--charcoal);
-            margin-bottom: 24px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .welcome-title::before {
-            content: '📚';
-            font-size: 2rem;
-        }
-
-        .welcome-content {
-            color: var(--charcoal);
-            font-size: 1.05rem;
-            line-height: 1.8;
-        }
-
-        .welcome-content p {
-            margin-bottom: 20px;
-        }
-
-        .welcome-highlight {
-            background: linear-gradient(135deg, var(--cream), var(--cream-dark));
-            padding: 24px;
-            border-radius: 16px;
-            border-left: 4px solid var(--sage);
-            margin-top: 24px;
-        }
-
-        .welcome-highlight strong {
-            color: var(--sage);
-            font-weight: 700;
-        }
-
-        .week-list {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .week-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow-soft);
-            transition: var(--transition-smooth);
-            display: flex;
-            position: relative;
-            cursor: pointer;
-        }
-
-        .week-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .week-card.current {
-            border: 3px solid var(--golden);
-            box-shadow: 0 8px 32px rgba(248, 197, 109, 0.25);
-        }
-
-        .week-card.completed {
-            opacity: 0.85;
-        }
-
-        .week-card.bonus {
-            border: 3px solid var(--status-bonus);
-            box-shadow: 0 8px 32px rgba(155, 89, 182, 0.25);
-        }
-
-        .week-indicator {
-            width: 100px;
-            min-width: 100px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 24px 16px;
-            position: relative;
-        }
-
-        .week-indicator.completed {
-            background: linear-gradient(135deg, var(--status-completed), #5A8D5A);
-        }
-
-        .week-indicator.current {
-            background: linear-gradient(135deg, var(--golden), var(--peach));
-        }
-
-        .week-indicator.upcoming {
-            background: linear-gradient(135deg, var(--sage-light), var(--sage-muted));
-        }
-
-        .week-indicator.bonus {
-            background: linear-gradient(135deg, #9B59B6, #8E44AD);
-        }
-
-        .week-number {
-            font-family: 'Quicksand', sans-serif;
-            font-size: 2rem;
-            font-weight: 700;
-            color: white;
-            line-height: 1;
-        }
-
-        .week-label {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: rgba(255, 255, 255, 0.9);
-            margin-top: 4px;
-            font-weight: 600;
-        }
-
-        .week-status-icon {
-            position: absolute;
-            top: 8px;
-            right: 8px;
-            font-size: 1rem;
-        }
-
-        .book-content-row {
-            flex: 1;
-            display: flex;
-            gap: 20px;
-            padding: 20px 24px;
-            align-items: center;
-        }
-
-        .book-cover-small {
-            width: 80px;
-            min-width: 80px;
-            aspect-ratio: 2 / 3;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: var(--shadow-soft);
-            background: var(--cream-dark);
-        }
-
-        .book-cover-small img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .cover-fallback-small {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 8px;
-            text-align: center;
-        }
-
-        .cover-fallback-small .initials {
-            font-family: 'Quicksand', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: white;
-            opacity: 0.9;
-        }
-
-        .book-details-col {
-            flex: 1;
-        }
-
-        .book-title-row {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 6px;
-        }
-
-        .book-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .book-tag {
-            padding: 5px 12px;
-            border-radius: 100px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: white;
-        }
-
-        /* Quarter Dividers */
-        .quarter-divider {
-            background: linear-gradient(135deg, var(--sage), #5A7D5A);
-            color: white;
-            padding: 16px 24px;
-            border-radius: 16px;
-            margin: 32px 0 24px;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .quarter-icon {
-            font-size: 2rem;
-        }
-
-        .quarter-info h3 {
-            font-family: 'Quicksand', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 2px;
-        }
-
-        .quarter-info p {
-            font-size: 0.85rem;
-            opacity: 0.9;
-        }
-
-        .bonus-divider {
-            background: linear-gradient(135deg, #9B59B6, #8E44AD);
-            color: white;
-            padding: 16px 24px;
-            border-radius: 16px;
-            margin: 40px 0 24px;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .bonus-icon {
-            font-size: 2rem;
-        }
-
-        .bonus-info h3 {
-            font-family: 'Quicksand', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 2px;
-        }
-
-        .bonus-info p {
-            font-size: 0.85rem;
-            opacity: 0.9;
-        }
-
-        /* Pagination */
-        .pagination {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 12px;
-            padding: 24px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: var(--shadow-soft);
-            flex-wrap: wrap;
-        }
-
-        .page-btn {
-            padding: 12px 20px;
-            border: none;
-            border-radius: 12px;
-            font-family: 'Nunito', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition-smooth);
-            background: var(--cream);
-            color: var(--charcoal);
-        }
-
-        .page-btn:hover:not(:disabled) {
-            background: var(--sage);
-            color: white;
-        }
-
-        .page-btn:disabled {
-            opacity: 0.4;
-            cursor: not-allowed;
-        }
-
-        .page-info {
-            font-weight: 600;
-            color: var(--charcoal);
-            padding: 0 16px;
-        }
-
-        .items-per-page {
-            padding: 12px 40px 12px 16px;
-            border: 2px solid var(--cream-dark);
-            border-radius: 12px;
-            font-family: 'Nunito', sans-serif;
-            font-size: 0.9rem;
-            color: var(--charcoal);
-            background: var(--cream) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236B8E6B' d='M6 8L1 3h10z'/%3E%3C/svg%3E") no-repeat right 12px center;
-            appearance: none;
-            cursor: pointer;
-        }
-
-        /* Modal */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(74, 74, 74, 0.5);
-            backdrop-filter: blur(4px);
-            z-index: 100;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .modal-overlay.active {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 24px;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideUp {
-            from { 
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to { 
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .modal-content {
-            background: white;
-            border-radius: 28px;
-            max-width: 800px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-            box-shadow: var(--shadow-hover);
-            animation: slideUp 0.3s ease;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 40px;
-            height: 40px;
-            border: none;
-            background: var(--cream);
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: var(--charcoal-light);
-            transition: var(--transition-smooth);
-            z-index: 10;
-        }
-
-        .modal-close:hover {
-            background: var(--coral-soft);
-            color: white;
-        }
-
-        .modal-header {
-            padding: 32px 32px 24px;
-            display: flex;
-            gap: 28px;
-            border-bottom: 1px solid var(--cream-dark);
-        }
-
-        .modal-cover {
-            flex-shrink: 0;
-            width: 180px;
-        }
-
-        .modal-cover img {
-            width: 100%;
-            border-radius: 16px;
-            box-shadow: var(--shadow-medium);
-        }
-
-        .modal-cover-fallback {
-            width: 100%;
-            aspect-ratio: 2 / 3;
-            border-radius: 16px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .modal-details {
-            flex: 1;
-            padding-right: 40px;
-        }
-
-        .modal-week-badge {
-            display: none; /* Hidden by default, shown for challenge items */
-            background: linear-gradient(135deg, var(--peach), var(--coral-soft));
-            color: white;
-            font-size: 0.85rem;
-            font-weight: 700;
-            padding: 6px 14px;
-            border-radius: 100px;
-            margin-bottom: 8px;
-        }
-        
-        .modal-week-badge.bonus {
-            background: linear-gradient(135deg, #9B59B6, #8E44AD);
-        }
-
-        .modal-book-number {
-            display: inline-block;
-            background: var(--sage);
-            color: white;
-            font-size: 0.85rem;
-            font-weight: 700;
-            padding: 6px 14px;
-            border-radius: 100px;
-            margin-bottom: 12px;
-        }
-
-        .modal-title {
-            font-family: 'Quicksand', sans-serif;
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--charcoal);
-            margin-bottom: 8px;
-            line-height: 1.3;
-        }
-
-        .modal-author {
-            font-size: 1.1rem;
-            color: var(--charcoal-light);
-            margin-bottom: 20px;
-        }
-
-        .modal-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .modal-tag {
-            padding: 8px 16px;
-            border-radius: 100px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: white;
-        }
-
-        .modal-body {
-            padding: 28px 32px 32px;
-        }
-
-        .modal-section-title {
-            font-family: 'Quicksand', sans-serif;
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--sage);
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .modal-summary {
-            font-size: 1rem;
-            line-height: 1.8;
-            color: var(--charcoal);
-        }
-
-        /* Back to Top Button */
-        .back-to-top {
-            position: fixed;
-            bottom: 32px;
-            right: 32px;
-            width: 52px;
-            height: 52px;
-            border: none;
-            border-radius: 50%;
-            background: var(--sage);
-            color: white;
-            font-size: 1.3rem;
-            cursor: pointer;
-            box-shadow: var(--shadow-medium);
-            transition: var(--transition-smooth);
-            opacity: 0;
-            visibility: hidden;
-            z-index: 50;
-        }
-
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            background: #5A7D5A;
-            transform: translateY(-4px);
-        }
-
-        /* Empty State */
-        .empty-state {
-            text-align: center;
-            padding: 80px 40px;
-            background: white;
-            border-radius: 24px;
-            box-shadow: var(--shadow-soft);
-        }
-
-        .empty-state-icon {
-            font-size: 4rem;
-            margin-bottom: 16px;
-        }
-
-        .empty-state-title {
-            font-family: 'Quicksand', sans-serif;
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--charcoal);
-            margin-bottom: 8px;
-        }
-
-        .empty-state-text {
-            color: var(--charcoal-light);
-        }
-
-        /* Mobile Header */
-        .mobile-header {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: var(--sage);
-            padding: 16px 20px;
-            z-index: 60;
-            box-shadow: var(--shadow-soft);
-        }
-
-        .mobile-header-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .mobile-title {
-            font-family: 'Quicksand', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--cream);
-        }
-
-        .mobile-menu-btn {
-            width: 44px;
-            height: 44px;
-            border: none;
-            background: rgba(253, 246, 233, 0.15);
-            border-radius: 12px;
-            color: var(--cream);
-            font-size: 1.3rem;
-            cursor: pointer;
-        }
-
-        .sidebar-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 45;
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .book-grid {
-                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-                gap: 20px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .mobile-header {
-                display: block;
-            }
-
-            .sidebar {
-                transform: translateX(-100%);
-                transition: transform 0.3s ease;
-                padding-top: 80px;
-            }
-
-            .sidebar.open {
-                transform: translateX(0);
-            }
-
-            .sidebar-overlay.active {
-                display: block;
-            }
-
-            .main-content {
-                margin-left: 0;
-                padding: 90px 20px 32px;
-            }
-
-            .filter-bar {
-                padding: 16px 20px;
-                border-radius: 20px;
-            }
-
-            .search-wrapper {
-                min-width: 100%;
-            }
-
-            .filter-select {
-                flex: 1;
-                min-width: calc(50% - 8px);
-            }
-
-            .book-grid {
-                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-                gap: 16px;
-            }
-
-            .modal-header {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                padding: 48px 24px 24px;
-                position: relative;
-            }
-            
-            .modal-book-number {
-               /* Allow standard flow in mobile unless needed absolute */
-               margin-bottom: 8px;
-            }
-            
-            .modal-details {
-                padding-right: 0;
-            }
-
-            .modal-cover {
-                width: 150px;
-            }
-
-            .modal-body {
-                padding: 24px;
-            }
-
-            .page-title {
-                font-size: 1.5rem;
-            }
-
-            .pagination {
-                padding: 20px;
-                gap: 8px;
-            }
-
-            .page-btn {
-                padding: 10px 16px;
-                font-size: 0.85rem;
-            }
-            
-            /* Challenge Responsive */
-            .week-card {
-                flex-direction: column;
-            }
-            
-            .week-indicator {
-                width: 100%;
-                min-width: auto;
-                flex-direction: row;
-                padding: 16px 20px;
-                gap: 12px;
-            }
-            
-            .week-number {
-                font-size: 1.5rem;
-            }
-            
-            .book-content-row {
-                padding: 16px;
-                flex-direction: row; /* CHANGED from column to row */
-                align-items: stretch; /* Aligned to stretch */
-                gap: 16px;
-            }
-            
-            .book-cover-small {
-                width: 80px; /* CHANGED from 100px back to 80px for better fit */
-                min-width: 80px; /* Ensure it doesn't shrink */
-            }
-
-            .book-details-col {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-            }
-
-            .book-tags {
-                margin-top: auto;
-            }
-
-            /* Remove title truncation on mobile */
-            .book-title {
-                display: block;
-                -webkit-line-clamp: unset;
-                white-space: normal;
-                overflow: visible;
-                margin-bottom: 4px;
-            }
-            
-            .quarter-divider,
-            .bonus-divider {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-
-        /* Category Colors */
-        .category-biography { background: linear-gradient(135deg, #F4A259 0%, #D94E41 100%); }
-        .category-business { background: linear-gradient(135deg, #7B9EAB 0%, #5A7D8A 100%); }
-        .category-education { background: linear-gradient(135deg, #6B8E6B 0%, #4A6D4A 100%); }
-        .category-essays { background: linear-gradient(135deg, #B8A8C8 0%, #9888A8 100%); }
-        .category-finance { background: linear-gradient(135deg, #C4A67C 0%, #A4865C 100%); }
-        .category-informational { background: linear-gradient(135deg, #7BA3A3 0%, #5A8282 100%); }
-        .category-memoir { background: linear-gradient(135deg, #E8B86D 0%, #C8984D 100%); }
-        .category-novel { background: linear-gradient(135deg, #D4847C 0%, #B4645C 100%); }
-        .category-philosophy { background: linear-gradient(135deg, #8B9EAB 0%, #6B7E8B 100%); }
-        .category-poetry { background: linear-gradient(135deg, #A8B5C8 0%, #8895A8 100%); }
-        .category-politics { background: linear-gradient(135deg, #AB8B8B 0%, #8B6B6B 100%); }
-        .category-race { background: linear-gradient(135deg, #6B8E6B 0%, #4A6D4A 100%); }
-        .category-religion { background: linear-gradient(135deg, #A8A8B8 0%, #888898 100%); }
-        .category-science { background: linear-gradient(135deg, #7B9EBB 0%, #5A7D9A 100%); }
-        .category-self { background: linear-gradient(135deg, #B8A8D8 0%, #9888B8 100%); }
-        .category-social { background: linear-gradient(135deg, #A8B5A0 0%, #889580 100%); }
-        .category-technology { background: linear-gradient(135deg, #8B9EAB 0%, #6B7E8B 100%); }
-        .category-stage { background: linear-gradient(135deg, #C8A8A8 0%, #A88888 100%); }
+:root {
+    --cream: #FDF6E9;
+    --cream-dark: #F5ECD8;
+    --sage: #6B8E6B;
+    --sage-light: #A8B5A0;
+    --sage-muted: #C4D1BC;
+    --coral: #D94E41;
+    --coral-soft: #E85D4A;
+    --peach: #F4A259;
+    --golden: #F8C56D;
+    --sunshine: #F8D54C;
+    --charcoal: #4A4A4A;
+    --charcoal-light: #6B6B6B;
+    --status-finished: #7BA37B;
+    --status-reading: #E8B86D;
+    --status-queued: #B8A8C8;
+    --status-completed: #7BA37B;
+    --status-current: #E8B86D;
+    --status-upcoming: #B8A8C8;
+    --status-bonus: #9B59B6;
+    --ownership-digital: #7B9EAB;
+    --ownership-physical: #C4A67C;
+    --ownership-library: #B08D8D;
+    --shadow-soft: 0 4px 20px rgba(74, 74, 74, 0.08);
+    --shadow-medium: 0 8px 32px rgba(74, 74, 74, 0.12);
+    --shadow-hover: 0 12px 40px rgba(74, 74, 74, 0.16);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Surface tokens */
+    --surface-card: #ffffff;
+    --surface-input: #FDF6E9;
+    --surface-input-focus: #ffffff;
+    --border-color: #F5ECD8;
+    --text-primary: #4A4A4A;
+    --text-secondary: #6B6B6B;
+    --main-bg: #FDF6E9;
+}
+
+/* Dark Mode */
+[data-theme="dark"] {
+    --cream: #1C1C1E;
+    --cream-dark: #2C2C2E;
+    --sage: #5A7D5A;
+    --sage-light: #6B7D65;
+    --sage-muted: #4A5A45;
+    --charcoal: #E8E8E6;
+    --charcoal-light: #A8A8A4;
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.3);
+    --shadow-medium: 0 8px 32px rgba(0, 0, 0, 0.4);
+    --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.5);
+    --surface-card: #2A2A2C;
+    --surface-input: #2C2C2E;
+    --surface-input-focus: #3A3A3C;
+    --border-color: #3A3A3C;
+    --text-primary: #E8E8E6;
+    --text-secondary: #A8A8A4;
+    --main-bg: #141416;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--main-bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    transition: background 0.3s ease, color 0.3s ease;
+    overflow-x: hidden;
+}
+
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 280px;
+    background: linear-gradient(180deg, var(--sage) 0%, #5A7D5A 100%);
+    padding: 32px 24px;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    z-index: 50;
+}
+
+[data-theme="dark"] .sidebar {
+    background: linear-gradient(180deg, #3A5A3A 0%, #2A4A2A 100%);
+}
+
+.sidebar-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.sidebar-logo {
+    width: 80px;
+    height: 80px;
+    background: var(--cream);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    font-size: 36px;
+    box-shadow: var(--shadow-medium);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.sidebar-logo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.sidebar-title {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #FDF6E9;
+    margin-bottom: 4px;
+}
+
+.sidebar-subtitle {
+    font-size: 0.85rem;
+    color: #C4D1BC;
+    font-weight: 400;
+}
+
+.progress-card {
+    background: rgba(253, 246, 233, 0.15);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 16px;
+    backdrop-filter: blur(10px);
+}
+
+.progress-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #C4D1BC;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.progress-value {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #FDF6E9;
+    margin-bottom: 12px;
+}
+
+.progress-value span {
+    font-size: 1rem;
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+.progress-bar-wrapper {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 100px;
+    height: 8px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    border-radius: 100px;
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progress-bar-fill.books {
+    background: linear-gradient(90deg, var(--peach), var(--golden));
+}
+
+.progress-bar-fill.weeks {
+    background: linear-gradient(90deg, #9878B8, #C8A8D8);
+}
+
+.progress-detail {
+    font-size: 0.8rem;
+    color: #C4D1BC;
+    margin-top: 8px;
+    text-align: right;
+}
+
+.sidebar-nav {
+    margin-top: auto;
+    padding-top: 24px;
+    border-top: 1px solid rgba(253, 246, 233, 0.2);
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    color: #C4D1BC;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: var(--transition-smooth);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    background: rgba(253, 246, 233, 0.15);
+    color: #FDF6E9;
+}
+
+.nav-icon {
+    font-size: 1.2rem;
+}
+
+/* Dark mode toggle button */
+.dark-mode-toggle {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    color: #C4D1BC;
+    background: none;
+    border: none;
+    border-radius: 12px;
+    transition: var(--transition-smooth);
+    font-weight: 500;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    width: 100%;
+    text-align: left;
+    margin-top: 4px;
+}
+
+.dark-mode-toggle:hover {
+    background: rgba(253, 246, 233, 0.15);
+    color: #FDF6E9;
+}
+
+/* Main content */
+.main-content {
+    flex: 1;
+    margin-left: 280px;
+    padding: 32px 40px;
+    background: linear-gradient(rgba(253, 246, 233, 0.6), rgba(253, 246, 233, 0.6)),
+        url('https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/paper_background.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    transition: background 0.3s ease;
+}
+
+[data-theme="dark"] .main-content {
+    background: var(--main-bg);
+}
+
+#view-library,
+#view-challenge {
+    animation: fadeIn 0.4s ease;
+}
+
+.page-header {
+    margin-bottom: 32px;
+    text-align: left;
+}
+
+#view-challenge .page-header {
+    text-align: center;
+    padding: 40px 20px;
+    background: var(--surface-card);
+    border-radius: 24px;
+    box-shadow: var(--shadow-soft);
+}
+
+.page-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--peach), var(--coral-soft));
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 8px 20px;
+    border-radius: 100px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.page-title {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.page-description {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+#view-challenge .page-description {
+    max-width: 600px;
+    margin: 0 auto 24px;
+}
+
+/* Filter bar */
+.filter-bar {
+    background: var(--surface-card);
+    border-radius: 24px;
+    padding: 20px 28px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.search-wrapper {
+    flex: 1;
+    min-width: 200px;
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--sage-light);
+    font-size: 1.1rem;
+}
+
+.search-input {
+    width: 100%;
+    padding: 14px 16px 14px 48px;
+    border: 2px solid var(--border-color);
+    border-radius: 16px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    background: var(--surface-input);
+    transition: var(--transition-smooth);
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--sage);
+    background: var(--surface-input-focus);
+}
+
+.search-input::placeholder {
+    color: var(--sage-light);
+}
+
+.filter-select {
+    padding: 14px 40px 14px 16px;
+    border: 2px solid var(--border-color);
+    border-radius: 16px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    background: var(--surface-input) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236B8E6B' d='M6 8L1 3h10z'/%3E%3C/svg%3E") no-repeat right 16px center;
+    appearance: none;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    min-width: 150px;
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: var(--sage);
+    background-color: var(--surface-input-focus);
+}
+
+/* Category pill chips */
+.category-pills-wrapper {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.category-pills-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-secondary);
+    margin-right: 4px;
+    white-space: nowrap;
+}
+
+.category-pill {
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 2px solid var(--border-color);
+    background: var(--surface-input);
+    color: var(--text-secondary);
+    transition: var(--transition-smooth);
+    white-space: nowrap;
+    font-family: 'Nunito', sans-serif;
+}
+
+.category-pill:hover {
+    border-color: var(--sage);
+    color: var(--sage);
+}
+
+.category-pill.active {
+    background: var(--sage);
+    border-color: var(--sage);
+    color: white;
+}
+
+.category-pill.all-pill.active {
+    background: var(--charcoal);
+    border-color: var(--charcoal);
+    color: white;
+}
+
+[data-theme="dark"] .category-pill.all-pill.active {
+    background: var(--sage);
+    border-color: var(--sage);
+}
+
+/* Year filter pills — reuse category pill styles, slight accent difference */
+.year-pills-wrapper {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.year-pills-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-secondary);
+    margin-right: 4px;
+    white-space: nowrap;
+}
+
+.year-pill {
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 2px solid var(--border-color);
+    background: var(--surface-input);
+    color: var(--text-secondary);
+    transition: var(--transition-smooth);
+    white-space: nowrap;
+    font-family: 'Nunito', sans-serif;
+}
+
+.year-pill:hover {
+    border-color: var(--peach);
+    color: var(--peach);
+}
+
+.year-pill.active {
+    background: var(--peach);
+    border-color: var(--peach);
+    color: white;
+}
+
+.year-pill.all-year-pill.active {
+    background: var(--charcoal);
+    border-color: var(--charcoal);
+    color: white;
+}
+
+[data-theme="dark"] .year-pill.all-year-pill.active {
+    background: var(--peach);
+    border-color: var(--peach);
+}
+
+/* Results info row */
+.results-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding: 0 8px;
+}
+
+.results-count {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.results-count strong {
+    color: var(--sage);
+    font-weight: 600;
+}
+
+/* View toggle */
+.view-toggle {
+    display: flex;
+    gap: 4px;
+    background: var(--surface-card);
+    border-radius: 12px;
+    padding: 4px;
+    box-shadow: var(--shadow-soft);
+}
+
+.view-toggle-btn {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    background: transparent;
+    color: var(--text-secondary);
+    transition: var(--transition-smooth);
+    line-height: 1;
+}
+
+.view-toggle-btn.active {
+    background: var(--sage);
+    color: white;
+}
+
+.view-toggle-btn:hover:not(.active) {
+    background: var(--border-color);
+}
+
+/* Book grid */
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.book-card {
+    background: var(--surface-card);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition-smooth);
+    cursor: pointer;
+    position: relative;
+}
+
+.book-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+}
+
+.book-card:focus {
+    outline: 3px solid var(--sage);
+    outline-offset: 2px;
+}
+
+.book-cover-wrapper {
+    aspect-ratio: 2/3;
+    position: relative;
+    overflow: hidden;
+    background: var(--border-color);
+}
+
+.book-cover-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-smooth);
+}
+
+.book-card:hover .book-cover-wrapper img {
+    transform: scale(1.05);
+}
+
+.book-number-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: white;
+    color: var(--sage);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 100px;
+    box-shadow: var(--shadow-soft);
+}
+
+.book-list-row .book-number-badge {
+    position: static;
+    flex-shrink: 0;
+}
+
+.cover-fallback {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    text-align: center;
+}
+
+.cover-fallback .initials {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 8px;
+    opacity: 0.9;
+}
+
+.cover-fallback .title-text {
+    font-size: 0.75rem;
+    color: white;
+    opacity: 0.8;
+    line-height: 1.3;
+}
+
+.book-info {
+    padding: 16px;
+}
+
+.book-title {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.book-author {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* List view */
+.book-grid.list-mode {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.book-grid.list-mode .book-card {
+    border-radius: 16px;
+    overflow: visible;
+}
+
+.book-list-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 20px;
+}
+
+.book-list-cover {
+    width: 44px;
+    min-width: 44px;
+    aspect-ratio: 2/3;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--border-color);
+}
+
+.book-list-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.book-list-cover .cover-fallback .initials {
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+.book-list-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.book-list-title {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.book-list-author {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+}
+
+.book-list-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.book-list-tag {
+    padding: 4px 10px;
+    border-radius: 100px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: white;
+    white-space: nowrap;
+}
+
+/* Skeleton loading */
+@keyframes shimmer {
+    0% {
+        background-position: -400px 0;
+    }
+
+    100% {
+        background-position: 400px 0;
+    }
+}
+
+.skeleton-card {
+    background: var(--surface-card);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+}
+
+.skeleton-cover {
+    aspect-ratio: 2/3;
+    background: linear-gradient(90deg, var(--border-color) 25%, var(--cream-dark) 50%, var(--border-color) 75%);
+    background-size: 400px 100%;
+    animation: shimmer 1.4s ease-in-out infinite;
+}
+
+[data-theme="dark"] .skeleton-cover {
+    background: linear-gradient(90deg, #2C2C2E 25%, #3A3A3C 50%, #2C2C2E 75%);
+    background-size: 400px 100%;
+    animation: shimmer 1.4s ease-in-out infinite;
+}
+
+.skeleton-info {
+    padding: 16px;
+}
+
+.skeleton-line {
+    height: 12px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    background: linear-gradient(90deg, var(--border-color) 25%, var(--cream-dark) 50%, var(--border-color) 75%);
+    background-size: 400px 100%;
+    animation: shimmer 1.4s ease-in-out infinite;
+}
+
+[data-theme="dark"] .skeleton-line {
+    background: linear-gradient(90deg, #2C2C2E 25%, #3A3A3C 50%, #2C2C2E 75%);
+    background-size: 400px 100%;
+    animation: shimmer 1.4s ease-in-out infinite;
+}
+
+.skeleton-line.short {
+    width: 60%;
+}
+
+/* Challenge view */
+.current-week-highlight {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--surface-input);
+    padding: 16px 28px;
+    border-radius: 16px;
+    border: 2px solid var(--sage-light);
+    margin-top: 16px;
+}
+
+.current-week-highlight .week-badge {
+    background: var(--sage);
+    color: white;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 0.9rem;
+}
+
+.current-week-highlight .week-text {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.welcome-section {
+    background: var(--surface-card);
+    border-radius: 24px;
+    padding: 40px;
+    margin-bottom: 32px;
+    box-shadow: var(--shadow-soft);
+}
+
+.welcome-title {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.welcome-title::before {
+    content: '📚';
+    font-size: 2rem;
+}
+
+.welcome-content {
+    color: var(--text-primary);
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.welcome-content p {
+    margin-bottom: 20px;
+}
+
+.welcome-highlight {
+    background: linear-gradient(135deg, var(--surface-input), var(--border-color));
+    padding: 24px;
+    border-radius: 16px;
+    border-left: 4px solid var(--sage);
+    margin-top: 24px;
+}
+
+.welcome-highlight strong {
+    color: var(--sage);
+    font-weight: 700;
+}
+
+.week-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.week-card {
+    background: var(--surface-card);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition-smooth);
+    display: flex;
+    position: relative;
+    cursor: pointer;
+}
+
+.week-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
+.week-card:focus {
+    outline: 3px solid var(--sage);
+    outline-offset: 2px;
+}
+
+.week-card.current {
+    border: 3px solid var(--golden);
+    box-shadow: 0 8px 32px rgba(248, 197, 109, 0.25);
+}
+
+.week-card.completed {
+    opacity: 0.85;
+}
+
+.week-card.bonus {
+    border: 3px solid var(--status-bonus);
+    box-shadow: 0 8px 32px rgba(155, 89, 182, 0.25);
+}
+
+.week-indicator {
+    width: 100px;
+    min-width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+    position: relative;
+}
+
+.week-indicator.completed {
+    background: linear-gradient(135deg, var(--status-completed), #5A8D5A);
+}
+
+.week-indicator.current {
+    background: linear-gradient(135deg, var(--golden), var(--peach));
+}
+
+.week-indicator.upcoming {
+    background: linear-gradient(135deg, var(--sage-light), var(--sage-muted));
+}
+
+.week-indicator.bonus {
+    background: linear-gradient(135deg, #9B59B6, #8E44AD);
+}
+
+.week-number {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    line-height: 1;
+}
+
+.week-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 4px;
+    font-weight: 600;
+}
+
+.week-status-icon {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 1rem;
+}
+
+.book-content-row {
+    flex: 1;
+    display: flex;
+    gap: 20px;
+    padding: 20px 24px;
+    align-items: center;
+}
+
+.book-cover-small {
+    width: 80px;
+    min-width: 80px;
+    aspect-ratio: 2/3;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    background: var(--border-color);
+}
+
+.book-cover-small img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cover-fallback-small {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    text-align: center;
+}
+
+.cover-fallback-small .initials {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: white;
+    opacity: 0.9;
+}
+
+.book-details-col {
+    flex: 1;
+}
+
+.book-title-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 6px;
+}
+
+.book-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.book-tag {
+    padding: 5px 12px;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: white;
+}
+
+.quarter-divider {
+    background: linear-gradient(135deg, var(--sage), #5A7D5A);
+    color: white;
+    padding: 16px 24px;
+    border-radius: 16px;
+    margin: 32px 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.quarter-icon {
+    font-size: 2rem;
+}
+
+.quarter-info h3 {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+
+.quarter-info p {
+    font-size: 0.85rem;
+    opacity: 0.9;
+}
+
+.bonus-divider {
+    background: linear-gradient(135deg, #9B59B6, #8E44AD);
+    color: white;
+    padding: 16px 24px;
+    border-radius: 16px;
+    margin: 40px 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.bonus-icon {
+    font-size: 2rem;
+}
+
+.bonus-info h3 {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+
+.bonus-info p {
+    font-size: 0.85rem;
+    opacity: 0.9;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 24px;
+    background: var(--surface-card);
+    border-radius: 20px;
+    box-shadow: var(--shadow-soft);
+    flex-wrap: wrap;
+}
+
+.page-btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    background: var(--surface-input);
+    color: var(--text-primary);
+}
+
+.page-btn:hover:not(:disabled) {
+    background: var(--sage);
+    color: white;
+}
+
+.page-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.page-info {
+    font-weight: 600;
+    color: var(--text-primary);
+    padding: 0 16px;
+}
+
+.items-per-page {
+    padding: 12px 40px 12px 16px;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    background: var(--surface-input) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236B8E6B' d='M6 8L1 3h10z'/%3E%3C/svg%3E") no-repeat right 12px center;
+    appearance: none;
+    cursor: pointer;
+}
+
+/* Modal */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(74, 74, 74, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 100;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-overlay.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-content {
+    background: var(--surface-card);
+    border-radius: 28px;
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: var(--shadow-hover);
+    animation: slideUp 0.3s ease;
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: var(--surface-input);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    transition: var(--transition-smooth);
+    z-index: 10;
+}
+
+.modal-close:hover {
+    background: var(--coral-soft);
+    color: white;
+}
+
+.modal-close:focus {
+    outline: 3px solid var(--sage);
+}
+
+.modal-header {
+    padding: 32px 32px 24px;
+    display: flex;
+    gap: 28px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.modal-cover {
+    flex-shrink: 0;
+    width: 180px;
+}
+
+.modal-cover img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: var(--shadow-medium);
+}
+
+.modal-cover-fallback {
+    width: 100%;
+    aspect-ratio: 2/3;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.modal-details {
+    flex: 1;
+    padding-right: 40px;
+}
+
+.modal-week-badge {
+    display: none;
+    background: linear-gradient(135deg, var(--peach), var(--coral-soft));
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 8px;
+}
+
+.modal-week-badge.bonus {
+    background: linear-gradient(135deg, #9B59B6, #8E44AD);
+}
+
+.modal-book-number {
+    display: inline-block;
+    background: var(--sage);
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 12px;
+}
+
+.modal-title {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.modal-author {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+.modal-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.modal-tag {
+    padding: 8px 16px;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: white;
+}
+
+.modal-body {
+    padding: 28px 32px 32px;
+}
+
+.modal-section-title {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--sage);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.modal-summary {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-primary);
+}
+
+/* Modal footer: prev/next + share — always a single row, 3 items */
+.modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 32px 24px;
+    border-top: 1px solid var(--border-color);
+    gap: 12px;
+    flex-wrap: nowrap;  /* never allow wrapping */
+}
+
+.modal-nav-btn {
+    padding: 10px 16px;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    background: var(--surface-input);
+    color: var(--text-primary);
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    min-width: 64px;
+}
+
+.modal-nav-btn .btn-icon {
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+.modal-nav-btn:hover:not(:disabled) {
+    background: var(--sage);
+    border-color: var(--sage);
+    color: white;
+}
+
+.modal-nav-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.modal-nav-btn:focus {
+    outline: 3px solid var(--sage);
+}
+
+.modal-share-btn {
+    padding: 10px 16px;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    background: var(--surface-input);
+    color: var(--text-secondary);
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    min-width: 64px;
+}
+
+.modal-share-btn .btn-icon {
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+.modal-share-btn:hover {
+    border-color: var(--peach);
+    color: var(--peach);
+}
+
+.modal-share-btn.copied {
+    border-color: var(--status-finished);
+    color: var(--status-finished);
+}
+
+.modal-share-btn:focus {
+    outline: 3px solid var(--sage);
+}
+
+/* Toast */
+.toast {
+    position: fixed;
+    bottom: 96px;
+    right: 32px;
+    background: var(--charcoal);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: var(--shadow-medium);
+    z-index: 200;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    pointer-events: none;
+}
+
+[data-theme="dark"] .toast {
+    background: #E8E8E6;
+    color: #1C1C1E;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Back to top */
+.back-to-top {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    width: 52px;
+    height: 52px;
+    border: none;
+    border-radius: 50%;
+    background: var(--sage);
+    color: white;
+    font-size: 1.3rem;
+    cursor: pointer;
+    box-shadow: var(--shadow-medium);
+    transition: var(--transition-smooth);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 50;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background: #5A7D5A;
+    transform: translateY(-4px);
+}
+
+/* Empty state */
+.empty-state {
+    text-align: center;
+    padding: 80px 40px;
+    background: var(--surface-card);
+    border-radius: 24px;
+    box-shadow: var(--shadow-soft);
+}
+
+.empty-state-icon {
+    font-size: 4rem;
+    margin-bottom: 16px;
+}
+
+.empty-state-title {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.empty-state-text {
+    color: var(--text-secondary);
+}
+
+/* Mobile */
+.mobile-header {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--sage);
+    padding: 16px 20px;
+    z-index: 60;
+    box-shadow: var(--shadow-soft);
+}
+
+[data-theme="dark"] .mobile-header {
+    background: #3A5A3A;
+}
+
+.mobile-header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mobile-title {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #FDF6E9;
+}
+
+.mobile-menu-btn {
+    width: 44px;
+    height: 44px;
+    border: none;
+    background: rgba(253, 246, 233, 0.15);
+    border-radius: 12px;
+    color: #FDF6E9;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.mobile-dark-btn {
+    width: 44px;
+    height: 44px;
+    border: none;
+    background: rgba(253, 246, 233, 0.15);
+    border-radius: 12px;
+    color: #FDF6E9;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-smooth);
+}
+
+.mobile-dark-btn:hover {
+    background: rgba(253, 246, 233, 0.25);
+}
+
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 45;
+}
+
+@media (max-width: 1024px) {
+    .book-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .mobile-header {
+        display: block;
+    }
+
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        padding-top: 80px;
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .sidebar-overlay.active {
+        display: block;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 90px 20px 32px;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .filter-bar {
+        padding: 14px 16px;
+        border-radius: 20px;
+        gap: 10px;
+        margin-bottom: 16px;
+    }
+
+    .search-wrapper {
+        min-width: 100%;
+    }
+
+    .filter-select {
+        flex: 1;
+        min-width: calc(50% - 6px);
+        max-width: calc(50% - 6px);
+        font-size: 0.85rem;
+        padding: 10px 32px 10px 12px;
+    }
+
+    .category-pills-wrapper,
+    .year-pills-wrapper {
+        gap: 6px;
+    }
+
+    .category-pill,
+    .year-pill {
+        padding: 5px 11px;
+        font-size: 0.75rem;
+    }
+
+    .book-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 16px;
+    }
+
+    .modal-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 48px 24px 24px;
+    }
+
+    .modal-book-number {
+        margin-bottom: 8px;
+    }
+
+    .modal-details {
+        padding-right: 0;
+    }
+
+    .modal-cover {
+        width: 150px;
+    }
+
+    .modal-body {
+        padding: 24px;
+    }
+
+    .modal-footer {
+        padding: 12px 20px 18px;
+    }
+
+    .results-info {
+        margin-bottom: 12px;
+    }
+
+    .page-title {
+        font-size: 1.5rem;
+    }
+
+    .pagination {
+        padding: 20px;
+        gap: 8px;
+    }
+
+    .page-btn {
+        padding: 10px 16px;
+        font-size: 0.85rem;
+    }
+
+    .week-card {
+        flex-direction: column;
+    }
+
+    .week-indicator {
+        width: 100%;
+        min-width: auto;
+        flex-direction: row;
+        padding: 16px 20px;
+        gap: 12px;
+    }
+
+    .week-number {
+        font-size: 1.5rem;
+    }
+
+    .book-content-row {
+        padding: 16px;
+        flex-direction: row;
+        align-items: stretch;
+        gap: 16px;
+    }
+
+    .book-cover-small {
+        width: 80px;
+        min-width: 80px;
+    }
+
+    .book-details-col {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .book-tags {
+        margin-top: auto;
+    }
+
+    .book-title {
+        display: block;
+        -webkit-line-clamp: unset;
+        white-space: normal;
+        overflow: visible;
+        margin-bottom: 4px;
+    }
+
+    .quarter-divider,
+    .bonus-divider {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .category-pills-wrapper {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+        padding-bottom: 2px;
+    }
+
+    .category-pills-wrapper::-webkit-scrollbar {
+        display: none; /* Chrome/Safari */
+    }
+
+    .year-pills-wrapper {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 2px;
+    }
+
+    .year-pills-wrapper::-webkit-scrollbar {
+        display: none;
+    }
+
+    .book-list-meta {
+        display: none;
+    }
+}
+
+/* Category colors */
+.category-biography {
+    background: linear-gradient(135deg, #F4A259 0%, #D94E41 100%);
+}
+
+.category-business {
+    background: linear-gradient(135deg, #7B9EAB 0%, #5A7D8A 100%);
+}
+
+.category-education {
+    background: linear-gradient(135deg, #6B8E6B 0%, #4A6D4A 100%);
+}
+
+.category-essays {
+    background: linear-gradient(135deg, #B8A8C8 0%, #9888A8 100%);
+}
+
+.category-finance {
+    background: linear-gradient(135deg, #C4A67C 0%, #A4865C 100%);
+}
+
+.category-informational {
+    background: linear-gradient(135deg, #7BA3A3 0%, #5A8282 100%);
+}
+
+.category-memoir {
+    background: linear-gradient(135deg, #E8B86D 0%, #C8984D 100%);
+}
+
+.category-novel {
+    background: linear-gradient(135deg, #D4847C 0%, #B4645C 100%);
+}
+
+.category-philosophy {
+    background: linear-gradient(135deg, #8B9EAB 0%, #6B7E8B 100%);
+}
+
+.category-poetry {
+    background: linear-gradient(135deg, #A8B5C8 0%, #8895A8 100%);
+}
+
+.category-politics {
+    background: linear-gradient(135deg, #AB8B8B 0%, #8B6B6B 100%);
+}
+
+.category-race {
+    background: linear-gradient(135deg, #6B8E6B 0%, #4A6D4A 100%);
+}
+
+.category-religion {
+    background: linear-gradient(135deg, #A8A8B8 0%, #888898 100%);
+}
+
+.category-science {
+    background: linear-gradient(135deg, #7B9EBB 0%, #5A7D9A 100%);
+}
+
+.category-self {
+    background: linear-gradient(135deg, #B8A8D8 0%, #9888B8 100%);
+}
+
+.category-social {
+    background: linear-gradient(135deg, #A8B5A0 0%, #889580 100%);
+}
+
+.category-technology {
+    background: linear-gradient(135deg, #8B9EAB 0%, #6B7E8B 100%);
+}
+
+.category-stage {
+    background: linear-gradient(135deg, #C8A8A8 0%, #A88888 100%);
+}
     </style>
 </head>
 <body>
-    <!-- Mobile Header -->
     <div class="mobile-header">
         <div class="mobile-header-content">
             <span class="mobile-title">📚 Dr. Deas Book Log</span>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+            <div style="display:flex;gap:8px;align-items:center;">
+                <button class="mobile-dark-btn" id="mobileDarkBtn" aria-label="Toggle dark mode">🌙</button>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation menu">☰</button>
+            </div>
         </div>
     </div>
 
-    <!-- Sidebar Overlay -->
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
     <div class="app-container">
-        <!-- Sidebar -->
-        <aside class="sidebar" id="sidebar">
+        <aside class="sidebar" id="sidebar" aria-label="Site navigation">
             <div class="sidebar-header">
-                <a href="https://drdeas.com" class="sidebar-logo">
-                    <img src="https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/DrDeas_curious.jpeg" alt="Dr. Deas">
+                <a href="https://drdeas.com" class="sidebar-logo" aria-label="Visit drdeas.com">
+                    <img src="https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/DrDeas_curious.jpeg" alt="Dr. Deas" loading="lazy">
                 </a>
                 <h1 class="sidebar-title">Dr. Deas Book Log</h1>
             </div>
 
-            <!-- Books Progress -->
-            <div class="progress-card">
+            <div class="progress-card" role="region" aria-label="Books completed">
                 <div class="progress-label">Books Completed</div>
                 <div class="progress-value" id="booksCount">0 <span>/ 1,000</span></div>
-                <div class="progress-bar-wrapper">
-                    <div class="progress-bar-fill books" id="booksProgressBar" style="width: 0%"></div>
+                <div class="progress-bar-wrapper" id="booksProgressWrapper" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Books completed">
+                    <div class="progress-bar-fill books" id="booksProgressBar" style="width:0%"></div>
                 </div>
                 <div class="progress-detail" id="booksPercent">0% complete</div>
             </div>
 
-            <!-- Weeks Progress -->
-            <div class="progress-card">
+            <div class="progress-card" role="region" aria-label="Challenge timeline">
                 <div class="progress-label">Challenge Timeline</div>
                 <div class="progress-value" id="weeksCount">Week <span>1 / 1,000</span></div>
-                <div class="progress-bar-wrapper">
-                    <div class="progress-bar-fill weeks" id="weeksProgressBar" style="width: 0%"></div>
+                <div class="progress-bar-wrapper" id="weeksProgressWrapper" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Weeks elapsed">
+                    <div class="progress-bar-fill weeks" id="weeksProgressBar" style="width:0%"></div>
                 </div>
                 <div class="progress-detail" id="weeksPercent">0% elapsed</div>
             </div>
 
-            <!-- Navigation -->
-            <nav class="sidebar-nav">
-                <a class="nav-item active" href="#" id="navAllBooks">
-                    <span class="nav-icon">📖</span>
-                    <span>All Books</span>
-                </a>
-                <a class="nav-item" href="#" id="navFinished">
-                    <span class="nav-icon">✓</span>
-                    <span>Finished</span>
-                </a>
-                <a class="nav-item" href="#" id="navReading">
-                    <span class="nav-icon">📑</span>
-                    <span>Currently Reading</span>
-                </a>
-                <a class="nav-item" href="2026-Book-Recs" id="navChallenge">
-                    <span class="nav-icon">📅</span>
-                    <span>2026 Book Recs</span>
-                </a>
+            <nav class="sidebar-nav" aria-label="Library sections">
+                <a class="nav-item active" href="#" id="navAllBooks"><span class="nav-icon" aria-hidden="true">📖</span><span>All Books</span></a>
+                <a class="nav-item" href="#" id="navFinished"><span class="nav-icon" aria-hidden="true">✓</span><span>Finished</span></a>
+                <a class="nav-item" href="#" id="navReading"><span class="nav-icon" aria-hidden="true">📑</span><span>Currently Reading</span></a>
+                <a class="nav-item" href="2026-Book-Recs" id="navChallenge"><span class="nav-icon" aria-hidden="true">📅</span><span>2026 Book Recs</span></a>
+                <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+                    <span class="nav-icon" id="darkModeIcon" aria-hidden="true">🌙</span>
+                    <span id="darkModeLabel">Dark mode</span>
+                </button>
             </nav>
         </aside>
 
-        <!-- Main Content -->
-        <main class="main-content">
-            
-            <!-- VIEW 1: STANDARD LIBRARY VIEW -->
+        <main class="main-content" id="mainContent">
             <div id="view-library">
                 <header class="page-header">
                     <h2 class="page-title">1,000 Books in 1,000 Weeks</h2>
                     <p class="page-description">A journey through literature, science, and social commentary</p>
                 </header>
 
-                <!-- Filters -->
-                <div class="filter-bar">
+                <div class="filter-bar" role="search" aria-label="Filter books">
                     <div class="search-wrapper">
-                        <span class="search-icon">🔍</span>
-                        <input type="text" class="search-input" id="searchInput" placeholder="Search by title or author...">
+                        <span class="search-icon" aria-hidden="true">🔍</span>
+                        <input type="text" class="search-input" id="searchInput"
+                               placeholder="Search by title or author..."
+                               aria-label="Search books by title or author">
                     </div>
-                    <select class="filter-select" id="categoryFilter">
-                        <option value="">All Categories</option>
-                    </select>
-                    <select class="filter-select" id="ownershipFilter">
+                    <select class="filter-select" id="ownershipFilter" aria-label="Filter by format">
                         <option value="">All Formats</option>
                     </select>
-                    <select class="filter-select" id="statusFilter">
+                    <select class="filter-select" id="statusFilter" aria-label="Filter by status">
                         <option value="">All Status</option>
                     </select>
-                    <select class="filter-select" id="sortFilter">
+                    <select class="filter-select" id="sortFilter" aria-label="Sort books">
                         <option value="number">Sort by Number</option>
                         <option value="newest">Newest First</option>
                         <option value="oldest">Oldest First</option>
@@ -1380,26 +1953,27 @@
                         <option value="author">By Author</option>
                         <option value="category">By Category</option>
                     </select>
+                    <div class="category-pills-wrapper" id="categoryPillsWrapper" role="group" aria-label="Filter by category"></div>
+                    <div class="year-pills-wrapper" id="yearPillsWrapper" role="group" aria-label="Filter by year completed"></div>
                 </div>
 
-                <!-- Results Info -->
                 <div class="results-info">
-                    <span class="results-count" id="resultsCount">Showing <strong>0</strong> books</span>
+                    <span class="results-count" id="resultsCount" aria-live="polite" aria-atomic="true">Showing <strong>0</strong> books</span>
+                    <div class="view-toggle" role="group" aria-label="Switch display layout">
+                        <button class="view-toggle-btn active" id="gridViewBtn" aria-label="Grid view" aria-pressed="true">⊞</button>
+                        <button class="view-toggle-btn" id="listViewBtn" aria-label="List view" aria-pressed="false">☰</button>
+                    </div>
                 </div>
 
-                <!-- Book Grid -->
-                <div class="book-grid" id="bookGrid">
-                    <!-- Books will be dynamically inserted here -->
-                </div>
+                <div class="book-grid" id="bookGrid" role="list" aria-label="Book collection"></div>
 
-                <!-- Pagination -->
                 <div class="pagination" id="pagination">
-                    <button class="page-btn" id="firstPageBtn">« First</button>
-                    <button class="page-btn" id="prevPageBtn">‹ Prev</button>
-                    <span class="page-info" id="pageInfo">Page 1 of 1</span>
-                    <button class="page-btn" id="nextPageBtn">Next ›</button>
-                    <button class="page-btn" id="lastPageBtn">Last »</button>
-                    <select class="items-per-page" id="itemsPerPage">
+                    <button class="page-btn" id="firstPageBtn" aria-label="First page">« First</button>
+                    <button class="page-btn" id="prevPageBtn" aria-label="Previous page">‹ Prev</button>
+                    <span class="page-info" id="pageInfo" aria-live="polite">Page 1 of 1</span>
+                    <button class="page-btn" id="nextPageBtn" aria-label="Next page">Next ›</button>
+                    <button class="page-btn" id="lastPageBtn" aria-label="Last page">Last »</button>
+                    <select class="items-per-page" id="itemsPerPage" aria-label="Items per page">
                         <option value="12">12 per page</option>
                         <option value="24" selected>24 per page</option>
                         <option value="48">48 per page</option>
@@ -1409,449 +1983,562 @@
                 </div>
             </div>
 
-            <!-- VIEW 2: 2026 CHALLENGE VIEW -->
-            <div id="view-challenge" style="display: none;">
+            <div id="view-challenge" style="display:none;">
                 <header class="page-header">
                     <span class="page-badge">📅 2026 Reading Challenge</span>
                     <h2 class="page-title">Recommended Reading</h2>
-                    <p class="page-description">
-                        A curated journey through 52 enlightening and transformative books — one for each week of the year.
-                    </p>
+                    <p class="page-description">A curated journey through 52 enlightening and transformative books — one for each week of the year.</p>
                     <div class="current-week-highlight">
                         <span class="week-badge" id="currentWeekBadge">Week 1</span>
                         <span class="week-text" id="currentWeekText">Starting your journey...</span>
                     </div>
                 </header>
-
-                <!-- Welcome Section -->
                 <section class="welcome-section">
                     <h3 class="welcome-title">Welcome to the Challenge</h3>
                     <div class="welcome-content">
-                        <p>
-                            Over the years, a lot of people have asked me some form of the question, "So, which book is your favorite?" or "Do you have any recommendations?" This special reading list represents my best attempt to answer that question.
-                        </p>
-                        <p>
-                            I've selected 52 books that have shaped my thinking, broadened my perspective, and enriched my life. Whether you're looking to explore new ideas, deepen your understanding of critical social issues, or simply enjoy a good story, this curated list offers something meaningful for every reader.
-                        </p>
+                        <p>Over the years, a lot of people have asked me some form of the question, "So, which book is your favorite?" or "Do you have any recommendations?" This special reading list represents my best attempt to answer that question.</p>
+                        <p>I've selected 52 books that have shaped my thinking, broadened my perspective, and enriched my life. Whether you're looking to explore new ideas, deepen your understanding of critical social issues, or simply enjoy a good story, this curated list offers something meaningful for every reader.</p>
                         <div class="welcome-highlight">
-                            <p>
-                                <strong>How it works:</strong> Each week in 2026, a new book will be featured here. If you see a book you like, start reading it! Click on any week to see the book details and summary. Track your progress as you go!
-                            </p>
+                            <p><strong>How it works:</strong> Each week in 2026, a new book will be featured here. If you see a book you like, start reading it! Click on any week to see the book details and summary. Track your progress as you go!</p>
                         </div>
                     </div>
                 </section>
-
-                <!-- Week List -->
-                <div class="week-list" id="weekList">
-                    <!-- Week cards will be dynamically inserted here -->
-                </div>
+                <div class="week-list" id="weekList"></div>
             </div>
         </main>
     </div>
 
-    <!-- Back to Top Button -->
-    <button class="back-to-top" id="backToTop">↑</button>
+    <button class="back-to-top" id="backToTop" aria-label="Scroll to top">↑</button>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-    <!-- Modal -->
-    <div class="modal-overlay" id="modal">
+    <div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
         <div class="modal-content">
-            <button class="modal-close" id="modalClose">×</button>
+            <button class="modal-close" id="modalClose" aria-label="Close book details">×</button>
             <div class="modal-header">
                 <div class="modal-cover" id="modalCoverWrapper">
                     <img id="modalCoverImg" src="" alt="Book Cover">
                 </div>
                 <div class="modal-details">
-                    <!-- Challenge specific badge, hidden by default -->
                     <span class="modal-week-badge" id="modalWeekBadge">Week 1</span>
                     <span class="modal-book-number" id="modalBookNumber">#1</span>
                     <h3 class="modal-title" id="modalTitle">Book Title</h3>
                     <p class="modal-author" id="modalAuthor">Author Name</p>
-                    <div class="modal-tags" id="modalTags">
-                        <!-- Tags will be inserted here -->
-                    </div>
+                    <div class="modal-tags" id="modalTags"></div>
                 </div>
             </div>
             <div class="modal-body">
                 <h4 class="modal-section-title">Summary</h4>
                 <p class="modal-summary" id="modalSummary">Book summary goes here...</p>
             </div>
+            <div class="modal-footer">
+                <button class="modal-nav-btn" id="modalPrevBtn" aria-label="Previous book">
+                    <span class="btn-icon">←</span>
+                    <span>Prev</span>
+                </button>
+                <button class="modal-share-btn" id="modalShareBtn" aria-label="Copy link to this book">
+                    <span class="btn-icon">🔗</span>
+                    <span>Share</span>
+                </button>
+                <button class="modal-nav-btn" id="modalNextBtn" aria-label="Next book">
+                    <span class="btn-icon">→</span>
+                    <span>Next</span>
+                </button>
+            </div>
         </div>
     </div>
 
     <script src="data.js"></script>
     <script>
-        // --- 1000 BOOKS CHALLENGE CONFIG ---
+        // ═══════════════════════════════════════════════
+        //  CONFIG
+        // ═══════════════════════════════════════════════
         const challengeStartDate = new Date('2020-09-27');
-        const challengeEndDate = new Date('2039-11-27');
-        
-        // --- 2026 CHALLENGE CONFIG ---
+        const challengeEndDate   = new Date('2039-11-27');
         const challenge2026StartDate = new Date('2026-01-01');
-        
-        // 2026 Book per Week List (Maps week to book number in main data)
+
         const weeklyReadingList = [
-            { week: 1, bookNumber: 2 },    // David and Goliath
-            { week: 2, bookNumber: 12 },   // The Souls of Black Folk
-            { week: 3, bookNumber: 13 },   // Faces at the Bottom of the Well
-            { week: 4, bookNumber: 20 },   // Caste
-            { week: 5, bookNumber: 22 },   // The Fire Next Time
-            { week: 6, bookNumber: 35 },   // A Brief History of Time
-            { week: 7, bookNumber: 39 },   // Sapiens
-            { week: 8, bookNumber: 43 },   // Invisible Women
-            { week: 9, bookNumber: 45 },   // How the Other Half Banks
-            { week: 10, bookNumber: 51 },  // The Color of Law
-            { week: 11, bookNumber: 61 },  // What Happened to You?
-            { week: 12, bookNumber: 63 },  // You Look Like a Thing and I Love You
-            { week: 13, bookNumber: 66 },  // The Disordered Cosmos
-            { week: 14, bookNumber: 73 },  // Parable of the Sower
-            { week: 15, bookNumber: 75 },  // The Social Construction of Reality
-            { week: 16, bookNumber: 79 },  // The Innovator's Dilemma
-            { week: 17, bookNumber: 91 },  // The House on Mango Street
-            { week: 18, bookNumber: 100 }, // Call Us What We Carry
-            { week: 19, bookNumber: 105 }, // The Will to Change
-            { week: 20, bookNumber: 108 }, // The Four Agreements
-            { week: 21, bookNumber: 109 }, // No Mud, No Lotus
-            { week: 22, bookNumber: 114 }, // South to America
-            { week: 23, bookNumber: 128 }, // The 1619 Project
-            { week: 24, bookNumber: 133 }, // The Wretched of the Earth
-            { week: 25, bookNumber: 135 }, // Where Do We Go from Here
-            { week: 26, bookNumber: 143 }, // 1984
-            { week: 27, bookNumber: 147 }, // The Color of Christ
-            { week: 28, bookNumber: 150 }, // We Are Called to Be a Movement
-            { week: 29, bookNumber: 170 }, // Man's Search for Meaning
-            { week: 30, bookNumber: 174 }, // Rest is Resistance
-            { week: 31, bookNumber: 175 }, // Ideaflow
-            { week: 32, bookNumber: 181 }, // The Matter of Black Lives
-            { week: 33, bookNumber: 186 }, // How to Change Your Mind
-            { week: 34, bookNumber: 188 }, // Chronicling Stankonia
-            { week: 35, bookNumber: 197 }, // Black Skin, White Masks
-            { week: 36, bookNumber: 208 }, // The Creative Act
-            { week: 37, bookNumber: 210 }, // Together
-            { week: 38, bookNumber: 214 }, // Brave New World
-            { week: 39, bookNumber: 226 }, // Creative Quest
-            { week: 40, bookNumber: 230 }, // Psychedelics For Everyone
-            { week: 41, bookNumber: 241 }, // Unmasking AI
-            { week: 42, bookNumber: 244 }, // Flatland
-            { week: 43, bookNumber: 263 }, // The Emperor of All Maladies
-            { week: 44, bookNumber: 273 }, // The Immortality Key
-            { week: 45, bookNumber: 296 }, // Homey Don't Play That!
-            { week: 46, bookNumber: 300 }, // Klara and the Sun
-            { week: 47, bookNumber: 303 }, // Memento Mori
-            { week: 48, bookNumber: 304 }, // The Gentle Art of Swedish Death Cleaning
-            { week: 49, bookNumber: 321 }, // Alice's Adventures in Wonderland
-            { week: 50, bookNumber: 323 }, // The Ark Before Noah
-            { week: 51, bookNumber: 332 }, // Charlotte's Web
-            { week: 52, bookNumber: 352 }  // A Lesson Before Dying
+            {week:1,bookNumber:2},{week:2,bookNumber:12},{week:3,bookNumber:13},
+            {week:4,bookNumber:20},{week:5,bookNumber:22},{week:6,bookNumber:35},
+            {week:7,bookNumber:39},{week:8,bookNumber:43},{week:9,bookNumber:45},
+            {week:10,bookNumber:51},{week:11,bookNumber:61},{week:12,bookNumber:63},
+            {week:13,bookNumber:66},{week:14,bookNumber:73},{week:15,bookNumber:75},
+            {week:16,bookNumber:79},{week:17,bookNumber:91},{week:18,bookNumber:100},
+            {week:19,bookNumber:105},{week:20,bookNumber:108},{week:21,bookNumber:109},
+            {week:22,bookNumber:114},{week:23,bookNumber:128},{week:24,bookNumber:133},
+            {week:25,bookNumber:135},{week:26,bookNumber:143},{week:27,bookNumber:147},
+            {week:28,bookNumber:150},{week:29,bookNumber:170},{week:30,bookNumber:174},
+            {week:31,bookNumber:175},{week:32,bookNumber:181},{week:33,bookNumber:186},
+            {week:34,bookNumber:188},{week:35,bookNumber:197},{week:36,bookNumber:208},
+            {week:37,bookNumber:210},{week:38,bookNumber:214},{week:39,bookNumber:226},
+            {week:40,bookNumber:230},{week:41,bookNumber:241},{week:42,bookNumber:244},
+            {week:43,bookNumber:263},{week:44,bookNumber:273},{week:45,bookNumber:296},
+            {week:46,bookNumber:300},{week:47,bookNumber:303},{week:48,bookNumber:304},
+            {week:49,bookNumber:321},{week:50,bookNumber:323},{week:51,bookNumber:332},
+            {week:52,bookNumber:352}
         ];
+        const bonusBook = { bookNumber: 68 };
 
-        // Bonus Book for 2026
-        const bonusBook = { bookNumber: 68 }; // Quantum Entanglement
-
-        // Library State
-        let currentPage = 1;
-        let itemsPerPage = 24;
+        // ═══════════════════════════════════════════════
+        //  STATE
+        // ═══════════════════════════════════════════════
+        let currentPage          = 1;
+        let itemsPerPage         = 24;
         let currentFilteredBooks = [];
+        let currentViewMode      = localStorage.getItem('drdeas-viewmode') || 'grid';
+        let activeCategoryPills  = new Set();
+        let activeYearPills      = new Set();   // year filter state
+        let currentModalIndex    = -1;
 
-        // DOM Elements
-        const elements = {
-            // Main Views
-            viewLibrary: document.getElementById('view-library'),
-            viewChallenge: document.getElementById('view-challenge'),
-            
-            // Sidebar Nav
-            navAllBooks: document.getElementById('navAllBooks'),
-            navFinished: document.getElementById('navFinished'),
-            navReading: document.getElementById('navReading'),
-            navChallenge: document.getElementById('navChallenge'),
-
-            // Filters & Library View
-            searchInput: document.getElementById('searchInput'),
-            categoryFilter: document.getElementById('categoryFilter'),
-            ownershipFilter: document.getElementById('ownershipFilter'),
-            statusFilter: document.getElementById('statusFilter'),
-            sortFilter: document.getElementById('sortFilter'),
-            bookGrid: document.getElementById('bookGrid'),
-            resultsCount: document.getElementById('resultsCount'),
-            pagination: document.getElementById('pagination'),
-            pageInfo: document.getElementById('pageInfo'),
-            itemsPerPage: document.getElementById('itemsPerPage'),
-            firstPageBtn: document.getElementById('firstPageBtn'),
-            prevPageBtn: document.getElementById('prevPageBtn'),
-            nextPageBtn: document.getElementById('nextPageBtn'),
-            lastPageBtn: document.getElementById('lastPageBtn'),
-            
-            // Challenge View
-            weekList: document.getElementById('weekList'),
+        // ═══════════════════════════════════════════════
+        //  DOM
+        // ═══════════════════════════════════════════════
+        const el = {
+            viewLibrary:    document.getElementById('view-library'),
+            viewChallenge:  document.getElementById('view-challenge'),
+            navAllBooks:    document.getElementById('navAllBooks'),
+            navFinished:    document.getElementById('navFinished'),
+            navReading:     document.getElementById('navReading'),
+            navChallenge:   document.getElementById('navChallenge'),
+            searchInput:    document.getElementById('searchInput'),
+            ownershipFilter:document.getElementById('ownershipFilter'),
+            statusFilter:   document.getElementById('statusFilter'),
+            sortFilter:     document.getElementById('sortFilter'),
+            categoryPills:  document.getElementById('categoryPillsWrapper'),
+            yearPills:      document.getElementById('yearPillsWrapper'),
+            bookGrid:       document.getElementById('bookGrid'),
+            resultsCount:   document.getElementById('resultsCount'),
+            pagination:     document.getElementById('pagination'),
+            pageInfo:       document.getElementById('pageInfo'),
+            itemsPerPage:   document.getElementById('itemsPerPage'),
+            firstPageBtn:   document.getElementById('firstPageBtn'),
+            prevPageBtn:    document.getElementById('prevPageBtn'),
+            nextPageBtn:    document.getElementById('nextPageBtn'),
+            lastPageBtn:    document.getElementById('lastPageBtn'),
+            gridViewBtn:    document.getElementById('gridViewBtn'),
+            listViewBtn:    document.getElementById('listViewBtn'),
+            weekList:       document.getElementById('weekList'),
             currentWeekBadge: document.getElementById('currentWeekBadge'),
-            currentWeekText: document.getElementById('currentWeekText'),
-            
-            // Global
-            backToTop: document.getElementById('backToTop'),
-            modal: document.getElementById('modal'),
-            modalClose: document.getElementById('modalClose'),
-            mobileMenuBtn: document.getElementById('mobileMenuBtn'),
-            sidebar: document.getElementById('sidebar'),
-            sidebarOverlay: document.getElementById('sidebarOverlay')
+            currentWeekText:  document.getElementById('currentWeekText'),
+            backToTop:      document.getElementById('backToTop'),
+            modal:          document.getElementById('modal'),
+            modalClose:     document.getElementById('modalClose'),
+            modalPrevBtn:   document.getElementById('modalPrevBtn'),
+            modalNextBtn:   document.getElementById('modalNextBtn'),
+            modalShareBtn:  document.getElementById('modalShareBtn'),
+            mobileMenuBtn:  document.getElementById('mobileMenuBtn'),
+            mobileDarkBtn:  document.getElementById('mobileDarkBtn'),
+            sidebar:        document.getElementById('sidebar'),
+            sidebarOverlay: document.getElementById('sidebarOverlay'),
+            darkModeToggle: document.getElementById('darkModeToggle'),
+            darkModeIcon:   document.getElementById('darkModeIcon'),
+            darkModeLabel:  document.getElementById('darkModeLabel'),
+            toast:          document.getElementById('toast')
         };
 
-        // Initialize
+        // ═══════════════════════════════════════════════
+        //  INIT
+        // ═══════════════════════════════════════════════
         document.addEventListener('DOMContentLoaded', () => {
+            initDarkMode();
             populateFilters();
-            updateProgress(); // 1000 Books Progress
-            updateChallenge2026Progress(); // 2026 Header Progress
-            
-            // Handle URL hash for navigation from 2026-Book-Recs page
-            const hash = window.location.hash.substring(1); // Remove the '#'
-            if (hash === 'finished') {
-                switchView('library');
-                resetFilters();
-                elements.statusFilter.value = 'Finished';
-                applyFilters();
-                updateNavActive('navFinished');
-            } else if (hash === 'reading') {
-                switchView('library');
-                resetFilters();
-                elements.statusFilter.value = 'In Progress';
-                applyFilters();
-                updateNavActive('navReading');
-            } else if (hash === 'all') {
-                switchView('library');
-                resetFilters();
-                updateNavActive('navAllBooks');
-            } else {
-                // Default behavior - no hash in URL
-                applyFilters(); // Initial Library Load
-                renderWeekList(); // Initial Challenge Load
-            }
-            
+            buildCategoryPills();
+            buildYearPills();
+            updateProgress();
+            updateChallenge2026Progress();
+            applyInitialViewMode();
+            readUrlParams();
             setupEventListeners();
         });
 
-        function setupEventListeners() {
-            // Filter Events
-            elements.searchInput.addEventListener('input', debounce(applyFilters, 300));
-            elements.categoryFilter.addEventListener('change', applyFilters);
-            elements.ownershipFilter.addEventListener('change', applyFilters);
-            elements.statusFilter.addEventListener('change', applyFilters);
-            elements.sortFilter.addEventListener('change', applyFilters);
-            elements.itemsPerPage.addEventListener('change', handleItemsPerPageChange);
-            
-            // Pagination Events
-            elements.firstPageBtn.addEventListener('click', () => goToPage(1));
-            elements.prevPageBtn.addEventListener('click', () => goToPage(currentPage - 1));
-            elements.nextPageBtn.addEventListener('click', () => goToPage(currentPage + 1));
-            elements.lastPageBtn.addEventListener('click', () => goToPage(getTotalPages()));
-
-            // Back to top
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 300) {
-                    elements.backToTop.classList.add('visible');
-                } else {
-                    elements.backToTop.classList.remove('visible');
-                }
-            });
-            elements.backToTop.addEventListener('click', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-
-            // Modal
-            elements.modalClose.addEventListener('click', closeModal);
-            elements.modal.addEventListener('click', (e) => {
-                if (e.target === elements.modal) closeModal();
-            });
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') closeModal();
-            });
-
-            // Mobile menu
-            elements.mobileMenuBtn.addEventListener('click', toggleSidebar);
-            elements.sidebarOverlay.addEventListener('click', toggleSidebar);
-
-            // NAVIGATION EVENTS
-            elements.navAllBooks.addEventListener('click', (e) => {
-                e.preventDefault();
-                switchView('library');
-                resetFilters();
-                updateNavActive('navAllBooks');
-                closeSidebarOnMobile();
-            });
-            elements.navFinished.addEventListener('click', (e) => {
-                e.preventDefault();
-                switchView('library');
-                resetFilters();
-                elements.statusFilter.value = 'Finished';
-                applyFilters();
-                updateNavActive('navFinished');
-                closeSidebarOnMobile();
-            });
-            elements.navReading.addEventListener('click', (e) => {
-                e.preventDefault();
-                switchView('library');
-                resetFilters();
-                elements.statusFilter.value = 'In Progress';
-                applyFilters();
-                updateNavActive('navReading');
-                closeSidebarOnMobile();
-            });
+        // ═══════════════════════════════════════════════
+        //  DARK MODE
+        // ═══════════════════════════════════════════════
+        function initDarkMode() {
+            const saved = localStorage.getItem('drdeas-theme') || 'light';
+            applyTheme(saved);
         }
 
-        // --- VIEW SWITCHING LOGIC ---
-        function switchView(viewName) {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            if (viewName === 'library') {
-                elements.viewLibrary.style.display = 'block';
-                elements.viewChallenge.style.display = 'none';
-            } else if (viewName === 'challenge') {
-                elements.viewLibrary.style.display = 'none';
-                elements.viewChallenge.style.display = 'block';
-                renderWeekList(); // Re-render to ensure cleanliness
+        function applyTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('drdeas-theme', theme);
+            el.darkModeIcon.textContent  = theme === 'dark' ? '☀️' : '🌙';
+            el.darkModeLabel.textContent = theme === 'dark' ? 'Light mode' : 'Dark mode';
+            // Sync mobile header button
+            if (el.mobileDarkBtn) {
+                el.mobileDarkBtn.textContent = theme === 'dark' ? '☀️' : '🌙';
+                el.mobileDarkBtn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
             }
         }
 
+        // ═══════════════════════════════════════════════
+        //  VIEW MODE (Grid / List)
+        // ═══════════════════════════════════════════════
+        function applyInitialViewMode() {
+            if (currentViewMode === 'list') {
+                el.bookGrid.classList.add('list-mode');
+                el.listViewBtn.classList.add('active');
+                el.gridViewBtn.classList.remove('active');
+                el.listViewBtn.setAttribute('aria-pressed','true');
+                el.gridViewBtn.setAttribute('aria-pressed','false');
+            }
+        }
+
+        function setViewMode(mode) {
+            currentViewMode = mode;
+            localStorage.setItem('drdeas-viewmode', mode);
+            el.bookGrid.classList.toggle('list-mode', mode === 'list');
+            el.gridViewBtn.classList.toggle('active', mode === 'grid');
+            el.listViewBtn.classList.toggle('active', mode === 'list');
+            el.gridViewBtn.setAttribute('aria-pressed', mode === 'grid' ? 'true' : 'false');
+            el.listViewBtn.setAttribute('aria-pressed', mode === 'list' ? 'true' : 'false');
+            displayPage();
+        }
+
+        // ═══════════════════════════════════════════════
+        //  URL-SYNCED FILTERS
+        // ═══════════════════════════════════════════════
+        function readUrlParams() {
+            const params = new URLSearchParams(window.location.search);
+            const hash   = window.location.hash.substring(1);
+
+            // Deep-link: ?book=143 opens modal directly
+            const bookParam = params.get('book');
+            if (bookParam) {
+                const bookNum = parseInt(bookParam, 10);
+                applyFilters();
+                renderWeekList();
+                const idx = currentFilteredBooks.findIndex(b => b.number === bookNum);
+                openModal(bookNum, null, idx >= 0 ? idx : null);
+                return;
+            }
+
+            // Restore filter state
+            el.searchInput.value     = params.get('search')    || '';
+            el.statusFilter.value    = params.get('status')    || '';
+            el.ownershipFilter.value = params.get('ownership') || '';
+            el.sortFilter.value      = params.get('sort')      || 'number';
+
+            const cats = params.get('categories');
+            if (cats) {
+                activeCategoryPills = new Set(cats.split(',').filter(Boolean));
+                refreshPillUI();
+            }
+
+            const yrs = params.get('years');
+            if (yrs) {
+                activeYearPills = new Set(yrs.split(',').map(Number).filter(y => !isNaN(y)));
+                refreshYearPillUI();
+            }
+
+            // Legacy hash-based nav
+            if (hash === 'finished') {
+                switchView('library'); el.statusFilter.value = 'Finished';
+                applyFilters(); updateNavActive('navFinished');
+            } else if (hash === 'reading') {
+                switchView('library'); el.statusFilter.value = 'In Progress';
+                applyFilters(); updateNavActive('navReading');
+            } else if (hash === 'all') {
+                switchView('library'); applyFilters(); updateNavActive('navAllBooks');
+            } else {
+                applyFilters();
+                renderWeekList();
+            }
+
+            const page = parseInt(params.get('page') || '1', 10);
+            if (page > 1) { currentPage = page; displayPage(); }
+        }
+
+        function pushUrlParams() {
+            const params = new URLSearchParams();
+            if (el.searchInput.value)     params.set('search',    el.searchInput.value);
+            if (el.statusFilter.value)    params.set('status',    el.statusFilter.value);
+            if (el.ownershipFilter.value) params.set('ownership', el.ownershipFilter.value);
+            if (el.sortFilter.value && el.sortFilter.value !== 'number') params.set('sort', el.sortFilter.value);
+            if (currentPage > 1)          params.set('page',      currentPage);
+            if (activeCategoryPills.size > 0) params.set('categories', [...activeCategoryPills].join(','));
+            if (activeYearPills.size > 0)     params.set('years',      [...activeYearPills].join(','));
+            const qs = params.toString();
+            history.replaceState(null, '', qs ? `${window.location.pathname}?${qs}` : window.location.pathname);
+        }
+
+        // ═══════════════════════════════════════════════
+        //  EVENT LISTENERS
+        // ═══════════════════════════════════════════════
+        function setupEventListeners() {
+            el.searchInput.addEventListener('input', debounce(applyFilters, 300));
+            el.ownershipFilter.addEventListener('change', applyFilters);
+            el.statusFilter.addEventListener('change', applyFilters);
+            el.sortFilter.addEventListener('change', applyFilters);
+            el.itemsPerPage.addEventListener('change', handleItemsPerPageChange);
+
+            el.firstPageBtn.addEventListener('click', () => goToPage(1));
+            el.prevPageBtn.addEventListener('click',  () => goToPage(currentPage - 1));
+            el.nextPageBtn.addEventListener('click',  () => goToPage(currentPage + 1));
+            el.lastPageBtn.addEventListener('click',  () => goToPage(getTotalPages()));
+
+            el.gridViewBtn.addEventListener('click', () => setViewMode('grid'));
+            el.listViewBtn.addEventListener('click', () => setViewMode('list'));
+
+            window.addEventListener('scroll', () => { el.backToTop.classList.toggle('visible', window.scrollY > 300); });
+            el.backToTop.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
+
+            el.modalClose.addEventListener('click', closeModal);
+            el.modal.addEventListener('click', e => { if (e.target === el.modal) closeModal(); });
+            el.modalPrevBtn.addEventListener('click', () => navigateModal(-1));
+            el.modalNextBtn.addEventListener('click', () => navigateModal(1));
+            el.modalShareBtn.addEventListener('click', shareBook);
+
+            document.addEventListener('keydown', handleKeydown);
+
+            el.mobileMenuBtn.addEventListener('click', toggleSidebar);
+            el.sidebarOverlay.addEventListener('click', toggleSidebar);
+
+            el.darkModeToggle.addEventListener('click', () => {
+                const cur = document.documentElement.getAttribute('data-theme');
+                applyTheme(cur === 'dark' ? 'light' : 'dark');
+            });
+            el.mobileDarkBtn.addEventListener('click', () => {
+                const cur = document.documentElement.getAttribute('data-theme');
+                applyTheme(cur === 'dark' ? 'light' : 'dark');
+            });
+
+            el.navAllBooks.addEventListener('click', e => { e.preventDefault(); switchView('library'); resetFilters(); updateNavActive('navAllBooks'); closeSidebarOnMobile(); });
+            el.navFinished.addEventListener('click', e => { e.preventDefault(); switchView('library'); resetFilters(); el.statusFilter.value = 'Finished'; applyFilters(); updateNavActive('navFinished'); closeSidebarOnMobile(); });
+            el.navReading.addEventListener('click',  e => { e.preventDefault(); switchView('library'); resetFilters(); el.statusFilter.value = 'In Progress'; applyFilters(); updateNavActive('navReading'); closeSidebarOnMobile(); });
+        }
+
+        // ═══════════════════════════════════════════════
+        //  KEYBOARD SHORTCUTS
+        // ═══════════════════════════════════════════════
+        function handleKeydown(e) {
+            const tag = document.activeElement.tagName.toLowerCase();
+            const modalOpen = el.modal.classList.contains('active');
+
+            if (e.key === 'Escape' && modalOpen) { closeModal(); return; }
+
+            if (modalOpen) {
+                if (e.key === 'ArrowLeft')  { e.preventDefault(); navigateModal(-1); return; }
+                if (e.key === 'ArrowRight') { e.preventDefault(); navigateModal(1);  return; }
+            }
+
+            if (e.key === '/' && !modalOpen && tag !== 'input' && tag !== 'textarea' && tag !== 'select') {
+                e.preventDefault();
+                el.searchInput.focus();
+                el.searchInput.select();
+            }
+        }
+
+        // ═══════════════════════════════════════════════
+        //  SWIPE GESTURES (modal prev/next on touch)
+        // ═══════════════════════════════════════════════
+        (function initSwipe() {
+            let touchStartX = 0;
+            let touchStartY = 0;
+            const SWIPE_THRESHOLD = 60;   // minimum px horizontal travel
+            const AXIS_LOCK = 40;         // if vertical travel exceeds this, ignore
+
+            const modalContent = document.querySelector('.modal-content');
+
+            modalContent.addEventListener('touchstart', e => {
+                touchStartX = e.touches[0].clientX;
+                touchStartY = e.touches[0].clientY;
+            }, { passive: true });
+
+            modalContent.addEventListener('touchend', e => {
+                if (!el.modal.classList.contains('active')) return;
+                const dx = e.changedTouches[0].clientX - touchStartX;
+                const dy = e.changedTouches[0].clientY - touchStartY;
+
+                // Ignore if primarily a vertical scroll
+                if (Math.abs(dy) > AXIS_LOCK) return;
+
+                if (dx < -SWIPE_THRESHOLD) {
+                    // Swiped left → next book
+                    navigateModal(1);
+                } else if (dx > SWIPE_THRESHOLD) {
+                    // Swiped right → previous book
+                    navigateModal(-1);
+                }
+            }, { passive: true });
+        })();
+
+        // ═══════════════════════════════════════════════
+        //  VIEW SWITCHING
+        // ═══════════════════════════════════════════════
+        function switchView(viewName) {
+            window.scrollTo({top:0,behavior:'smooth'});
+            el.viewLibrary.style.display   = viewName === 'library'   ? 'block' : 'none';
+            el.viewChallenge.style.display = viewName === 'challenge' ? 'block' : 'none';
+            if (viewName === 'challenge') renderWeekList();
+        }
+
+        // ═══════════════════════════════════════════════
+        //  CATEGORY PILL CHIPS
+        // ═══════════════════════════════════════════════
+        function buildCategoryPills() {
+            const categories = [...new Set(books.map(b => b.category))].sort();
+            el.categoryPills.innerHTML = '<span class="category-pills-label">Category:</span>';
+
+            const allPill = document.createElement('button');
+            allPill.className = 'category-pill all-pill' + (activeCategoryPills.size === 0 ? ' active' : '');
+            allPill.textContent = 'All';
+            allPill.setAttribute('aria-pressed', activeCategoryPills.size === 0 ? 'true' : 'false');
+            allPill.addEventListener('click', () => { activeCategoryPills.clear(); refreshPillUI(); applyFilters(); });
+            el.categoryPills.appendChild(allPill);
+
+            categories.forEach(cat => {
+                const pill = document.createElement('button');
+                pill.className = 'category-pill' + (activeCategoryPills.has(cat) ? ' active' : '');
+                pill.textContent = cat;
+                pill.dataset.category = cat;
+                pill.setAttribute('aria-pressed', activeCategoryPills.has(cat) ? 'true' : 'false');
+                pill.addEventListener('click', () => {
+                    activeCategoryPills.has(cat) ? activeCategoryPills.delete(cat) : activeCategoryPills.add(cat);
+                    refreshPillUI(); applyFilters();
+                });
+                el.categoryPills.appendChild(pill);
+            });
+        }
+
+        function refreshPillUI() {
+            el.categoryPills.querySelectorAll('.category-pill').forEach(pill => {
+                if (pill.classList.contains('all-pill')) {
+                    const isAll = activeCategoryPills.size === 0;
+                    pill.classList.toggle('active', isAll);
+                    pill.setAttribute('aria-pressed', isAll ? 'true' : 'false');
+                } else {
+                    const isActive = activeCategoryPills.has(pill.dataset.category);
+                    pill.classList.toggle('active', isActive);
+                    pill.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+                }
+            });
+        }
+
+        function buildYearPills() {
+            // Collect all years from finished books with a valid dateCompleted
+            const years = [...new Set(
+                books
+                    .filter(b => b.status === 'Finished' && b.dateCompleted)
+                    .map(b => new Date(b.dateCompleted).getFullYear())
+                    .filter(y => !isNaN(y))
+            )].sort((a, b) => b - a); // newest year first
+
+            el.yearPills.innerHTML = '<span class="year-pills-label">Year:</span>';
+
+            const allPill = document.createElement('button');
+            allPill.className = 'year-pill all-year-pill' + (activeYearPills.size === 0 ? ' active' : '');
+            allPill.textContent = 'All years';
+            allPill.setAttribute('aria-pressed', activeYearPills.size === 0 ? 'true' : 'false');
+            allPill.addEventListener('click', () => {
+                activeYearPills.clear();
+                refreshYearPillUI();
+                applyFilters();
+            });
+            el.yearPills.appendChild(allPill);
+
+            years.forEach(year => {
+                const pill = document.createElement('button');
+                pill.className = 'year-pill' + (activeYearPills.has(year) ? ' active' : '');
+                pill.textContent = year;
+                pill.dataset.year = year;
+                pill.setAttribute('aria-pressed', activeYearPills.has(year) ? 'true' : 'false');
+                pill.addEventListener('click', () => {
+                    activeYearPills.has(year) ? activeYearPills.delete(year) : activeYearPills.add(year);
+                    refreshYearPillUI();
+                    applyFilters();
+                });
+                el.yearPills.appendChild(pill);
+            });
+        }
+
+        function refreshYearPillUI() {
+            el.yearPills.querySelectorAll('.year-pill').forEach(pill => {
+                if (pill.classList.contains('all-year-pill')) {
+                    const isAll = activeYearPills.size === 0;
+                    pill.classList.toggle('active', isAll);
+                    pill.setAttribute('aria-pressed', isAll ? 'true' : 'false');
+                } else {
+                    const year = parseInt(pill.dataset.year, 10);
+                    const isActive = activeYearPills.has(year);
+                    pill.classList.toggle('active', isActive);
+                    pill.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+                }
+            });
+        }
+
+        // ═══════════════════════════════════════════════
+        //  FILTERS
+        // ═══════════════════════════════════════════════
         function resetFilters() {
-            elements.statusFilter.value = '';
-            elements.categoryFilter.value = '';
-            elements.ownershipFilter.value = '';
-            elements.searchInput.value = '';
+            el.statusFilter.value = ''; el.ownershipFilter.value = ''; el.searchInput.value = '';
+            activeCategoryPills.clear(); refreshPillUI();
+            activeYearPills.clear(); refreshYearPillUI();
             applyFilters();
         }
 
-        function updateNavActive(activeId) {
-            document.querySelectorAll('.nav-item').forEach(item => {
-                item.classList.remove('active');
-            });
-            document.getElementById(activeId).classList.add('active');
-        }
-
-        // --- UTILITIES ---
-        function debounce(func, wait) {
-            let timeout;
-            return function executedFunction(...args) {
-                const later = () => {
-                    clearTimeout(timeout);
-                    func(...args);
-                };
-                clearTimeout(timeout);
-                timeout = setTimeout(later, wait);
-            };
-        }
-
-        function toggleSidebar() {
-            elements.sidebar.classList.toggle('open');
-            elements.sidebarOverlay.classList.toggle('active');
-        }
-
-        function closeSidebarOnMobile() {
-            if (window.innerWidth <= 768) {
-                elements.sidebar.classList.remove('open');
-                elements.sidebarOverlay.classList.remove('active');
-            }
-        }
-        
-        function getInitials(title) {
-            if (!title) return '';
-            const ignore = ['A', 'AN', 'THE', 'OF', 'IN', 'ON', 'AND', 'TO', 'FOR'];
-            return title.split(' ')
-                .filter(word => !ignore.includes(word.toUpperCase()))
-                .slice(0, 3)
-                .map(word => word[0])
-                .join('')
-                .toUpperCase();
-        }
-
-        function updateProgress() {
-            const finished = books.filter(b => b.status === 'Finished').length;
-            const today = new Date();
-            const weeksElapsed = Math.max(1, Math.floor((today - challengeStartDate) / (1000 * 60 * 60 * 24 * 7)));
-
-            // Books progress
-            const booksPercent = (finished / 1000 * 100).toFixed(1);
-            document.getElementById('booksCount').innerHTML = `${finished} <span>/ 1,000</span>`;
-            document.getElementById('booksProgressBar').style.width = `${booksPercent}%`;
-            document.getElementById('booksPercent').textContent = `${booksPercent}% complete`;
-
-            // Weeks progress
-            const weeksPercent = (weeksElapsed / 1000 * 100).toFixed(1);
-            document.getElementById('weeksCount').innerHTML = `Week ${weeksElapsed} <span>/ 1,000</span>`;
-            document.getElementById('weeksProgressBar').style.width = `${weeksPercent}%`;
-            document.getElementById('weeksPercent').textContent = `${weeksPercent}% elapsed`;
-        }
-
-        // --- LIBRARY LOGIC ---
-        function populateFilters() {
-            const categories = [...new Set(books.map(book => book.category))].sort();
-            const ownerships = [...new Set(books.map(book => book.ownership))].sort();
-            const statuses = [...new Set(books.map(book => book.status))].sort();
-
-            categories.forEach(category => {
-                const option = document.createElement('option');
-                option.value = category;
-                option.textContent = category;
-                elements.categoryFilter.appendChild(option);
-            });
-
-            ownerships.forEach(ownership => {
-                const option = document.createElement('option');
-                option.value = ownership;
-                option.textContent = ownership;
-                elements.ownershipFilter.appendChild(option);
-            });
-
-            statuses.forEach(status => {
-                const option = document.createElement('option');
-                option.value = status;
-                option.textContent = status;
-                elements.statusFilter.appendChild(option);
-            });
-        }
-
         function applyFilters() {
-            const searchTerm = elements.searchInput.value.toLowerCase();
-            const category = elements.categoryFilter.value;
-            const ownership = elements.ownershipFilter.value;
-            const status = elements.statusFilter.value;
-            const sortBy = elements.sortFilter.value;
+            const search    = el.searchInput.value.toLowerCase();
+            const ownership = el.ownershipFilter.value;
+            const status    = el.statusFilter.value;
+            const sortBy    = el.sortFilter.value;
 
             currentFilteredBooks = books.filter(book => {
-                const titleMatch = book.title.toLowerCase().includes(searchTerm);
-                const authorMatch = book.author.toLowerCase().includes(searchTerm);
-                const categoryMatch = !category || book.category === category;
-                const ownershipMatch = !ownership || book.ownership === ownership;
-                const statusMatch = !status || book.status === status;
-                
-                return (titleMatch || authorMatch) && categoryMatch && ownershipMatch && statusMatch;
+                const titleMatch    = book.title.toLowerCase().includes(search);
+                const authorMatch   = book.author.toLowerCase().includes(search);
+                const ownerMatch    = !ownership || book.ownership === ownership;
+                const statusMatch   = !status    || book.status    === status;
+                const catMatch      = activeCategoryPills.size === 0 || activeCategoryPills.has(book.category);
+                // Year filter: only applies to books with a parseable dateCompleted
+                const yearMatch     = activeYearPills.size === 0 || (() => {
+                    if (!book.dateCompleted) return false;
+                    const y = new Date(book.dateCompleted).getFullYear();
+                    return !isNaN(y) && activeYearPills.has(y);
+                })();
+                return (titleMatch || authorMatch) && ownerMatch && statusMatch && catMatch && yearMatch;
             });
 
-            // Sort
             switch (sortBy) {
-                case 'number':
-                    currentFilteredBooks.sort((a, b) => a.number - b.number);
-                    break;
-                case 'newest':
-                    currentFilteredBooks.sort((a, b) => new Date(b.dateCompleted) - new Date(a.dateCompleted));
-                    break;
-                case 'oldest':
-                    currentFilteredBooks.sort((a, b) => new Date(a.dateCompleted) - new Date(b.dateCompleted));
-                    break;
-                case 'title':
-                    currentFilteredBooks.sort((a, b) => a.title.localeCompare(b.title));
-                    break;
-                case 'author':
-                    currentFilteredBooks.sort((a, b) => a.author.localeCompare(b.author));
-                    break;
-                case 'category':
-                    currentFilteredBooks.sort((a, b) => a.category.localeCompare(b.category));
-                    break;
+                case 'number':   currentFilteredBooks.sort((a,b) => a.number - b.number); break;
+                case 'newest':   currentFilteredBooks.sort((a,b) => new Date(b.dateCompleted) - new Date(a.dateCompleted)); break;
+                case 'oldest':   currentFilteredBooks.sort((a,b) => new Date(a.dateCompleted) - new Date(b.dateCompleted)); break;
+                case 'title':    currentFilteredBooks.sort((a,b) => a.title.localeCompare(b.title)); break;
+                case 'author':   currentFilteredBooks.sort((a,b) => a.author.localeCompare(b.author)); break;
+                case 'category': currentFilteredBooks.sort((a,b) => a.category.localeCompare(b.category)); break;
             }
 
             currentPage = 1;
-            displayPage();
+            showSkeletons();
+            setTimeout(() => { displayPage(); pushUrlParams(); }, 180);
         }
 
-        function handleItemsPerPageChange(event) {
-            const value = event.target.value;
-            itemsPerPage = value === 'all' ? currentFilteredBooks.length || 1 : parseInt(value, 10);
-            currentPage = 1;
-            displayPage();
+        // ═══════════════════════════════════════════════
+        //  SKELETON LOADING
+        // ═══════════════════════════════════════════════
+        function showSkeletons() {
+            const n = Math.min(typeof itemsPerPage === 'number' ? itemsPerPage : 24, 24);
+            if (currentViewMode === 'list') {
+                el.bookGrid.classList.add('list-mode');
+                el.bookGrid.innerHTML = Array.from({length: Math.min(n,8)}, () =>
+                    `<div class="skeleton-card" aria-hidden="true"><div class="book-list-row">
+                        <div style="width:44px;min-width:44px;height:66px;border-radius:8px;" class="skeleton-cover"></div>
+                        <div style="flex:1;"><div class="skeleton-line" style="width:70%;margin-bottom:10px;"></div><div class="skeleton-line short"></div></div>
+                    </div></div>`
+                ).join('');
+            } else {
+                el.bookGrid.classList.remove('list-mode');
+                el.bookGrid.innerHTML = Array.from({length: n}, () =>
+                    `<div class="skeleton-card" aria-hidden="true"><div class="skeleton-cover"></div><div class="skeleton-info"><div class="skeleton-line"></div><div class="skeleton-line short"></div></div></div>`
+                ).join('');
+            }
+        }
+
+        // ═══════════════════════════════════════════════
+        //  PAGINATION
+        // ═══════════════════════════════════════════════
+        function handleItemsPerPageChange(e) {
+            const v = e.target.value;
+            itemsPerPage = v === 'all' ? (currentFilteredBooks.length || 1) : parseInt(v, 10);
+            currentPage = 1; displayPage();
         }
 
         function getTotalPages() {
@@ -1859,371 +2546,360 @@
             return Math.ceil(currentFilteredBooks.length / itemsPerPage);
         }
 
-        function goToPage(pageNumber) {
-            const totalPages = getTotalPages();
-            if (pageNumber >= 1 && pageNumber <= totalPages) {
-                currentPage = pageNumber;
-                displayPage();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
+        function goToPage(n) {
+            const total = getTotalPages();
+            if (n >= 1 && n <= total) { currentPage = n; displayPage(); pushUrlParams(); window.scrollTo({top:0,behavior:'smooth'}); }
         }
 
         function displayPage() {
-            const startIndex = (currentPage - 1) * itemsPerPage;
-            const endIndex = startIndex + itemsPerPage;
-            const paginatedBooks = currentFilteredBooks.slice(startIndex, endIndex);
-            
-            renderBooks(paginatedBooks);
+            const start = (currentPage - 1) * itemsPerPage;
+            renderBooks(currentFilteredBooks.slice(start, start + itemsPerPage));
             updatePaginationControls();
             updateResultsCount();
         }
 
         function updateResultsCount() {
             const start = (currentPage - 1) * itemsPerPage + 1;
-            const end = Math.min(currentPage * itemsPerPage, currentFilteredBooks.length);
-            
-            if (currentFilteredBooks.length === 0) {
-                elements.resultsCount.innerHTML = 'No books found';
-            } else {
-                elements.resultsCount.innerHTML = `Showing <strong>${start}–${end}</strong> of <strong>${currentFilteredBooks.length}</strong> books`;
-            }
+            const end   = Math.min(currentPage * itemsPerPage, currentFilteredBooks.length);
+            el.resultsCount.innerHTML = currentFilteredBooks.length === 0
+                ? 'No books found'
+                : `Showing <strong>${start}–${end}</strong> of <strong>${currentFilteredBooks.length}</strong> books`;
         }
 
         function updatePaginationControls() {
-            const totalPages = getTotalPages();
-            const isViewAll = elements.itemsPerPage.value === 'all';
-
-            if (currentFilteredBooks.length === 0 || totalPages <= 1 || isViewAll) {
-                elements.pagination.style.display = currentFilteredBooks.length === 0 ? 'none' : 'flex';
-                elements.firstPageBtn.style.visibility = 'hidden';
-                elements.prevPageBtn.style.visibility = 'hidden';
-                elements.nextPageBtn.style.visibility = 'hidden';
-                elements.lastPageBtn.style.visibility = 'hidden';
-                elements.pageInfo.style.visibility = 'hidden';
-            } else {
-                elements.pagination.style.display = 'flex';
-                elements.firstPageBtn.style.visibility = 'visible';
-                elements.prevPageBtn.style.visibility = 'visible';
-                elements.nextPageBtn.style.visibility = 'visible';
-                elements.lastPageBtn.style.visibility = 'visible';
-                elements.pageInfo.style.visibility = 'visible';
-
-                elements.pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
-                elements.firstPageBtn.disabled = currentPage === 1;
-                elements.prevPageBtn.disabled = currentPage === 1;
-                elements.nextPageBtn.disabled = currentPage === totalPages;
-                elements.lastPageBtn.disabled = currentPage === totalPages;
+            const total   = getTotalPages();
+            const viewAll = el.itemsPerPage.value === 'all';
+            const hide    = currentFilteredBooks.length === 0 || total <= 1 || viewAll;
+            el.pagination.style.display = currentFilteredBooks.length === 0 ? 'none' : 'flex';
+            ['firstPageBtn','prevPageBtn','nextPageBtn','lastPageBtn','pageInfo'].forEach(id => {
+                el[id].style.visibility = hide ? 'hidden' : 'visible';
+            });
+            if (!hide) {
+                el.pageInfo.textContent  = `Page ${currentPage} of ${total}`;
+                el.firstPageBtn.disabled = currentPage === 1;
+                el.prevPageBtn.disabled  = currentPage === 1;
+                el.nextPageBtn.disabled  = currentPage === total;
+                el.lastPageBtn.disabled  = currentPage === total;
             }
         }
 
+        // ═══════════════════════════════════════════════
+        //  RENDER BOOKS
+        // ═══════════════════════════════════════════════
         function renderBooks(bookList) {
             if (bookList.length === 0) {
-                elements.bookGrid.innerHTML = `
-                    <div class="empty-state" style="grid-column: 1 / -1;">
-                        <div class="empty-state-icon">📚</div>
-                        <h3 class="empty-state-title">No books found</h3>
-                        <p class="empty-state-text">Try adjusting your search or filters</p>
-                    </div>
-                `;
+                el.bookGrid.innerHTML = `<div class="empty-state" style="grid-column:1/-1;" role="status">
+                    <div class="empty-state-icon" aria-hidden="true">📚</div>
+                    <h3 class="empty-state-title">No books found</h3>
+                    <p class="empty-state-text">Try adjusting your search or filters</p></div>`;
                 return;
             }
 
-            elements.bookGrid.innerHTML = bookList.map(book => `
-                <div class="book-card" onclick="openModal(${book.number}, null)">
-                    <div class="book-cover-wrapper">
-                        <span class="book-number-badge">#${book.number}</span>
-                        <img src="${book.customCoverUrl}" alt="${book.title}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="cover-fallback ${getCategoryClass(book.category)}" style="display: none;">
-                            <div class="initials">${getInitials(book.title)}</div>
-                            <div class="title-text">${book.title.length > 30 ? book.title.substring(0, 27) + '...' : book.title}</div>
-                        </div>
-                    </div>
-                    <div class="book-info">
-                        <h3 class="book-title">${book.title}</h3>
-                        <p class="book-author">${book.author}</p>
-                    </div>
-                </div>
-            `).join('');
-        }
+            const pageOffset = (currentPage - 1) * itemsPerPage;
 
-        // --- 2026 CHALLENGE LOGIC ---
-        function getCategoryClass(category) {
-            const classMap = {
-                'Biography': 'category-biography',
-                'Business': 'category-business',
-                'Education': 'category-education',
-                'Essay(s)/Short Stories': 'category-essays',
-                'Finance': 'category-finance',
-                'Informational': 'category-informational',
-                'Memoir/Autobiography': 'category-memoir',
-                'Novel': 'category-novel',
-                'Philosophy': 'category-philosophy',
-                'Poetry': 'category-poetry',
-                'Policy and Politics': 'category-politics',
-                'Race, Class, and Gender': 'category-race',
-                'Religion': 'category-religion',
-                'Science': 'category-science',
-                'Self-Development': 'category-self',
-                'Social Science(s)': 'category-social',
-                'Technology': 'category-technology',
-                'Stage Play': 'category-stage'
-            };
-            return classMap[category] || 'category-novel';
-        }
-
-        function getTagColor(type, value) {
-            const colors = {
-                category: {
-                    'Biography': '#F4A259',
-                    'Business': '#7B9EAB',
-                    'Education': '#6B8E6B',
-                    'Essay(s)/Short Stories': '#B8A8C8',
-                    'Finance': '#C4A67C',
-                    'Informational': '#7BA3A3',
-                    'Memoir/Autobiography': '#E8B86D',
-                    'Novel': '#D4847C',
-                    'Philosophy': '#8B9EAB',
-                    'Poetry': '#A8B5C8',
-                    'Policy and Politics': '#AB8B8B',
-                    'Race, Class, and Gender': '#6B8E6B',
-                    'Religion': '#A8A8B8',
-                    'Science': '#7B9EBB',
-                    'Self-Development': '#B8A8D8',
-                    'Social Science(s)': '#A8B5A0',
-                    'Technology': '#8B9EAB',
-                    'Stage Play': '#C8A8A8'
-                },
-                ownership: {
-                    'Digital': '#7B9EAB',
-                    'Physical': '#C4A67C',
-                    'Library': '#B08D8D'
-                },
-                status: {
-                    'Finished': '#7BA37B',
-                    'In Progress': '#E8B86D',
-                    'Queued': '#B8A8C8',
-                    'Reading': '#E8B86D'
-                }
-            };
-            return colors[type]?.[value] || '#A8B5A0';
-        }
-
-        function getCurrentWeek() {
-            const now = new Date();
-            const startOfYear = new Date(now.getFullYear(), 0, 1);
-            const days = Math.floor((now - startOfYear) / (24 * 60 * 60 * 1000));
-            return Math.ceil((days + startOfYear.getDay() + 1) / 7);
-        }
-
-        function isChallenge2026Active() {
-            const now = new Date();
-            return now.getFullYear() === 2026;
-        }
-
-        function getWeekStatus(week) {
-            if (!isChallenge2026Active()) return 'upcoming';
-            const currentWeek = getCurrentWeek();
-            if (week < currentWeek) return 'completed';
-            if (week === currentWeek) return 'current';
-            return 'upcoming';
-        }
-
-        function getQuarterInfo(week) {
-            if (week === 1) return { icon: '🌱', title: 'Quarter 1: Foundations', subtitle: 'Building your reading practice' };
-            if (week === 14) return { icon: '🌿', title: 'Quarter 2: Growth', subtitle: 'Expanding perspectives' };
-            if (week === 27) return { icon: '🌻', title: 'Quarter 3: Flourishing', subtitle: 'Deepening understanding' };
-            if (week === 40) return { icon: '🍂', title: 'Quarter 4: Harvest', subtitle: 'Integrating wisdom' };
-            return null;
-        }
-
-        function updateChallenge2026Progress() {
-            const currentWeek = isChallenge2026Active() ? Math.min(getCurrentWeek(), 52) : 1;
-            
-            const currentBookEntry = weeklyReadingList.find(w => w.week === currentWeek);
-            if (currentBookEntry) {
-                const book = books.find(b => b.number === currentBookEntry.bookNumber);
-                if (book) {
-                    elements.currentWeekBadge.textContent = `Week ${currentWeek}`;
-                    elements.currentWeekText.textContent = book.title;
-                }
-            } else {
-                 elements.currentWeekBadge.textContent = `Week ${currentWeek}`;
-                 elements.currentWeekText.textContent = "Prepare for next week";
-            }
-        }
-
-        function renderWeekList() {
-            let html = '';
-            
-            // Render weekly books
-            weeklyReadingList.forEach(({ week, bookNumber }) => {
-                const book = books.find(b => b.number === bookNumber);
-                if (!book) {
-                    console.warn(`⚠️ Week ${week}: Book #${bookNumber} not found in data.js`);
-                    return;
-                }
-
-                const status = getWeekStatus(week);
-                const quarter = getQuarterInfo(week);
-
-                // Add quarter divider
-                if (quarter) {
-                    html += `
-                        <div class="quarter-divider">
-                            <span class="quarter-icon">${quarter.icon}</span>
-                            <div class="quarter-info">
-                                <h3>${quarter.title}</h3>
-                                <p>${quarter.subtitle}</p>
-                            </div>
-                        </div>
-                    `;
-                }
-
-                const statusIcon = status === 'completed' ? '✓' : status === 'current' ? '📖' : '';
-
-                // Note: Passing the challenge context object to openModal
-                const contextStr = `{ week: ${week}, isBonus: false }`;
-
-                html += `
-                    <div class="week-card ${status}" onclick='openModal(${book.number}, ${JSON.stringify({week: week, isBonus: false})})'>
-                        <div class="week-indicator ${status}">
-                            ${statusIcon ? `<span class="week-status-icon">${statusIcon}</span>` : ''}
-                            <span class="week-number">${week}</span>
-                            <span class="week-label">Week</span>
-                        </div>
-                        <div class="book-content-row">
-                            <div class="book-cover-small">
-                                <img src="${book.customCoverUrl}" alt="${book.title}" 
-                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                <div class="cover-fallback-small ${getCategoryClass(book.category)}" style="display: none;">
+            if (currentViewMode === 'list') {
+                el.bookGrid.classList.add('list-mode');
+                el.bookGrid.innerHTML = bookList.map((book, i) => `
+                    <div class="book-card" role="listitem" tabindex="0"
+                         onclick="openModal(${book.number},null,${pageOffset+i})"
+                         aria-label="${book.title} by ${book.author}">
+                        <div class="book-list-row">
+                            <span class="book-number-badge" aria-hidden="true">#${book.number}</span>
+                            <div class="book-list-cover">
+                                <img src="${book.customCoverUrl}" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                                <div class="cover-fallback ${getCategoryClass(book.category)}" style="display:none;" aria-hidden="true">
                                     <div class="initials">${getInitials(book.title)}</div>
                                 </div>
                             </div>
-                            <div class="book-details-col">
-                                <div class="book-title-row">
-                                    <span class="book-number-badge">#${book.number}</span>
-                                </div>
-                                <h3 class="book-title">${book.title}</h3>
-                                <p class="book-author">${book.author}</p>
-                                <div class="book-tags">
-                                    <span class="book-tag" style="background: ${getTagColor('category', book.category)}">${book.category}</span>
-                                </div>
+                            <div class="book-list-info">
+                                <div class="book-list-title">${book.title}</div>
+                                <div class="book-list-author">${book.author}</div>
+                            </div>
+                            <div class="book-list-meta">
+                                <span class="book-list-tag" style="background:${getTagColor('category',book.category)}">${book.category}</span>
+                                <span class="book-list-tag" style="background:${getTagColor('status',book.status)}">${book.status}</span>
                             </div>
                         </div>
-                    </div>
-                `;
-            });
-
-            // Add Bonus Book section
-            const bonusBookData = books.find(b => b.number === bonusBook.bookNumber);
-            if (bonusBookData) {
-                html += `
-                    <div class="bonus-divider">
-                        <span class="bonus-icon">🎁</span>
-                        <div class="bonus-info">
-                            <h3>Bonus Book</h3>
-                            <p>An extra recommendation for those who want more!</p>
-                        </div>
-                    </div>
-                `;
-
-                html += `
-                    <div class="week-card bonus" onclick='openModal(${bonusBookData.number}, ${JSON.stringify({week: null, isBonus: true})})'>
-                        <div class="week-indicator bonus">
-                            <span class="week-status-icon">⭐</span>
-                            <span class="week-number">+1</span>
-                            <span class="week-label">Bonus</span>
-                        </div>
-                        <div class="book-content-row">
-                            <div class="book-cover-small">
-                                <img src="${bonusBookData.customCoverUrl}" alt="${bonusBookData.title}" 
-                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                <div class="cover-fallback-small ${getCategoryClass(bonusBookData.category)}" style="display: none;">
-                                    <div class="initials">${getInitials(bonusBookData.title)}</div>
-                                </div>
-                            </div>
-                            <div class="book-details-col">
-                                <div class="book-title-row">
-                                    <span class="book-number-badge">#${bonusBookData.number}</span>
-                                </div>
-                                <h3 class="book-title">${bonusBookData.title}</h3>
-                                <p class="book-author">${bonusBookData.author}</p>
-                                <div class="book-tags">
-                                    <span class="book-tag" style="background: ${getTagColor('category', bonusBookData.category)}">${bonusBookData.category}</span>
-                                </div>
+                    </div>`).join('');
+            } else {
+                el.bookGrid.classList.remove('list-mode');
+                el.bookGrid.innerHTML = bookList.map((book, i) => `
+                    <div class="book-card" role="listitem" tabindex="0"
+                         onclick="openModal(${book.number},null,${pageOffset+i})"
+                         aria-label="${book.title} by ${book.author}">
+                        <div class="book-cover-wrapper">
+                            <span class="book-number-badge" aria-hidden="true">#${book.number}</span>
+                            <img src="${book.customCoverUrl}" alt="${book.title}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                            <div class="cover-fallback ${getCategoryClass(book.category)}" style="display:none;" aria-hidden="true">
+                                <div class="initials">${getInitials(book.title)}</div>
+                                <div class="title-text">${book.title.length>30?book.title.substring(0,27)+'...':book.title}</div>
                             </div>
                         </div>
-                    </div>
-                `;
+                        <div class="book-info">
+                            <h3 class="book-title">${book.title}</h3>
+                            <p class="book-author">${book.author}</p>
+                        </div>
+                    </div>`).join('');
             }
 
-            elements.weekList.innerHTML = html;
+            el.bookGrid.querySelectorAll('.book-card').forEach(card => {
+                card.addEventListener('keydown', e => { if (e.key==='Enter'||e.key===' '){e.preventDefault();card.click();} });
+            });
         }
 
-        // --- UNIFIED MODAL LOGIC ---
-        function openModal(bookNumber, challengeContext) {
-            // Find book by number (robust approach for both views)
+        // ═══════════════════════════════════════════════
+        //  PROGRESS
+        // ═══════════════════════════════════════════════
+        function updateProgress() {
+            const finished     = books.filter(b => b.status === 'Finished').length;
+            const today        = new Date();
+            const weeksElapsed = Math.max(1, Math.floor((today - challengeStartDate) / (1000*60*60*24*7)));
+
+            const booksPercent = (finished/1000*100).toFixed(1);
+            document.getElementById('booksCount').innerHTML = `${finished} <span>/ 1,000</span>`;
+            document.getElementById('booksProgressBar').style.width = `${booksPercent}%`;
+            document.getElementById('booksProgressWrapper').setAttribute('aria-valuenow', booksPercent);
+            document.getElementById('booksPercent').textContent = `${booksPercent}% complete`;
+
+            const weeksPercent = (weeksElapsed/1000*100).toFixed(1);
+            document.getElementById('weeksCount').innerHTML = `Week ${weeksElapsed} <span>/ 1,000</span>`;
+            document.getElementById('weeksProgressBar').style.width = `${weeksPercent}%`;
+            document.getElementById('weeksProgressWrapper').setAttribute('aria-valuenow', weeksPercent);
+            document.getElementById('weeksPercent').textContent = `${weeksPercent}% elapsed`;
+        }
+
+        function populateFilters() {
+            [...new Set(books.map(b => b.ownership))].sort().forEach(o => {
+                const opt = document.createElement('option'); opt.value = o; opt.textContent = o;
+                el.ownershipFilter.appendChild(opt);
+            });
+            [...new Set(books.map(b => b.status))].sort().forEach(s => {
+                const opt = document.createElement('option'); opt.value = s; opt.textContent = s;
+                el.statusFilter.appendChild(opt);
+            });
+        }
+
+        // ═══════════════════════════════════════════════
+        //  MODAL
+        // ═══════════════════════════════════════════════
+        function openModal(bookNumber, challengeContext, listIndex) {
             const book = books.find(b => b.number === bookNumber);
             if (!book) return;
 
-            // Handle "Week X" badge visibility
+            currentModalIndex = (listIndex !== undefined && listIndex !== null)
+                ? listIndex
+                : currentFilteredBooks.findIndex(b => b.number === bookNumber);
+
+            renderModalContent(book, challengeContext);
+            el.modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => el.modalClose.focus(), 50);
+        }
+
+        function renderModalContent(book, challengeContext) {
             const weekBadge = document.getElementById('modalWeekBadge');
-            
             if (challengeContext) {
-                // If coming from Challenge view
                 weekBadge.style.display = 'inline-block';
-                if (challengeContext.isBonus) {
-                    weekBadge.textContent = 'Bonus Book';
-                    weekBadge.classList.add('bonus');
-                } else {
-                    weekBadge.textContent = `Week ${challengeContext.week}`;
-                    weekBadge.classList.remove('bonus');
-                }
+                weekBadge.textContent   = challengeContext.isBonus ? 'Bonus Book' : `Week ${challengeContext.week}`;
+                weekBadge.classList.toggle('bonus', !!challengeContext.isBonus);
             } else {
-                // If coming from Library view
                 weekBadge.style.display = 'none';
             }
 
             document.getElementById('modalBookNumber').textContent = `#${book.number}`;
-            document.getElementById('modalTitle').textContent = book.title;
-            document.getElementById('modalAuthor').textContent = book.author;
-            document.getElementById('modalSummary').textContent = book.summary || 'No summary available for this book.';
+            document.getElementById('modalTitle').textContent      = book.title;
+            document.getElementById('modalAuthor').textContent     = book.author;
+            document.getElementById('modalSummary').textContent    = book.summary || 'No summary available for this book.';
 
-            // Cover image with fallback
             const coverWrapper = document.getElementById('modalCoverWrapper');
+            coverWrapper.innerHTML = '<img id="modalCoverImg" src="" alt="Book Cover" loading="lazy">';
             const coverImg = document.getElementById('modalCoverImg');
-            
-            coverImg.src = book.customCoverUrl;
+            coverImg.src   = book.customCoverUrl;
+            coverImg.alt   = `Cover of ${book.title}`;
             coverImg.onerror = function() {
-                coverWrapper.innerHTML = `
-                    <div class="modal-cover-fallback ${getCategoryClass(book.category)}">
-                        <div class="initials" style="font-size: 2.5rem; color: white;">${getInitials(book.title)}</div>
-                        <div class="title-text" style="color: white; font-size: 0.9rem;">${book.title}</div>
-                    </div>
-                `;
+                coverWrapper.innerHTML = `<div class="modal-cover-fallback ${getCategoryClass(book.category)}" aria-hidden="true">
+                    <div class="initials" style="font-size:2.5rem;color:white;">${getInitials(book.title)}</div>
+                    <div class="title-text" style="color:white;font-size:0.9rem;">${book.title}</div></div>`;
             };
 
-            // Tags
             const tagsContainer = document.getElementById('modalTags');
             const showDate = book.status === 'Finished' && book.dateCompleted;
             tagsContainer.innerHTML = `
-                <span class="modal-tag" style="background: ${getTagColor('category', book.category)}">${book.category}</span>
-                <span class="modal-tag" style="background: ${getTagColor('ownership', book.ownership)}">${book.ownership}</span>
-                <span class="modal-tag" style="background: ${getTagColor('status', book.status)}">${book.status}</span>
-                ${showDate ? `<span class="modal-tag" style="background: #8B9EAB">${book.dateCompleted}</span>` : ''}
-            `;
+                <span class="modal-tag" style="background:${getTagColor('category',book.category)}">${book.category}</span>
+                <span class="modal-tag" style="background:${getTagColor('ownership',book.ownership)}">${book.ownership}</span>
+                <span class="modal-tag" style="background:${getTagColor('status',book.status)}">${book.status}</span>
+                ${showDate ? `<span class="modal-tag" style="background:#8B9EAB">${book.dateCompleted}</span>` : ''}`;
 
-            elements.modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
+            el.modalPrevBtn.disabled = currentModalIndex <= 0;
+            el.modalNextBtn.disabled = currentModalIndex >= currentFilteredBooks.length - 1;
+            el.modalShareBtn.innerHTML = '<span class="btn-icon">🔗</span><span>Share</span>';
+            el.modalShareBtn.classList.remove('copied');
+        }
+
+        function navigateModal(dir) {
+            const newIdx = currentModalIndex + dir;
+            if (newIdx < 0 || newIdx >= currentFilteredBooks.length) return;
+            currentModalIndex = newIdx;
+            renderModalContent(currentFilteredBooks[newIdx], null);
+            // Return to top of modal so user sees title/cover, not mid-summary
+            document.querySelector('.modal-content').scrollTop = 0;
         }
 
         function closeModal() {
-            elements.modal.classList.remove('active');
+            el.modal.classList.remove('active');
             document.body.style.overflow = '';
-            
-            // Reset cover wrapper for next use
-            const coverWrapper = document.getElementById('modalCoverWrapper');
-            coverWrapper.innerHTML = '<img id="modalCoverImg" src="" alt="Book Cover">';
+            currentModalIndex = -1;
+            // Strip ?book= from URL and restore active filter params.
+            // Prevents stale ?book= re-opening the modal on refresh.
+            pushUrlParams();
+        }
+
+        // ═══════════════════════════════════════════════
+        //  SHARE
+        // ═══════════════════════════════════════════════
+        function shareBook() {
+            if (currentModalIndex < 0 || currentModalIndex >= currentFilteredBooks.length) return;
+            const book = currentFilteredBooks[currentModalIndex];
+            const url  = `${window.location.origin}${window.location.pathname}?book=${book.number}`;
+            navigator.clipboard.writeText(url).then(() => {
+                el.modalShareBtn.innerHTML = '<span class="btn-icon">✓</span><span>Copied!</span>';
+                el.modalShareBtn.classList.add('copied');
+                setTimeout(() => { el.modalShareBtn.innerHTML = '<span class="btn-icon">🔗</span><span>Share</span>'; el.modalShareBtn.classList.remove('copied'); }, 2000);
+            }).catch(() => showToast('Could not copy. URL: ' + url));
+        }
+
+        function showToast(msg) {
+            el.toast.textContent = msg;
+            el.toast.classList.add('show');
+            setTimeout(() => el.toast.classList.remove('show'), 3500);
+        }
+
+        // ═══════════════════════════════════════════════
+        //  2026 CHALLENGE (unchanged logic)
+        // ═══════════════════════════════════════════════
+        function getCategoryClass(cat) {
+            const m = {'Biography':'category-biography','Business':'category-business','Education':'category-education','Essay(s)/Short Stories':'category-essays','Finance':'category-finance','Informational':'category-informational','Memoir/Autobiography':'category-memoir','Novel':'category-novel','Philosophy':'category-philosophy','Poetry':'category-poetry','Policy and Politics':'category-politics','Race, Class, and Gender':'category-race','Religion':'category-religion','Science':'category-science','Self-Development':'category-self','Social Science(s)':'category-social','Technology':'category-technology','Stage Play':'category-stage'};
+            return m[cat] || 'category-novel';
+        }
+
+        function getTagColor(type, value) {
+            const c = {
+                category:{'Biography':'#F4A259','Business':'#7B9EAB','Education':'#6B8E6B','Essay(s)/Short Stories':'#B8A8C8','Finance':'#C4A67C','Informational':'#7BA3A3','Memoir/Autobiography':'#E8B86D','Novel':'#D4847C','Philosophy':'#8B9EAB','Poetry':'#A8B5C8','Policy and Politics':'#AB8B8B','Race, Class, and Gender':'#6B8E6B','Religion':'#A8A8B8','Science':'#7B9EBB','Self-Development':'#B8A8D8','Social Science(s)':'#A8B5A0','Technology':'#8B9EAB','Stage Play':'#C8A8A8'},
+                ownership:{'Digital':'#7B9EAB','Physical':'#C4A67C','Library':'#B08D8D'},
+                status:{'Finished':'#7BA37B','In Progress':'#E8B86D','Queued':'#B8A8C8','Reading':'#E8B86D'}
+            };
+            return c[type]?.[value] || '#A8B5A0';
+        }
+
+        function getCurrentWeek() {
+            const now = new Date();
+            const soy = new Date(now.getFullYear(),0,1);
+            return Math.ceil((Math.floor((now-soy)/(24*60*60*1000)) + soy.getDay()+1)/7);
+        }
+
+        function isChallenge2026Active() { return new Date().getFullYear()===2026; }
+
+        function getWeekStatus(week) {
+            if (!isChallenge2026Active()) return 'upcoming';
+            const cw = getCurrentWeek();
+            return week < cw ? 'completed' : week === cw ? 'current' : 'upcoming';
+        }
+
+        function getQuarterInfo(week) {
+            if (week===1)  return {icon:'🌱',title:'Quarter 1: Foundations',subtitle:'Building your reading practice'};
+            if (week===14) return {icon:'🌿',title:'Quarter 2: Growth',subtitle:'Expanding perspectives'};
+            if (week===27) return {icon:'🌻',title:'Quarter 3: Flourishing',subtitle:'Deepening understanding'};
+            if (week===40) return {icon:'🍂',title:'Quarter 4: Harvest',subtitle:'Integrating wisdom'};
+            return null;
+        }
+
+        function updateChallenge2026Progress() {
+            const cw = isChallenge2026Active() ? Math.min(getCurrentWeek(),52) : 1;
+            const entry = weeklyReadingList.find(w => w.week===cw);
+            if (entry) {
+                const book = books.find(b => b.number===entry.bookNumber);
+                if (book) { el.currentWeekBadge.textContent=`Week ${cw}`; el.currentWeekText.textContent=book.title; }
+            } else { el.currentWeekBadge.textContent=`Week ${cw}`; el.currentWeekText.textContent='Prepare for next week'; }
+        }
+
+        function renderWeekList() {
+            let html = '';
+            weeklyReadingList.forEach(({week,bookNumber}) => {
+                const book = books.find(b => b.number===bookNumber);
+                if (!book) { console.warn(`⚠️ Week ${week}: Book #${bookNumber} not found`); return; }
+                const status  = getWeekStatus(week);
+                const quarter = getQuarterInfo(week);
+                if (quarter) html += `<div class="quarter-divider" aria-label="${quarter.title}"><span class="quarter-icon" aria-hidden="true">${quarter.icon}</span><div class="quarter-info"><h3>${quarter.title}</h3><p>${quarter.subtitle}</p></div></div>`;
+                const statusIcon = status==='completed'?'✓':status==='current'?'📖':'';
+                html += `<div class="week-card ${status}" role="article" tabindex="0"
+                        onclick='openModal(${book.number},${JSON.stringify({week,isBonus:false})},null)'
+                        aria-label="Week ${week}: ${book.title} by ${book.author}">
+                        <div class="week-indicator ${status}" aria-hidden="true">
+                            ${statusIcon?`<span class="week-status-icon">${statusIcon}</span>`:''}
+                            <span class="week-number">${week}</span><span class="week-label">Week</span>
+                        </div>
+                        <div class="book-content-row">
+                            <div class="book-cover-small">
+                                <img src="${book.customCoverUrl}" alt="${book.title}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                                <div class="cover-fallback-small ${getCategoryClass(book.category)}" style="display:none;" aria-hidden="true"><div class="initials">${getInitials(book.title)}</div></div>
+                            </div>
+                            <div class="book-details-col">
+                                <div class="book-title-row"><span class="book-number-badge" aria-hidden="true">#${book.number}</span></div>
+                                <h3 class="book-title">${book.title}</h3>
+                                <p class="book-author">${book.author}</p>
+                                <div class="book-tags"><span class="book-tag" style="background:${getTagColor('category',book.category)}">${book.category}</span></div>
+                            </div>
+                        </div>
+                    </div>`;
+            });
+
+            const bonus = books.find(b => b.number===bonusBook.bookNumber);
+            if (bonus) {
+                html += `<div class="bonus-divider" aria-label="Bonus book"><span class="bonus-icon" aria-hidden="true">🎁</span><div class="bonus-info"><h3>Bonus Book</h3><p>An extra recommendation for those who want more!</p></div></div>
+                    <div class="week-card bonus" role="article" tabindex="0"
+                        onclick='openModal(${bonus.number},${JSON.stringify({week:null,isBonus:true})},null)'
+                        aria-label="Bonus book: ${bonus.title} by ${bonus.author}">
+                        <div class="week-indicator bonus" aria-hidden="true"><span class="week-status-icon">⭐</span><span class="week-number">+1</span><span class="week-label">Bonus</span></div>
+                        <div class="book-content-row">
+                            <div class="book-cover-small">
+                                <img src="${bonus.customCoverUrl}" alt="${bonus.title}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                                <div class="cover-fallback-small ${getCategoryClass(bonus.category)}" style="display:none;" aria-hidden="true"><div class="initials">${getInitials(bonus.title)}</div></div>
+                            </div>
+                            <div class="book-details-col">
+                                <div class="book-title-row"><span class="book-number-badge" aria-hidden="true">#${bonus.number}</span></div>
+                                <h3 class="book-title">${bonus.title}</h3>
+                                <p class="book-author">${bonus.author}</p>
+                                <div class="book-tags"><span class="book-tag" style="background:${getTagColor('category',bonus.category)}">${bonus.category}</span></div>
+                            </div>
+                        </div>
+                    </div>`;
+            }
+            el.weekList.innerHTML = html;
+            el.weekList.querySelectorAll('.week-card').forEach(card => {
+                card.addEventListener('keydown', e => { if (e.key==='Enter'||e.key===' '){e.preventDefault();card.click();} });
+            });
+        }
+
+        // ═══════════════════════════════════════════════
+        //  UTILITIES
+        // ═══════════════════════════════════════════════
+        function updateNavActive(id) {
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+
+        function debounce(fn, wait) {
+            let t;
+            return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), wait); };
+        }
+
+        function toggleSidebar() { el.sidebar.classList.toggle('open'); el.sidebarOverlay.classList.toggle('active'); }
+        function closeSidebarOnMobile() { if (window.innerWidth<=768){el.sidebar.classList.remove('open');el.sidebarOverlay.classList.remove('active');} }
+
+        function getInitials(title) {
+            if (!title) return '';
+            const ignore = ['A','AN','THE','OF','IN','ON','AND','TO','FOR'];
+            return title.split(' ').filter(w=>!ignore.includes(w.toUpperCase())).slice(0,3).map(w=>w[0]).join('').toUpperCase();
         }
     </script>
 </body>
