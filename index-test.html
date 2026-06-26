@@ -81,6 +81,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -90,6 +91,7 @@ body {
     line-height: 1.6;
     min-height: 100vh;
     transition: background 0.3s ease, color 0.3s ease;
+    overflow-x: hidden;
 }
 
 .app-container {
@@ -1630,6 +1632,8 @@ body {
     .main-content {
         margin-left: 0;
         padding: 90px 20px 32px;
+        max-width: 100%;
+        overflow-x: hidden;
     }
 
     .filter-bar {
@@ -1663,8 +1667,8 @@ body {
     }
 
     .book-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 12px;
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 16px;
     }
 
     .modal-header {
