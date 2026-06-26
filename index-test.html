@@ -353,6 +353,9 @@ body {
     flex-wrap: wrap;
     gap: 16px;
     align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .search-wrapper {
@@ -415,6 +418,8 @@ body {
 /* Category pill chips */
 .category-pills-wrapper {
     width: 100%;
+    min-width: 0;
+    max-width: 100%;
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
@@ -470,6 +475,8 @@ body {
 /* Year filter pills — reuse category pill styles, slight accent difference */
 .year-pills-wrapper {
     width: 100%;
+    min-width: 0;
+    max-width: 100%;
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
@@ -1656,7 +1663,7 @@ body {
     }
 
     .book-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr) !important;
         gap: 12px;
     }
 
