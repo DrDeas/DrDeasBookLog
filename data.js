@@ -4566,8 +4566,8 @@ const books = [
     "author": "Paulo Coelho",
     "category": "Novel",
     "ownership": "Library",
-    "status": "In Progress",
-    "dateCompleted": "",
+    "status": "Finished",
+    "dateCompleted": "2026-07-02",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00381.jpg",
     "id": 381,
     "summary": "This novel follows a young Irish woman on a spiritual quest to learn about the mysteries of life and the practice of magic. Her journey leads her to two distinct mentors: a wise man living in a forest who teaches her the Tradition of the Sun and how to overcome her fears, and a knowledgeable woman who instructs her in the Tradition of the Moon through rituals and tarot. As she delves into these mystical paths, she explores profound themes of destiny, self-discovery, and the concept of soulmates. The narrative captures her struggle to balance her everyday relationships with her growing desire for enlightenment, ultimately illustrating a journey of faith and the search for one's true place in the world."
