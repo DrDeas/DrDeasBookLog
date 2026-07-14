@@ -4578,8 +4578,8 @@ const books = [
     "author": "Paulo Coelho",
     "category": "Novel",
     "ownership": "Library",
-    "status": "In Progress",
-    "dateCompleted": "",
+    "status": "Finished",
+    "dateCompleted": "2026-07-13",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00382.jpg",
     "id": 382,
     "summary": "Set in the ninth century B.C., this historical novel reimagines the biblical story of the prophet Elijah as he flees his homeland to escape the religious persecution led by Queen Jezebel. Seeking refuge in the Phoenician city of Zarephath, the young protagonist is taken in by a widow and her son, where he must navigate a complex landscape of shifting loyalties and ancient traditions. As he struggles to reconcile his divine calling with human desires and the looming threat of an Assyrian invasion, the narrative explores profound themes of faith, resilience, and the capacity for self-reinvention. Through a series of trials and spiritual revelations, the story follows his internal conflict and eventual growth as he learns to find meaning and hope amidst personal loss and the destruction of the world around him."
@@ -4590,8 +4590,8 @@ const books = [
     "author": "Paulo Coelho",
     "category": "Self-Development",
     "ownership": "Library",
-    "status": "In Progress",
-    "dateCompleted": "",
+    "status": "Finished",
+    "dateCompleted": "2026-07-14",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00383.jpg",
     "id": 383,
     "summary": "This philosophical manual serves as a guide for individuals seeking to live with purpose, integrity, and courage. Through a series of short, meditative passages and parables, the author explores how to navigate life's challenges by balancing strength with wisdom and faith with action. The text encourages readers to embrace their unique life purpose, learn from both failures and successes, and maintain a sense of wonder while fighting for their beliefs. By emphasizing self-reflection, gratitude, and the importance of resilience, the book aims to help every individual discover and cultivate their own inner potential to live an enlightened and meaningful life."
