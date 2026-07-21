@@ -4602,8 +4602,8 @@ const books = [
     "author": "Paulo Coelho",
     "category": "Novel",
     "ownership": "Library",
-    "status": "In Progress",
-    "dateCompleted": "",
+    "status": "Finished",
+    "dateCompleted": "2026-07-21",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00384.jpg",
     "id": 384,
     "summary": "A young Slovenian woman, feeling apathetic toward her predictable life, decides to end it by overdosing on sleeping pills. She awakens in a mental institution where she is informed that her attempt has caused irreversible heart damage, leaving her with only one week to live. Within the confines of the asylum, she encounters other patients who have also struggled with societal expectations and suppressed their true passions. Facing her own mortality, she begins to experience a range of forbidden emotions and rediscovers her love for music, ultimately exploring the boundary between sanity and madness while learning to appreciate the value of living each moment authentically."
