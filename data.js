@@ -4614,8 +4614,8 @@ const books = [
     "author": "Paulo Coelho",
     "category": "Essay(s)/Short Stories",
     "ownership": "Library",
-    "status": "In Progress",
-    "dateCompleted": "",
+    "status": "Finished",
+    "dateCompleted": "2026-07-22",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00385.jpg",
     "id": 385,
     "summary": "In this reflective work, the author adapts an 1884 sermon by Henry Drummond to explore the transformative power of love as humankind's supreme gift and spiritual center. The text deconstructs love into nine practical elements—patience, kindness, generosity, humility, gentleness, dedication, tolerance, sincerity, and innocence—encouraging readers to incorporate these attributes into their daily interactions. Rather than treating love as an abstract emotion, the author presents it as a concrete method of being and a guiding light for a meaningful life. This brief, meditative guide serves as an invitation to reflect on life's most essential questions, offering a universal message of connection and kindness that transcends specific religious creeds."
