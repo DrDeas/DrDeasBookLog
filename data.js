@@ -4626,8 +4626,8 @@ const books = [
     "author": "Paulo Coelho",
     "category": "Novel",
     "ownership": "Library",
-    "status": "In Progress",
-    "dateCompleted": "",
+    "status": "Finished",
+    "dateCompleted": "2026-07-24",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00386.jpg",
     "id": 386,
     "summary": "This inspiring story follows Tetsuya, a legendary archer who has retired to a quiet life as a carpenter in a remote village. When a young stranger arrives to challenge his skills, a local boy witnesses the encounter and seeks to learn the way of the bow. Through a series of elegant lessons, the master imparts wisdom that transcends archery, using the relationship between the archer, the bow, and the target as a metaphor for living a meaningful life. The narrative emphasizes the importance of passion, thoughtful intention, and the courage to embrace failure as an essential part of the journey toward self-discovery."
@@ -4638,8 +4638,8 @@ const books = [
     "author": "John Dewey",
     "category": "Education",
     "ownership": "Physical",
-    "status": "In Progress",
-    "dateCompleted": "",
+    "status": "Finished",
+    "dateCompleted": "2026-07-25",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00387.jpg",
     "id": 387,
     "summary": "This influential treatise on educational philosophy offers a concise analysis of both traditional and progressive schooling, arguing that neither is sufficient on its own. The author proposes a theory of education grounded in the quality of experience, emphasizing the two core principles of continuity and interaction. By advocating for a system where educators carefully design social and interactive learning environments, the text explores how internal student desires can be balanced with objective conditions to foster growth. Ultimately, the work serves as a call for educators to move beyond divisive labels and instead focus on creating purposeful, reflective, and social learning processes that build upon a learner's past while preparing them for future experiences."
