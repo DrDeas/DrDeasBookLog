@@ -4650,8 +4650,8 @@ const books = [
     "author": "John Dewey",
     "category": "Philosophy",
     "ownership": "Library",
-    "status": "In Progress",
-    "dateCompleted": "",
+    "status": "Finished",
+    "dateCompleted": "2026-07-29",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00388.jpg",
     "id": 388,
     "summary": "This influential work advocates for a fundamental shift in philosophy, moving away from abstract metaphysical pursuits and the \"spectator view of knowledge\" toward a pragmatic approach focused on addressing concrete human and social problems. Written in the aftermath of World War I, the text argues that traditional philosophical methods have become outdated rationalizations of ancient myths and should instead be reconstructed as tools for social reform and progress. By emphasizing the importance of experience, experimental intelligence, and the integration of scientific methods into moral and political inquiry, the author seeks to transform philosophy into a democratic and progressive force capable of shaping a more just society and improving the human condition."
