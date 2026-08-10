@@ -4662,8 +4662,8 @@ const books = [
     "author": "John Dewey",
     "category": "Philosophy",
     "ownership": "Physical",
-    "status": "In Progress",
-    "dateCompleted": "",
+    "status": "Finished",
+    "dateCompleted": "2026-08-09",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00389.jpg",
     "id": 389,
     "summary": "Published in 1910, this foundational work in educational philosophy explores the nature of reflective thinking as the basis for effective learning and problem-solving. The author argues that true education should move beyond rote memorization to foster a \"scientific\" habit of mind, where curiosity leads to structured inquiry and hypothesis testing. By examining how individuals navigate \"forked-road\" situations of doubt and ambiguity, the text outlines the educator's role in training students to transform perplexity into reasoned conclusions. The work remains a cornerstone for understanding inquiry-based learning and the essential connection between experience, disciplined thought, and democratic participation."
