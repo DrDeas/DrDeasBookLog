@@ -4674,8 +4674,8 @@ const books = [
     "author": "Eddie S. Glaude, Jr.",
     "category": "Policy and Politics",
     "ownership": "Library",
-    "status": "In Progress",
-    "dateCompleted": "",
+    "status": "Finished",
+    "dateCompleted": "2026-08-15",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00390.jpg",
     "id": 390,
     "summary": "This work presents a compelling argument for a new kind of politics rooted in individual responsibility and moral cultivation. Drawing on the prophetic tradition of Black American thought, the author critiques the current state of democracy and urges citizens to look within themselves rather than toward charismatic leaders for social transformation. By examining the lives and ideas of figures like Ella Baker and Ralph Waldo Emerson, the book provides a roadmap for personal and collective renewal, emphasizing that the power to change the world resides in the everyday actions and character of ordinary people."
