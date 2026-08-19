@@ -4686,8 +4686,8 @@ const books = [
     "author": "Craig Steven Wilder",
     "category": "Race, Class, and Gender",
     "ownership": "Physical",
-    "status": "In Progress",
-    "dateCompleted": "",
+    "status": "Finished",
+    "dateCompleted": "2026-08-19",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00391.jpg",
     "id": 391,
     "summary": "This book examines the deep-rooted ties between higher education in the United States and the institutions of slavery and racial oppression. The author demonstrates how many of America's earliest and most prestigious universities were founded, funded, and expanded using profits derived from the transatlantic slave trade and slave labor. Beyond financial dependencies, the text reveals how academic leaders and faculty actively contributed to the intellectual defense of slavery by developing and promoting theories of scientific racism. Ultimately, the work exposes how higher education served as a foundational pillar in establishing and maintaining racial inequality throughout American history."
