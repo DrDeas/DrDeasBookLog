@@ -4693,15 +4693,15 @@ const books = [
     "summary": "This book examines the deep-rooted ties between higher education in the United States and the institutions of slavery and racial oppression. The author demonstrates how many of America's earliest and most prestigious universities were founded, funded, and expanded using profits derived from the transatlantic slave trade and slave labor. Beyond financial dependencies, the text reveals how academic leaders and faculty actively contributed to the intellectual defense of slavery by developing and promoting theories of scientific racism. Ultimately, the work exposes how higher education served as a foundational pillar in establishing and maintaining racial inequality throughout American history."
   },
   {
-    "number": 392,
+    "number": 395,
     "title": "People Analytics: Using Data-Driven HR and Gen AI as a Business Asset",
     "author": "Cole Napper",
     "category": "Business",
     "ownership": "Physical",
     "status": "In Progress",
     "dateCompleted": "",
-    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00392.jpg",
-    "id": 392,
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00395.jpg",
+    "id": 395,
     "summary": "This practical guide explains how HR professionals and business leaders can leverage workforce data, advanced analytics, and generative AI to drive measurable business performance. Written by an industry expert, it details how to transition human resources from intuition-based decisions to a strategic, data-driven asset by building robust data infrastructure, implementing ethical AI-driven insights, and adopting predictive models. Through actionable frameworks and real-world case studies from major corporations, the text demonstrates how to optimize talent acquisition, enhance employee retention, and align workforce management with broader strategic business goals."
   }
 ];
