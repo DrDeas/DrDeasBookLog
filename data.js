@@ -4693,6 +4693,42 @@ const books = [
     "summary": "This book examines the deep-rooted ties between higher education in the United States and the institutions of slavery and racial oppression. The author demonstrates how many of America's earliest and most prestigious universities were founded, funded, and expanded using profits derived from the transatlantic slave trade and slave labor. Beyond financial dependencies, the text reveals how academic leaders and faculty actively contributed to the intellectual defense of slavery by developing and promoting theories of scientific racism. Ultimately, the work exposes how higher education served as a foundational pillar in establishing and maintaining racial inequality throughout American history."
   },
   {
+    "number": 392,
+    "title": "The Data Driven Leader: A Powerful Approach to Delivering Measurable Business Impact Through People Analytics",
+    "author": "Jenny Dearborn, David Swanson",
+    "category": "Business",
+    "ownership": "Digital",
+    "status": "Finished",
+    "dateCompleted": "46257",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00392.jpg",
+    "id": 392,
+    "summary": "This insightful business narrative follows a newly appointed Chief Human Resources Officer as she leverages people analytics to solve complex corporate challenges and drive measurable business impact. Through a practical, story-driven approach, the authors demonstrate how modern leaders can transition HR from a traditional administrative function into a strategic, revenue-generating partner. By incorporating real-world frameworks, key performance indicators, and actionable guidance, the text equips executives and managers with the tools needed to embrace data analytics, navigate digital transformation, and foster an analytics-centric culture across their organizations."
+  },
+  {
+    "number": 393,
+    "title": "The Insight-Driven Leader: How High-Performing Companies are Using Analytics to Unlock Business Value",
+    "author": "Jenny Dearborn, Kelly Rider",
+    "category": "Business",
+    "ownership": "Digital",
+    "status": "In Progress",
+    "dateCompleted": "",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00393.jpg",
+    "id": 393,
+    "summary": "This practical guide explores how business leaders can leverage advanced data analytics and insights to drive organizational performance, innovate, and unlock sustained competitive value. By examining real-world strategies and framework implementations, it demonstrates how shifting from simple reporting to an insight-driven culture enables faster, smarter decision-making and empowers teams across all business functions."
+  },
+  {
+    "number": 394,
+    "title": "Data Driven: How Performance Analytics Delivers Extraordinary Sales Results",
+    "author": "Jenny Dearborn",
+    "category": "Business",
+    "ownership": "Digital",
+    "status": "In Progress",
+    "dateCompleted": "",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00394.jpg",
+    "id": 394,
+    "summary": "This book presents a narrative following a newly hired sales chief facing intense pressure to turn around her team's underperforming results. To overcome these organizational challenges, she leverages big data and predictive analytics to revolutionize the sales function. Through her story, accompanied by insightful commentary and practical frameworks, the text illustrates how businesses can implement performance analytics to optimize operations, enhance decision-making, and secure a lasting competitive edge in today's market."
+  },
+  {
     "number": 395,
     "title": "People Analytics: Using Data-Driven HR and Gen AI as a Business Asset",
     "author": "Cole Napper",
