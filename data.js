@@ -4699,7 +4699,7 @@ const books = [
     "category": "Business",
     "ownership": "Digital",
     "status": "Finished",
-    "dateCompleted": "46257",
+    "dateCompleted": "2026-08-23",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00392.jpg",
     "id": 392,
     "summary": "This insightful business narrative follows a newly appointed Chief Human Resources Officer as she leverages people analytics to solve complex corporate challenges and drive measurable business impact. Through a practical, story-driven approach, the authors demonstrate how modern leaders can transition HR from a traditional administrative function into a strategic, revenue-generating partner. By incorporating real-world frameworks, key performance indicators, and actionable guidance, the text equips executives and managers with the tools needed to embrace data analytics, navigate digital transformation, and foster an analytics-centric culture across their organizations."
@@ -4710,34 +4710,46 @@ const books = [
     "author": "Jenny Dearborn, Kelly Rider",
     "category": "Business",
     "ownership": "Digital",
-    "status": "In Progress",
-    "dateCompleted": "",
+    "status": "Finished",
+    "dateCompleted": "2026-08-30",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00393.jpg",
     "id": 393,
     "summary": "This practical guide explores how business leaders can leverage advanced data analytics and insights to drive organizational performance, innovate, and unlock sustained competitive value. By examining real-world strategies and framework implementations, it demonstrates how shifting from simple reporting to an insight-driven culture enables faster, smarter decision-making and empowers teams across all business functions."
   },
   {
     "number": 394,
+    "title": "Powerful: Building a Culture of Freedom and Responsibility",
+    "author": "Patty McCord",
+    "category": "Business",
+    "ownership": "Digital",
+    "status": "Finished",
+    "dateCompleted": "2026-08-31",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00394.jpg",
+    "id": 394,
+    "summary": "This book challenges traditional corporate HR practices and offers a fresh approach to building high-performing organizational cultures. Written by the former Chief Talent Officer of Netflix, it advocates for treating employees like adults, fostering radical honesty, and replacing rigid bureaucratic systems—such as annual performance reviews and standard perks—with challenging work, high talent density, and clear communication. By prioritizing transparency and empowering teams with meaningful challenges, the author provides practical, road-tested advice for cultivating a culture driven by freedom, accountability, and long-term success."
+  },
+  {
+    "number": 395,
     "title": "Data Driven: How Performance Analytics Delivers Extraordinary Sales Results",
     "author": "Jenny Dearborn",
     "category": "Business",
     "ownership": "Digital",
     "status": "In Progress",
     "dateCompleted": "",
-    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00394.jpg",
-    "id": 394,
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00395.jpg",
+    "id": 395,
     "summary": "This book presents a narrative following a newly hired sales chief facing intense pressure to turn around her team's underperforming results. To overcome these organizational challenges, she leverages big data and predictive analytics to revolutionize the sales function. Through her story, accompanied by insightful commentary and practical frameworks, the text illustrates how businesses can implement performance analytics to optimize operations, enhance decision-making, and secure a lasting competitive edge in today's market."
   },
   {
-    "number": 395,
+    "number": 396,
     "title": "People Analytics: Using Data-Driven HR and Gen AI as a Business Asset",
     "author": "Cole Napper",
     "category": "Business",
     "ownership": "Physical",
     "status": "In Progress",
     "dateCompleted": "",
-    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00395.jpg",
-    "id": 395,
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00396.jpg",
+    "id": 396,
     "summary": "This practical guide explains how HR professionals and business leaders can leverage workforce data, advanced analytics, and generative AI to drive measurable business performance. Written by an industry expert, it details how to transition human resources from intuition-based decisions to a strategic, data-driven asset by building robust data infrastructure, implementing ethical AI-driven insights, and adopting predictive models. Through actionable frameworks and real-world case studies from major corporations, the text demonstrates how to optimize talent acquisition, enhance employee retention, and align workforce management with broader strategic business goals."
   }
 ];
