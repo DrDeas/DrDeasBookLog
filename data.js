@@ -4733,9 +4733,9 @@ const books = [
     "title": "Data Driven: How Performance Analytics Delivers Extraordinary Sales Results",
     "author": "Jenny Dearborn",
     "category": "Business",
-    "ownership": "Digital",
-    "status": "In Progress",
-    "dateCompleted": "",
+    "ownership": "Library",
+    "status": "Finished",
+    "dateCompleted": "2026-09-09",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00395.jpg",
     "id": 395,
     "summary": "This book presents a narrative following a newly hired sales chief facing intense pressure to turn around her team's underperforming results. To overcome these organizational challenges, she leverages big data and predictive analytics to revolutionize the sales function. Through her story, accompanied by insightful commentary and practical frameworks, the text illustrates how businesses can implement performance analytics to optimize operations, enhance decision-making, and secure a lasting competitive edge in today's market."
