@@ -4762,7 +4762,7 @@ const books = [
     "dateCompleted": "",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00397.jpg",
     "id": 397,
-    "summary": "Set in 1946 in the Jim Crow South, this historical middle-grade novel follows eleven-year-old Ella, a young Black girl raised by her grandparents and extended family in South Carolina. Driven by a desire to understand her roots, she journeys to Boston to visit the mother who left her behind, only to return home to face the harsh realities of racial injustice and segregation when a local boy is wrongly accused of a crime. Through a mix of humor and poignant observation, the story explores themes of family, identity, systemic racism, and resilience from the perspective of a young girl coming of age during a turbulent era."
+    "summary": "Set in 1946 in the Jim Crow South, this historical novel follows eleven-year-old Ella, a young Black girl raised by her grandparents and extended family in South Carolina. Driven by a desire to understand her roots, she journeys to Boston to visit the mother who left her behind, only to return home to face the harsh realities of racial injustice and segregation when a local boy is wrongly accused of a crime. Through a mix of humor and poignant observation, the story explores themes of family, identity, systemic racism, and resilience from the perspective of a young girl coming of age during a turbulent era."
   },
   {
     "number": 398,
