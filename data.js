@@ -4747,7 +4747,7 @@ const books = [
     "category": "Education",
     "ownership": "Physical",
     "status": "Finished",
-    "dateCompleted": "46295",
+    "dateCompleted": "2026-09-30",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00396.jpg",
     "id": 396,
     "summary": "In this foundational work of critical pedagogy, Brazilian educator Paulo Freire explores how education can serve as either an instrument of domination or a tool for human liberation. Through a combination of social analysis and practical methodology, he critiques traditional \"banking\" models of education that treat students as passive receivers of knowledge, advocating instead for a dialogical, problem-posing approach. By connecting literacy instruction directly to adult learners' lived experiences and socio-political realities, Freire demonstrates how critical awareness enables marginalized individuals to recognize systemic oppression and actively transform their societal conditions."
