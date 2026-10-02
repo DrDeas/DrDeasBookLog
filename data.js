@@ -4742,14 +4742,50 @@ const books = [
   },
   {
     "number": 396,
+    "title": "Education for Critical Consciousness",
+    "author": "Paulo Freire",
+    "category": "Education",
+    "ownership": "Physical",
+    "status": "Finished",
+    "dateCompleted": "46295",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00396.jpg",
+    "id": 396,
+    "summary": "In this foundational work of critical pedagogy, Brazilian educator Paulo Freire explores how education can serve as either an instrument of domination or a tool for human liberation. Through a combination of social analysis and practical methodology, he critiques traditional \"banking\" models of education that treat students as passive receivers of knowledge, advocating instead for a dialogical, problem-posing approach. By connecting literacy instruction directly to adult learners' lived experiences and socio-political realities, Freire demonstrates how critical awareness enables marginalized individuals to recognize systemic oppression and actively transform their societal conditions."
+  },
+  {
+    "number": 397,
+    "title": "How High the Moon",
+    "author": "Karyn Parsons",
+    "category": "Novel",
+    "ownership": "Physical",
+    "status": "In Progress",
+    "dateCompleted": "",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00397.jpg",
+    "id": 397,
+    "summary": "Set in 1946 in the Jim Crow South, this historical middle-grade novel follows eleven-year-old Ella, a young Black girl raised by her grandparents and extended family in South Carolina. Driven by a desire to understand her roots, she journeys to Boston to visit the mother who left her behind, only to return home to face the harsh realities of racial injustice and segregation when a local boy is wrongly accused of a crime. Through a mix of humor and poignant observation, the story explores themes of family, identity, systemic racism, and resilience from the perspective of a young girl coming of age during a turbulent era."
+  },
+  {
+    "number": 398,
+    "title": "I Know Why the Caged Bird Sings",
+    "author": "Maya Angelou",
+    "category": "Memoir/Autobiography",
+    "ownership": "Library",
+    "status": "In Progress",
+    "dateCompleted": "",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00398.jpg",
+    "id": 398,
+    "summary": "This landmark autobiographical work chronicles the childhood and early adolescence of a young Black girl growing up in the racially divided American South during the 1930s and 1940s. Traversing environments from rural Arkansas to urban California, the narrative portrays her experiences with abandonment, severe trauma, racism, and displacement, as well as the profound silence that follows her abuse. Through the enduring strength of her grandmother, the solace found in literature, and the discovery of her own voice, she navigates the pain of oppression to cultivate a deep sense of identity, self-worth, and ultimate dignity."
+  },
+  {
+    "number": 399,
     "title": "People Analytics: Using Data-Driven HR and Gen AI as a Business Asset",
     "author": "Cole Napper",
     "category": "Business",
     "ownership": "Physical",
     "status": "In Progress",
     "dateCompleted": "",
-    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00396.jpg",
-    "id": 396,
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00399.jpg",
+    "id": 399,
     "summary": "This practical guide explains how HR professionals and business leaders can leverage workforce data, advanced analytics, and generative AI to drive measurable business performance. Written by an industry expert, it details how to transition human resources from intuition-based decisions to a strategic, data-driven asset by building robust data infrastructure, implementing ethical AI-driven insights, and adopting predictive models. Through actionable frameworks and real-world case studies from major corporations, the text demonstrates how to optimize talent acquisition, enhance employee retention, and align workforce management with broader strategic business goals."
   }
 ];
