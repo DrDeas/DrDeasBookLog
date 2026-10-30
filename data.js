@@ -4766,6 +4766,30 @@ const books = [
   },
   {
     "number": 398,
+    "title": "School Choice",
+    "author": "David R. Garcia",
+    "category": "Education",
+    "ownership": "Library",
+    "status": "Finished",
+    "dateCompleted": "46323",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00398.jpg",
+    "id": 398,
+    "summary": "This work critically examines the political, economic, and social mechanics of educational choice policies, probing how voucher programs, charter schools, and open enrollment reshape public education. The book analyzes the fundamental tension between market-based models of education—which treat parents as consumers aiming to optimize individual student outcomes—and the historic mission of public schools as democratic institutions designed to foster equity and civic cohesion. By tracing the ideological roots, policy design, and real-world implementation of these systems, the text explores how competitive funding mechanisms impact public school districts, alter student demographics, and influence academic equity. Ultimately, it offers a balanced, research-driven framework to help policymakers and citizens understand the complex trade-offs involved in decentralizing public education."
+  },
+  {
+    "number": 399,
+    "title": "The Conscious Mind",
+    "author": "Zoltan Torey",
+    "category": "Informational",
+    "ownership": "Library",
+    "status": "Finished",
+    "dateCompleted": "46325",
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00399.jpg",
+    "id": 399,
+    "summary": "Zoltan Torey presents a strictly materialist, evolutionary account of human awareness, demystifying the mind-body problem by framing human self-consciousness as an emergent property of neurobiological innovation. He argues that true reflective consciousness is not an ethereal mystery or a gradual continuation of general animal perception, but a unique functional breakthrough triggered by the acquisition of language. Through this linguistic breakthrough, the human brain gained the capacity for internal feedback loops, enabling it to manipulate symbols, visualize imagery independently of direct sensory input, and observe its own thought processes. By bridging insights from neuroscience, evolutionary biology, and philosophy, the text contends that our sense of a seamless, immaterial \"self\" is ultimately an internal functional mechanism whose underlying biological operations remain concealed from our introspective view."
+  },
+  {
+    "number": 400,
     "title": "I Know Why the Caged Bird Sings",
     "author": "Maya Angelou",
     "category": "Memoir/Autobiography",
@@ -4777,7 +4801,7 @@ const books = [
     "summary": "This landmark autobiographical work chronicles the childhood and early adolescence of a young Black girl growing up in the racially divided American South during the 1930s and 1940s. Traversing environments from rural Arkansas to urban California, the narrative portrays her experiences with abandonment, severe trauma, racism, and displacement, as well as the profound silence that follows her abuse. Through the enduring strength of her grandmother, the solace found in literature, and the discovery of her own voice, she navigates the pain of oppression to cultivate a deep sense of identity, self-worth, and ultimate dignity."
   },
   {
-    "number": 399,
+    "number": 401,
     "title": "People Analytics: Using Data-Driven HR and Gen AI as a Business Asset",
     "author": "Cole Napper",
     "category": "Business",
