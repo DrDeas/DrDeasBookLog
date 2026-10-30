@@ -4796,8 +4796,8 @@ const books = [
     "ownership": "Library",
     "status": "In Progress",
     "dateCompleted": "",
-    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00398.jpg",
-    "id": 398,
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00400.jpg",
+    "id": 400,
     "summary": "This landmark autobiographical work chronicles the childhood and early adolescence of a young Black girl growing up in the racially divided American South during the 1930s and 1940s. Traversing environments from rural Arkansas to urban California, the narrative portrays her experiences with abandonment, severe trauma, racism, and displacement, as well as the profound silence that follows her abuse. Through the enduring strength of her grandmother, the solace found in literature, and the discovery of her own voice, she navigates the pain of oppression to cultivate a deep sense of identity, self-worth, and ultimate dignity."
   },
   {
@@ -4808,8 +4808,8 @@ const books = [
     "ownership": "Physical",
     "status": "In Progress",
     "dateCompleted": "",
-    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00399.jpg",
-    "id": 399,
+    "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00401.jpg",
+    "id": 401,
     "summary": "This practical guide explains how HR professionals and business leaders can leverage workforce data, advanced analytics, and generative AI to drive measurable business performance. Written by an industry expert, it details how to transition human resources from intuition-based decisions to a strategic, data-driven asset by building robust data infrastructure, implementing ethical AI-driven insights, and adopting predictive models. Through actionable frameworks and real-world case studies from major corporations, the text demonstrates how to optimize talent acquisition, enhance employee retention, and align workforce management with broader strategic business goals."
   }
 ];
