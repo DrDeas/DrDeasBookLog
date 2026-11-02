@@ -4783,7 +4783,7 @@ const books = [
     "category": "Informational",
     "ownership": "Library",
     "status": "Finished",
-    "dateCompleted": "2026-10-30",
+    "dateCompleted": "2026-11-01",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00399.jpg",
     "id": 399,
     "summary": "Zoltan Torey presents a strictly materialist, evolutionary account of human awareness, demystifying the mind-body problem by framing human self-consciousness as an emergent property of neurobiological innovation. He argues that true reflective consciousness is not an ethereal mystery or a gradual continuation of general animal perception, but a unique functional breakthrough triggered by the acquisition of language. Through this linguistic breakthrough, the human brain gained the capacity for internal feedback loops, enabling it to manipulate symbols, visualize imagery independently of direct sensory input, and observe its own thought processes. By bridging insights from neuroscience, evolutionary biology, and philosophy, the text contends that our sense of a seamless, immaterial \"self\" is ultimately an internal functional mechanism whose underlying biological operations remain concealed from our introspective view."
