@@ -96,10 +96,15 @@ body {
     width: min(100vw, 100dvh * 50 / 48);
     aspect-ratio: 50 / 48;
     transform-origin: 0 0;
-    will-change: transform;
 }
 
-.mosaic.animate { transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
+/* Zoom changes the wall's real width/height (not a scale transform), so covers
+   are always drawn at full sharpness. Animate size + position together. */
+.mosaic.animate {
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                width 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                height 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
 .tile {
     position: relative;
@@ -112,11 +117,10 @@ body {
     cursor: pointer;
     overflow: hidden;
     z-index: 1;
-    transform: translateZ(0) scale(1);
+    transform: scale(1);
     transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
                 box-shadow 0.22s ease,
                 filter 0.22s ease;
-    will-change: transform;
 }
 
 .tile img {
@@ -135,14 +139,14 @@ body {
 
 /* Neighbor ring — a gentle lift around the cursor */
 .tile.near {
-    transform: translateZ(0) scale(1.12);
+    transform: scale(1.12);
     z-index: 5;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
 }
 
 /* The book directly under the cursor pops out */
 .tile.pop {
-    transform: translateZ(0) scale(1.45);
+    transform: scale(1.45);
     z-index: 10;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.15);
 }
@@ -150,7 +154,7 @@ body {
 .tile:focus-visible {
     outline: 2px solid var(--peach);
     outline-offset: -2px;
-    transform: translateZ(0) scale(1.45);
+    transform: scale(1.45);
     z-index: 10;
 }
 
@@ -789,7 +793,9 @@ body.controls-visible .wall-controls { opacity: 1; }
         function applyView(animate) {
             clampView();
             el.mosaic.classList.toggle('animate', !!animate);
-            el.mosaic.style.transform = `translate3d(${view.tx}px, ${view.ty}px, 0) scale(${view.scale})`;
+            el.mosaic.style.width     = `${view.baseW * view.scale}px`;
+            el.mosaic.style.height    = `${view.baseH * view.scale}px`;
+            el.mosaic.style.transform = `translate3d(${view.tx}px, ${view.ty}px, 0)`;
             zoomEls.level.textContent = `${Math.round(view.scale * 100)}%`;
             zoomEls.out.disabled = view.scale <= MIN_ZOOM + 1e-6;
             zoomEls.in.disabled  = view.scale >= MAX_ZOOM - 1e-6;
@@ -835,8 +841,6 @@ body.controls-visible .wall-controls { opacity: 1; }
             const { w, h } = viewport();
             view.baseW = Math.min(w, h * 50 / 48);
             view.baseH = view.baseW * 48 / 50;
-            el.mosaic.style.width  = `${view.baseW}px`;
-            el.mosaic.style.height = `${view.baseH}px`;
             if (c) centerOn(c.fx, c.fy);
             applyView(false);
         }
