@@ -568,7 +568,6 @@ body.controls-visible .wall-controls { opacity: 1; }
             <button class="wall-btn" id="zoomInBtn" aria-label="Zoom in" title="Zoom in (+)">+</button>
             <button class="wall-btn fit-btn" id="zoomFitBtn" aria-label="Fit whole wall to screen" title="Fit to screen (0)">⤢ Fit</button>
         </div>
-        <button class="wall-btn" id="themeBtn" aria-label="Toggle dark mode">🌙</button>
     </div>
 
     <div class="stage" id="stage">
@@ -637,7 +636,6 @@ body.controls-visible .wall-controls { opacity: 1; }
             mosaic:     document.getElementById('mosaic'),
             caption:    document.getElementById('caption'),
             toast:      document.getElementById('toast'),
-            themeBtn:   document.getElementById('themeBtn'),
             modal:      document.getElementById('modal'),
             modalClose: document.getElementById('modalClose'),
             prevBtn:    document.getElementById('modalPrevBtn'),
@@ -646,23 +644,11 @@ body.controls-visible .wall-controls { opacity: 1; }
         };
 
         // ═══════════════════════════════════════════════
-        //  THEME (shares the main site's saved preference)
+        //  THEME: the book dialog follows the main site's saved light/dark choice
         // ═══════════════════════════════════════════════
-        function applyTheme(theme) {
-            document.documentElement.setAttribute('data-theme', theme);
-            try { localStorage.setItem('drdeas-theme', theme); } catch (e) {}
-            el.themeBtn.textContent = theme === 'dark' ? '☀️' : '🌙';
-            el.themeBtn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
-        }
-
-        let savedTheme = 'light';
-        try { savedTheme = localStorage.getItem('drdeas-theme') || 'light'; } catch (e) {}
-        applyTheme(savedTheme);
-
-        el.themeBtn.addEventListener('click', () => {
-            const cur = document.documentElement.getAttribute('data-theme');
-            applyTheme(cur === 'dark' ? 'light' : 'dark');
-        });
+        try {
+            if (localStorage.getItem('drdeas-theme') === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+        } catch (e) {}
 
         // ═══════════════════════════════════════════════
         //  BUILD MOSAIC
