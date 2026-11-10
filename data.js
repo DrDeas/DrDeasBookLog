@@ -4794,8 +4794,8 @@ const books = [
     "author": "Maya Angelou",
     "category": "Memoir/Autobiography",
     "ownership": "Library",
-    "status": "In Progress",
-    "dateCompleted": "",
+    "status": "Finished",
+    "dateCompleted": "2026-11-10",
     "customCoverUrl": "https://raw.githubusercontent.com/DrDeas/DrDeasBookLog/refs/heads/main/images/Book_00400.jpg",
     "id": 400,
     "summary": "This landmark autobiographical work chronicles the childhood and early adolescence of a young Black girl growing up in the racially divided American South during the 1930s and 1940s. Traversing environments from rural Arkansas to urban California, the narrative portrays her experiences with abandonment, severe trauma, racism, and displacement, as well as the profound silence that follows her abuse. Through the enduring strength of her grandmother, the solace found in literature, and the discovery of her own voice, she navigates the pain of oppression to cultivate a deep sense of identity, self-worth, and ultimate dignity."
