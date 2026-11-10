@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Dr. Eldrin L. Deas">
+    <title>Dr. Deas Book Log - Cover Mosaic</title>
+    <meta property="og:title" content="Dr. Deas Book Log - Cover Mosaic">
+    <meta property="og:description" content="400 books from Dr. Deas's 1,000 Books in 1,000 Weeks Reading Challenge, in one interactive wall of covers.">
+    <meta property="og:image" content="https://drdeas.github.io/DrDeasBookLog/caged_bird.png">
+    <meta property="og:url" content="https://drdeas.com/DrDeasBookLog/mosaic.html">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --cream: #FDF6E9;
+    --sage: #6B8E6B;
+    --sage-light: #A8B5A0;
+    --coral-soft: #E85D4A;
+    --peach: #F4A259;
+    --charcoal: #4A4A4A;
+    --status-finished: #7BA37B;
+    --shadow-soft: 0 4px 20px rgba(74, 74, 74, 0.08);
+    --shadow-medium: 0 8px 32px rgba(74, 74, 74, 0.12);
+    --shadow-hover: 0 12px 40px rgba(74, 74, 74, 0.16);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --surface-card: #ffffff;
+    --surface-input: #FDF6E9;
+    --border-color: #F5ECD8;
+    --text-primary: #4A4A4A;
+    --text-secondary: #6B6B6B;
+
+    /* Mosaic layout: 25 columns x 16 rows of 2:3 covers */
+    --cols: 25;
+    --rows: 16;
+    --wall-bg: #0E0E10;
+}
+
+[data-theme="dark"] {
+    --sage: #5A7D5A;
+    --charcoal: #E8E8E6;
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.3);
+    --shadow-medium: 0 8px 32px rgba(0, 0, 0, 0.4);
+    --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.5);
+    --surface-card: #2A2A2C;
+    --surface-input: #2C2C2E;
+    --border-color: #3A3A3C;
+    --text-primary: #E8E8E6;
+    --text-secondary: #A8A8A4;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+    background: var(--wall-bg);
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    color: var(--text-primary);
+    line-height: 1.6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+/* ═════════════ MOSAIC ═════════════ */
+/* Width is the largest that lets all 16 rows of 2:3 covers fit on screen.
+   Overall aspect ratio = (25 * 2) / (16 * 3) = 50 / 48. */
+.mosaic {
+    display: grid;
+    grid-template-columns: repeat(var(--cols), 1fr);
+    grid-template-rows: repeat(var(--rows), 1fr);
+    gap: 0;
+    width: min(100vw, 100vh * 50 / 48);
+    width: min(100vw, 100dvh * 50 / 48);
+    aspect-ratio: 50 / 48;
+    position: relative;
+}
+
+.tile {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    background: #1c1c1e;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+    transform: translateZ(0) scale(1);
+    transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 0.22s ease,
+                filter 0.22s ease;
+    will-change: transform;
+}
+
+.tile img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.tile img.loaded { opacity: 1; }
+
+/* Neighbor ring — a gentle lift around the cursor */
+.tile.near {
+    transform: translateZ(0) scale(1.12);
+    z-index: 5;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+}
+
+/* The book directly under the cursor pops out */
+.tile.pop {
+    transform: translateZ(0) scale(1.45);
+    z-index: 10;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+
+.tile:focus-visible {
+    outline: 2px solid var(--peach);
+    outline-offset: -2px;
+    transform: translateZ(0) scale(1.45);
+    z-index: 10;
+}
+
+.tile-fallback {
+    position: absolute;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    color: white;
+    font-size: clamp(6px, 1.1vw, 16px);
+    text-align: center;
+}
+
+.tile.no-cover .tile-fallback { display: flex; }
+
+/* ═════════════ HOVER CAPTION ═════════════ */
+.caption {
+    position: fixed;
+    left: 0;
+    top: 0;
+    max-width: 280px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    background: rgba(20, 20, 22, 0.88);
+    color: #FDF6E9;
+    font-size: 0.8rem;
+    line-height: 1.35;
+    pointer-events: none;
+    z-index: 40;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.caption.show { opacity: 1; }
+.caption .cap-title { font-family: 'Quicksand', sans-serif; font-weight: 700; display: block; }
+.caption .cap-author { color: #C4D1BC; }
+.caption .cap-num { color: var(--peach); font-weight: 700; margin-right: 4px; }
+
+@media (hover: none) { .caption { display: none; } }
+
+/* ═════════════ FLOATING CONTROLS ═════════════ */
+.wall-controls {
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    display: flex;
+    gap: 8px;
+    z-index: 50;
+    opacity: 0.25;
+    transition: opacity 0.3s ease;
+}
+
+.wall-controls:hover,
+.wall-controls:focus-within,
+body.controls-visible .wall-controls { opacity: 1; }
+
+.wall-btn {
+    height: 38px;
+    min-width: 38px;
+    padding: 0 12px;
+    border: none;
+    border-radius: 100px;
+    background: rgba(20, 20, 22, 0.8);
+    color: #FDF6E9;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+    transition: background 0.2s ease;
+}
+
+.wall-btn:hover { background: var(--sage); }
+.wall-btn:focus-visible { outline: 2px solid var(--peach); outline-offset: 2px; }
+
+/* ═════════════ MODAL (mirrors index.html) ═════════════ */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(74, 74, 74, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 100;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-overlay.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+.modal-content {
+    background: var(--surface-card);
+    border-radius: 28px;
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: var(--shadow-hover);
+    animation: slideUp 0.3s ease;
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: var(--surface-input);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    transition: var(--transition-smooth);
+    z-index: 10;
+}
+
+.modal-close:hover { background: var(--coral-soft); color: white; }
+.modal-close:focus { outline: 3px solid var(--sage); }
+
+.modal-header {
+    padding: 32px 32px 24px;
+    display: flex;
+    gap: 28px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.modal-cover { flex-shrink: 0; width: 180px; }
+.modal-cover img { width: 100%; border-radius: 16px; box-shadow: var(--shadow-medium); }
+
+.modal-cover-fallback {
+    width: 100%;
+    aspect-ratio: 2/3;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.modal-details { flex: 1; padding-right: 40px; }
+
+.modal-book-number {
+    display: inline-block;
+    background: var(--sage);
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 12px;
+}
+
+.modal-title {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.modal-author { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 20px; }
+
+.modal-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.modal-tag {
+    padding: 8px 16px;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: white;
+}
+
+.modal-body { padding: 28px 32px 32px; }
+
+.modal-section-title {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--sage);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.modal-summary { font-size: 1rem; line-height: 1.8; color: var(--text-primary); }
+
+.modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 32px 24px;
+    border-top: 1px solid var(--border-color);
+    gap: 12px;
+    flex-wrap: nowrap;
+}
+
+.modal-nav-btn,
+.modal-share-btn {
+    padding: 10px 16px;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    background: var(--surface-input);
+    color: var(--text-primary);
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    min-width: 64px;
+}
+
+.modal-share-btn { color: var(--text-secondary); }
+
+.modal-nav-btn .btn-icon,
+.modal-share-btn .btn-icon { font-size: 1.1rem; line-height: 1; }
+
+.modal-nav-btn:hover:not(:disabled) { background: var(--sage); border-color: var(--sage); color: white; }
+.modal-nav-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+.modal-share-btn:hover { border-color: var(--peach); color: var(--peach); }
+.modal-share-btn.copied { border-color: var(--status-finished); color: var(--status-finished); }
+.modal-nav-btn:focus,
+.modal-share-btn:focus { outline: 3px solid var(--sage); }
+
+.toast {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    background: var(--charcoal);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: var(--shadow-medium);
+    z-index: 200;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    pointer-events: none;
+}
+
+[data-theme="dark"] .toast { background: #E8E8E6; color: #1C1C1E; }
+.toast.show { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 768px) {
+    .modal-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 48px 24px 24px;
+    }
+    .modal-book-number { margin-bottom: 8px; }
+    .modal-details { padding-right: 0; }
+    .modal-cover { width: 150px; }
+    .modal-tags { justify-content: center; }
+    .modal-body { padding: 24px; }
+    .modal-footer { padding: 12px 20px 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tile { transition: none; }
+}
+
+/* Category colors (fallback covers) */
+.category-biography { background: linear-gradient(135deg, #F4A259 0%, #D94E41 100%); }
+.category-business { background: linear-gradient(135deg, #7B9EAB 0%, #5A7D8A 100%); }
+.category-education { background: linear-gradient(135deg, #6B8E6B 0%, #4A6D4A 100%); }
+.category-essays { background: linear-gradient(135deg, #B8A8C8 0%, #9888A8 100%); }
+.category-finance { background: linear-gradient(135deg, #C4A67C 0%, #A4865C 100%); }
+.category-informational { background: linear-gradient(135deg, #7BA3A3 0%, #5A8282 100%); }
+.category-memoir { background: linear-gradient(135deg, #E8B86D 0%, #C8984D 100%); }
+.category-novel { background: linear-gradient(135deg, #D4847C 0%, #B4645C 100%); }
+.category-philosophy { background: linear-gradient(135deg, #8B9EAB 0%, #6B7E8B 100%); }
+.category-poetry { background: linear-gradient(135deg, #A8B5C8 0%, #8895A8 100%); }
+.category-politics { background: linear-gradient(135deg, #AB8B8B 0%, #8B6B6B 100%); }
+.category-race { background: linear-gradient(135deg, #6B8E6B 0%, #4A6D4A 100%); }
+.category-religion { background: linear-gradient(135deg, #A8A8B8 0%, #888898 100%); }
+.category-science { background: linear-gradient(135deg, #7B9EBB 0%, #5A7D9A 100%); }
+.category-self { background: linear-gradient(135deg, #B8A8D8 0%, #9888B8 100%); }
+.category-social { background: linear-gradient(135deg, #A8B5A0 0%, #889580 100%); }
+.category-technology { background: linear-gradient(135deg, #8B9EAB 0%, #6B7E8B 100%); }
+.category-stage { background: linear-gradient(135deg, #C8A8A8 0%, #A88888 100%); }
+    </style>
+</head>
+<body>
+    <div class="wall-controls">
+        <a class="wall-btn" href="index.html" aria-label="Back to the Book Log">← Book Log</a>
+        <button class="wall-btn" id="themeBtn" aria-label="Toggle dark mode">🌙</button>
+    </div>
+
+    <main class="mosaic" id="mosaic" role="list" aria-label="Book cover mosaic"></main>
+
+    <div class="caption" id="caption" aria-hidden="true"></div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose" aria-label="Close book details">×</button>
+            <div class="modal-header">
+                <div class="modal-cover" id="modalCoverWrapper"></div>
+                <div class="modal-details">
+                    <span class="modal-book-number" id="modalBookNumber">#1</span>
+                    <h3 class="modal-title" id="modalTitle">Book Title</h3>
+                    <p class="modal-author" id="modalAuthor">Author Name</p>
+                    <div class="modal-tags" id="modalTags"></div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <h4 class="modal-section-title">Summary</h4>
+                <p class="modal-summary" id="modalSummary"></p>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-nav-btn" id="modalPrevBtn" aria-label="Previous book">
+                    <span class="btn-icon">←</span><span>Prev</span>
+                </button>
+                <button class="modal-share-btn" id="modalShareBtn" aria-label="Copy link to this book">
+                    <span class="btn-icon">🔗</span><span>Share</span>
+                </button>
+                <button class="modal-nav-btn" id="modalNextBtn" aria-label="Next book">
+                    <span class="btn-icon">→</span><span>Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script>
+        // ═══════════════════════════════════════════════
+        //  CONFIG
+        // ═══════════════════════════════════════════════
+        const COLS = 25;
+        const ROWS = 16;
+        const TOTAL = COLS * ROWS; // 400
+
+        // First 400 books in log order (#1 top-left → #400 bottom-right)
+        const mosaicBooks = [...books].sort((a, b) => a.number - b.number).slice(0, TOTAL);
+
+        // ═══════════════════════════════════════════════
+        //  STATE / DOM
+        // ═══════════════════════════════════════════════
+        let currentModalIndex = -1;
+        let hoveredIndex = -1;
+        let lastFocused = null;
+        const tiles = [];
+
+        const el = {
+            mosaic:     document.getElementById('mosaic'),
+            caption:    document.getElementById('caption'),
+            toast:      document.getElementById('toast'),
+            themeBtn:   document.getElementById('themeBtn'),
+            modal:      document.getElementById('modal'),
+            modalClose: document.getElementById('modalClose'),
+            prevBtn:    document.getElementById('modalPrevBtn'),
+            nextBtn:    document.getElementById('modalNextBtn'),
+            shareBtn:   document.getElementById('modalShareBtn')
+        };
+
+        // ═══════════════════════════════════════════════
+        //  THEME (shares the main site's saved preference)
+        // ═══════════════════════════════════════════════
+        function applyTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            try { localStorage.setItem('drdeas-theme', theme); } catch (e) {}
+            el.themeBtn.textContent = theme === 'dark' ? '☀️' : '🌙';
+            el.themeBtn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+        }
+
+        let savedTheme = 'light';
+        try { savedTheme = localStorage.getItem('drdeas-theme') || 'light'; } catch (e) {}
+        applyTheme(savedTheme);
+
+        el.themeBtn.addEventListener('click', () => {
+            const cur = document.documentElement.getAttribute('data-theme');
+            applyTheme(cur === 'dark' ? 'light' : 'dark');
+        });
+
+        // ═══════════════════════════════════════════════
+        //  BUILD MOSAIC
+        // ═══════════════════════════════════════════════
+        function buildMosaic() {
+            const frag = document.createDocumentFragment();
+
+            mosaicBooks.forEach((book, i) => {
+                const tile = document.createElement('button');
+                tile.className = 'tile';
+                tile.type = 'button';
+                tile.dataset.index = i;
+                tile.setAttribute('role', 'listitem');
+                tile.setAttribute('aria-label', `#${book.number}: ${book.title} by ${book.author}`);
+
+                const fallback = document.createElement('div');
+                fallback.className = `tile-fallback ${getCategoryClass(book.category)}`;
+                fallback.textContent = getInitials(book.title);
+
+                const img = document.createElement('img');
+                img.alt = '';
+                img.decoding = 'async';
+                img.addEventListener('load', () => img.classList.add('loaded'));
+                img.addEventListener('error', () => { img.remove(); tile.classList.add('no-cover'); });
+                img.src = book.customCoverUrl;
+
+                tile.appendChild(fallback);
+                tile.appendChild(img);
+                tile.addEventListener('click', () => openModal(i));
+                frag.appendChild(tile);
+                tiles.push(tile);
+            });
+
+            el.mosaic.appendChild(frag);
+        }
+
+        // ═══════════════════════════════════════════════
+        //  HOVER POP-OUT
+        // ═══════════════════════════════════════════════
+        function setHover(index) {
+            if (index === hoveredIndex) return;
+            clearHover();
+            hoveredIndex = index;
+            if (index < 0) return;
+
+            const r = Math.floor(index / COLS);
+            const c = index % COLS;
+            for (let dr = -1; dr <= 1; dr++) {
+                for (let dc = -1; dc <= 1; dc++) {
+                    const nr = r + dr, nc = c + dc;
+                    if (nr < 0 || nr >= ROWS || nc < 0 || nc >= COLS) continue;
+                    const t = tiles[nr * COLS + nc];
+                    if (!t) continue;
+                    t.classList.add(dr === 0 && dc === 0 ? 'pop' : 'near');
+                }
+            }
+        }
+
+        function clearHover() {
+            if (hoveredIndex < 0) return;
+            el.mosaic.querySelectorAll('.tile.pop, .tile.near').forEach(t => t.classList.remove('pop', 'near'));
+            hoveredIndex = -1;
+        }
+
+        function showCaption(index, x, y) {
+            const book = mosaicBooks[index];
+            if (!book) return;
+            if (el.caption.dataset.index !== String(index)) {
+                el.caption.dataset.index = index;
+                el.caption.innerHTML = '';
+                const title = document.createElement('span');
+                title.className = 'cap-title';
+                const num = document.createElement('span');
+                num.className = 'cap-num';
+                num.textContent = `#${book.number}`;
+                title.append(num, book.title);
+                const author = document.createElement('span');
+                author.className = 'cap-author';
+                author.textContent = book.author;
+                el.caption.append(title, author);
+            }
+            // Keep the caption on screen, offset from the cursor
+            const w = el.caption.offsetWidth, h = el.caption.offsetHeight;
+            let left = x + 18, top = y + 18;
+            if (left + w > window.innerWidth - 8) left = x - w - 18;
+            if (top + h > window.innerHeight - 8) top = y - h - 18;
+            el.caption.style.transform = `translate(${Math.max(8, left)}px, ${Math.max(8, top)}px)`;
+            el.caption.classList.add('show');
+        }
+
+        function hideCaption() { el.caption.classList.remove('show'); }
+
+        // Hit-test by grid position (not the scaled element) so the
+        // enlarged tile doesn't "steal" the hover from its neighbors.
+        function indexFromPoint(x, y) {
+            const rect = el.mosaic.getBoundingClientRect();
+            if (x < rect.left || x >= rect.right || y < rect.top || y >= rect.bottom) return -1;
+            const c = Math.floor((x - rect.left) / (rect.width / COLS));
+            const r = Math.floor((y - rect.top) / (rect.height / ROWS));
+            const i = r * COLS + c;
+            return i < mosaicBooks.length ? i : -1;
+        }
+
+        let pendingMove = null;
+        document.addEventListener('pointermove', e => {
+            if (e.pointerType === 'touch') return;
+            pendingMove = { x: e.clientX, y: e.clientY };
+            requestAnimationFrame(() => {
+                if (!pendingMove) return;
+                const { x, y } = pendingMove;
+                pendingMove = null;
+                if (el.modal.classList.contains('active')) return;
+                const i = indexFromPoint(x, y);
+                setHover(i);
+                i >= 0 ? showCaption(i, x, y) : hideCaption();
+            });
+            flashControls();
+        });
+
+        document.addEventListener('pointerleave', () => { clearHover(); hideCaption(); });
+        el.mosaic.addEventListener('pointerleave', () => { clearHover(); hideCaption(); });
+
+        // Clicking is resolved by grid position too, so it always matches the highlighted book
+        el.mosaic.addEventListener('click', e => {
+            if (e.detail === 0) return; // keyboard activation handled by the tile's own click
+            const i = indexFromPoint(e.clientX, e.clientY);
+            if (i >= 0) { e.stopPropagation(); openModal(i); }
+        }, true);
+
+        let controlsTimer;
+        function flashControls() {
+            document.body.classList.add('controls-visible');
+            clearTimeout(controlsTimer);
+            controlsTimer = setTimeout(() => document.body.classList.remove('controls-visible'), 1800);
+        }
+
+        // Arrow keys move focus around the grid when a tile is focused
+        el.mosaic.addEventListener('keydown', e => {
+            const t = e.target.closest('.tile');
+            if (!t) return;
+            const i = Number(t.dataset.index);
+            const moves = { ArrowLeft: -1, ArrowRight: 1, ArrowUp: -COLS, ArrowDown: COLS };
+            if (moves[e.key] === undefined) return;
+            const next = i + moves[e.key];
+            if (next >= 0 && next < tiles.length) { e.preventDefault(); tiles[next].focus(); }
+        });
+
+        // ═══════════════════════════════════════════════
+        //  MODAL
+        // ═══════════════════════════════════════════════
+        function openModal(index) {
+            const book = mosaicBooks[index];
+            if (!book) return;
+            lastFocused = document.activeElement;
+            currentModalIndex = index;
+            clearHover();
+            hideCaption();
+            renderModalContent(book);
+            el.modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => el.modalClose.focus(), 50);
+        }
+
+        function renderModalContent(book) {
+            document.getElementById('modalBookNumber').textContent = `#${book.number}`;
+            document.getElementById('modalTitle').textContent      = book.title;
+            document.getElementById('modalAuthor').textContent     = book.author;
+            document.getElementById('modalSummary').textContent    = book.summary || 'No summary available for this book.';
+
+            const coverWrapper = document.getElementById('modalCoverWrapper');
+            coverWrapper.innerHTML = '';
+            const img = document.createElement('img');
+            img.alt = `Cover of ${book.title}`;
+            img.onerror = () => {
+                coverWrapper.innerHTML = `<div class="modal-cover-fallback ${getCategoryClass(book.category)}" aria-hidden="true">
+                    <div style="font-family:'Quicksand',sans-serif;font-size:2.5rem;font-weight:700;color:white;">${getInitials(book.title)}</div></div>`;
+            };
+            img.src = book.customCoverUrl;
+            coverWrapper.appendChild(img);
+
+            const tags = document.getElementById('modalTags');
+            tags.innerHTML = '';
+            const addTag = (text, color) => {
+                const s = document.createElement('span');
+                s.className = 'modal-tag';
+                s.style.background = color;
+                s.textContent = text;
+                tags.appendChild(s);
+            };
+            addTag(book.category,  getTagColor('category',  book.category));
+            addTag(book.ownership, getTagColor('ownership', book.ownership));
+            addTag(book.status,    getTagColor('status',    book.status));
+            if (book.status === 'Finished' && book.dateCompleted) addTag(book.dateCompleted, '#8B9EAB');
+
+            el.prevBtn.disabled = currentModalIndex <= 0;
+            el.nextBtn.disabled = currentModalIndex >= mosaicBooks.length - 1;
+            el.shareBtn.innerHTML = '<span class="btn-icon">🔗</span><span>Share</span>';
+            el.shareBtn.classList.remove('copied');
+
+            history.replaceState(null, '', `${window.location.pathname}?book=${book.number}`);
+        }
+
+        function navigateModal(dir) {
+            const next = currentModalIndex + dir;
+            if (next < 0 || next >= mosaicBooks.length) return;
+            currentModalIndex = next;
+            renderModalContent(mosaicBooks[next]);
+            document.querySelector('.modal-content').scrollTop = 0;
+        }
+
+        function closeModal() {
+            el.modal.classList.remove('active');
+            document.body.style.overflow = '';
+            const idx = currentModalIndex;
+            currentModalIndex = -1;
+            history.replaceState(null, '', window.location.pathname);
+            // Return focus to the book's tile (helps keyboard users keep their place)
+            if (lastFocused && lastFocused.classList && lastFocused.classList.contains('tile') && tiles[idx]) {
+                tiles[idx].focus({ preventScroll: true });
+            }
+        }
+
+        function shareBook() {
+            const book = mosaicBooks[currentModalIndex];
+            if (!book) return;
+            const url = `${window.location.origin}${window.location.pathname}?book=${book.number}`;
+            const done = () => {
+                el.shareBtn.innerHTML = '<span class="btn-icon">✓</span><span>Copied!</span>';
+                el.shareBtn.classList.add('copied');
+                setTimeout(() => {
+                    el.shareBtn.innerHTML = '<span class="btn-icon">🔗</span><span>Share</span>';
+                    el.shareBtn.classList.remove('copied');
+                }, 2000);
+            };
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url).then(done).catch(() => showToast('Could not copy. URL: ' + url));
+            } else {
+                showToast('Could not copy. URL: ' + url);
+            }
+        }
+
+        function showToast(msg) {
+            el.toast.textContent = msg;
+            el.toast.classList.add('show');
+            setTimeout(() => el.toast.classList.remove('show'), 3500);
+        }
+
+        el.modalClose.addEventListener('click', closeModal);
+        el.modal.addEventListener('click', e => { if (e.target === el.modal) closeModal(); });
+        el.prevBtn.addEventListener('click', () => navigateModal(-1));
+        el.nextBtn.addEventListener('click', () => navigateModal(1));
+        el.shareBtn.addEventListener('click', shareBook);
+
+        document.addEventListener('keydown', e => {
+            if (!el.modal.classList.contains('active')) return;
+            if (e.key === 'Escape')     { closeModal(); return; }
+            if (e.key === 'ArrowLeft')  { e.preventDefault(); navigateModal(-1); }
+            if (e.key === 'ArrowRight') { e.preventDefault(); navigateModal(1); }
+        });
+
+        // Swipe left/right inside the modal on touch devices
+        (function initSwipe() {
+            let sx = 0, sy = 0;
+            const content = document.querySelector('.modal-content');
+            content.addEventListener('touchstart', e => { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
+            content.addEventListener('touchend', e => {
+                const dx = e.changedTouches[0].clientX - sx;
+                const dy = e.changedTouches[0].clientY - sy;
+                if (Math.abs(dy) > 40) return;
+                if (dx < -60) navigateModal(1);
+                else if (dx > 60) navigateModal(-1);
+            }, { passive: true });
+        })();
+
+        // ═══════════════════════════════════════════════
+        //  HELPERS (same mappings as index.html)
+        // ═══════════════════════════════════════════════
+        function getCategoryClass(cat) {
+            const m = {'Biography':'category-biography','Business':'category-business','Education':'category-education','Essay(s)/Short Stories':'category-essays','Finance':'category-finance','Informational':'category-informational','Memoir/Autobiography':'category-memoir','Novel':'category-novel','Philosophy':'category-philosophy','Poetry':'category-poetry','Policy and Politics':'category-politics','Race, Class, and Gender':'category-race','Religion':'category-religion','Science':'category-science','Self-Development':'category-self','Social Science(s)':'category-social','Technology':'category-technology','Stage Play':'category-stage'};
+            return m[cat] || 'category-novel';
+        }
+
+        function getTagColor(type, value) {
+            const c = {
+                category:{'Biography':'#F4A259','Business':'#7B9EAB','Education':'#6B8E6B','Essay(s)/Short Stories':'#B8A8C8','Finance':'#C4A67C','Informational':'#7BA3A3','Memoir/Autobiography':'#E8B86D','Novel':'#D4847C','Philosophy':'#8B9EAB','Poetry':'#A8B5C8','Policy and Politics':'#AB8B8B','Race, Class, and Gender':'#6B8E6B','Religion':'#A8A8B8','Science':'#7B9EBB','Self-Development':'#B8A8D8','Social Science(s)':'#A8B5A0','Technology':'#8B9EAB','Stage Play':'#C8A8A8'},
+                ownership:{'Digital':'#7B9EAB','Physical':'#C4A67C','Library':'#B08D8D'},
+                status:{'Finished':'#7BA37B','In Progress':'#E8B86D','Queued':'#B8A8C8','Reading':'#E8B86D'}
+            };
+            return (c[type] && c[type][value]) || '#A8B5A0';
+        }
+
+        function getInitials(title) {
+            if (!title) return '';
+            const ignore = ['A','AN','THE','OF','IN','ON','AND','TO','FOR'];
+            return title.split(' ').filter(w => !ignore.includes(w.toUpperCase())).slice(0,3).map(w => w[0]).join('').toUpperCase();
+        }
+
+        // ═══════════════════════════════════════════════
+        //  INIT
+        // ═══════════════════════════════════════════════
+        buildMosaic();
+
+        // Deep link: mosaic.html?book=143 opens that book directly
+        const bookParam = parseInt(new URLSearchParams(window.location.search).get('book'), 10);
+        if (!isNaN(bookParam)) {
+            const idx = mosaicBooks.findIndex(b => b.number === bookParam);
+            if (idx >= 0) openModal(idx);
+        }
+    </script>
+</body>
+</html>
