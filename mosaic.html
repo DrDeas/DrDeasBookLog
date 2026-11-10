@@ -204,7 +204,7 @@ body {
     display: flex;
     gap: 8px;
     z-index: 50;
-    opacity: 0.25;
+    opacity: 0.8;   /* sits over covers now that the page loads zoomed in */
     transition: opacity 0.3s ease;
 }
 
@@ -278,8 +278,58 @@ body.controls-visible .wall-controls { opacity: 1; }
     .zoom-level { min-width: 44px; }
 }
 
+/* ═════════════ "MORE" EDGE INDICATORS ═════════════ */
+.more-ind {
+    position: fixed;
+    z-index: 45;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 100px;
+    background: rgba(20, 20, 22, 0.82);
+    color: #FDF6E9;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.12);
+    transition: opacity 0.3s ease, visibility 0.3s ease, background 0.2s ease;
+}
+
+.more-ind:hover { background: var(--sage); }
+.more-ind:focus-visible { outline: 2px solid var(--peach); outline-offset: 2px; }
+.more-ind.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+
+.more-up    { top: 14px;    left: 50%; transform: translateX(-50%); }
+.more-down  { bottom: 16px; left: 50%; transform: translateX(-50%); }
+.more-left  { left: 12px;   top: 50%;  transform: translateY(-50%); }
+.more-right { right: 12px;  top: 50%;  transform: translateY(-50%); }
+
+.more-arrow { display: inline-block; font-size: 1rem; line-height: 1; }
+.more-up .more-arrow    { animation: nudge-up 1.6s ease-in-out infinite; }
+.more-down .more-arrow  { animation: nudge-down 1.6s ease-in-out infinite; }
+.more-left .more-arrow  { animation: nudge-left 1.6s ease-in-out infinite; }
+.more-right .more-arrow { animation: nudge-right 1.6s ease-in-out infinite; }
+
+@keyframes nudge-up    { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+@keyframes nudge-down  { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(3px); } }
+@keyframes nudge-left  { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(-3px); } }
+@keyframes nudge-right { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(3px); } }
+
+@media (max-width: 480px) {
+    .more-ind { padding: 7px 12px; font-size: 0.78rem; }
+    .more-up { top: 54px; }        /* sit below the top-left controls */
+    .more-left { left: 8px; }
+    .more-right { right: 8px; }
+    .more-down { bottom: 12px; }
+}
+
 /* Touch devices: controls stay readable (no hover to reveal them) */
-@media (hover: none) { .wall-controls { opacity: 0.85; } }
+@media (hover: none) { .wall-controls { opacity: 0.92; } }
 
 /* ═════════════ MODAL (mirrors index.html) ═════════════ */
 .modal-overlay {
@@ -485,6 +535,7 @@ body.controls-visible .wall-controls { opacity: 1; }
 
 @media (prefers-reduced-motion: reduce) {
     .tile { transition: none; }
+    .more-arrow { animation: none !important; }
 }
 
 /* Category colors (fallback covers) */
@@ -517,12 +568,16 @@ body.controls-visible .wall-controls { opacity: 1; }
             <button class="wall-btn" id="zoomInBtn" aria-label="Zoom in" title="Zoom in (+)">+</button>
             <button class="wall-btn fit-btn" id="zoomFitBtn" aria-label="Fit whole wall to screen" title="Fit to screen (0)">⤢ Fit</button>
         </div>
-        <button class="wall-btn" id="themeBtn" aria-label="Toggle dark mode">🌙</button>
     </div>
 
     <div class="stage" id="stage">
         <main class="mosaic" id="mosaic" role="list" aria-label="Book cover mosaic"></main>
     </div>
+
+    <button class="more-ind more-up hidden" id="moreUp" aria-label="Show more covers above"><span class="more-arrow" aria-hidden="true">↑</span>More</button>
+    <button class="more-ind more-down hidden" id="moreDown" aria-label="Show more covers below">More<span class="more-arrow" aria-hidden="true">↓</span></button>
+    <button class="more-ind more-left hidden" id="moreLeft" aria-label="Show more covers to the left"><span class="more-arrow" aria-hidden="true">←</span>More</button>
+    <button class="more-ind more-right hidden" id="moreRight" aria-label="Show more covers to the right">More<span class="more-arrow" aria-hidden="true">→</span></button>
 
     <div class="caption" id="caption" aria-hidden="true"></div>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -581,7 +636,6 @@ body.controls-visible .wall-controls { opacity: 1; }
             mosaic:     document.getElementById('mosaic'),
             caption:    document.getElementById('caption'),
             toast:      document.getElementById('toast'),
-            themeBtn:   document.getElementById('themeBtn'),
             modal:      document.getElementById('modal'),
             modalClose: document.getElementById('modalClose'),
             prevBtn:    document.getElementById('modalPrevBtn'),
@@ -590,23 +644,11 @@ body.controls-visible .wall-controls { opacity: 1; }
         };
 
         // ═══════════════════════════════════════════════
-        //  THEME (shares the main site's saved preference)
+        //  THEME: the book dialog follows the main site's saved light/dark choice
         // ═══════════════════════════════════════════════
-        function applyTheme(theme) {
-            document.documentElement.setAttribute('data-theme', theme);
-            try { localStorage.setItem('drdeas-theme', theme); } catch (e) {}
-            el.themeBtn.textContent = theme === 'dark' ? '☀️' : '🌙';
-            el.themeBtn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
-        }
-
-        let savedTheme = 'light';
-        try { savedTheme = localStorage.getItem('drdeas-theme') || 'light'; } catch (e) {}
-        applyTheme(savedTheme);
-
-        el.themeBtn.addEventListener('click', () => {
-            const cur = document.documentElement.getAttribute('data-theme');
-            applyTheme(cur === 'dark' ? 'light' : 'dark');
-        });
+        try {
+            if (localStorage.getItem('drdeas-theme') === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+        } catch (e) {}
 
         // ═══════════════════════════════════════════════
         //  BUILD MOSAIC
@@ -720,7 +762,10 @@ body.controls-visible .wall-controls { opacity: 1; }
         const ZOOM_STEP = 1.25;
         const DRAG_THRESHOLD = 6;   // px of movement before a press becomes a drag
         const HOLD_CANCEL_MS = 550; // a long press without moving doesn't open the dialog
-        const VIEW_KEY = 'drdeas-mosaic-view';
+        const DEFAULT_ZOOM_DESKTOP = 2;   // 200%
+        const DEFAULT_ZOOM_MOBILE  = 4;   // 400%
+        const MOBILE_MAX_WIDTH     = 768; // same breakpoint as the main site
+        const MORE_PAN_FRACTION    = 0.75; // a 'More' click moves 75% of a screen
 
         const stage = document.getElementById('stage');
         const zoomEls = {
@@ -748,6 +793,7 @@ body.controls-visible .wall-controls { opacity: 1; }
             zoomEls.level.textContent = `${Math.round(view.scale * 100)}%`;
             zoomEls.out.disabled = view.scale <= MIN_ZOOM + 1e-6;
             zoomEls.in.disabled  = view.scale >= MAX_ZOOM - 1e-6;
+            updateMoreIndicators();
         }
 
         // Zoom so the wall point under (cx, cy) stays under (cx, cy)
@@ -759,7 +805,6 @@ body.controls-visible .wall-controls { opacity: 1; }
             view.tx = cx - mx * newScale;
             view.ty = cy - my * newScale;
             applyView(animate);
-            saveView();
         }
 
         function zoomByStep(dir) {
@@ -767,10 +812,10 @@ body.controls-visible .wall-controls { opacity: 1; }
             zoomAt(view.scale * (dir > 0 ? ZOOM_STEP : 1 / ZOOM_STEP), w / 2, h / 2, true);
         }
 
-        function fitView() { view.scale = 1; applyView(true); saveView(); }
+        function fitView() { view.scale = 1; applyView(true); }
 
-        // Remember the view as zoom + the wall point at screen center (0..1),
-        // so it restores correctly even if the window size changes.
+        // The wall point at screen center (0..1), used to keep the same spot
+        // centered when the window is resized.
         function centerFraction() {
             const { w, h } = viewport();
             return {
@@ -785,14 +830,6 @@ body.controls-visible .wall-controls { opacity: 1; }
             view.ty = h / 2 - fy * view.baseH * view.scale;
         }
 
-        let saveTimer;
-        function saveView() {
-            clearTimeout(saveTimer);
-            saveTimer = setTimeout(() => {
-                try { localStorage.setItem(VIEW_KEY, JSON.stringify({ scale: view.scale, ...centerFraction() })); } catch (e) {}
-            }, 250);
-        }
-
         function layout(keepCenter) {
             const c = keepCenter ? centerFraction() : null;
             const { w, h } = viewport();
@@ -804,17 +841,51 @@ body.controls-visible .wall-controls { opacity: 1; }
             applyView(false);
         }
 
-        function restoreView() {
+        // Every page load starts zoomed in at the top-left corner (Book #1)
+        function initialView() {
             layout(false);
-            try {
-                const saved = JSON.parse(localStorage.getItem(VIEW_KEY) || 'null');
-                if (saved && isFinite(saved.scale) && isFinite(saved.fx) && isFinite(saved.fy)) {
-                    view.scale = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, saved.scale));
-                    centerOn(saved.fx, saved.fy);
-                    applyView(false);
-                }
-            } catch (e) {}
+            const isMobile = window.innerWidth <= MOBILE_MAX_WIDTH;
+            view.scale = isMobile ? DEFAULT_ZOOM_MOBILE : DEFAULT_ZOOM_DESKTOP;
+            view.tx = 0;
+            view.ty = 0;
+            applyView(false);
         }
+
+        // ── "More" indicators: shown on each edge that has covers beyond it ──
+        const moreEls = {
+            up:    document.getElementById('moreUp'),
+            down:  document.getElementById('moreDown'),
+            left:  document.getElementById('moreLeft'),
+            right: document.getElementById('moreRight')
+        };
+
+        function updateMoreIndicators() {
+            const { w, h } = viewport();
+            const mw = view.baseW * view.scale, mh = view.baseH * view.scale;
+            const EPS = 1;
+            const show = {
+                left:  view.tx < -EPS,
+                right: view.tx + mw > w + EPS,
+                up:    view.ty < -EPS,
+                down:  view.ty + mh > h + EPS
+            };
+            for (const dir in moreEls) {
+                moreEls[dir].classList.toggle('hidden', !show[dir]);
+                moreEls[dir].tabIndex = show[dir] ? 0 : -1;
+                moreEls[dir].setAttribute('aria-hidden', show[dir] ? 'false' : 'true');
+            }
+        }
+
+        function panMore(dir) {
+            const { w, h } = viewport();
+            if (dir === 'left')  view.tx += w * MORE_PAN_FRACTION;
+            if (dir === 'right') view.tx -= w * MORE_PAN_FRACTION;
+            if (dir === 'up')    view.ty += h * MORE_PAN_FRACTION;
+            if (dir === 'down')  view.ty -= h * MORE_PAN_FRACTION;
+            applyView(true);
+        }
+
+        for (const dir in moreEls) moreEls[dir].addEventListener('click', () => panMore(dir));
 
         zoomEls.in.addEventListener('click',  () => zoomByStep(1));
         zoomEls.out.addEventListener('click', () => zoomByStep(-1));
@@ -913,7 +984,6 @@ body.controls-visible .wall-controls { opacity: 1; }
             press = null;
             pinch = null;
             stage.classList.remove('dragging');
-            saveView();
 
             if (wasTap) {
                 const i = indexFromPoint(e.clientX, e.clientY);
@@ -942,7 +1012,6 @@ body.controls-visible .wall-controls { opacity: 1; }
             view.tx += w / 2 - (r.left + r.width / 2);
             view.ty += h / 2 - (r.top + r.height / 2);
             applyView(true);
-            saveView();
         });
 
         // ═══════════════════════════════════════════════
@@ -958,7 +1027,7 @@ body.controls-visible .wall-controls { opacity: 1; }
                 const { x, y } = pendingMove;
                 pendingMove = null;
                 if (el.modal.classList.contains('active')) return;
-                if (pointers.size > 0 || (e.target.closest && e.target.closest(".wall-controls"))) { clearHover(); hideCaption(); return; }
+                if (pointers.size > 0 || (e.target.closest && e.target.closest(".wall-controls, .more-ind"))) { clearHover(); hideCaption(); return; }
                 const i = indexFromPoint(x, y);
                 setHover(i);
                 i >= 0 ? showCaption(i, x, y) : hideCaption();
@@ -1145,7 +1214,7 @@ body.controls-visible .wall-controls { opacity: 1; }
         //  INIT
         // ═══════════════════════════════════════════════
         buildMosaic();
-        restoreView();
+        initialView();
 
         // Deep link: mosaic.html?book=143 opens that book directly
         const bookParam = parseInt(new URLSearchParams(window.location.search).get('book'), 10);
