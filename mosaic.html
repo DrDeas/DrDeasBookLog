@@ -98,13 +98,10 @@ body {
     transform-origin: 0 0;
 }
 
-/* Zoom changes the wall's real width/height (not a scale transform), so covers
-   are always drawn at full sharpness. Animate size + position together. */
-.mosaic.animate {
-    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-                width 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-                height 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-}
+/* At rest, zoom sets the wall's real width/height so covers are drawn sharp.
+   During gestures/animations a temporary scale() is used (cheap), then the
+   real size is committed when the motion ends. */
+.mosaic.animate { transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
 
 .tile {
     position: relative;
@@ -655,6 +652,61 @@ body.controls-visible .wall-controls { opacity: 1; }
         } catch (e) {}
 
         // ═══════════════════════════════════════════════
+        //  COVER IMAGES: small thumbnails on the wall, full size only when needed
+        // ═══════════════════════════════════════════════
+        // Thumbnails live in images/thumbs/ (made by make-thumbs.py). 400 full
+        // covers are ~57 MB and ~1 GB of memory decoded, which makes phones blank
+        // out parts of the screen; thumbnails are ~8 MB / ~140 MB.
+        const THUMB_WIDTH = 240;
+        const THUMB_SHARPNESS_LIMIT = THUMB_WIDTH * 1.15; // device px per cover before upgrading
+
+        function thumbUrl(fullUrl) {
+            const m = /\/images\/(Book_\d+\.jpg)$/.exec(fullUrl || '');
+            return m ? `images/thumbs/${m[1]}` : null;
+        }
+
+        // Swap in full-size covers only for covers on (or near) the screen, and
+        // only once a cover is drawn bigger than its thumbnail. Covers that move
+        // away go back to the (already cached) thumbnail to keep memory low.
+        let upgradeTimer;
+        function scheduleImageUpgrade() {
+            clearTimeout(upgradeTimer);
+            upgradeTimer = setTimeout(updateImageQuality, 200);
+        }
+
+        function updateImageQuality() {
+            const { w, h } = viewport();
+            const cellW = view.baseW * view.scale / COLS;
+            const cellH = view.baseH * view.scale / ROWS;
+            const wantFull = cellW * (window.devicePixelRatio || 1) > THUMB_SHARPNESS_LIMIT;
+
+            tiles.forEach((tile, i) => {
+                const img = tile.querySelector('img');
+                if (!img || img.dataset.state === 'fullonly') return;
+                const x = view.tx + (i % COLS) * cellW;
+                const y = view.ty + Math.floor(i / COLS) * cellH;
+                const near = x + cellW > -cellW && x < w + cellW && y + cellH > -cellH && y < h + cellH;
+
+                if (wantFull && near) {
+                    img.dataset.want = 'full';
+                    if (img.dataset.state !== 'thumb') return;
+                    img.dataset.state = 'loading';
+                    const pre = new Image();
+                    pre.src = img.dataset.full;
+                    (pre.decode ? pre.decode() : Promise.resolve())
+                        .then(() => {
+                            if (img.dataset.want === 'full') { img.src = img.dataset.full; img.dataset.state = 'full'; }
+                            else img.dataset.state = 'thumb';
+                        })
+                        .catch(() => { img.dataset.state = 'thumb'; });
+                } else {
+                    img.dataset.want = 'thumb';
+                    if (img.dataset.state === 'full') { img.src = img.dataset.thumb; img.dataset.state = 'thumb'; }
+                }
+            });
+        }
+
+        // ═══════════════════════════════════════════════
         //  BUILD MOSAIC
         // ═══════════════════════════════════════════════
         function buildMosaic() {
@@ -675,9 +727,23 @@ body.controls-visible .wall-controls { opacity: 1; }
                 const img = document.createElement('img');
                 img.alt = '';
                 img.decoding = 'async';
+                img.draggable = false;
+                const thumb = thumbUrl(book.customCoverUrl);
+                img.dataset.full = book.customCoverUrl;
+                img.dataset.thumb = thumb || '';
+                img.dataset.state = thumb ? 'thumb' : 'fullonly';
                 img.addEventListener('load', () => img.classList.add('loaded'));
-                img.addEventListener('error', () => { img.remove(); tile.classList.add('no-cover'); });
-                img.src = book.customCoverUrl;
+                img.addEventListener('error', () => {
+                    // Missing thumbnail → use the full cover; missing cover → initials
+                    if (img.dataset.state === 'thumb') {
+                        img.dataset.state = 'fullonly';
+                        img.src = img.dataset.full;
+                    } else {
+                        img.remove();
+                        tile.classList.add('no-cover');
+                    }
+                });
+                img.src = thumb || book.customCoverUrl;
 
                 tile.appendChild(fallback);
                 tile.appendChild(img);
@@ -779,7 +845,7 @@ body.controls-visible .wall-controls { opacity: 1; }
             level: document.getElementById('zoomLevel')
         };
 
-        const view = { scale: 1, tx: 0, ty: 0, baseW: 0, baseH: 0 };
+        const view = { scale: 1, layoutScale: 1, tx: 0, ty: 0, baseW: 0, baseH: 0 };
 
         function viewport() { return { w: stage.clientWidth, h: stage.clientHeight }; }
 
@@ -790,12 +856,26 @@ body.controls-visible .wall-controls { opacity: 1; }
             view.ty = mh <= h ? (h - mh) / 2 : Math.min(0, Math.max(h - mh, view.ty));
         }
 
-        function applyView(animate) {
+        // live = true: mid-gesture — move/scale with a transform only (no relayout).
+        // animate = true: smooth transition, then commit the sharp layout after.
+        // Otherwise: commit now — the wall is laid out at its real zoomed size.
+        let commitTimer;
+        function applyView(animate, live) {
             clampView();
-            el.mosaic.classList.toggle('animate', !!animate);
-            el.mosaic.style.width     = `${view.baseW * view.scale}px`;
-            el.mosaic.style.height    = `${view.baseH * view.scale}px`;
-            el.mosaic.style.transform = `translate3d(${view.tx}px, ${view.ty}px, 0)`;
+            clearTimeout(commitTimer);
+            if (live || animate) {
+                el.mosaic.classList.toggle('animate', !!animate);
+                const ratio = view.scale / view.layoutScale;
+                el.mosaic.style.transform = `translate3d(${view.tx}px, ${view.ty}px, 0) scale(${ratio})`;
+                if (animate) commitTimer = setTimeout(() => applyView(false), 270);
+            } else {
+                el.mosaic.classList.remove('animate');
+                view.layoutScale = view.scale;
+                el.mosaic.style.width     = `${view.baseW * view.scale}px`;
+                el.mosaic.style.height    = `${view.baseH * view.scale}px`;
+                el.mosaic.style.transform = `translate3d(${view.tx}px, ${view.ty}px, 0)`;
+                scheduleImageUpgrade();
+            }
             zoomEls.level.textContent = `${Math.round(view.scale * 100)}%`;
             zoomEls.out.disabled = view.scale <= MIN_ZOOM + 1e-6;
             zoomEls.in.disabled  = view.scale >= MAX_ZOOM - 1e-6;
@@ -803,14 +883,14 @@ body.controls-visible .wall-controls { opacity: 1; }
         }
 
         // Zoom so the wall point under (cx, cy) stays under (cx, cy)
-        function zoomAt(newScale, cx, cy, animate) {
+        function zoomAt(newScale, cx, cy, animate, live) {
             newScale = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, newScale));
             const mx = (cx - view.tx) / view.scale;
             const my = (cy - view.ty) / view.scale;
             view.scale = newScale;
             view.tx = cx - mx * newScale;
             view.ty = cy - my * newScale;
-            applyView(animate);
+            applyView(animate, live);
         }
 
         function zoomByStep(dir) {
@@ -902,8 +982,11 @@ body.controls-visible .wall-controls { opacity: 1; }
             e.preventDefault();
             const unit = e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? 400 : 1;
             const speed = e.ctrlKey ? 0.01 : 0.0015; // ctrlKey = trackpad pinch
-            zoomAt(view.scale * Math.exp(-e.deltaY * unit * speed), e.clientX, e.clientY, false);
+            zoomAt(view.scale * Math.exp(-e.deltaY * unit * speed), e.clientX, e.clientY, false, true);
+            clearTimeout(wheelTimer);
+            wheelTimer = setTimeout(() => applyView(false), 160);
         }, { passive: false });
+        let wheelTimer;
 
         // ── Press / drag / pinch ──
         const pointers = new Map();
@@ -954,7 +1037,7 @@ body.controls-visible .wall-controls { opacity: 1; }
                 view.scale = s;
                 view.tx = mx - wx * s;
                 view.ty = my - wy * s;
-                applyView(false);
+                applyView(false, true);
                 return;
             }
 
@@ -967,7 +1050,7 @@ body.controls-visible .wall-controls { opacity: 1; }
             if (press.moved) {
                 view.tx = press.tx + dx;
                 view.ty = press.ty + dy;
-                applyView(false);
+                applyView(false, true);
             }
         });
 
@@ -988,6 +1071,7 @@ body.controls-visible .wall-controls { opacity: 1; }
             press = null;
             pinch = null;
             stage.classList.remove('dragging');
+            if (!wasTap) applyView(false); // gesture over: redraw sharp at the final zoom
 
             if (wasTap) {
                 const i = indexFromPoint(e.clientX, e.clientY);
