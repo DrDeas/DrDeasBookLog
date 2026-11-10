@@ -63,25 +63,43 @@ body {
     font-family: 'Nunito', sans-serif;
     color: var(--text-primary);
     line-height: 1.6;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
+/* ═════════════ STAGE (pan + zoom viewport) ═════════════ */
+.stage {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    touch-action: none;          /* we handle drag + pinch ourselves */
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    cursor: grab;
+}
+
+.stage.dragging,
+.stage.dragging .tile { cursor: grabbing; }
+
 /* ═════════════ MOSAIC ═════════════ */
-/* Width is the largest that lets all 16 rows of 2:3 covers fit on screen.
+/* JS sizes it to the largest 25x16 grid of 2:3 covers that fits the screen
+   ("Fit" = 100%), then pans/zooms it with a transform.
    Overall aspect ratio = (25 * 2) / (16 * 3) = 50 / 48. */
 .mosaic {
     display: grid;
     grid-template-columns: repeat(var(--cols), 1fr);
     grid-template-rows: repeat(var(--rows), 1fr);
     gap: 0;
-    width: min(100vw, 100vh * 50 / 48);
+    position: absolute;
+    left: 0;
+    top: 0;
     width: min(100vw, 100dvh * 50 / 48);
     aspect-ratio: 50 / 48;
-    position: relative;
+    transform-origin: 0 0;
+    will-change: transform;
 }
+
+.mosaic.animate { transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
 
 .tile {
     position: relative;
@@ -217,6 +235,51 @@ body.controls-visible .wall-controls { opacity: 1; }
 
 .wall-btn:hover { background: var(--sage); }
 .wall-btn:focus-visible { outline: 2px solid var(--peach); outline-offset: 2px; }
+
+/* Zoom control group */
+.zoom-group {
+    display: inline-flex;
+    align-items: center;
+    height: 38px;
+    border-radius: 100px;
+    background: rgba(20, 20, 22, 0.8);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+}
+
+.zoom-group .wall-btn {
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+    border-radius: 0;
+    font-size: 1.1rem;
+    padding: 0 12px;
+}
+
+.zoom-group .wall-btn:hover { background: var(--sage); }
+.zoom-group .wall-btn:disabled { opacity: 0.35; cursor: default; background: transparent; }
+.zoom-group .wall-btn.fit-btn { font-size: 0.85rem; }
+
+.zoom-level {
+    min-width: 52px;
+    text-align: center;
+    color: #FDF6E9;
+    font-size: 0.8rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 480px) {
+    .wall-controls { top: 10px; left: 10px; gap: 6px; flex-wrap: wrap; max-width: calc(100vw - 20px); }
+    .wall-btn { height: 34px; min-width: 34px; padding: 0 10px; font-size: 0.8rem; }
+    .zoom-group { height: 34px; }
+    .zoom-group .wall-btn { padding: 0 10px; }
+    .zoom-level { min-width: 44px; }
+}
+
+/* Touch devices: controls stay readable (no hover to reveal them) */
+@media (hover: none) { .wall-controls { opacity: 0.85; } }
 
 /* ═════════════ MODAL (mirrors index.html) ═════════════ */
 .modal-overlay {
@@ -448,10 +511,18 @@ body.controls-visible .wall-controls { opacity: 1; }
 <body>
     <div class="wall-controls">
         <a class="wall-btn" href="index.html" aria-label="Back to the Book Log">← Book Log</a>
+        <div class="zoom-group" role="group" aria-label="Zoom">
+            <button class="wall-btn" id="zoomOutBtn" aria-label="Zoom out" title="Zoom out (−)">−</button>
+            <span class="zoom-level" id="zoomLevel" aria-live="polite">100%</span>
+            <button class="wall-btn" id="zoomInBtn" aria-label="Zoom in" title="Zoom in (+)">+</button>
+            <button class="wall-btn fit-btn" id="zoomFitBtn" aria-label="Fit whole wall to screen" title="Fit to screen (0)">⤢ Fit</button>
+        </div>
         <button class="wall-btn" id="themeBtn" aria-label="Toggle dark mode">🌙</button>
     </div>
 
-    <main class="mosaic" id="mosaic" role="list" aria-label="Book cover mosaic"></main>
+    <div class="stage" id="stage">
+        <main class="mosaic" id="mosaic" role="list" aria-label="Book cover mosaic"></main>
+    </div>
 
     <div class="caption" id="caption" aria-hidden="true"></div>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -564,7 +635,9 @@ body.controls-visible .wall-controls { opacity: 1; }
 
                 tile.appendChild(fallback);
                 tile.appendChild(img);
-                tile.addEventListener('click', () => openModal(i));
+                // Mouse/touch opens are handled in pointerup (so a drag never opens
+                // the dialog); this only fires for keyboard activation (detail === 0).
+                tile.addEventListener('click', e => { if (e.detail === 0) openModal(i); });
                 frag.appendChild(tile);
                 tiles.push(tile);
             });
@@ -639,31 +712,260 @@ body.controls-visible .wall-controls { opacity: 1; }
             return i < mosaicBooks.length ? i : -1;
         }
 
+        // ═══════════════════════════════════════════════
+        //  PAN + ZOOM
+        // ═══════════════════════════════════════════════
+        const MIN_ZOOM = 1;      // 1 = whole wall fits the screen
+        const MAX_ZOOM = 8;
+        const ZOOM_STEP = 1.25;
+        const DRAG_THRESHOLD = 6;   // px of movement before a press becomes a drag
+        const HOLD_CANCEL_MS = 550; // a long press without moving doesn't open the dialog
+        const VIEW_KEY = 'drdeas-mosaic-view';
+
+        const stage = document.getElementById('stage');
+        const zoomEls = {
+            in:    document.getElementById('zoomInBtn'),
+            out:   document.getElementById('zoomOutBtn'),
+            fit:   document.getElementById('zoomFitBtn'),
+            level: document.getElementById('zoomLevel')
+        };
+
+        const view = { scale: 1, tx: 0, ty: 0, baseW: 0, baseH: 0 };
+
+        function viewport() { return { w: stage.clientWidth, h: stage.clientHeight }; }
+
+        function clampView() {
+            const { w, h } = viewport();
+            const mw = view.baseW * view.scale, mh = view.baseH * view.scale;
+            view.tx = mw <= w ? (w - mw) / 2 : Math.min(0, Math.max(w - mw, view.tx));
+            view.ty = mh <= h ? (h - mh) / 2 : Math.min(0, Math.max(h - mh, view.ty));
+        }
+
+        function applyView(animate) {
+            clampView();
+            el.mosaic.classList.toggle('animate', !!animate);
+            el.mosaic.style.transform = `translate3d(${view.tx}px, ${view.ty}px, 0) scale(${view.scale})`;
+            zoomEls.level.textContent = `${Math.round(view.scale * 100)}%`;
+            zoomEls.out.disabled = view.scale <= MIN_ZOOM + 1e-6;
+            zoomEls.in.disabled  = view.scale >= MAX_ZOOM - 1e-6;
+        }
+
+        // Zoom so the wall point under (cx, cy) stays under (cx, cy)
+        function zoomAt(newScale, cx, cy, animate) {
+            newScale = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, newScale));
+            const mx = (cx - view.tx) / view.scale;
+            const my = (cy - view.ty) / view.scale;
+            view.scale = newScale;
+            view.tx = cx - mx * newScale;
+            view.ty = cy - my * newScale;
+            applyView(animate);
+            saveView();
+        }
+
+        function zoomByStep(dir) {
+            const { w, h } = viewport();
+            zoomAt(view.scale * (dir > 0 ? ZOOM_STEP : 1 / ZOOM_STEP), w / 2, h / 2, true);
+        }
+
+        function fitView() { view.scale = 1; applyView(true); saveView(); }
+
+        // Remember the view as zoom + the wall point at screen center (0..1),
+        // so it restores correctly even if the window size changes.
+        function centerFraction() {
+            const { w, h } = viewport();
+            return {
+                fx: ((w / 2 - view.tx) / view.scale) / view.baseW,
+                fy: ((h / 2 - view.ty) / view.scale) / view.baseH
+            };
+        }
+
+        function centerOn(fx, fy) {
+            const { w, h } = viewport();
+            view.tx = w / 2 - fx * view.baseW * view.scale;
+            view.ty = h / 2 - fy * view.baseH * view.scale;
+        }
+
+        let saveTimer;
+        function saveView() {
+            clearTimeout(saveTimer);
+            saveTimer = setTimeout(() => {
+                try { localStorage.setItem(VIEW_KEY, JSON.stringify({ scale: view.scale, ...centerFraction() })); } catch (e) {}
+            }, 250);
+        }
+
+        function layout(keepCenter) {
+            const c = keepCenter ? centerFraction() : null;
+            const { w, h } = viewport();
+            view.baseW = Math.min(w, h * 50 / 48);
+            view.baseH = view.baseW * 48 / 50;
+            el.mosaic.style.width  = `${view.baseW}px`;
+            el.mosaic.style.height = `${view.baseH}px`;
+            if (c) centerOn(c.fx, c.fy);
+            applyView(false);
+        }
+
+        function restoreView() {
+            layout(false);
+            try {
+                const saved = JSON.parse(localStorage.getItem(VIEW_KEY) || 'null');
+                if (saved && isFinite(saved.scale) && isFinite(saved.fx) && isFinite(saved.fy)) {
+                    view.scale = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, saved.scale));
+                    centerOn(saved.fx, saved.fy);
+                    applyView(false);
+                }
+            } catch (e) {}
+        }
+
+        zoomEls.in.addEventListener('click',  () => zoomByStep(1));
+        zoomEls.out.addEventListener('click', () => zoomByStep(-1));
+        zoomEls.fit.addEventListener('click', fitView);
+        window.addEventListener('resize', () => layout(true));
+
+        // Mouse wheel / trackpad pinch zooms toward the cursor
+        stage.addEventListener('wheel', e => {
+            if (el.modal.classList.contains('active')) return;
+            e.preventDefault();
+            const unit = e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? 400 : 1;
+            const speed = e.ctrlKey ? 0.01 : 0.0015; // ctrlKey = trackpad pinch
+            zoomAt(view.scale * Math.exp(-e.deltaY * unit * speed), e.clientX, e.clientY, false);
+        }, { passive: false });
+
+        // ── Press / drag / pinch ──
+        const pointers = new Map();
+        let press = null;   // single-pointer gesture
+        let pinch = null;   // two-pointer gesture
+
+        function startPress(p) {
+            press = { x: p.x, y: p.y, tx: view.tx, ty: view.ty, time: performance.now(), moved: press ? press.moved : false };
+        }
+
+        function startPinch() {
+            const [a, b] = [...pointers.values()];
+            pinch = {
+                dist: Math.hypot(b.x - a.x, b.y - a.y) || 1,
+                mx: (a.x + b.x) / 2, my: (a.y + b.y) / 2,
+                scale: view.scale, tx: view.tx, ty: view.ty
+            };
+            if (press) press.moved = true; // a pinch never counts as a tap
+        }
+
+        function beginDragVisuals() {
+            stage.classList.add('dragging');
+            clearHover();
+            hideCaption();
+        }
+
+        stage.addEventListener('pointerdown', e => {
+            if (e.pointerType === 'mouse' && e.button !== 0) return;
+            if (el.modal.classList.contains('active')) return;
+            try { stage.setPointerCapture(e.pointerId); } catch (err) {}
+            pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+            el.mosaic.classList.remove('animate');
+            if (pointers.size === 1) { press = null; startPress({ x: e.clientX, y: e.clientY }); }
+            else if (pointers.size === 2) { startPinch(); beginDragVisuals(); }
+        });
+
+        stage.addEventListener('pointermove', e => {
+            if (!pointers.has(e.pointerId)) return;
+            pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+
+            if (pointers.size >= 2 && pinch) {
+                const [a, b] = [...pointers.values()];
+                const dist = Math.hypot(b.x - a.x, b.y - a.y) || 1;
+                const mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2;
+                const s = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, pinch.scale * dist / pinch.dist));
+                const wx = (pinch.mx - pinch.tx) / pinch.scale;
+                const wy = (pinch.my - pinch.ty) / pinch.scale;
+                view.scale = s;
+                view.tx = mx - wx * s;
+                view.ty = my - wy * s;
+                applyView(false);
+                return;
+            }
+
+            if (!press) return;
+            const dx = e.clientX - press.x, dy = e.clientY - press.y;
+            if (!press.moved && Math.hypot(dx, dy) > DRAG_THRESHOLD) {
+                press.moved = true;
+                beginDragVisuals();
+            }
+            if (press.moved) {
+                view.tx = press.tx + dx;
+                view.ty = press.ty + dy;
+                applyView(false);
+            }
+        });
+
+        function endPointer(e, cancelled) {
+            if (!pointers.has(e.pointerId)) return;
+            pointers.delete(e.pointerId);
+
+            if (pointers.size === 1) {
+                // Pinch → one finger left: keep panning from where it is, no jump
+                pinch = null;
+                startPress([...pointers.values()][0]);
+                return;
+            }
+            if (pointers.size > 0) return;
+
+            const wasTap = press && !press.moved && !cancelled &&
+                           (performance.now() - press.time) < HOLD_CANCEL_MS;
+            press = null;
+            pinch = null;
+            stage.classList.remove('dragging');
+            saveView();
+
+            if (wasTap) {
+                const i = indexFromPoint(e.clientX, e.clientY);
+                if (i >= 0) openModal(i);
+            } else if (e.pointerType === 'mouse') {
+                // Restore hover where the drag ended
+                const i = indexFromPoint(e.clientX, e.clientY);
+                setHover(i);
+                if (i >= 0) showCaption(i, e.clientX, e.clientY);
+            }
+        }
+
+        stage.addEventListener('pointerup',     e => endPointer(e, false));
+        stage.addEventListener('pointercancel', e => endPointer(e, true));
+        stage.addEventListener('contextmenu', e => e.preventDefault()); // long-press menu on touch
+
+        // Focus/scroll safety: keep the browser from scrolling the clipped stage,
+        // and bring a keyboard-focused cover into view when zoomed in.
+        stage.addEventListener('scroll', () => { stage.scrollTop = 0; stage.scrollLeft = 0; });
+        el.mosaic.addEventListener('focusin', e => {
+            const t = e.target.closest('.tile');
+            if (!t) return;
+            const r = t.getBoundingClientRect();
+            const { w, h } = viewport();
+            if (r.left >= 0 && r.top >= 0 && r.right <= w && r.bottom <= h) return;
+            view.tx += w / 2 - (r.left + r.width / 2);
+            view.ty += h / 2 - (r.top + r.height / 2);
+            applyView(true);
+            saveView();
+        });
+
+        // ═══════════════════════════════════════════════
+        //  HOVER TRACKING (mouse only, not while dragging)
+        // ═══════════════════════════════════════════════
         let pendingMove = null;
         document.addEventListener('pointermove', e => {
-            if (e.pointerType === 'touch') return;
+            flashControls();
+            if (e.pointerType === 'touch' || pointers.size > 0) return;
             pendingMove = { x: e.clientX, y: e.clientY };
             requestAnimationFrame(() => {
                 if (!pendingMove) return;
                 const { x, y } = pendingMove;
                 pendingMove = null;
                 if (el.modal.classList.contains('active')) return;
+                if (pointers.size > 0 || (e.target.closest && e.target.closest(".wall-controls"))) { clearHover(); hideCaption(); return; }
                 const i = indexFromPoint(x, y);
                 setHover(i);
                 i >= 0 ? showCaption(i, x, y) : hideCaption();
             });
-            flashControls();
         });
 
-        document.addEventListener('pointerleave', () => { clearHover(); hideCaption(); });
-        el.mosaic.addEventListener('pointerleave', () => { clearHover(); hideCaption(); });
-
-        // Clicking is resolved by grid position too, so it always matches the highlighted book
-        el.mosaic.addEventListener('click', e => {
-            if (e.detail === 0) return; // keyboard activation handled by the tile's own click
-            const i = indexFromPoint(e.clientX, e.clientY);
-            if (i >= 0) { e.stopPropagation(); openModal(i); }
-        }, true);
+        document.documentElement.addEventListener('pointerleave', () => { clearHover(); hideCaption(); });
 
         let controlsTimer;
         function flashControls() {
@@ -680,7 +982,7 @@ body.controls-visible .wall-controls { opacity: 1; }
             const moves = { ArrowLeft: -1, ArrowRight: 1, ArrowUp: -COLS, ArrowDown: COLS };
             if (moves[e.key] === undefined) return;
             const next = i + moves[e.key];
-            if (next >= 0 && next < tiles.length) { e.preventDefault(); tiles[next].focus(); }
+            if (next >= 0 && next < tiles.length) { e.preventDefault(); tiles[next].focus({ preventScroll: true }); }
         });
 
         // ═══════════════════════════════════════════════
@@ -790,7 +1092,13 @@ body.controls-visible .wall-controls { opacity: 1; }
         el.shareBtn.addEventListener('click', shareBook);
 
         document.addEventListener('keydown', e => {
-            if (!el.modal.classList.contains('active')) return;
+            if (!el.modal.classList.contains('active')) {
+                if (e.ctrlKey || e.metaKey || e.altKey) return;
+                if (e.key === '+' || e.key === '=') { e.preventDefault(); zoomByStep(1); }
+                else if (e.key === '-' || e.key === '_') { e.preventDefault(); zoomByStep(-1); }
+                else if (e.key === '0') { e.preventDefault(); fitView(); }
+                return;
+            }
             if (e.key === 'Escape')     { closeModal(); return; }
             if (e.key === 'ArrowLeft')  { e.preventDefault(); navigateModal(-1); }
             if (e.key === 'ArrowRight') { e.preventDefault(); navigateModal(1); }
@@ -837,6 +1145,7 @@ body.controls-visible .wall-controls { opacity: 1; }
         //  INIT
         // ═══════════════════════════════════════════════
         buildMosaic();
+        restoreView();
 
         // Deep link: mosaic.html?book=143 opens that book directly
         const bookParam = parseInt(new URLSearchParams(window.location.search).get('book'), 10);
